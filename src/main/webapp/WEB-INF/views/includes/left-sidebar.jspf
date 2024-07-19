@@ -1,0 +1,64 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/nueva" aria-expanded="false">
+                        <i class="mdi mdi-view-dashboard"></i>
+                        <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+                <c:if test="${sessionScope.usuSessionNivel == 'ADMIN'}">
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">VENTAS</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/nueva-venta" aria-expanded="false">
+                            <i class="mdi mdi-cart-plus"></i>
+                            <span class="hide-menu">Nueva Venta</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/historial-de-ventas" aria-expanded="false">
+                            <i class="mdi mdi-calendar-today"></i>
+                            <span class="hide-menu">Historial de Ventas</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/detalle-venta" aria-expanded="false">
+                            <i class="mdi mdi-file-document-outline"></i>
+                            <span class="hide-menu">Detalle Venta</span>
+                        </a>
+                    </li>
+                </c:if>
+
+                <c:if test="${sessionScope.usuSessionNivel == 'MORTAL'}">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/mortal/nueva-venta" aria-expanded="false">
+                            <i class="mdi mdi-dots-horizontal"></i>
+                            <span class="hide-menu">Nueva Venta</span>
+                        </a>
+                    </li>
+                </c:if>
+
+
+
+                <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">Sesión</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout" aria-expanded="false">
+                        <i class="mdi mdi-logout-variant"></i>
+                        <span class="hide-menu">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
