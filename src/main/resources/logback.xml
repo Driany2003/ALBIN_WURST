@@ -42,7 +42,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="com.pe.okr.sys" level="DEBUG"/>
+    <logger name="com.pe.kenpis" level="DEBUG"/>
     <!--
     <logger name="org.hibernate.SQL" level="DEBUG"/>
     <logger name="org.hibernate.type" level="TRACE"/>
