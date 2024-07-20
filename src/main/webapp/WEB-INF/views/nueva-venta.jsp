@@ -30,192 +30,122 @@
 
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-12 align-self-center">
-                    <h4 class="page-title">DASHBOARD <span class="label label-rounded label-info">OKR</span></h4>
-                </div>
-            </div>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Container fluid  -->
-        <!-- ============================================================== -->
         <div class="container-fluid">
-            <!-- ============================================================== -->
-            <!-- DATOS GENERALES -->
-            <!-- ============================================================== -->
-            <div class="card-group">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-emoticon font-20 text-muted"></i>
-                                        <p class="font-16 m-b-5">Registrados</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">20</h1><small>de 30</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%; height: 6px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="card-title">Registrar Cliente</h5>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-image font-20  text-muted"></i>
-                                        <p class="font-16 m-b-5">Completados</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">0</h1><small>de 20</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%; height: 6px;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
+                <div class="card-body p-4">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="celular" class="control-label col-form-label">Número telefónico</label>
+                            <input id="celular" type="number" class="form-control form-control-sm" placeholder="Número telefónico">
                         </div>
-                    </div>
-                </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-currency-eur font-20 text-muted"></i>
-                                        <p class="font-16 m-b-5">En proceso</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">20</h1><small>de 20</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-purple" role="progressbar" style="width: 65%; height: 6px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-poll font-20 text-muted"></i>
-                                        <p class="font-16 m-b-5">Sin registrar</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">10</h1><small>de 30</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 70%; height: 6px;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="nombreCliente" class="control-label col-form-label">Nombre del cliente</label>
+                            <input id="nombreCliente" type="text" class="form-control form-control-sm" placeholder="Nombre del cliente">
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- SEGUIMIENTO DE CLIENTES -->
-            <!-- ============================================================== -->
-            <div class="row">
-                <!-- column -->
-                <div class="col-lg-12 col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <h4 class="card-title mb-0">Seguimiento por Areas</h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                <tr>
-                                    <th class="border-top-0">Area</th>
-                                    <th class="border-top-0">Lider</th>
-                                    <th class="border-top-0">Objetivos</th>
-                                    <th class="border-top-0">Key Results</th>
-                                    <th class="border-top-0">Estado</th>
-                                    <th class="border-top-0">Ver</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
 
-                                    <td class="txt-oflo">Risk</td>
-                                    <td class="txt-oflo">Natalia</td>
-                                    <td class="txt-oflo">2</td>
-                                    <td class="txt-oflo">5</td>
-                                    <td><span class="label label-purple label-rounded">En proceso</span></td>
-                                    <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
-                                </tr>
-                                <tr>
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5 class="card-title">Ventas Registradas</h5>
+                </div>
+                <div class="card-body p-3">
+                    <div class="table-responsive">
+                        <table id="ventasTable" class="table table-sm table-bordered table-striped">
+                            <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">PRODUCTOS</th>
+                                <th scope="col">CANTIDAD</th>
+                                <th scope="col">PRECIO</th>
+                                <th scope="col">TOTAL</th>
+                            </tr>
+                            </thead>
+                            <tbody id="ventasBody">
 
-                                    <td class="txt-oflo">Construye Experto</td>
-                                    <td class="txt-oflo">Patricia</td>
-                                    <td class="txt-oflo">2</td>
-                                    <td class="txt-oflo">4</td>
-                                    <td><span class="label label-purple label-rounded">En proceso</span></td>
-                                    <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
-                                </tr>
-                                <tr>
-
-                                    <td class="txt-oflo">Pentagono</td>
-                                    <td class="txt-oflo">Luis</td>
-                                    <td class="txt-oflo">3</td>
-                                    <td class="txt-oflo">4</td>
-                                    <td><span class="label label-red label-rounded">Sin registro</span></td>
-                                    <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
-                                </tr>
-                                <tr>
-
-                                    <td class="txt-oflo">Gestiona</td>
-                                    <td class="txt-oflo">Sabrina</td>
-                                    <td class="txt-oflo">3</td>
-                                    <td class="txt-oflo">6</td>
-                                    <td><span class="label label-red label-rounded">Sin registro</span></td>
-                                    <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th colspan="3" class="text-right">Total a pagar:</th>
+                                <th id="totalPagar">$80.00</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3"></th>
+                                <th>
+                                    <button id="pagarButton" class="btn btn-success btn-sm">Pagar</button>
+                                </th>
+                            </tr>
+                            </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="ventaModal" tabindex="-1" aria-labelledby="ventaModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ventaModalLabel">Registrar Venta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="ventaForm">
+                            <div class="form-body">
+                                <!-- Chorizos -->
+                                <div id="chorizos-container">
+                                    <div class="form-group">
+                                        <label for="chorizo-0" class="control-label col-form-label">Elige tu Chorizo Fav</label>
+                                        <select id="chorizo-0" class="form-control form-control-sm chorizo-select" data-placeholder="Elige tu chorizo">
+                                            <option value="">Elige tu Chorizo Fav</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cantidadChorizos-0">Cantidad de Chorizos</label>
+                                        <input id="cantidadChorizos-0" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
+                                    </div>
+                                </div>
+
+                                <!-- Bebidas -->
+                                <div id="bebidas-container">
+                                    <div class="form-group">
+                                        <label for="bebida-0" class="control-label col-form-label">Elige tu Bebida Fav</label>
+                                        <select id="bebida-0" class="form-control form-control-sm bebida-select" data-placeholder="Elige tu bebida">
+                                            <option value="">Elige tu Bebida Fav</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cantidadBebidas-0">Cantidad de Bebidas</label>
+                                        <input id="cantidadBebidas-0" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
+                                    </div>
+                                </div>
+
+                                <div class="form-actions text-center p-3">
+                                    <button type="button" id="addChorizo" class="btn btn-primary btn-sm">Añadir otro chorizo</button>
+                                    <button type="button" id="addBebida" class="btn btn-primary btn-sm">Añadir otra bebida</button>
+                                    <button type="submit" class="btn btn-success btn-sm"> <i class="fa fa-check"></i> Guardar</button>
+                                    <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Cancelar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center my-3">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventaModal">
+                Agregar Pedido
+            </button>
+        </div>
+
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
@@ -227,19 +157,42 @@
         <!-- End footer -->
         <!-- ============================================================== -->
     </div>
+
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- customizer Panel - Chat -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="/static/web/dist/js/nuevaVenta.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    .card {
+        margin-top: 10px;
+    }
+    .form-body {
+        padding: 10px;
+    }
+    .form-actions {
+        padding: 10px;
+    }
+    .table-responsive {
+        margin-top: 10px;
+    }
+    .table th, .table td {
+        text-align: center;
+        padding: 5px;
+    }
+    .btn-sm {
+        font-size: 0.8rem;
+    }
+    .card-header h5 {
+        margin-bottom: 0;
+    }
+</style>
 <%@ include file="includes/all-jquery.jspf" %>
 </body>
 </html>

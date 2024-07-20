@@ -21,7 +21,7 @@ public class UsuariosAuthorityEntity {
   private String authPassword;
 
   @Column(name = "auth_roles")
-  private String authroles;
+  private String authRoles;
 
   @Column(name = "usu_id")
   private Integer usuId;

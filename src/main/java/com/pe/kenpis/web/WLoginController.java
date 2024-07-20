@@ -31,12 +31,13 @@ public class WLoginController {
     return "index";
   }
 
-  @RequestMapping(value = {"/sys/nueva"}, method = RequestMethod.GET)
+  @RequestMapping(value = {"/sys/dashboard"}, method = RequestMethod.GET)
   public String welcome(ModelMap model, HttpServletRequest request) {
     String usuarioLogueado = FxComunes.getLoggedInUserName();
     UsuarioResponse usuarioResponse = service.findUsuarioByAuthUsername(usuarioLogueado);
     UsuarioAuthorityResponse usuarioAuthorityResponse = service.findUsuarioAuthorityByUsuId(usuarioResponse.getUsuId());
     model.put("usuSession", usuarioResponse);
+
 
     request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
     request.getSession().setAttribute("usuSessionNombre", usuarioResponse.getUsuNombre());
@@ -47,7 +48,7 @@ public class WLoginController {
     System.out.println("Usuario NOMBRE : " + usuarioResponse.getUsuNombre());
     System.out.println("Usuario ID: " + usuarioResponse.getUsuId());
 
-    return "nueva-venta";
+    return "dashboard";
   }
 
   @RequestMapping(value = {"/logout"}, method = RequestMethod.GET)

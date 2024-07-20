@@ -24,7 +24,7 @@ public class UserDetailsImpl implements UserDetails {
   public UserDetailsImpl(UsuariosAuthorityEntity user) {
     this.userName = user.getAuthUsername();
     this.password = user.getAuthPassword();
-    this.roles = user.getAuthroles();
+    this.roles = user.getAuthRoles();
     this.estado = user.getAuthIsActive();
     this.authorities = Arrays.stream(roles.split(";")).map(SimpleGrantedAuthority::new).collect(Collectors.toList());
   }

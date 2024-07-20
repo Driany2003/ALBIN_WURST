@@ -22,6 +22,24 @@ public class UsuariosImpl implements IUsuariosService {
 
   private final UsuarioAuthorityRepository usuarioAuthorityRepository;
 
+  public UsuarioResponse findByUsuTelefono(String celular) {
+    UsuariosEntity user = repository.findByUsuTelefono(celular);
+    if (user != null) {
+      UsuarioResponse response = new UsuarioResponse();
+      response.setUsuNombre(user.getUsuNombre());
+      return response;
+    }
+    return null;
+  }
+
+  public boolean registrarUsuario(UsuarioRequest usuarioRequest) {
+    UsuariosEntity user = new UsuariosEntity();
+    user.setUsuTelefono(usuarioRequest.getUsuTelefono());
+    user.setUsuNombre(usuarioRequest.getUsuNombre());
+    UsuariosEntity guardarUsuario = repository.save(user);
+    return guardarUsuario != null;
+  }
+
   @Override
   public UsuarioAuthorityResponse findUsuarioAuthorityByUsuId(Integer usuId) {
     log.debug("Implements :: findUsuarioAuthorityByUsuId :: " + usuId);

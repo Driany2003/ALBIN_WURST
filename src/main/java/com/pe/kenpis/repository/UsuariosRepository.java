@@ -8,9 +8,11 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Optional;
 
-public interface UsuariosRepository extends JpaRepository<UsuariosAuthorityEntity, Integer> {
+public interface UsuariosRepository extends JpaRepository<UsuariosEntity, Integer> {
 
   @Query("SELECT u FROM UsuariosEntity u WHERE u.usuId IN " + "(SELECT ua.usuId FROM UsuariosAuthorityEntity ua WHERE ua.authUsername = :authUsername)")
   Optional<UsuariosEntity> findByAuthUsername(@Param("authUsername") String authUsername);
+
+  UsuariosEntity findByUsuTelefono(String celular);
 
 }

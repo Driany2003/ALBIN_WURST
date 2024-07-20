@@ -21,4 +21,6 @@ public class VentasEntity {
   @Column(name = "ven_total")
   private float venTotal;
 
+
+
 }

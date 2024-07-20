@@ -1,3 +1,13 @@
 package com.pe.kenpis.repository;
 
-public interface ProductosRepository {}
+import com.pe.kenpis.model.entity.ProductosEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface ProductosRepository  extends JpaRepository<ProductosEntity,Integer> {
+
+  List<ProductosEntity> findByProTipo(String tipo);
+
+
+}
