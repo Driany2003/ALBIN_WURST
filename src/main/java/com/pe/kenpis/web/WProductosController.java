@@ -23,5 +23,4 @@ public class WProductosController {
     List<ProductosResponse> productos = productosService.findAllByTipo(tipo);
     return ResponseEntity.ok(productos);
   }
-
 }

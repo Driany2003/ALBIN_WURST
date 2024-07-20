@@ -2,7 +2,7 @@
 <configuration debug="false">
     <!-- Defina la dirección de almacenamiento del archivo de registro. No utilice una ruta relativa en la configuración de LogBack -->
     <property name="LOG_HOME" value="logs"/>
-    <property name="LOG_NAME" value="okr-system-web"/>
+    <property name="LOG_NAME" value="kenpis"/>
 
     <!-- Salida de consola -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
@@ -42,7 +42,7 @@
         <appender-ref ref="STDOUT"/>
     </root>
 
-    <logger name="com.pe.okr.sys" level="DEBUG"/>
+    <logger name="com.pe.kenpis" level="DEBUG"/>
     <!--
     <logger name="org.hibernate.SQL" level="DEBUG"/>
     <logger name="org.hibernate.type" level="TRACE"/>
