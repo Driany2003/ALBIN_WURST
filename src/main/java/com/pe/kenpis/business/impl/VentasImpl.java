@@ -87,7 +87,6 @@ VentasImpl implements IVentasService {
 
     detalleVentaRepository.saveAll(detallesVentas);
 
-    // Crear respuesta
     VentasResponse response = new VentasResponse();
     response.setVenId(ventaGuardada.getVenId());
     response.setVenFecha(ventaGuardada.getVenFecha());

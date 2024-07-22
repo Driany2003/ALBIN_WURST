@@ -27,5 +27,10 @@ public class DetalleVentaResponse {
   }
 
   public DetalleVentaResponse(ProductosResponse productoResponse, Integer detvenCantidad, float proPrecio, double detvenSubTotal) {
+    this.producto = productoResponse;
+    this.detvenCantidad = detvenCantidad;
+    this.precioUnitario = proPrecio;
+    this.detvenSubtotal = detvenSubTotal;
+
   }
 }
