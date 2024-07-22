@@ -26,7 +26,7 @@ spring:
       suffix: .jsp
     static-path-pattern: /static/**
   datasource:
-    url: jdbc:sqlserver://161.132.55.86:1433;database=BD_CONTABILIDAD_VENTAS
+    url: jdbc:sqlserver://161.132.55.86:1433;database=BD_KENPIS
     username: SA
     password: Lima1234..
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
