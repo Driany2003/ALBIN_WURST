@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [INFO ] [22-07-2024 12:11:14] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 13936 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
 [DEBUG] [22-07-2024 12:11:14] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
 [INFO ] [22-07-2024 12:11:14] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
@@ -193,3 +194,65 @@ com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name 'T_DETALLE_
 [INFO ] [22-07-2024 12:23:18] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [22-07-2024 12:23:18] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [22-07-2024 12:23:18] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+=======
+[WARN ] [22-07-2024 00:23:32] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=38m31s840ms).
+[WARN ] [22-07-2024 00:59:57] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=36m25s227ms).
+[WARN ] [22-07-2024 02:22:42] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h22m44s839ms).
+[WARN ] [22-07-2024 03:32:23] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h9m40s793ms).
+[WARN ] [22-07-2024 04:57:53] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h25m30s643ms).
+[WARN ] [22-07-2024 06:20:49] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h22m55s829ms).
+[WARN ] [22-07-2024 07:13:40] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52m50s841ms).
+[WARN ] [22-07-2024 08:02:16] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=48m36s89ms).
+[WARN ] [22-07-2024 08:22:42] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m26s304ms).
+[WARN ] [22-07-2024 08:50:39] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m56s936ms).
+[WARN ] [22-07-2024 09:23:54] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m15s107ms).
+[WARN ] [22-07-2024 09:33:05] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m10s906ms).
+[WARN ] [22-07-2024 09:43:29] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m23s692ms).
+[WARN ] [22-07-2024 10:09:13] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=25m44s27ms).
+[WARN ] [22-07-2024 10:23:06] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=13m52s894ms).
+[WARN ] [22-07-2024 10:27:41] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m35s233ms).
+[WARN ] [22-07-2024 10:43:36] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m54s423ms).
+[WARN ] [22-07-2024 10:50:35] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m59s62ms).
+[WARN ] [22-07-2024 10:57:56] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m21s106ms).
+[WARN ] [22-07-2024 11:02:02] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m5s980ms).
+[INFO ] [22-07-2024 11:03:04] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [22-07-2024 11:03:04] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [22-07-2024 11:03:04] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [22-07-2024 12:08:05] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 26025 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [22-07-2024 12:08:05] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [22-07-2024 12:08:05] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [22-07-2024 12:08:05] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [22-07-2024 12:08:05] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [22-07-2024 12:08:05] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 46 ms. Found 5 JPA repository interfaces.
+[INFO ] [22-07-2024 12:08:06] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [22-07-2024 12:08:06] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [22-07-2024 12:08:06] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [22-07-2024 12:08:06] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [22-07-2024 12:08:06] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [22-07-2024 12:08:06] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [22-07-2024 12:08:06] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1337 ms
+[INFO ] [22-07-2024 12:08:06] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [22-07-2024 12:08:06] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [22-07-2024 12:08:06] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [22-07-2024 12:08:06] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [22-07-2024 12:08:07] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [22-07-2024 12:08:07] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [22-07-2024 12:08:07] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [22-07-2024 12:08:07] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [22-07-2024 12:08:08] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [22-07-2024 12:08:08] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11998c9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bce47b2, org.springframework.security.web.context.SecurityContextPersistenceFilter@2445b769, org.springframework.security.web.header.HeaderWriterFilter@2045573d, org.springframework.security.web.authentication.logout.LogoutFilter@94af2ef, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f04a981, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b36e535, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1312f186, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b4e13db, org.springframework.security.web.session.SessionManagementFilter@6ae58e46, org.springframework.security.web.access.ExceptionTranslationFilter@413b6391, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7f941a]
+[INFO ] [22-07-2024 12:08:08] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [22-07-2024 12:08:08] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [22-07-2024 12:08:08] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [22-07-2024 12:08:08] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [22-07-2024 12:08:08] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.85 seconds (JVM running for 4.428)
+[INFO ] [22-07-2024 12:09:01] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [22-07-2024 12:09:01] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [22-07-2024 12:09:01] [DispatcherServlet              :: 547 ] - Completed initialization in 9 ms
+[DEBUG] [22-07-2024 12:11:00] [UsuariosImpl                   :: 51  ] - Implements :: findByUsuUsername :: GIOMAR
+[DEBUG] [22-07-2024 12:11:00] [UsuariosImpl                   :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 1
+[WARN ] [22-07-2024 12:11:17] [PageNotFound                   :: 1283] - No mapping for GET /favicon.ico
+[INFO ] [22-07-2024 12:21:48] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [22-07-2024 12:21:49] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [22-07-2024 12:21:49] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+>>>>>>> 9add85c680e4cdfe716a17e61f3206a7fa910f37
