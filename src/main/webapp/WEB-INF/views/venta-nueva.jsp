@@ -34,264 +34,288 @@
             <div class="card mt-3">
                 <div class="card-header">
                     <div class="form-row">
-                        <div class="col-md-10">
-                            <h5 class="card-title">Datos del Cliente</h5>
-                        </div>
-                        <div class="text-center col-md-42">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clienteModal">
-                                Nuevo
-                            </button>
+                        <div class="col-md-12">
+                            <h5 class="card-title">Datos de la Empresa</h5>
                         </div>
                     </div>
                 </div>
                 <div class="card-body p-4">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="cliTelefono" class="control-label col-form-label">Número Celular</label>
-                            <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Número telefónico">
+                        <div class="form-group col-md-2">
+                            <label for="empDocumentoTipo" class="control-label col-form-label">Documento Tipo</label>
+                            <input id="empDocumentoTipo" type="text" class="form-control form-control-sm" value="---">
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="cliNombre" class="control-label col-form-label">Nombre del cliente</label>
-                            <input id="cliNombre" type="text" class="form-control form-control-sm" placeholder="Nombre del cliente">
-                            <input id="cliId" type="hidden"/>
+                        <div class="form-group col-md-2">
+                            <label for="empDocumentoNumero" class="control-label col-form-label">Documento Numero</label>
+                            <input id="empDocumentoNumero" type="text" class="form-control form-control-sm" value="---">
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="empRazonSocial" class="control-label col-form-label">Razón Social</label>
+                            <input id="empRazonSocial" type="text" class="form-control form-control-sm" value="---">
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <div class="form-row">
+                            <div class="col-md-11">
+                                <h5 class="card-title">Datos del Cliente</h5>
+                            </div>
+                            <div class="text-center col-md-42">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clienteModal">
+                                    Nuevo
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="cliTelefono" class="control-label col-form-label">Número Celular</label>
+                                <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese el número de celular">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="cliNombre" class="control-label col-form-label">Nombre</label>
+                                <input id="cliNombre" type="text" class="form-control form-control-sm" readonly placeholder="---">
+                                <input id="cliId" type="hidden"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <div class="form-row">
+                            <div class="col-md-11">
+                                <h5 class="card-title">Detalle Pedido</h5>
+                            </div>
+                            <div class="text-center col-md-42">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventaModal">
+                                    Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-3">
+                        <div class="table-responsive">
+                            <table id="ventasTable" class="table table-sm table-bordered table-striped">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">PRODUCTOS</th>
+                                    <th scope="col">CANTIDAD</th>
+                                    <th scope="col">PRECIO</th>
+                                    <th scope="col">TOTAL</th>
+                                </tr>
+                                </thead>
+                                <tbody id="ventasBody">
+
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th colspan="3" class="text-right">Total a pagar:</th>
+                                    <th id="totalPagar">S/ 0.00</th>
+                                </tr>
+                                <tr>
+                                    <th colspan="3"></th>
+                                    <th>
+                                        <button id="pagarButton" class="btn btn-success btn-sm">Pagar</button>
+                                    </th>
+                                </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="card mt-3">
-                <div class="card-header">
-                    <div class="form-row">
-                        <div class="col-md-10">
-                            <h5 class="card-title">Detalle Pedido</h5>
-                        </div>
-                        <div class="text-center col-md-42">
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventaModal">
-                                Agregar
+
+            <!-- Modal -->
+            <div class="modal fade" id="ventaModal" tabindex="-1" aria-labelledby="ventaModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="ventaModalLabel">Agregar Producto</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                    </div>
-                </div>
-                <div class="card-body p-3">
-                    <div class="table-responsive">
-                        <table id="ventasTable" class="table table-sm table-bordered table-striped">
-                            <thead class="thead-dark">
-                            <tr>
-                                <th scope="col">PRODUCTOS</th>
-                                <th scope="col">CANTIDAD</th>
-                                <th scope="col">PRECIO</th>
-                                <th scope="col">TOTAL</th>
-                            </tr>
-                            </thead>
-                            <tbody id="ventasBody">
+                        <div class="modal-body">
+                            <form id="ventaForm">
+                                <div class="form-body">
+                                    <!-- Chorizos -->
+                                    <div id="chorizos-container">
+                                        <div class="form-group">
+                                            <label for="tipoChorizo" class="control-label col-form-label">¿Cómo desea su chorizo?</label>
+                                            <select id="tipoChorizo" class="form-control form-control-sm chorizo-select">
+                                                <option value="">-- Seleccione --</option>
+                                                <option value="Choripan">Choripan</option>
+                                                <option value="A la tabla">A la tabla</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="chorizo" class="control-label col-form-label">Sabor de Chorizo</label>
+                                            <select id="chorizo" class="form-control form-control-sm chorizo-select">
+                                                <option value="">-- Seleccione --</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cantidadChorizos">Cantidad de Chorizos</label>
+                                            <input id="cantidadChorizos" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
+                                        </div>
+                                    </div>
 
-                            </tbody>
-                            <tfoot>
-                            <tr>
-                                <th colspan="3" class="text-right">Total a pagar:</th>
-                                <th id="totalPagar">S/ 0.00</th>
-                            </tr>
-                            <tr>
-                                <th colspan="3"></th>
-                                <th>
-                                    <button id="pagarButton" class="btn btn-success btn-sm">Pagar</button>
-                                </th>
-                            </tr>
-                            </tfoot>
-                        </table>
+                                    <!-- Bebidas -->
+                                    <div id="bebidas-container">
+                                        <div class="form-group">
+                                            <label for="tipoBebida" class="control-label col-form-label">¿Qué desea tomar?</label>
+                                            <select id="tipoBebida" class="form-control form-control-sm chorizo-select" data-placeholder="Elige la presentación">
+                                                <option value="">-- Seleccione --</option>
+                                                <option value="Café">Café</option>
+                                                <option value="Gaseosa">Gaseosa</option>
+                                                <option value="Agua">Agua</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="bebida" class="control-label col-form-label">Bebida</label>
+                                            <select id="bebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la bebida">
+                                                <option value="">-- Seleccione --</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cantidadBebidas">Cantidad de Bebidas</label>
+                                            <input id="cantidadBebidas" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions text-center p-3">
+                                        <button type="button" id="guardarPedido" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Guardar</button>
+                                        <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="ventaModal" tabindex="-1" aria-labelledby="ventaModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="ventaModalLabel">Agregar Producto</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="ventaForm">
-                            <div class="form-body">
-                                <!-- Chorizos -->
-                                <div id="chorizos-container">
-                                    <div class="form-group">
-                                        <label for="tipoChorizo" class="control-label col-form-label">¿Cómo desea su chorizo?</label>
-                                        <select id="tipoChorizo" class="form-control form-control-sm chorizo-select">
-                                            <option value="">-- Seleccione --</option>
-                                            <option value="Choripan">Choripan</option>
-                                            <option value="A la tabla">A la tabla</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="chorizo" class="control-label col-form-label">Sabor de Chorizo</label>
-                                        <select id="chorizo" class="form-control form-control-sm chorizo-select">
-                                            <option value="">-- Seleccione --</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cantidadChorizos">Cantidad de Chorizos</label>
-                                        <input id="cantidadChorizos" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
-                                    </div>
-                                </div>
-
-                                <!-- Bebidas -->
-                                <div id="bebidas-container">
-                                    <div class="form-group">
-                                        <label for="tipoBebida" class="control-label col-form-label">¿Qué desea tomar?</label>
-                                        <select id="tipoBebida" class="form-control form-control-sm chorizo-select" data-placeholder="Elige la presentación">
-                                            <option value="">-- Seleccione --</option>
-                                            <option value="Café">Café</option>
-                                            <option value="Gaseosa">Gaseosa</option>
-                                            <option value="Agua">Agua</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="bebida" class="control-label col-form-label">Bebida</label>
-                                        <select id="bebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la bebida">
-                                            <option value="">-- Seleccione --</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="cantidadBebidas">Cantidad de Bebidas</label>
-                                        <input id="cantidadBebidas" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
-                                    </div>
-                                </div>
-
-                                <div class="form-actions text-center p-3">
-                                    <button type="button" id="guardarPedido" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Guardar</button>
-                                    <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                        </form>
-
+            <!-- Modal -->
+            <div class="modal fade" id="popupNoRegistrado" tabindex="-1" aria-labelledby="popupNoRegistradoLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="popupNoRegistradoLabel">Usuario No Registrado</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>El número telefónico ingresado no está registrado. Por favor, registre al cliente antes de proceder.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="popupNoRegistrado" tabindex="-1" aria-labelledby="popupNoRegistradoLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="popupNoRegistradoLabel">Usuario No Registrado</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>El número telefónico ingresado no está registrado. Por favor, registre al cliente antes de proceder.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Container fluid  -->
+        <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
+    <!-- All Jquery -->
     <!-- ============================================================== -->
-</div>
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<!-- PARA MODAL -->
-<!--  modal: NUEVA VENTA -->
-<script src="/static/web/dist/js/nuevaVenta.js"></script>
-<style>
-    .card {
-        margin-top: 10px;
-    }
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- PARA MODAL -->
+    <!--  modal: NUEVA VENTA -->
+    <script src="/static/web/dist/js/nuevaVenta.js"></script>
+    <style>
+        .card {
+            margin-top: 10px;
+        }
 
-    .form-body {
-        padding: 10px;
-    }
+        .form-body {
+            padding: 10px;
+        }
 
-    .form-actions {
-        padding: 10px;
-    }
+        .form-actions {
+            padding: 10px;
+        }
 
-    .table-responsive {
-        margin-top: 10px;
-    }
+        .table-responsive {
+            margin-top: 10px;
+        }
 
-    .table th, .table td {
-        text-align: center;
-        padding: 5px;
-    }
+        .table th, .table td {
+            text-align: center;
+            padding: 5px;
+        }
 
-    .btn-sm {
-        font-size: 0.8rem;
-    }
+        .btn-sm {
+            font-size: 0.8rem;
+        }
 
-    .card-header h5 {
-        margin-bottom: 0;
-    }
+        .card-header h5 {
+            margin-bottom: 0;
+        }
 
-    .card {
-        margin-top: 10px;
-    }
+        .card {
+            margin-top: 10px;
+        }
 
-    .form-body {
-        padding: 10px;
-    }
+        .form-body {
+            padding: 10px;
+        }
 
-    .form-actions {
-        padding: 10px;
-    }
+        .form-actions {
+            padding: 10px;
+        }
 
-    .table-responsive {
-        margin-top: 10px;
-    }
+        .table-responsive {
+            margin-top: 10px;
+        }
 
-    .table th, .table td {
-        text-align: center;
-        padding: 5px;
-    }
+        .table th, .table td {
+            text-align: center;
+            padding: 5px;
+        }
 
-    .btn-sm {
-        font-size: 0.8rem;
-    }
+        .btn-sm {
+            font-size: 0.8rem;
+        }
 
-    .card-header h5 {
-        margin-bottom: 0;
-    }
+        .card-header h5 {
+            margin-bottom: 0;
+        }
 
-    .modal-content {
-        border-radius: 10px;
-    }
+        .modal-content {
+            border-radius: 10px;
+        }
 
-    .modal-header {
-        background-color: #f5f5f5;
-        border-bottom: none;
-    }
+        .modal-header {
+            background-color: #f5f5f5;
+            border-bottom: none;
+        }
 
-    .modal-title {
-        color: #333;
-    }
+        .modal-title {
+            color: #333;
+        }
 
-    .modal-footer {
-        border-top: none;
-    }
-</style>
-<%@ include file="includes/all-jquery.jspf" %>
-<!-- ============================================================== -->
-<!-- footer -->
-<!-- ============================================================== -->
-<%@ include file="includes/footer.jspf" %>
-<!-- ============================================================== -->
-<!-- End footer -->
-<!-- ============================================================== -->
+        .modal-footer {
+            border-top: none;
+        }
+    </style>
+    <%@ include file="includes/all-jquery.jspf" %>
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+    <%@ include file="includes/footer.jspf" %>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
 </body>
 </html>
