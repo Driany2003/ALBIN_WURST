@@ -13,22 +13,18 @@ import org.springframework.web.bind.annotation.*;
 public class WUsuarioController {
 
   @Autowired
-  private IUsuarioService usuariosService;
+  private IUsuarioService service;
 
   @GetMapping("/find-by-phone/{phone}")
   public ResponseEntity<UsuarioResponse> findByPhone(@PathVariable String phone) {
-    UsuarioResponse user = usuariosService.findByPhone(phone);
+    UsuarioResponse user = service.findByPhone(phone);
     return ResponseEntity.ok(user);
   }
 
   @PostMapping("/create")
   public ResponseEntity<UsuarioResponse> create(@RequestBody UsuarioRequest request) {
-    boolean success = usuariosService.create(request);
-    if (success) {
-      return ResponseEntity.status(HttpStatus.CREATED).build();
-    } else {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-    }
+    UsuarioResponse response = service.create(request);
+    return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
 }

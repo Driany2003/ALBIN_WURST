@@ -46,9 +46,6 @@ public class EmpresaEntity {
   @Column(name = "emp_fecha_creacion")
   private Date empFechaCreacion;
 
-  @Column(name = "emp_is_active")
-  private Integer empIsActive;
-
   @Column(name = "emp_qr_yape")
   private Long empQrYape;
 
@@ -57,5 +54,8 @@ public class EmpresaEntity {
 
   @Column(name = "emp_qr_Pagos")
   private Long empQrPagos;
+
+  @Column(name = "emp_is_active")
+  private Boolean empIsActive;
 
 }

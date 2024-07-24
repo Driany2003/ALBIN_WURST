@@ -1,4 +1,4 @@
-package com.pe.kenpis.model.api.inventario;
+package com.pe.kenpis.model.api.producto.inventario;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoInventarioResponse {
+public class ProductoInventarioRequest {
 
   private Integer proInvId;
   private Integer productoId;
