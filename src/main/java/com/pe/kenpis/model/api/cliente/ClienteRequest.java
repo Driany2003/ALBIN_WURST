@@ -1,4 +1,4 @@
-package com.pe.kenpis.model.api.usuario.cliente;
+package com.pe.kenpis.model.api.cliente;
 
 import lombok.*;
 

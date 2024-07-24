@@ -36,7 +36,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 align-self-center">
-                    <h4 class="page-title">ALMACEN <span class="label label-rounded label-info">Listado</span></h4>
+                    <h4 class="page-title">INVENTARIO <span class="label label-rounded label-info">Listado</span></h4>
                 </div>
             </div>
         </div>

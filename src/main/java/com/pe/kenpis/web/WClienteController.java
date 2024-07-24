@@ -1,8 +1,8 @@
 package com.pe.kenpis.web;
 
 import com.pe.kenpis.business.IClienteService;
-import com.pe.kenpis.model.api.usuario.cliente.ClienteRequest;
-import com.pe.kenpis.model.api.usuario.cliente.ClienteResponse;
+import com.pe.kenpis.model.api.cliente.ClienteRequest;
+import com.pe.kenpis.model.api.cliente.ClienteResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -4,8 +4,8 @@ import com.pe.kenpis.business.IVentaService;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.api.venta.VentaRequest;
 import com.pe.kenpis.model.api.venta.VentaResponse;
-import com.pe.kenpis.model.api.venta.detalle.DetalleVentaRequest;
-import com.pe.kenpis.model.api.venta.detalle.DetalleVentaResponse;
+import com.pe.kenpis.model.api.venta.detalle.VentaDetalleRequest;
+import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.VentaDetalleEntity;
 import com.pe.kenpis.model.entity.VentaEntity;
@@ -55,7 +55,7 @@ public class VentaImpl implements IVentaService {
 
     // Crear los detalles de la venta
     List<VentaDetalleEntity> detallesVentas = new ArrayList<>();
-    for (DetalleVentaRequest detalle : ventaRequest.getDetallesVentas()) {
+    for (VentaDetalleRequest detalle : ventaRequest.getDetallesVentas()) {
       VentaDetalleEntity nuevoDetalle = new VentaDetalleEntity();
       nuevoDetalle.setVentaId(ventaGuardada.getVenId());
       nuevoDetalle.setProductoId(detalle.getProducto().getProId());
@@ -72,13 +72,13 @@ public class VentaImpl implements IVentaService {
     VentaResponse response = new VentaResponse();
     response.setVenId(ventaGuardada.getVenId());
     response.setVenTotal(ventaGuardada.getVenTotal());
-    response.setDetallesVentas(detallesVentas.stream().map(detalle -> new DetalleVentaResponse(detalle.getProductoId(), detalle.getVenDetCantidad(), detalle.getVenDetPrecio(), detalle.getVenDetSubtotal())).collect(Collectors.toList()));
+    response.setDetallesVentas(detallesVentas.stream().map(detalle -> new VentaDetalleResponse(detalle.getProductoId(), detalle.getVenDetCantidad(), detalle.getVenDetPrecio(), detalle.getVenDetSubtotal())).collect(Collectors.toList()));
 
     return response;
   }
 
   @Override
-  public List<DetalleVentaResponse> obtenerDetallesDeVenta() {
+  public List<VentaDetalleResponse> obtenerDetallesDeVenta() {
     List<VentaDetalleEntity> detalles = detalleVentaRepository.findAll();
     return detalles.stream().map(detalle -> {
       ProductoEntity producto = productoRepository.findById(detalle.getProductoId()).orElse(null);
@@ -86,7 +86,7 @@ public class VentaImpl implements IVentaService {
       if (producto != null) {
         BeanUtils.copyProperties(producto, productoResponse);
       }
-      return new DetalleVentaResponse(productoResponse, detalle.getVenDetId(), detalle.getVenDetCantidad(), detalle.getVenDetSubtotal(), detalle.getVentaId());
+      return new VentaDetalleResponse(productoResponse, detalle.getVenDetId(), detalle.getVenDetCantidad(), detalle.getVenDetSubtotal(), detalle.getVentaId());
     }).collect(Collectors.toList());
   }
 
