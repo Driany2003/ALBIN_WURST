@@ -22,9 +22,9 @@ public class EmpresaResponse {
   private Date empFechaContratoInicio;
   private Date empFechaContratoFin;
   private Date empFechaCreacion;
-  private Integer empIsActive;
   private Long empQrYape;
   private Long empQrPlin;
   private Long empQrPagos;
+  private Boolean empIsActive;
 
 }

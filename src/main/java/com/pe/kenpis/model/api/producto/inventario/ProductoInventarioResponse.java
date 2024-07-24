@@ -1,8 +1,7 @@
-package com.pe.kenpis.model.api.inventario;
+package com.pe.kenpis.model.api.producto.inventario;
 
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @Getter
@@ -10,7 +9,7 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoInventarioRequest {
+public class ProductoInventarioResponse {
 
   private Integer proInvId;
   private Integer productoId;

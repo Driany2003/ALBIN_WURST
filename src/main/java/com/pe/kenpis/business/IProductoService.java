@@ -14,7 +14,7 @@ public interface IProductoService {
 
   ProductoResponse update(ProductoRequest request);
 
-  ProductoResponse delete(ProductoRequest request);
+  ProductoResponse delete(Integer id);
 
   List<ProductoResponse> findAll();
 
