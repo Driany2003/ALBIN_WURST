@@ -52,6 +52,7 @@
                         <div class="form-group col-md-8">
                             <label for="empRazonSocial" class="control-label col-form-label">Razón Social</label>
                             <input id="empRazonSocial" type="text" class="form-control form-control-sm" value="---">
+                            <input id="empId" type="hidden"/>
                         </div>
                     </div>
                 </div>
@@ -146,8 +147,6 @@
                                             <label for="tipoChorizo" class="control-label col-form-label">¿Cómo desea su chorizo?</label>
                                             <select id="tipoChorizo" class="form-control form-control-sm chorizo-select">
                                                 <option value="">-- Seleccione --</option>
-                                                <option value="Choripan">Choripan</option>
-                                                <option value="A la tabla">A la tabla</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

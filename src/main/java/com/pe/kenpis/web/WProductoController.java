@@ -1,8 +1,11 @@
 package com.pe.kenpis.web;
 
 import com.pe.kenpis.business.IProductoService;
+import com.pe.kenpis.business.impl.ProductoImpl;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.entity.ProductoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +19,11 @@ import java.util.List;
 public class WProductoController {
 
   @Autowired
-  IProductoService service;
+  ProductoImpl service;
 
   @GetMapping("/find-all-by-type/{type}")
-  public ResponseEntity<List<ProductoResponse>> findAllByType(@PathVariable String type) {
-    List<ProductoResponse> productos = service.findAllByProCategoria(type);
-    return ResponseEntity.ok(productos);
+  public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable String categoria) {
+    List<ProductoResponse> productos = service.findAllByProCategoria(categoria);
+    return new ResponseEntity<>(productos, HttpStatus.OK);
   }
 }

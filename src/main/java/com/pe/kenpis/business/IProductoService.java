@@ -2,6 +2,7 @@ package com.pe.kenpis.business;
 
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.entity.ProductoEntity;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public interface IProductoService {
 
   List<ProductoResponse> findAll();
 
-  List<ProductoResponse> findAllByProCategoria(String dato);
+
+  List<ProductoResponse> findAllByProCategoria(String categoria);
 
 }

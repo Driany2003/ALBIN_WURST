@@ -48,11 +48,11 @@ public class ProductoImpl implements IProductoService {
   public List<ProductoResponse> findAllByProCategoria(String categoria) {
     List<ProductoEntity> productosEntity = productoRepository.findAllByProCategoria(categoria);
     return productosEntity.stream()
-        .map(this::convertProductosEntityToResponse)
+        .map(this::convertProductoEntityToResponse)
         .collect(Collectors.toList());
   }
 
-  private ProductoResponse convertProductosEntityToResponse(ProductoEntity productoEntity) {
+  private ProductoResponse convertProductoEntityToResponse(ProductoEntity productoEntity) {
     ProductoResponse response = new ProductoResponse();
     response.setProId(productoEntity.getProId());
     response.setProTipo(productoEntity.getProTipo());
