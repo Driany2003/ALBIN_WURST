@@ -14,14 +14,14 @@
                     <!-- Logo icon -->
                     <b class="logo-icon">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <img src="/static/web/assets/images/0_pacasmayo/logo_pacasmayo_img.png" alt="Pacasmayo" class="light-logo">
+                        <img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Pacasmayo" class="light-logo">
                         <!-- Dark Logo icon <img src="/static/web/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
                         <!-- Light Logo icon <img src="/static/web/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <span class="logo-text">
-                        <img src="/static/web/assets/images/0_pacasmayo/logo_pacasmayo_texto.png" alt="Pacasmayo" class="light-logo"/>
+                        <img src="/static/web/assets/images/0_logo/logo_kenpis_texto.png" alt="Pacasmayo" class="light-logo"/>
                         <!-- dark Logo text  <img src="/static/web/assets/images/logo-text.png" class="dark-logo" alt="Exclusividad Inmobiliaria" />-->
                         <!-- Light Logo text <img src="/static/web/assets/images/logo-light-text.png" class="light-logo" alt="Exclusividad Inmobiliaria"/>-->
                     </span>

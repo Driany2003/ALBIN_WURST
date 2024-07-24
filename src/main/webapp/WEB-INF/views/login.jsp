@@ -16,8 +16,11 @@
     <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(/static/web/assets/images/big/auth-bg.jpg) no-repeat center center;">
         <div class="auth-box">
             <div class="logo">
-                <span class="db"><img src="/static/web/assets/images/0_pacasmayo/logo_pacasmayo_img.png" alt="Pacasmayo"/></span>
-                <h5 class="font-medium m-b-20">VENTAS</h5>
+                <span class="db"><img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Kenpis"/></span>
+                <br>
+                <br>
+                <h5 class="font-medium m-b-20">KENPIS</h5>
+                <h5 class="font-10 m-b-20">VENDE SIMPLE Y GANA MÁS</h5>
             </div>
             <!-- Form -->
             <div class="row">
