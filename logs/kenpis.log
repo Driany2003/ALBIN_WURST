@@ -1366,6 +1366,7 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 [INFO ] [24-07-2024 16:48:28] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [24-07-2024 16:48:28] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [24-07-2024 16:48:28] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+<<<<<<< HEAD
 >>>>>>> 43f89efdf60b8f423d88bef1876564b77c3491e7
 [INFO ] [24-07-2024 17:10:14] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 30788 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
 [DEBUG] [24-07-2024 17:10:14] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
@@ -1408,3 +1409,121 @@ Caused by: org.springframework.data.mapping.PropertyReferenceException: No prope
 [INFO ] [24-07-2024 17:13:01] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [24-07-2024 17:13:01] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [24-07-2024 17:13:01] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+=======
+[INFO ] [24-07-2024 17:09:39] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 46121 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 17:09:39] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 17:09:39] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 17:09:40] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 17:09:40] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 17:09:40] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 51 ms. Found 8 JPA repository interfaces.
+[INFO ] [24-07-2024 17:09:41] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 17:09:41] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 17:09:41] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 17:09:41] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 17:09:41] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 17:09:41] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 17:09:41] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1287 ms
+[INFO ] [24-07-2024 17:09:41] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 17:09:41] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 17:09:41] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 17:09:41] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 17:09:42] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 17:09:42] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[ERROR] [24-07-2024 17:09:43] [LocalContainerEntityManagerFactoryBean :: 426 ] - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [ven_estado_id] in table [T_VENTA]
+[WARN ] [24-07-2024 17:09:43] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [ven_estado_id] in table [T_VENTA]
+[INFO ] [24-07-2024 17:09:43] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 17:09:43] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 17:09:43] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 17:09:43] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 17:09:43] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [ven_estado_id] in table [T_VENTA]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1168)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:919)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [ven_estado_id] in table [T_VENTA]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 19 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [ven_estado_id] in table [T_VENTA]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:144)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:76)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:204)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 23 common frames omitted
+[INFO ] [24-07-2024 17:10:28] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 46633 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 17:10:28] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 17:10:28] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 17:10:28] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 17:10:28] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 17:10:28] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 54 ms. Found 8 JPA repository interfaces.
+[INFO ] [24-07-2024 17:10:29] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 17:10:29] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 17:10:29] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 17:10:29] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 17:10:29] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 17:10:29] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 17:10:29] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1339 ms
+[INFO ] [24-07-2024 17:10:29] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 17:10:29] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 17:10:29] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 17:10:29] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 17:10:30] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 17:10:30] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 17:10:30] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 17:10:30] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 17:10:31] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 17:10:31] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6abe00cd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3bcb2371, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c08d812, org.springframework.security.web.header.HeaderWriterFilter@7168aa51, org.springframework.security.web.authentication.logout.LogoutFilter@2ec772a4, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7711a01, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d12456b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@37b160b0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@14c9a2aa, org.springframework.security.web.session.SessionManagementFilter@38ebb56, org.springframework.security.web.access.ExceptionTranslationFilter@42a76c6b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@34270b4]
+[INFO ] [24-07-2024 17:10:31] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 17:10:31] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 17:10:31] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 17:10:31] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 17:10:31] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.775 seconds (JVM running for 4.209)
+[INFO ] [24-07-2024 17:10:35] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 17:10:35] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 17:10:35] [DispatcherServlet              :: 547 ] - Completed initialization in 2 ms
+[DEBUG] [24-07-2024 17:10:47] [UsuarioImpl                    :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 17:10:47] [UsuarioImpl                    :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 17:10:51] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/almacen
+[DEBUG] [24-07-2024 17:10:54] [UsuarioImpl                    :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 17:10:54] [UsuarioImpl                    :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 17:11:32] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 17:11:32] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 17:11:36] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 17:11:36] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 17:11:44] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 17:11:44] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 17:11:56] [PageNotFound                   :: 1283] - No mapping for GET /api/usuarios/verificar/000000000
+[INFO ] [24-07-2024 17:12:02] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 17:12:02] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 17:12:02] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+>>>>>>> 4f9b83dd95d817d9c5d9749ec9180e3ccc431fa8

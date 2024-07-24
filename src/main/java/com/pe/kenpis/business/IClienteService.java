@@ -1,7 +1,7 @@
 package com.pe.kenpis.business;
 
-import com.pe.kenpis.model.api.usuario.cliente.ClienteRequest;
-import com.pe.kenpis.model.api.usuario.cliente.ClienteResponse;
+import com.pe.kenpis.model.api.cliente.ClienteRequest;
+import com.pe.kenpis.model.api.cliente.ClienteResponse;
 
 public interface IClienteService {
 

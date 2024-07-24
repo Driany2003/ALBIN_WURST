@@ -48,9 +48,9 @@ public class WMenuController {
     return "configuracion-producto";
   }
 
-  @RequestMapping(value = {"/configuracion/almacen"}, method = RequestMethod.GET)
-  public String menuAlmacen() {
-    return "configuracion-almacen";
+  @RequestMapping(value = {"/configuracion/inventario"}, method = RequestMethod.GET)
+  public String menuInventario() {
+    return "configuracion-inventario";
   }
 
 }

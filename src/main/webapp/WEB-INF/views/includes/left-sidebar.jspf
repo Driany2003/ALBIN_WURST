@@ -60,9 +60,9 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/almacen" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/inventario" aria-expanded="false">
                             <i class="mdi mdi-calendar-plus"></i>
-                            <span class="hide-menu">Almacen</span>
+                            <span class="hide-menu">Inventario</span>
                         </a>
                     </li>
                 </c:if>

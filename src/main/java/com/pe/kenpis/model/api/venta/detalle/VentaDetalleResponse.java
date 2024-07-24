@@ -10,7 +10,8 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class DetalleVentaResponse {
+public class VentaDetalleResponse {
+
   private ProductoResponse producto;
   private Integer venDetId;
   private Integer venDetCantidad;
@@ -18,9 +19,11 @@ public class DetalleVentaResponse {
   private Integer ventaId;
   private Integer productoId;
   private float venDetPrecio;
-  public DetalleVentaResponse(Integer productoId, Integer venDetCantidad, float venDetPrecio, float venDetSubtotal) {
+
+  public VentaDetalleResponse(Integer productoId, Integer venDetCantidad, float venDetPrecio, float venDetSubtotal) {
   }
 
-  public DetalleVentaResponse(ProductoResponse productoResponse, Integer venDetId, Integer venDetCantidad, float venDetSubtotal, Integer ventaId) {
+  public VentaDetalleResponse(ProductoResponse productoResponse, Integer venDetId, Integer venDetCantidad, float venDetSubtotal, Integer ventaId) {
   }
+
 }

@@ -8,7 +8,8 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DetalleVentaRequest {
+public class VentaDetalleRequest {
+
   private ProductoRequest producto;
   private Integer venDetId;
   private Integer venDetCantidad;

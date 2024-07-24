@@ -1,7 +1,7 @@
 package com.pe.kenpis.web;
 
 import com.pe.kenpis.business.IVentaService;
-import com.pe.kenpis.model.api.venta.detalle.DetalleVentaResponse;
+import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,8 @@ public class WVentaDetalleController {
   private IVentaService service;
 
   @GetMapping("/find-all")
-  public ResponseEntity<List<DetalleVentaResponse>> findAll() {
-    List<DetalleVentaResponse> detalles = service.obtenerDetallesDeVenta();
+  public ResponseEntity<List<VentaDetalleResponse>> findAll() {
+    List<VentaDetalleResponse> detalles = service.obtenerDetallesDeVenta();
     return new ResponseEntity<>(detalles, HttpStatus.OK);
   }
 

@@ -1,6 +1,6 @@
 package com.pe.kenpis.model.api.venta;
 
-import com.pe.kenpis.model.api.venta.detalle.DetalleVentaResponse;
+import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import lombok.*;
 
 import java.util.Date;
@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class VentaResponse {
 
-  private List<DetalleVentaResponse> detallesVentas;
+  private List<VentaDetalleResponse> detallesVentas;
   private Integer venId;
   private Date venFecha;
   private float venTotal;
