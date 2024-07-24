@@ -4,7 +4,7 @@ $(document).ready(function () {
     function SeleccionarOpciones(selectClass, tipo) {
         $.ajax({
             type: 'GET',
-            url: '/api/productos/tipo/' + tipo,
+            url: '/kenpis/producto/find-all-by-type/' + tipo,
             success: function (response) {
                 $('.' + selectClass).each(function () {
                     $(this).empty();
@@ -210,9 +210,9 @@ $(document).ready(function () {
                         $('#clientInfoModal').modal('show');
                         $('#nombreCliente').val(response.cliNombre);
                     } else {
-                        $('#clientInfoModal').modal('hide');
+                        $('#clientInfoModal').modal('show');
+                        $('#clientInfoModal .modal-body').text('Usuario no registrado.');
                         $('#nombreCliente').val('');
-                        alert('Cliente no encontrado.');
                     }
                 },
                 error: function (error) {
