@@ -52,7 +52,7 @@ public class ProductosImpl implements IProductosService {
     if (tipo == null || tipo.isEmpty()) {
       throw new IllegalArgumentException("El tipo no puede ser nulo o vacío");
     }
-    List<ProductosEntity> productos = productosRepository.findByProTipo(tipo);
+    List<ProductosEntity> productos = productosRepository.findByProCategoria(tipo);
     return productos.stream()
         .map(this::convertProductosEntityToResponse)
         .collect(Collectors.toList());

@@ -13,9 +13,12 @@ import java.util.List;
 @AllArgsConstructor
 public class VentasResponse {
 
+  private List<DetalleVentaResponse> detallesVentas;
   private Integer venId;
   private Date venFecha;
   private float venTotal;
-  private List<DetalleVentaResponse> detallesVentas;
+  private Integer empresaId;
+  private Integer clienteId;
+  private String venTipoPago ;
 
 }

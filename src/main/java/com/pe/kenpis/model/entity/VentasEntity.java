@@ -21,6 +21,13 @@ public class VentasEntity {
   @Column(name = "ven_total")
   private float venTotal;
 
+  @Column(name = "empresa_id")
+  private Integer empresaId;
 
+  @Column(name = "cliente_id")
+  private Integer clienteId;
+
+  @Column(name = "ven_tipo_pago")
+  private String venTipoPago ;
 
 }

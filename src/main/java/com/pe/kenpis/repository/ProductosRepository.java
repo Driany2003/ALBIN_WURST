@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProductosRepository  extends JpaRepository<ProductosEntity,Integer> {
 
-  List<ProductosEntity> findByProTipo(String tipo);
+  List<ProductosEntity> findByProCategoria(String tipo);
 
 
 }

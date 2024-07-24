@@ -17,18 +17,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
-
-import static com.fasterxml.jackson.databind.type.LogicalType.DateTime;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class
-VentasImpl implements IVentasService {
+public class VentasImpl implements IVentasService {
 
   private final VentasRepository ventasRepository;
   private final ProductosRepository productosRepository;
@@ -47,71 +42,43 @@ VentasImpl implements IVentasService {
     List<VentasEntity> ventasList = ventasRepository.findAll();
     return ventasList.stream().map(this::convertVentasEntityToResponse).collect(Collectors.toList());
   }
-  @Override
+
   public VentasResponse registrarVenta(VentasRequest ventaRequest) {
-    VentasEntity ventaEntity = new VentasEntity();
-    ventaEntity.setVenFecha(new Date());
-    ventaEntity.setVenTotal(ventaRequest.getVenTotal());
-    VentasEntity ventaGuardada = ventasRepository.save(ventaEntity);
+    VentasEntity nuevaVenta = new VentasEntity();
+    nuevaVenta.setVenTotal(ventaRequest.getVenTotal());
+    nuevaVenta.setVenFecha(new Date());
+    // Guardar la nueva venta para obtener su ID
+    VentasEntity ventaGuardada = ventasRepository.save(nuevaVenta);
 
-    double totalVenta = 0;
+    // Crear los detalles de la venta
     List<DetallesVentasEntity> detallesVentas = new ArrayList<>();
-
-    // Extraer IDs de productos del request
-    Set<Integer> productIds = ventaRequest.getDetallesVentas().stream()
-        .map(DetalleVentaRequest::getProId)
-        .collect(Collectors.toSet());
-
-    // Obtener todos los productos en un solo query
-    List<ProductosEntity> productos = productosRepository.findAllById(productIds);
-
-    // Crear un mapa para acceder rápidamente a los productos por ID
-    Map<Integer, ProductosEntity> productoMap = productos.stream()
-        .collect(Collectors.toMap(ProductosEntity::getProId, producto -> producto));
-
-    for (DetalleVentaRequest detalleRequest : ventaRequest.getDetallesVentas()) {
-      DetallesVentasEntity detalleVentaEntity = new DetallesVentasEntity();
-      detalleVentaEntity.setVentaId(ventaGuardada.getVenId());
-      detalleVentaEntity.setDetvenCantidad(detalleRequest.getDetvenCantidad());
-      detalleVentaEntity.setProductoId(detalleRequest.getProId());
-
-      ProductosEntity producto = productoMap.get(detalleRequest.getProId());
-      if (producto != null) {
-        double subtotal = producto.getProPrecio() * detalleRequest.getDetvenCantidad();
-        detalleVentaEntity.setDetvenSubTotal(subtotal);
-        detallesVentas.add(detalleVentaEntity);
-        totalVenta += subtotal;
-      }
+    for (DetalleVentaRequest detalle : ventaRequest.getDetallesVentas()) {
+      DetallesVentasEntity nuevoDetalle = new DetallesVentasEntity();
+      nuevoDetalle.setVentaId(ventaGuardada.getVenId());
+      nuevoDetalle.setProductoId(detalle.getProducto().getProId());
+      nuevoDetalle.setVenDetCantidad(detalle.getVenDetCantidad());
+      nuevoDetalle.setVenDetPrecio(detalle.getVenDetPrecio());
+      nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
+      detallesVentas.add(nuevoDetalle);
     }
 
-
+    // Guardar todos los detalles de la venta
     detalleVentaRepository.saveAll(detallesVentas);
 
+    // Preparar la respuesta
     VentasResponse response = new VentasResponse();
     response.setVenId(ventaGuardada.getVenId());
-    response.setVenFecha(ventaGuardada.getVenFecha());
-    response.setVenTotal((float) totalVenta);
+    response.setVenTotal(ventaGuardada.getVenTotal());
     response.setDetallesVentas(detallesVentas.stream()
-        .map(detalle -> {
-          ProductosEntity producto = productoMap.get(detalle.getProductoId());
-          ProductosResponse productoResponse = new ProductosResponse();
-          if (producto != null) {
-            productoResponse.setProId(producto.getProId());
-            productoResponse.setProNombre(producto.getProNombre());
-            productoResponse.setProTipo(producto.getProTipo());
-            productoResponse.setProPrecio(producto.getProPrecio());
-          }
-          return new DetalleVentaResponse(productoResponse,
-              detalle.getDetvenCantidad(),
-              producto.getProPrecio(),
-              detalle.getDetvenSubTotal()
-          );
-        }).collect(Collectors.toList())
-    );
+        .map(detalle -> new DetalleVentaResponse(
+            detalle.getProductoId(),
+            detalle.getVenDetCantidad(),
+            detalle.getVenDetPrecio(),
+            detalle.getVenDetSubtotal()))
+        .collect(Collectors.toList()));
 
     return response;
   }
-
 
   @Override
   public List<DetalleVentaResponse> obtenerDetallesDeVenta() {
@@ -120,25 +87,17 @@ VentasImpl implements IVentasService {
       ProductosEntity producto = productosRepository.findById(detalle.getProductoId()).orElse(null);
       ProductosResponse productoResponse = new ProductosResponse();
       if (producto != null) {
-        productoResponse.setProId(producto.getProId());
-        productoResponse.setProNombre(producto.getProNombre());
-        productoResponse.setProTipo(producto.getProTipo());
-        productoResponse.setProPrecio(producto.getProPrecio());
+        BeanUtils.copyProperties(producto, productoResponse);
       }
       return new DetalleVentaResponse(
           productoResponse,
-          detalle.getDetvenId(),
-          detalle.getDetvenCantidad(),
-          detalle.getDetvenSubTotal(),
-          detalle.getVentaId(),
-          producto != null ? producto.getProId() : null,
-          producto != null ? producto.getProPrecio() : 0.0
+          detalle.getVenDetId(),
+          detalle.getVenDetCantidad(),
+          detalle.getVenDetSubtotal(),
+          detalle.getVentaId()
       );
     }).collect(Collectors.toList());
   }
-
-
-
 
   private VentasEntity convertVentasRequestToEntity(VentasRequest request) {
     VentasEntity entity = new VentasEntity();
@@ -151,5 +110,4 @@ VentasImpl implements IVentasService {
     BeanUtils.copyProperties(entity, response);
     return response;
   }
-
 }

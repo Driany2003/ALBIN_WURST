@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    let chorizoIndex = 1;
-    let bebidaIndex = 1;
+    let totalPagar = 0;
 
-    cargarDetallesDeVenta();
     function SeleccionarOpciones(selectClass, tipo) {
         $.ajax({
             type: 'GET',
@@ -13,8 +11,9 @@ $(document).ready(function () {
                     $(this).append($('<option>', { text: 'Elige una opción', value: '' }));
                     response.forEach(function (producto) {
                         $(this).append($('<option>', {
-                            value: producto.proId,
-                            text: producto.proNombre
+                            value: JSON.stringify({ proId: producto.proId, proTipo: producto.proTipo, proPrecio: producto.proPrecio }),
+                            text: producto.proTipo,
+                            'data-precio': producto.proPrecio
                         }));
                     }.bind(this));
                 });
@@ -25,76 +24,138 @@ $(document).ready(function () {
         });
     }
 
-
     SeleccionarOpciones('chorizo-select', 'chorizo');
     SeleccionarOpciones('bebida-select', 'bebida');
 
-
     $('#addChorizo').click(function () {
+        const chorizoId = `chorizo-${Date.now()}`;
+        const cantidadChorizosId = `cantidadChorizos-${Date.now()}`;
         $('#chorizos-container').append(`
             <div class="form-group">
-                <label for="chorizo-${chorizoIndex}" class="control-label col-form-label">Elige tu Chorizo Fav</label>
-                <select id="chorizo-${chorizoIndex}" class="form-control form-control-sm chorizo-select">
+                <label for="${chorizoId}" class="control-label col-form-label">Elige tu Chorizo Fav</label>
+                <select id="${chorizoId}" class="form-control form-control-sm chorizo-select">
                     <option value="">Elige tu Chorizo Fav</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="cantidadChorizos-${chorizoIndex}">Cantidad de Chorizos</label>
-                <input id="cantidadChorizos-${chorizoIndex}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
+                <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
+                <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
             </div>
         `);
-        SeleccionarOpciones(`chorizo-select`, 'chorizo');
-        chorizoIndex++;
+        SeleccionarOpciones('chorizo-select', 'chorizo');
     });
 
-
     $('#addBebida').click(function () {
+        const bebidaId = `bebida-${Date.now()}`;
+        const cantidadBebidasId = `cantidadBebidas-${Date.now()}`;
         $('#bebidas-container').append(`
             <div class="form-group">
-                <label for="bebida-${bebidaIndex}" class="control-label col-form-label">Elige tu Bebida Fav</label>
-                <select id="bebida-${bebidaIndex}" class="form-control form-control-sm bebida-select">
+                <label for="${bebidaId}" class="control-label col-form-label">Elige tu Bebida Fav</label>
+                <select id="${bebidaId}" class="form-control form-control-sm bebida-select">
                     <option value="">Elige tu Bebida Fav</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="cantidadBebidas-${bebidaIndex}">Cantidad de Bebidas</label>
-                <input id="cantidadBebidas-${bebidaIndex}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
+                <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
+                <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
             </div>
         `);
-        SeleccionarOpciones(`bebida-select`, 'bebida');
-        bebidaIndex++;
+        SeleccionarOpciones('bebida-select', 'bebida');
     });
 
+    function actualizarTotal() {
+        totalPagar = 0;
+        $('#ventasBody tr').each(function () {
+            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/.', ''));
+            if (!isNaN(subtotal)) {
+                totalPagar += subtotal;
+            }
+        });
+        $('#totalPagar').text('S/.' + totalPagar.toFixed(2));
+    }
 
-    $('#ventaForm').submit(function (event) {
-        event.preventDefault();
-
+    $('#guardarPedido').click(function () {
         var detalles = [];
 
         $('.chorizo-select').each(function () {
-            var chorizoId = $(this).val();
-            var cantidadChorizos = $(this).closest('.form-group').next().find('.cantidad-chorizo').val();
-            if (chorizoId && cantidadChorizos > 0) {
-                detalles.push({
-                    producto: { proId: chorizoId },
-                    detvenCantidad: cantidadChorizos
-                });
+            var chorizoData = $(this).val();
+            if (chorizoData) {
+                var chorizo = JSON.parse(chorizoData);
+                var cantidadChorizos = $(this).closest('.form-group').next().find('.cantidad-chorizo').val();
+                var precioChorizo = $(this).find('option:selected').data('precio');
+                if (cantidadChorizos > 0) {
+                    var subtotalChorizo = cantidadChorizos * precioChorizo;
+                    detalles.push({
+                        producto: chorizo,
+                        venDetCantidad: cantidadChorizos,
+                        venDetSubtotal: subtotalChorizo.toFixed(2),
+                        venDetPrecio: precioChorizo.toFixed(2)
+                    });
+                }
             }
         });
 
         $('.bebida-select').each(function () {
-            var bebidaId = $(this).val();
-            var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidad-bebida').val();
-            if (bebidaId && cantidadBebidas > 0) {
-                detalles.push({
-                    producto: { proId: bebidaId },
-                    detvenCantidad: cantidadBebidas
-                });
+            var bebidaData = $(this).val();
+            if (bebidaData) {
+                var bebida = JSON.parse(bebidaData);
+                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidad-bebida').val();
+                var precioBebida = $(this).find('option:selected').data('precio');
+                if (cantidadBebidas > 0) {
+                    var subtotalBebida = cantidadBebidas * precioBebida;
+                    detalles.push({
+                        producto: bebida,
+                        venDetCantidad: cantidadBebidas,
+                        venDetSubtotal: subtotalBebida.toFixed(2),
+                        venDetPrecio: precioBebida.toFixed(2)
+                    });
+                }
             }
         });
 
-        var ventaData = { detallesVentas: detalles };
-        console.log('Datos de la venta:', ventaData);
+        var detallesHtml = detalles.map(function (detalle) {
+            return '<tr>' +
+                '<td data-producto=\'' + JSON.stringify(detalle.producto) + '\'>' + (detalle.producto ? detalle.producto.proTipo : 'N/A') + '</td>' +
+                '<td>' + detalle.venDetCantidad + '</td>' +
+                '<td>' + detalle.venDetPrecio + '</td>' +
+                '<td>' + 'S/.' + detalle.venDetSubtotal + '</td>' +
+                '</tr>';
+        }).join('');
+
+        $('#ventasBody').append(detallesHtml);
+        actualizarTotal();
+        $('#ventaForm')[0].reset();
+    });
+
+    $('#pagarButton').click(function () {
+        var detalles = [];
+
+        $('#ventasBody tr').each(function () {
+            var productoData = $(this).find('td').eq(0).attr('data-producto');
+            if (productoData) {
+                try {
+                    var producto = JSON.parse(productoData);
+                    var cantidad = $(this).find('td').eq(1).text();
+                    var precio = $(this).find('td').eq(2).text().replace('S/.', '');
+                    var subtotal = $(this).find('td').eq(3).text().replace('S/.', '');
+
+                    detalles.push({
+                        producto: producto,
+                        venDetCantidad: cantidad,
+                        venDetPrecio: precio,
+                        venDetSubtotal: subtotal
+                    });
+                } catch (e) {
+                    console.error('Error parsing productoData:', e);
+                }
+            }
+        });
+
+        var ventaData = {
+            detallesVentas: detalles,
+            venTotal: totalPagar
+        };
+        console.log('Datos de la venta final:', ventaData);
 
         $.ajax({
             type: 'POST',
@@ -105,6 +166,8 @@ $(document).ready(function () {
                 alert('Venta registrada exitosamente.');
                 $('#ventaForm')[0].reset();
                 $('#ventaModal').modal('hide');
+                $('#ventasBody').empty();
+                $('#totalPagar').text('S/ 0.00');
             },
             error: function (error) {
                 console.error('Error al registrar la venta:', error);
@@ -112,58 +175,52 @@ $(document).ready(function () {
         });
     });
 
+    function cargarDetallesDeVenta() {
+        $.ajax({
+            type: 'GET',
+            url: '/sys/nueva-venta/listar',
+            success: function (response) {
+                var detallesHtml = response.map(function (detalle) {
+                    return '<tr>' +
+                        '<td data-producto=\'' + JSON.stringify(detalle.producto) + '\'>' + (detalle.producto ? detalle.producto.proTipo : 'N/A') + '</td>' +
+                        '<td>' + detalle.venDetCantidad + '</td>' +
+                        '<td>' + detalle.venDetPrecio + '</td>' +
+                        '<td>' + 'S/.' + detalle.venDetSubtotal + '</td>' +
+                        '</tr>';
+                }).join('');
+                $('#ventasBody').html(detallesHtml);
+                actualizarTotal();
+            },
+            error: function (error) {
+                console.error('Error al obtener los detalles de ventas:', error);
+            }
+        });
+    }
 
-        function cargarDetallesDeVenta() {
-            $.ajax({
-                type: 'GET',
-                url: '/sys/nueva-venta/listar',
-                success: function (response) {
-                    var detallesHtml = response.map(function (detalle) {
-                        return '<tr>' +
-                            '<td>' + (detalle.producto ? detalle.producto.proNombre : 'N/A') + '</td>' +
-                            '<td>' + detalle.detvenCantidad + '</td>' +
-                            '<td>' + detalle.precioUnitario + '</td>' +
-                            '<td>' + detalle.detvenSubtotal + '</td>' +
-                            '</tr>';
-                    }).join('');
-                    $('#ventasBody').html(detallesHtml);
-                },
-                error: function (error) {
-                    console.error('Error al obtener los detalles de ventas:', error);
-                }
-            });
-        }
-
-
-
-/*
     $('#celular').on('input', function () {
         let celular = $(this).val();
 
         if (celular.length === 9) {
             $.ajax({
                 type: 'GET',
-                url: '/api/clientes/telefono/' + celular,
+                url: '/api/usuarios/verificar/' + celular,
                 success: function (response) {
                     if (response) {
-                        // If client exists, show popup with the client name
-                        $('#clientName').text(response.nombre);
+                        $('#clientName').text(response.usuNombre);
                         $('#clientInfoModal').modal('show');
-                        $('#nombreCliente').val(response.nombre);
+                        $('#nombreCliente').val(response.usuNombre);
                     } else {
-                        // If client does not exist
                         $('#clientInfoModal').modal('hide');
                         $('#nombreCliente').val('');
                         alert('Cliente no encontrado.');
                     }
                 },
                 error: function (error) {
-                    console.error('Error al verificar el cliente:', error);
+                    console.error('Error al verificar el celular:', error);
                 }
             });
+        } else {
+            $('#nombreCliente').val('');
         }
     });
-*/
-
-
 });

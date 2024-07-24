@@ -10,8 +10,9 @@ import lombok.*;
 public class ProductosRequest {
 
   private Integer proId;
-  private String proNombre;
   private String proTipo;
   private float proPrecio;
+  private String proCategoria;
+  private Boolean proIsActive;
 
 }

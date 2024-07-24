@@ -12,10 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 public class DetalleVentaRequest {
   private ProductosRequest producto;
-  private Integer detvenId;
-  private Integer detvenCantidad;
-  private double detvenSubtotal;
-  private Integer venId;
-  private Integer proId;
+  private Integer venDetId;
+  private Integer venDetCantidad;
+  private double venDetSubtotal;
+  private Integer ventaId;
+  private Integer productoId;
+  private float venDetPrecio;
 
 }
