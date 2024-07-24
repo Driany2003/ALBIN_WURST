@@ -165,11 +165,8 @@
                                     <div id="bebidas-container">
                                         <div class="form-group">
                                             <label for="tipoBebida" class="control-label col-form-label">¿Qué desea tomar?</label>
-                                            <select id="tipoBebida" class="form-control form-control-sm chorizo-select" data-placeholder="Elige la presentación">
+                                            <select id="tipoBebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la presentación">
                                                 <option value="">-- Seleccione --</option>
-                                                <option value="Café">Café</option>
-                                                <option value="Gaseosa">Gaseosa</option>
-                                                <option value="Agua">Agua</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
@@ -190,7 +187,6 @@
                                     </div>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>

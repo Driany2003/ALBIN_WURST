@@ -1,10 +1,10 @@
 $(document).ready(function () {
     let totalPagar = 0;
 
-    function SeleccionarOpciones(selectClass, tipo) {
+    function SeleccionarOpciones(selectClass, categoria) {
         $.ajax({
             type: 'GET',
-            url: '/kenpis/producto/find-all-by-type/' + tipo,
+            url: '/kenpis/producto/find-all-by-type/' + categoria,
             success: function (response) {
                 $('.' + selectClass).each(function () {
                     $(this).empty();
@@ -24,44 +24,59 @@ $(document).ready(function () {
         });
     }
 
-    SeleccionarOpciones('chorizo-select', 'chorizo');
+
+    function updateProductOptions() {
+        const selectedChorizoType = $('#tipoChorizo').val();
+        const selectedBebidaType = $('#tipoBebida').val();
+
+        SeleccionarOpciones('chorizo-select', 'chorizo', selectedChorizoType);
+        SeleccionarOpciones('bebida-select', 'bebida', selectedBebidaType);
+    }
+
+    // Inicializar opciones al cargar la página
+    SeleccionarOpciones('chorizo-select', 'choripan');
     SeleccionarOpciones('bebida-select', 'bebida');
+
+    // Manejar cambios en las categorías
+    $('#tipoChorizo').change(updateProductOptions);
+    $('#tipoBebida').change(updateProductOptions);
 
     $('#addChorizo').click(function () {
         const chorizoId = `chorizo-${Date.now()}`;
         const cantidadChorizosId = `cantidadChorizos-${Date.now()}`;
         $('#chorizos-container').append(`
-            <div class="form-group">
-                <label for="${chorizoId}" class="control-label col-form-label">Sabor de Chorizo</label>
-                <select id="${chorizoId}" class="form-control form-control-sm chorizo-select">
-                    <option value="">-- Seleccione --</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
-                <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
-            </div>
-        `);
-        SeleccionarOpciones('chorizo-select', 'chorizo');
+        <div class="form-group">
+            <label for="${chorizoId}" class="form-label">Sabor de Chorizo</label>
+            <select id="${chorizoId}" class="form-select form-select-sm chorizo-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
+            <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
+        </div>
+    `);
+        SeleccionarOpciones('chorizo-select', 'chorizo'); // Actualiza los nuevos comboboxes
     });
 
     $('#addBebida').click(function () {
         const bebidaId = `bebida-${Date.now()}`;
         const cantidadBebidasId = `cantidadBebidas-${Date.now()}`;
         $('#bebidas-container').append(`
-            <div class="form-group">
-                <label for="${bebidaId}" class="control-label col-form-label">Bebida</label>
-                <select id="${bebidaId}" class="form-control form-control-sm bebida-select">
-                    <option value="">-- Seleccione --</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
-                <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
-            </div>
-        `);
-        SeleccionarOpciones('bebida-select', 'bebida');
+        <div class="form-group">
+            <label for="${bebidaId}" class="form-label">Bebida</label>
+            <select id="${bebidaId}" class="form-select form-select-sm bebida-select">
+                <option value="">-- Seleccione --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
+            <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
+        </div>
+    `);
+        SeleccionarOpciones('bebida-select', 'bebida'); // Actualiza los nuevos comboboxes
     });
+
 
     function actualizarTotal() {
         totalPagar = 0;

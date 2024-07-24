@@ -21,7 +21,7 @@ public class WProductoController {
   @Autowired
   ProductoImpl service;
 
-  @GetMapping("/find-all-by-type/{type}")
+  @GetMapping("/find-all-by-type/{categoria}")
   public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable String categoria) {
     List<ProductoResponse> productos = service.findAllByProCategoria(categoria);
     return new ResponseEntity<>(productos, HttpStatus.OK);
