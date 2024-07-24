@@ -1,4 +1,4 @@
-package com.pe.kenpis.web;
+package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IClienteService;
 import com.pe.kenpis.model.api.cliente.ClienteRequest;

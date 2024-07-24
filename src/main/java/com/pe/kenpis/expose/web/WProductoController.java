@@ -1,4 +1,4 @@
-package com.pe.kenpis.web;
+package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.business.impl.ProductoImpl;

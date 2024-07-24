@@ -1,4 +1,4 @@
-package com.pe.kenpis.web;
+package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IVentaService;
 import com.pe.kenpis.model.api.venta.VentaRequest;

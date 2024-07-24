@@ -99,7 +99,7 @@ com.microsoft.sqlserver.jdbc.SQLServerException: Invalid object name 'T_DETALLE_
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:241)
 	at com.sun.proxy.$Proxy114.findAll(Unknown Source)
 	at com.pe.kenpis.business.impl.VentaImpl.obtenerDetallesDeVenta(VentasImpl.java:119)
-	at com.pe.kenpis.web.WVentaController.obtenerDetallesDeVenta(WNuevaVentaController.java:36)
+	at com.pe.kenpis.expose.web.WVentaController.obtenerDetallesDeVenta(WNuevaVentaController.java:36)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

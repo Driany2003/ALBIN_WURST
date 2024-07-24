@@ -9,11 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="OKR Pacasmayo">
+    <meta name="description" content="KENPIS VENTAS SISTEMA SIMPLE">
     <meta name="author" content="Jhan Moreno @jhanmoreno.com">
     <!-- Favicon icon -->
     <link rel="icon" type="image/x-icon" href="/static/web/assets/images/favicon.ico">
-    <title>Sistema de Ventas</title>
+    <title>KENPIS</title>
     <!-- Custom CSS -->
     <link href="/static/web/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="/static/web/assets/extra-libs/c3/c3.min.css" rel="stylesheet">
