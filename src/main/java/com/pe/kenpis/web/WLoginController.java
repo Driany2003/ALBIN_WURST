@@ -1,6 +1,6 @@
 package com.pe.kenpis.web;
 
-import com.pe.kenpis.business.IUsuariosService;
+import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class WLoginController {
 
   @Autowired
-  IUsuariosService service;
+  IUsuarioService service;
 
   @RequestMapping(value = {"/login", "/"}, method = RequestMethod.GET)
   public String login() {
@@ -31,13 +31,12 @@ public class WLoginController {
     return "index";
   }
 
-  @RequestMapping(value = {"/sys/dashboard"}, method = RequestMethod.GET)
+  @RequestMapping(value = {"/kenpis/dashboard"}, method = RequestMethod.GET)
   public String welcome(ModelMap model, HttpServletRequest request) {
     String usuarioLogueado = FxComunes.getLoggedInUserName();
     UsuarioResponse usuarioResponse = service.findUsuarioByAuthUsername(usuarioLogueado);
     UsuarioAuthorityResponse usuarioAuthorityResponse = service.findUsuarioAuthorityByUsuId(usuarioResponse.getUsuId());
     model.put("usuSession", usuarioResponse);
-
 
     request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
     request.getSession().setAttribute("usuSessionNombre", usuarioResponse.getUsuNombre());

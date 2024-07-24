@@ -1,6 +1,6 @@
 package com.pe.kenpis.web;
 
-import com.pe.kenpis.business.IUsuariosService;
+import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,21 +9,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/kenpis/usuario")
 public class WUsuarioController {
 
   @Autowired
-  private IUsuariosService usuariosService;
+  private IUsuarioService usuariosService;
 
-  @GetMapping("/verificar/{celular}")
-  public ResponseEntity<UsuarioResponse> verifyUser(@PathVariable String celular) {
-    UsuarioResponse user = usuariosService.findByUsuTelefono(celular);
+  @GetMapping("/find-by-phone/{phone}")
+  public ResponseEntity<UsuarioResponse> findByPhone(@PathVariable String phone) {
+    UsuarioResponse user = usuariosService.findByPhone(phone);
     return ResponseEntity.ok(user);
   }
 
-  @PostMapping("/registrar")
-  public ResponseEntity<UsuarioResponse> registerUser(@RequestBody UsuarioRequest userRequest) {
-    boolean success = usuariosService.registrarUsuario(userRequest);
+  @PostMapping("/create")
+  public ResponseEntity<UsuarioResponse> create(@RequestBody UsuarioRequest request) {
+    boolean success = usuariosService.create(request);
     if (success) {
       return ResponseEntity.status(HttpStatus.CREATED).build();
     } else {

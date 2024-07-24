@@ -3,6 +3,7 @@ package com.pe.kenpis.model.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -28,7 +29,7 @@ public class ClienteEntity {
   @Column(name = "cli_is_active")
   private Boolean cliIsActive;
 
-
-
+  @Column(name = "cli_fecha_creacion")
+  private Date cliFechaCreacion;
 
 }

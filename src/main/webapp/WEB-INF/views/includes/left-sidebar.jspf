@@ -6,7 +6,7 @@
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/dashboard" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/dashboard" aria-expanded="false">
                         <i class="mdi mdi-view-dashboard"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>
@@ -14,42 +14,71 @@
                 <c:if test="${sessionScope.usuSessionNivel == 'ADMIN'}">
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>
-                        <span class="hide-menu">VENTAS</span>
+                        <span class="hide-menu">VENTA</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/nueva-venta" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva" aria-expanded="false">
                             <i class="mdi mdi-cart-plus"></i>
-                            <span class="hide-menu">Nueva Venta</span>
+                            <span class="hide-menu">Nueva</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/historial-de-ventas" aria-expanded="false">
-                            <i class="mdi mdi-calendar-today"></i>
-                            <span class="hide-menu">Historial de Ventas</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/sys/detalle-venta" aria-expanded="false">
-                            <i class="mdi mdi-file-document-outline"></i>
-                            <span class="hide-menu">Detalle Venta</span>
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/historial" aria-expanded="false">
+                            <i class="mdi mdi-calendar-plus"></i>
+                            <span class="hide-menu">Historial</span>
                         </a>
                     </li>
                 </c:if>
 
-                <c:if test="${sessionScope.usuSessionNivel == 'MORTAL'}">
+                <c:if test="${sessionScope.usuSessionNivel == 'ADMIN'}">
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">CONFIGURACION</span>
+                    </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/mortal/nueva-venta" aria-expanded="false">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/usuario" aria-expanded="false">
+                            <i class="mdi mdi-cart-plus"></i>
+                            <span class="hide-menu">Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/cliente" aria-expanded="false">
+                            <i class="mdi mdi-calendar-plus"></i>
+                            <span class="hide-menu">Cliente</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/empresa" aria-expanded="false">
+                            <i class="mdi mdi-calendar-plus"></i>
+                            <span class="hide-menu">Empresa</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/producto" aria-expanded="false">
+                            <i class="mdi mdi-calendar-plus"></i>
+                            <span class="hide-menu">Producto</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/almacen" aria-expanded="false">
+                            <i class="mdi mdi-calendar-plus"></i>
+                            <span class="hide-menu">Almacen</span>
+                        </a>
+                    </li>
+                </c:if>
+
+                <c:if test="${sessionScope.usuSessionNivel == 'USUARIO'}">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva/usuario" aria-expanded="false">
                             <i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Nueva Venta</span>
+                            <span class="hide-menu">Registrarme</span>
                         </a>
                     </li>
                 </c:if>
-
-
 
                 <li class="nav-small-cap">
-                        <i class="mdi mdi-dots-horizontal"></i>
-                        <span class="hide-menu">Sesión</span>
+                    <i class="mdi mdi-dots-horizontal"></i>
+                    <span class="hide-menu">Sesión</span>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout" aria-expanded="false">

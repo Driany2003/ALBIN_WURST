@@ -44,7 +44,7 @@ public class EmpresaEntity {
   private Date empFechaContratoFin;
 
   @Column(name = "emp_fecha_creacion")
-  private LocalDateTime empFechaCreacion;
+  private Date empFechaCreacion;
 
   @Column(name = "emp_is_active")
   private Integer empIsActive;
@@ -57,10 +57,5 @@ public class EmpresaEntity {
 
   @Column(name = "emp_qr_Pagos")
   private Long empQrPagos;
-
-
-
-
-
 
 }

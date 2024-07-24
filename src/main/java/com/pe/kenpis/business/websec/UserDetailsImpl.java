@@ -1,6 +1,6 @@
 package com.pe.kenpis.business.websec;
 
-import com.pe.kenpis.model.entity.UsuariosAuthorityEntity;
+import com.pe.kenpis.model.entity.UsuarioAuthorityEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,7 +21,7 @@ public class UserDetailsImpl implements UserDetails {
   private boolean estado;
   private List<GrantedAuthority> authorities;
 
-  public UserDetailsImpl(UsuariosAuthorityEntity user) {
+  public UserDetailsImpl(UsuarioAuthorityEntity user) {
     this.userName = user.getAuthUsername();
     this.password = user.getAuthPassword();
     this.roles = user.getAuthRoles();

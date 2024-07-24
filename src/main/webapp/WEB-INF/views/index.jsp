@@ -1,4 +1,4 @@
 <%
-    String redirectURL = "/sys/dashboard";
+    String redirectURL = "/kenpis/dashboard";
     response.sendRedirect(redirectURL);
 %>

@@ -1,10 +1,12 @@
 package com.pe.kenpis.business;
+
 import com.pe.kenpis.model.api.usuario.cliente.ClienteRequest;
-import com.pe.kenpis.model.api.usuario.cliente.ClientesResponse;
+import com.pe.kenpis.model.api.usuario.cliente.ClienteResponse;
 
 public interface IClienteService {
 
-  ClientesResponse findByCliTelefono(String celular);
+  ClienteResponse findByCliTelefono(String celular);
 
   boolean registrarCliente(ClienteRequest clienteRequest);
+
 }

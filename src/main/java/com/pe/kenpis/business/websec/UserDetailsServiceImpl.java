@@ -1,6 +1,6 @@
 package com.pe.kenpis.business.websec;
 
-import com.pe.kenpis.model.entity.UsuariosAuthorityEntity;
+import com.pe.kenpis.model.entity.UsuarioAuthorityEntity;
 import com.pe.kenpis.repository.UsuarioAuthorityRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
   @Override
   public UserDetails loadUserByUsername(String authUsername) throws UsernameNotFoundException {
-    Optional<UsuariosAuthorityEntity> user = usuarioAuthorityRepository.findByUsername(authUsername);
+    Optional<UsuarioAuthorityEntity> user = usuarioAuthorityRepository.findByUsername(authUsername);
     user.orElseThrow(() -> new UsernameNotFoundException(authUsername + " not found."));
     return user.map(UserDetailsImpl::new).get();
   }

@@ -1,5 +1,5 @@
-[WARN ] [24-07-2024 00:32:38] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h41m56s813ms917µs401ns).
-[WARN ] [24-07-2024 00:48:55] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m46s364ms228µs).
+[WARN ] [24-07-2024 00:32:38] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h41m56s813ms917ï¿½s401ns).
+[WARN ] [24-07-2024 00:48:55] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m46s364ms228ï¿½s).
 [WARN ] [24-07-2024 00:50:32] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
 [INFO ] [24-07-2024 01:07:10] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [24-07-2024 01:07:10] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
@@ -37,17 +37,17 @@
 [INFO ] [24-07-2024 01:07:30] [DispatcherServlet              :: 547 ] - Completed initialization in 2 ms
 [DEBUG] [24-07-2024 01:07:49] [UsuariosImpl                   :: 51  ] - Implements :: findByUsuUsername :: GIOMAR
 [DEBUG] [24-07-2024 01:07:49] [UsuariosImpl                   :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 1
-[WARN ] [24-07-2024 01:21:44] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:2 ClientConnectionId: f9c8234a-823a-46ac-94e3-cf5b267b594d (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:21:44] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:1 ClientConnectionId: 356d5c3a-43c9-4f43-9642-056a0950cd20 (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:21:49] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:4 ClientConnectionId: 845faad1-2e4d-44d5-af52-58b6ae7bc03f (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:21:49] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:3 ClientConnectionId: 820d55d0-1363-4c55-afd9-acc79df39684 (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:44] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:2 ClientConnectionId: f9c8234a-823a-46ac-94e3-cf5b267b594d (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:44] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:1 ClientConnectionId: 356d5c3a-43c9-4f43-9642-056a0950cd20 (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:49] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:4 ClientConnectionId: 845faad1-2e4d-44d5-af52-58b6ae7bc03f (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:49] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:3 ClientConnectionId: 820d55d0-1363-4c55-afd9-acc79df39684 (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
 [WARN ] [24-07-2024 01:21:49] [Command                        :: 7238] - TDSCommand@3cd4d8fe (SQLServerStatement:22 executeXXX): Command could not be timed out. Reason: Socket closed
-[WARN ] [24-07-2024 01:21:54] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:5 ClientConnectionId: d28b9481-0a0b-470b-b7cf-57c692cb535f (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:21:54] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:6 ClientConnectionId: 7aa2338c-afd0-41d1-80cd-42b00c7a362e (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:21:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:8 ClientConnectionId: b05c6105-0c05-46bf-9c6e-557ac0a2660d (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:21:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:7 ClientConnectionId: 52cb3ff8-3edc-4fc5-b760-f02b76d7a49b (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:22:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:10 ClientConnectionId: fff1fc60-7f80-4537-be03-2c5bbea225a0 (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
-[WARN ] [24-07-2024 01:22:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:9 ClientConnectionId: 49af5925-310a-4044-b406-b914026cc3d9 (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:54] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:5 ClientConnectionId: d28b9481-0a0b-470b-b7cf-57c692cb535f (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:54] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:6 ClientConnectionId: 7aa2338c-afd0-41d1-80cd-42b00c7a362e (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:8 ClientConnectionId: b05c6105-0c05-46bf-9c6e-557ac0a2660d (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:21:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:7 ClientConnectionId: 52cb3ff8-3edc-4fc5-b760-f02b76d7a49b (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:22:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:10 ClientConnectionId: fff1fc60-7f80-4537-be03-2c5bbea225a0 (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 01:22:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:9 ClientConnectionId: 49af5925-310a-4044-b406-b914026cc3d9 (La conexiï¿½n estï¿½ cerrada.). Possibly consider using a shorter maxLifetime value.
 [INFO ] [24-07-2024 01:22:04] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [24-07-2024 01:22:04] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [24-07-2024 01:22:05] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
@@ -280,7 +280,7 @@ javax.persistence.NonUniqueResultException: query did not return a unique result
 	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
 	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:241)
 	at com.sun.proxy.$Proxy112.findByUsuTelefono(Unknown Source)
-	at com.pe.kenpis.business.impl.UsuariosImpl.findByUsuTelefono(UsuariosImpl.java:26)
+	at com.pe.kenpis.business.impl.UsuarioImpl.findByUsuTelefono(UsuariosImpl.java:26)
 	at com.pe.kenpis.web.WUsuarioController.verifyUser(WUsuarioController.java:20)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -373,3 +373,903 @@ javax.persistence.NonUniqueResultException: query did not return a unique result
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [24-07-2024 10:48:18] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 31886 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 10:48:18] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 10:48:18] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 10:48:18] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 10:48:18] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 10:48:18] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 48 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 10:48:19] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 10:48:19] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 10:48:19] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 10:48:19] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 10:48:19] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 10:48:19] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 10:48:19] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1323 ms
+[INFO ] [24-07-2024 10:48:19] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 10:48:19] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 10:48:19] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 10:48:19] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 10:48:20] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 10:48:20] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 10:48:20] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 10:48:20] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 10:48:21] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 10:48:21] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@74dfc3df, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@75a9350f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6408fc50, org.springframework.security.web.header.HeaderWriterFilter@6f9d1c0b, org.springframework.security.web.authentication.logout.LogoutFilter@29161949, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@68e01714, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62e8178e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7f3d8a2a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@471dc3a6, org.springframework.security.web.session.SessionManagementFilter@2bb976d6, org.springframework.security.web.access.ExceptionTranslationFilter@33c02f30, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d4d3be5]
+[INFO ] [24-07-2024 10:48:21] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 10:48:21] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 10:48:21] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 10:48:21] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 10:48:21] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.682 seconds (JVM running for 4.215)
+[INFO ] [24-07-2024 10:49:05] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 10:49:05] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 10:49:05] [DispatcherServlet              :: 547 ] - Completed initialization in 12 ms
+[DEBUG] [24-07-2024 10:50:32] [UsuariosImpl                   :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 10:50:32] [UsuariosImpl                   :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[DEBUG] [24-07-2024 11:04:16] [UsuariosImpl                   :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 11:04:16] [UsuariosImpl                   :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[DEBUG] [24-07-2024 11:08:54] [UsuariosImpl                   :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 11:08:54] [UsuariosImpl                   :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 11:52:48] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=57s899ms).
+[WARN ] [24-07-2024 11:54:56] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m37s885ms).
+[WARN ] [24-07-2024 11:56:51] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m54s749ms).
+[WARN ] [24-07-2024 11:59:44] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m23s48ms).
+[WARN ] [24-07-2024 12:02:14] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m30s151ms).
+[WARN ] [24-07-2024 12:04:50] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m5s844ms).
+[WARN ] [24-07-2024 12:07:27] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m6s670ms).
+[WARN ] [24-07-2024 12:08:57] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m30s434ms).
+[WARN ] [24-07-2024 12:16:46] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m19s40ms).
+[WARN ] [24-07-2024 12:25:24] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m37s335ms).
+[WARN ] [24-07-2024 12:30:34] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m40s30ms).
+[WARN ] [24-07-2024 12:35:06] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m32s393ms).
+[WARN ] [24-07-2024 12:37:46] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m9s878ms).
+[WARN ] [24-07-2024 12:45:49] [Command                        :: 7238] - TDSCommand@1f0da289 (SQLServerStatement:161 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:45:49] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:21 ClientConnectionId: 6bf5dddf-0420-474f-9d5c-713b42e30823 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:45:49] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:22 ClientConnectionId: 9cbeb1d2-f5be-4771-922b-91fcc3a8e844 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:45:54] [Command                        :: 7238] - TDSCommand@50fec93b (SQLServerStatement:163 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:45:54] [Command                        :: 7238] - TDSCommand@6016e05f (SQLServerStatement:162 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:45:54] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:24 ClientConnectionId: 7c973f5b-b8ed-4eb4-8905-ca1596d60f8b (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:45:54] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:23 ClientConnectionId: 879531cf-b09e-4b88-8af6-a937a214190a (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:45:59] [Command                        :: 7238] - TDSCommand@5842b73e (SQLServerStatement:164 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:45:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:25 ClientConnectionId: 909744fa-caeb-4e62-9db2-2b27ba530a82 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:45:59] [Command                        :: 7238] - TDSCommand@643192bc (SQLServerStatement:166 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:45:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:27 ClientConnectionId: 1c46f035-64a7-46a3-904f-ef8e72d42995 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:45:59] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:26 ClientConnectionId: b8a19071-8b83-4497-a1b6-77eb9452358e (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:46:04] [Command                        :: 7238] - TDSCommand@6bb3c475 (SQLServerStatement:167 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:46:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:28 ClientConnectionId: cdb13d05-62e3-4ded-b4b6-84dd7b5486c2 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[DEBUG] [24-07-2024 12:46:04] [UsuariosImpl                   :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 12:46:04] [UsuariosImpl                   :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 12:46:04] [Command                        :: 7238] - TDSCommand@150aa142 (SQLServerStatement:169 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:46:04] [Command                        :: 7238] - TDSCommand@5083ec1 (SQLServerStatement:168 executeXXX): Command could not be timed out. Reason: Socket closed
+[WARN ] [24-07-2024 12:46:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:29 ClientConnectionId: 29534bfa-da50-43ca-85a3-1f67df57f817 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 12:46:04] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:30 ClientConnectionId: e7316667-1b67-4407-ab37-8411a31de363 (La conexiÃ³n estÃ¡ cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [24-07-2024 13:39:45] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58s177ms).
+[WARN ] [24-07-2024 13:41:45] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m269ms).
+[WARN ] [24-07-2024 13:44:12] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m56s458ms).
+[WARN ] [24-07-2024 13:51:27] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m12s546ms).
+[WARN ] [24-07-2024 13:55:40] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m42s515ms).
+[WARN ] [24-07-2024 13:58:57] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m47s56ms).
+[WARN ] [24-07-2024 14:02:05] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m7s559ms).
+[WARN ] [24-07-2024 14:09:06] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m58s359ms).
+[WARN ] [24-07-2024 14:15:53] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m16s370ms).
+[WARN ] [24-07-2024 14:20:30] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m37s462ms).
+[WARN ] [24-07-2024 14:29:32] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m2s288ms).
+[WARN ] [24-07-2024 14:33:44] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m11s377ms).
+[WARN ] [24-07-2024 14:41:12] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m28s469ms).
+[WARN ] [24-07-2024 14:49:48] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m35s565ms).
+[WARN ] [24-07-2024 14:53:33] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m45s554ms).
+[WARN ] [24-07-2024 15:03:00] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m56s253ms).
+[WARN ] [24-07-2024 15:07:01] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m1s294ms).
+[WARN ] [24-07-2024 15:15:26] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m24s408ms).
+[WARN ] [24-07-2024 15:19:23] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m57s621ms).
+[WARN ] [24-07-2024 15:23:35] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m12s131ms).
+[WARN ] [24-07-2024 15:27:52] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m46s502ms).
+[INFO ] [24-07-2024 15:28:14] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 15:28:14] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 15:28:14] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 15:59:41] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 36083 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 15:59:41] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 15:59:41] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 15:59:41] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 15:59:41] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 15:59:41] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 51 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 15:59:42] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 15:59:42] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 15:59:42] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 15:59:42] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 15:59:42] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 15:59:42] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 15:59:42] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1425 ms
+[INFO ] [24-07-2024 15:59:43] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 15:59:43] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 15:59:43] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 15:59:44] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 15:59:45] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 15:59:45] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 15:59:46] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 15:59:46] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 15:59:46] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productoImpl' defined in file [/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes/com/pe/kenpis/business/impl/ProductoImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productosRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'
+[INFO ] [24-07-2024 15:59:46] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 15:59:46] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 15:59:46] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 15:59:46] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 15:59:46] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 15:59:46] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productoImpl' defined in file [/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes/com/pe/kenpis/business/impl/ProductoImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productosRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productosRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 22 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:107)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:95)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:97)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:87)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:87)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:365)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:231)
+	at org.springframework.data.util.Lazy.get(Lazy.java:115)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 33 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductosEntity'
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:119)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:259)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:93)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:103)
+	... 55 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'tipo' found for type 'ProductosEntity'
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:91)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:438)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:414)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:367)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:349)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:332)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:250)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:251)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:384)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:385)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 59 common frames omitted
+[INFO ] [24-07-2024 16:09:48] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 37887 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:09:48] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:09:48] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:09:49] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:09:49] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:09:49] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 52 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:09:50] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:09:50] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:09:50] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:09:50] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:09:50] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:09:50] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:09:50] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1451 ms
+[INFO ] [24-07-2024 16:09:50] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:09:50] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:09:50] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:09:50] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:09:51] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:09:51] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[ERROR] [24-07-2024 16:09:52] [LocalContainerEntityManagerFactoryBean :: 426 ] - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+[WARN ] [24-07-2024 16:09:52] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+[INFO ] [24-07-2024 16:09:52] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:09:52] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:09:52] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 16:09:52] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 16:09:52] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1168)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:919)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 19 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateColumnType(AbstractSchemaValidator.java:167)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:151)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:76)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:204)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 23 common frames omitted
+[INFO ] [24-07-2024 16:12:03] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 38548 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:12:03] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:12:03] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:12:04] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:12:04] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:12:04] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:12:05] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:12:05] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:12:05] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:12:05] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:12:05] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:12:05] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:12:05] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1528 ms
+[INFO ] [24-07-2024 16:12:05] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:12:05] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:12:05] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:12:05] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:12:06] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:12:06] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[ERROR] [24-07-2024 16:12:06] [LocalContainerEntityManagerFactoryBean :: 426 ] - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+[WARN ] [24-07-2024 16:12:06] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+[INFO ] [24-07-2024 16:12:06] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:12:06] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:12:06] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 16:12:06] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 16:12:06] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1168)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:919)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 19 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateColumnType(AbstractSchemaValidator.java:167)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:151)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:76)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:204)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 23 common frames omitted
+[INFO ] [24-07-2024 16:12:38] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 38958 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:12:38] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:12:38] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:12:38] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:12:38] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:12:38] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 56 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:12:39] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:12:39] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:12:39] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:12:39] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:12:39] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:12:39] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:12:39] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1350 ms
+[INFO ] [24-07-2024 16:12:39] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:12:39] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:12:39] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:12:40] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:12:40] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:12:40] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[ERROR] [24-07-2024 16:12:40] [LocalContainerEntityManagerFactoryBean :: 426 ] - Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+[WARN ] [24-07-2024 16:12:40] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+[INFO ] [24-07-2024 16:12:40] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:12:40] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:12:40] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 16:12:40] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 16:12:40] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1168)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:919)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 19 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: wrong column type encountered in column [cli_fecha_creacion] in table [T_CLIENTE]; found [datetime (Types#TIMESTAMP)], but expecting [varchar(255) (Types#VARCHAR)]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateColumnType(AbstractSchemaValidator.java:167)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:151)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:97)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:76)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:204)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 23 common frames omitted
+[INFO ] [24-07-2024 16:13:37] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 39568 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:13:37] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:13:37] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:13:38] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:13:38] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:13:38] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:13:39] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:13:39] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:13:39] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:13:39] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:13:39] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:13:39] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:13:39] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1356 ms
+[INFO ] [24-07-2024 16:13:39] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:13:39] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:13:39] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:13:39] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:13:40] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:13:40] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:13:40] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:13:40] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:13:40] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productoImpl' defined in file [/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes/com/pe/kenpis/business/impl/ProductoImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productoRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+[INFO ] [24-07-2024 16:13:40] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:13:40] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:13:40] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:13:40] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 16:13:40] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 16:13:40] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productoImpl' defined in file [/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes/com/pe/kenpis/business/impl/ProductoImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productoRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productoRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 22 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:107)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:95)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:97)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:87)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:87)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:365)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:231)
+	at org.springframework.data.util.Lazy.get(Lazy.java:115)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 33 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:119)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:259)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:93)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:103)
+	... 55 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:91)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:438)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:414)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:367)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:349)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:332)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:250)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:251)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:384)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:385)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 59 common frames omitted
+[INFO ] [24-07-2024 16:14:39] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 40198 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:14:39] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:14:39] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:14:39] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:14:40] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:14:40] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 48 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:14:40] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:14:40] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:14:40] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:14:40] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:14:41] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:14:41] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:14:41] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1350 ms
+[INFO ] [24-07-2024 16:14:41] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:14:41] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:14:41] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:14:41] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:14:41] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:14:41] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:14:42] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:14:42] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:14:42] [AnnotationConfigServletWebServerApplicationContext :: 599 ] - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productoImpl' defined in file [/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes/com/pe/kenpis/business/impl/ProductoImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productoRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+[INFO ] [24-07-2024 16:14:42] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:14:42] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:14:42] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:14:42] [StandardService                :: 173 ] - Stopping service [Tomcat]
+[INFO ] [24-07-2024 16:14:42] [ConditionEvaluationReportLoggingListener :: 136 ] - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] [24-07-2024 16:14:42] [SpringApplication              :: 818 ] - Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'productoImpl' defined in file [/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes/com/pe/kenpis/business/impl/ProductoImpl.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productoRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:801)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:224)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:929)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'productoRepository' defined in com.pe.kenpis.repository.ProductoRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:911)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:788)
+	... 22 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String); Reason: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:107)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:95)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1921)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:97)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:87)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:87)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:365)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:231)
+	at org.springframework.data.util.Lazy.get(Lazy.java:115)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 33 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.pe.kenpis.repository.ProductoRepository.findAllByTipo(java.lang.String)! No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:119)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:259)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:93)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:103)
+	... 55 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property 'tipo' found for type 'ProductoEntity'
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:91)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:438)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:414)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:367)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:349)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:332)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:250)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:251)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:384)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:1006)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:385)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:96)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 59 common frames omitted
+[INFO ] [24-07-2024 16:16:05] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 40881 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:16:05] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:16:05] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:16:06] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:16:06] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:16:06] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 51 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:16:07] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:16:07] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:16:07] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:16:07] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:16:07] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:16:07] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:16:07] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1431 ms
+[INFO ] [24-07-2024 16:16:07] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:16:07] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:16:07] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:16:07] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:16:08] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:16:08] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:16:10] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:16:10] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:16:10] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 16:16:10] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@32d40099, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c170c24, org.springframework.security.web.context.SecurityContextPersistenceFilter@457d8612, org.springframework.security.web.header.HeaderWriterFilter@7db4c3ca, org.springframework.security.web.authentication.logout.LogoutFilter@55d812bc, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2dd160e1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5c8f39fb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66c2014, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d5a4462, org.springframework.security.web.session.SessionManagementFilter@550c9f6f, org.springframework.security.web.access.ExceptionTranslationFilter@2acced79, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@73e59606]
+[INFO ] [24-07-2024 16:16:10] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 16:16:10] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 16:16:10] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:16:10] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 16:16:10] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.213 seconds (JVM running for 5.773)
+[INFO ] [24-07-2024 16:17:07] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:17:07] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:17:07] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:17:27] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 41540 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:17:27] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:17:27] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:17:27] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:17:28] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:17:28] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:17:29] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:17:29] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:17:29] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:17:29] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:17:29] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:17:29] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:17:29] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1335 ms
+[INFO ] [24-07-2024 16:17:29] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:17:29] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:17:29] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:17:29] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:17:29] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:17:29] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:17:30] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:17:30] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:17:30] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 16:17:30] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6419b5f7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@656ead9, org.springframework.security.web.context.SecurityContextPersistenceFilter@371a45b6, org.springframework.security.web.header.HeaderWriterFilter@1919bda4, org.springframework.security.web.authentication.logout.LogoutFilter@2a61994b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7b1d8edb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28b96cbe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6dc2fa73, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b44334a, org.springframework.security.web.session.SessionManagementFilter@3025adc9, org.springframework.security.web.access.ExceptionTranslationFilter@31b47c6d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@68fbba3d]
+[INFO ] [24-07-2024 16:17:31] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 16:17:31] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 16:17:31] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:17:31] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 16:17:31] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.708 seconds (JVM running for 4.167)
+[INFO ] [24-07-2024 16:17:35] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:17:35] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:17:35] [DispatcherServlet              :: 547 ] - Completed initialization in 12 ms
+[WARN ] [24-07-2024 16:17:51] [PageNotFound                   :: 1283] - No mapping for GET /sys/dashboard
+[WARN ] [24-07-2024 16:17:51] [PageNotFound                   :: 1283] - No mapping for GET /favicon.ico
+[WARN ] [24-07-2024 16:21:24] [PageNotFound                   :: 1283] - No mapping for GET /sys/dashboard
+[INFO ] [24-07-2024 16:21:32] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:21:32] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:21:32] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:21:54] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 42350 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:21:54] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:21:54] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:21:54] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:21:54] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:21:54] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 51 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:21:55] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:21:55] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:21:55] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:21:55] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:21:55] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:21:55] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:21:55] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1322 ms
+[INFO ] [24-07-2024 16:21:55] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:21:55] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:21:55] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:21:55] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:21:56] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:21:56] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:21:56] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:21:56] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:21:57] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 16:21:57] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49e83d13, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36c204b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@7bcdae38, org.springframework.security.web.header.HeaderWriterFilter@29161949, org.springframework.security.web.authentication.logout.LogoutFilter@36a85523, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b684a11, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3151b470, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f2ca7f3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60001d7f, org.springframework.security.web.session.SessionManagementFilter@dd6a3dd, org.springframework.security.web.access.ExceptionTranslationFilter@2f1f7b86, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40badf]
+[INFO ] [24-07-2024 16:21:57] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 16:21:57] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 16:21:57] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:21:57] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 16:21:57] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.7 seconds (JVM running for 4.157)
+[INFO ] [24-07-2024 16:22:09] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:22:09] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:22:09] [DispatcherServlet              :: 547 ] - Completed initialization in 11 ms
+[DEBUG] [24-07-2024 16:22:10] [UsuarioImpl                    :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 16:22:10] [UsuarioImpl                    :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 16:22:14] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:22:14] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:22:19] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:22:19] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:22:30] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:22:30] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[INFO ] [24-07-2024 16:24:32] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:24:32] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:24:32] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:24:53] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 43030 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:24:53] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:24:53] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:24:53] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:24:53] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:24:53] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 49 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:24:54] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:24:54] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:24:54] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:24:54] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:24:54] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:24:54] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:24:54] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1301 ms
+[INFO ] [24-07-2024 16:24:54] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:24:54] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:24:54] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:24:55] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:24:55] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:24:55] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:24:55] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:24:55] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:24:56] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 16:24:56] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@49e83d13, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36c204b5, org.springframework.security.web.context.SecurityContextPersistenceFilter@7bcdae38, org.springframework.security.web.header.HeaderWriterFilter@29161949, org.springframework.security.web.authentication.logout.LogoutFilter@36a85523, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b684a11, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3151b470, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f2ca7f3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60001d7f, org.springframework.security.web.session.SessionManagementFilter@dd6a3dd, org.springframework.security.web.access.ExceptionTranslationFilter@2f1f7b86, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40badf]
+[INFO ] [24-07-2024 16:24:56] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 16:24:56] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 16:24:56] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:24:56] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 16:24:56] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.683 seconds (JVM running for 4.128)
+[INFO ] [24-07-2024 16:25:07] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:25:07] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:25:07] [DispatcherServlet              :: 547 ] - Completed initialization in 25 ms
+[DEBUG] [24-07-2024 16:25:16] [UsuarioImpl                    :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 16:25:16] [UsuarioImpl                    :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 16:25:19] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:25:19] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:25:22] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:25:22] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[INFO ] [24-07-2024 16:27:37] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:27:37] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:27:37] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 16:27:58] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 43702 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [24-07-2024 16:27:58] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 16:27:58] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 16:27:58] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 16:27:59] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 16:27:59] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+[INFO ] [24-07-2024 16:27:59] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 16:27:59] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:27:59] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 16:27:59] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 16:28:00] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 16:28:00] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 16:28:00] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1339 ms
+[INFO ] [24-07-2024 16:28:00] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 16:28:00] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 16:28:00] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 16:28:00] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 16:28:00] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 16:28:00] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 16:28:01] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 16:28:01] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 16:28:02] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 16:28:02] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14884399, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1089d5d1, org.springframework.security.web.context.SecurityContextPersistenceFilter@329800c0, org.springframework.security.web.header.HeaderWriterFilter@2f1f7b86, org.springframework.security.web.authentication.logout.LogoutFilter@645648ac, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5b989e26, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bcdae38, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4abc91cc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@49e83d13, org.springframework.security.web.session.SessionManagementFilter@29161949, org.springframework.security.web.access.ExceptionTranslationFilter@1d6f0e4e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@733303ff]
+[INFO ] [24-07-2024 16:28:02] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 16:28:03] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 16:28:03] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 16:28:03] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 16:28:03] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.967 seconds (JVM running for 5.41)
+[INFO ] [24-07-2024 16:28:23] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:28:23] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 16:28:23] [DispatcherServlet              :: 547 ] - Completed initialization in 11 ms
+[WARN ] [24-07-2024 16:28:24] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:28:24] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:28:37] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:28:37] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:28:46] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[WARN ] [24-07-2024 16:28:46] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[DEBUG] [24-07-2024 16:28:47] [UsuarioImpl                    :: 51  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [24-07-2024 16:28:47] [UsuarioImpl                    :: 45  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[WARN ] [24-07-2024 16:28:57] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/chorizo
+[WARN ] [24-07-2024 16:28:57] [PageNotFound                   :: 1283] - No mapping for GET /api/productos/tipo/bebida
+[INFO ] [24-07-2024 16:29:23] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 16:29:23] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 16:29:23] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.

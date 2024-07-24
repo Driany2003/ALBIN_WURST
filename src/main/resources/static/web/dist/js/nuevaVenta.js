@@ -32,9 +32,9 @@ $(document).ready(function () {
         const cantidadChorizosId = `cantidadChorizos-${Date.now()}`;
         $('#chorizos-container').append(`
             <div class="form-group">
-                <label for="${chorizoId}" class="control-label col-form-label">Elige tu Chorizo Fav</label>
+                <label for="${chorizoId}" class="control-label col-form-label">Sabor de Chorizo</label>
                 <select id="${chorizoId}" class="form-control form-control-sm chorizo-select">
-                    <option value="">Elige tu Chorizo Fav</option>
+                    <option value="">-- Seleccione --</option>
                 </select>
             </div>
             <div class="form-group">
@@ -50,9 +50,9 @@ $(document).ready(function () {
         const cantidadBebidasId = `cantidadBebidas-${Date.now()}`;
         $('#bebidas-container').append(`
             <div class="form-group">
-                <label for="${bebidaId}" class="control-label col-form-label">Elige tu Bebida Fav</label>
+                <label for="${bebidaId}" class="control-label col-form-label">Bebida</label>
                 <select id="${bebidaId}" class="form-control form-control-sm bebida-select">
-                    <option value="">Elige tu Bebida Fav</option>
+                    <option value="">-- Seleccione --</option>
                 </select>
             </div>
             <div class="form-group">
@@ -159,7 +159,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/sys/nueva-venta/registrar',
+            url: '/kenpis/venta/create',
             data: JSON.stringify(ventaData),
             contentType: 'application/json',
             success: function (response) {
@@ -178,7 +178,7 @@ $(document).ready(function () {
     function cargarDetallesDeVenta() {
         $.ajax({
             type: 'GET',
-            url: '/sys/nueva-venta/listar',
+            url: '/kenpis/venta/detalle/find-all',
             success: function (response) {
                 var detallesHtml = response.map(function (detalle) {
                     return '<tr>' +
@@ -197,18 +197,18 @@ $(document).ready(function () {
         });
     }
 
-    $('#celular').on('input', function () {
-        let celular = $(this).val();
+    $('#cliTelefono').on('input', function () {
+        let cliTel = $(this).val();
 
-        if (celular.length === 9) {
+        if (cliTel.length === 9) {
             $.ajax({
                 type: 'GET',
-                url: '/api/usuarios/verificar/' + celular,
+                url: '/api/usuarios/verificar/' + cliTel,
                 success: function (response) {
                     if (response) {
-                        $('#clientName').text(response.usuNombre);
+                        $('#clientName').text(response.cliNombre);
                         $('#clientInfoModal').modal('show');
-                        $('#nombreCliente').val(response.usuNombre);
+                        $('#nombreCliente').val(response.cliNombre);
                     } else {
                         $('#clientInfoModal').modal('hide');
                         $('#nombreCliente').val('');

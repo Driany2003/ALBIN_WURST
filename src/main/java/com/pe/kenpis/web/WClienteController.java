@@ -1,11 +1,8 @@
 package com.pe.kenpis.web;
 
 import com.pe.kenpis.business.IClienteService;
-import com.pe.kenpis.business.IUsuariosService;
-import com.pe.kenpis.model.api.usuario.UsuarioRequest;
-import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.cliente.ClienteRequest;
-import com.pe.kenpis.model.api.usuario.cliente.ClientesResponse;
+import com.pe.kenpis.model.api.usuario.cliente.ClienteResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,21 +10,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value = "/sys/nueva-venta")
+@RequestMapping(value = "/kenpis/cliente/")
 public class WClienteController {
   @Autowired
   private IClienteService clienteService;
 
 
-  @GetMapping("/verificar-cliente/{celular}")
-  public ResponseEntity<ClientesResponse> verifyUser(@PathVariable String celular) {
-    ClientesResponse user = clienteService.findByCliTelefono(celular);
+  @GetMapping("/find-by-phone/{phone}")
+  public ResponseEntity<ClienteResponse> findByPhone(@PathVariable String phone) {
+    ClienteResponse user = clienteService.findByCliTelefono(phone);
     return ResponseEntity.ok(user);
   }
 
-  @PostMapping("/registrar-cliente")
-  public ResponseEntity<ClientesResponse> registerCliente(@RequestBody ClienteRequest clienteRequest) {
-    boolean success = clienteService.registrarCliente(clienteRequest);
+  @PostMapping("/create")
+  public ResponseEntity<ClienteResponse> create(@RequestBody ClienteRequest request) {
+    boolean success = clienteService.registrarCliente(request);
     if (success) {
       return ResponseEntity.status(HttpStatus.CREATED).build();
     } else {
