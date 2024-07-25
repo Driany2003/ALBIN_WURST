@@ -146,12 +146,12 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="tipoChorizo" class="form-control form-control-sm chorizo-select">
+                                                <select id="tipoChorizo" class="form-control form-control-sm tipo-chorizo-select">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="chorizo" class="form-control form-control-sm chorizo-select">
+                                                <select id="chorizo" class="form-control form-control-sm categoria-chorizo-select">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
@@ -182,12 +182,12 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="tipoBebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la presentación">
+                                                <select id="tipoBebida" class="form-control form-control-sm tipo-bebida-select" data-placeholder="Elige tu bebida">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="bebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la bebida">
+                                                <select id="bebida" class="form-control form-control-sm categoria-bebida-select" data-placeholder="Elige el sabor">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>

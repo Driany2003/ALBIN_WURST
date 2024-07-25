@@ -76,55 +76,38 @@ $(document).ready(function () {
 
     // Guardar el pedido
     $('#guardarPedido').click(function () {
-        alert("entradndo a guardar pedido");
+        alert("Dentro de guardar pedido");
         detallesVenta = [];
 
-        $('.chorizo-select').each(function () {
-            var chorizoData = $(this).val();
-            alert("entradndo a guardar pedido" + chorizoData);
-            if (chorizoData) {
-                var chorizo = $(this).find('option:selected').text();
-                alert("chorizo" + chorizo);
-                var cantidadChorizos = $(this).closest('.form-group').next().find('cantidad-bebida').val();
-                alert("cantidad chorizo" + cantidadChorizos);
-                var precioChorizo = $(this).find('option:selected').data('precio');
-                alert("precio chorizo" + precioChorizo);
-                if (cantidadChorizos > 0) {
-                    var subtotalChorizo = cantidadChorizos * precioChorizo;
-                    detallesVenta.push({
-                        producto: chorizo,
-                        venDetCantidad: cantidadChorizos,
-                        venDetSubtotal: subtotalChorizo.toFixed(2),
-                        venDetPrecio: precioChorizo.toFixed(2)
-                    });
-                }
-            }
-        });
+        var chorizo = $('.categoria-chorizo-select').find('option:selected').text();
+        var precioChorizo = $('.categoria-chorizo-select').find('option:selected').data('precio');
+        var cantidadChorizos = $('#cantidadChorizos').val();
+        alert("Detalle Chorizos :: " + chorizo + " - " + cantidadChorizos + " - " + precioChorizo);
+        if (cantidadChorizos > 0) {
+            var subtotalChorizo = cantidadChorizos * precioChorizo;
+            detallesVenta.push({
+                producto: chorizo,
+                venDetCantidad: cantidadChorizos,
+                venDetSubtotal: subtotalChorizo.toFixed(2),
+                venDetPrecio: precioChorizo.toFixed(2)
+            });
+        }
 
-        $('.bebida-select').each(function () {
-            var bebidaData = $(this).val();
-            alert("entradndo a guardar pedido" + bebidaData);
-            if (bebidaData) {
-                var bebida = $(this).find('option:selected').text();
-                alert("bebida" + bebida);
-                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidadBebidas').val();
-                alert("cantidad bebidas" + cantidadBebidas);
-                var precioBebida = $(this).find('option:selected').data('precio');
-                alert("precio bebida" + precioBebida);
-                if (cantidadBebidas > 0) {
-                    var subtotalBebida = cantidadBebidas * precioBebida;
-                    detallesVenta.push({
-                        producto: bebida,
-                        venDetCantidad: cantidadBebidas,
-                        venDetSubtotal: subtotalBebida.toFixed(2),
-                        venDetPrecio: precioBebida.toFixed(2)
-                    });
-                }
-            }
-        });
+        var bebida = $('.categoria-bebida-select').find('option:selected').text();
+        var precioBebida = $('.categoria-bebida-select').find('option:selected').data('precio');
+        var cantidadBebidas = $('#cantidadBebidas').val();
+        alert("Detalle Bebidas :: " + bebida + " - " + cantidadBebidas + " - " + precioBebida);
+        if (cantidadBebidas > 0) {
+            var subtotalBebida = cantidadBebidas * precioBebida;
+            detallesVenta.push({
+                producto: bebida,
+                venDetCantidad: cantidadBebidas,
+                venDetSubtotal: subtotalBebida.toFixed(2),
+                venDetPrecio: precioBebida.toFixed(2)
+            });
+        }
 
         var detallesHtml = detallesVenta.map(function (detalle) {
-
             return '<tr>' +
                 '<td>' + detalle.producto + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
@@ -133,7 +116,7 @@ $(document).ready(function () {
                 '</tr>';
 
         }).join('');
-alert(detallesHtml);
+
         $('#ventasBody').append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
@@ -175,7 +158,7 @@ alert(detallesHtml);
     });
 
 
-    $('#registrarCliente').click(function() {
+    $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
         var correo = $('#cliCorreoPopap').val();
