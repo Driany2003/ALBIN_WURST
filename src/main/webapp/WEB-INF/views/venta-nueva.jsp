@@ -27,7 +27,6 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
         <div class="container-fluid">
@@ -85,7 +84,7 @@
                             <table id="ventasTable" class="table table-sm table-bordered table-striped">
                                 <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">PRODUCTOS</th>
+                                    <th scope="col">PRODUCTO</th>
                                     <th scope="col">CANTIDAD</th>
                                     <th scope="col">PRECIO</th>
                                     <th scope="col">TOTAL</th>
