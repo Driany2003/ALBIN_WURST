@@ -13,9 +13,9 @@ public class WMenuController {
     return "venta-nueva";
   }
 
-  @RequestMapping(value = {"/venta/historial"}, method = RequestMethod.GET)
+  @RequestMapping(value = {"/venta/reporte"}, method = RequestMethod.GET)
   public String menuVentaHistorial() {
-    return "venta-historial";
+    return "venta-reporte";
   }
 
   @RequestMapping(value = {"/venta/nueva/usuario"}, method = RequestMethod.GET)

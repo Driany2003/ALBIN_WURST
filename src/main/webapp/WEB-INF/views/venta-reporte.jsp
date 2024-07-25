@@ -36,7 +36,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 align-self-center">
-                    <h4 class="page-title">HISTORIAL <span class="label label-rounded label-info">Listado</span></h4>
+                    <h4 class="page-title">REPORTE <span class="label label-rounded label-info">Ventas</span></h4>
                 </div>
             </div>
         </div>
