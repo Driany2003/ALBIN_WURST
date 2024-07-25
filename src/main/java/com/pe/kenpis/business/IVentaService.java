@@ -12,7 +12,7 @@ public interface IVentaService {
 
   List<VentaResponse> findAll();
 
-  VentaResponse create(VentaRequest ventaRequest);
+  VentaResponse create(VentaRequest ventaRequest) throws Exception;
 
   List<VentaDetalleResponse> obtenerDetallesDeVenta();
 

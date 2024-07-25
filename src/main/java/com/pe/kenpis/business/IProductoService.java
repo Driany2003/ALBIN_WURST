@@ -19,6 +19,7 @@ public interface IProductoService {
   List<ProductoResponse> findAll();
 
   List<String> findAllCategories();
+
   List<ProductoResponse> findAllByProCategoria(String categoria);
 
 }

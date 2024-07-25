@@ -45,10 +45,12 @@ public class Constantes {
     String SOPORTE = "SOPORTE";
   }
 
-  public interface TIPO_INTERES {
-    String NUEVO = "Nuevo";
-    String DESCARTADO = "Descartado";
-    String ES_EJECUTIVO = "Es Ejecutivo";
+  public interface VENTA_ESTADO {
+    String REGISTRADO = "REGISTRADO";
+    String PAGADO = "PAGADO";
+    String EN_PROCESO = "EN_PROCESO";
+    String ATENDIDO = "ATENDIDO";
+    String DESCARTADO = "DESCARTADO";
   }
 
   public interface HORA_TRABAJO {

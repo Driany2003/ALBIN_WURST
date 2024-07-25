@@ -9,10 +9,14 @@ import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.VentaDetalleEntity;
 import com.pe.kenpis.model.entity.VentaEntity;
+import com.pe.kenpis.model.entity.VentaEstadoEntity;
 import com.pe.kenpis.repository.ProductoRepository;
 import com.pe.kenpis.repository.VentaDetalleRepository;
+import com.pe.kenpis.repository.VentaEstadoRepository;
 import com.pe.kenpis.repository.VentaRepository;
+import com.pe.kenpis.util.funciones.DateUtil;
 import com.pe.kenpis.util.funciones.FxComunes;
+import com.pe.kenpis.util.variables.Constantes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -32,6 +36,7 @@ public class VentaImpl implements IVentaService {
   private final VentaRepository ventaRepository;
   private final ProductoRepository productoRepository;
   private final VentaDetalleRepository detalleVentaRepository;
+  private final VentaEstadoRepository ventaEstadoRepository;
 
   @Override
   public VentaResponse findById(Integer venId) {
@@ -47,7 +52,7 @@ public class VentaImpl implements IVentaService {
     return ventasList.stream().map(this::convertVentasEntityToResponse).collect(Collectors.toList());
   }
 
-  public VentaResponse create(VentaRequest ventaRequest) {
+  public VentaResponse create(VentaRequest ventaRequest) throws Exception {
     FxComunes.printJson("VentaRequest", ventaRequest);
 
     VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
@@ -71,14 +76,14 @@ public class VentaImpl implements IVentaService {
     // Guardar todos los detalles de la venta
     detalleVentaRepository.saveAll(detallesVentas);
 
-
+    VentaEstadoEntity ventaEstadoEntity = new VentaEstadoEntity();
+    ventaEstadoEntity.setVentaId(ventaGuardada.getVenId());
+    ventaEstadoEntity.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
+    ventaEstadoEntity.setVenEstadoFechaRegistrado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+    ventaEstadoRepository.save(ventaEstadoEntity);
 
     // Preparar la respuesta
-    VentaResponse response = new VentaResponse();
-    response.setVenId(ventaGuardada.getVenId());
-    response.setVenTotal(ventaGuardada.getVenTotal());
-    response.setDetallesVentas(detallesVentas.stream().map(detalle -> new VentaDetalleResponse(detalle.getProductoId(), detalle.getVenDetCantidad(), detalle.getVenDetPrecio(), detalle.getVenDetSubtotal())).collect(Collectors.toList()));
-
+    VentaResponse response = convertVentasEntityToResponse(ventaGuardada);
     return response;
   }
 

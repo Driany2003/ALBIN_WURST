@@ -19,5 +19,6 @@ public class VentaEstadoRequest {
   private Date venEstadoFechaPagado;
   private Date venEstadoFechaEnProceso;
   private Date venEstadoFechaAtendido;
+  private Date venEstadoFechaDescartado;
 
 }
