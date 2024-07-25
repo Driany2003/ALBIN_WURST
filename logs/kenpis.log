@@ -6379,3 +6379,153 @@ java.lang.NullPointerException: null
 [INFO ] [25-07-2024 05:21:35] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [25-07-2024 05:21:35] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [25-07-2024 05:21:35] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [25-07-2024 05:30:34] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 26940 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [25-07-2024 05:30:34] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-07-2024 05:30:34] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-07-2024 05:30:35] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-07-2024 05:30:35] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-07-2024 05:30:35] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 72 ms. Found 9 JPA repository interfaces.
+[INFO ] [25-07-2024 05:30:36] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-07-2024 05:30:36] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-07-2024 05:30:36] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-07-2024 05:30:36] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-07-2024 05:30:36] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-07-2024 05:30:36] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-07-2024 05:30:36] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1578 ms
+[INFO ] [25-07-2024 05:30:36] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-07-2024 05:30:36] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-07-2024 05:30:36] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-07-2024 05:30:37] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-07-2024 05:30:37] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-07-2024 05:30:37] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-07-2024 05:30:38] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-07-2024 05:30:38] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [25-07-2024 05:30:38] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [25-07-2024 05:30:38] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6a243cdd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1da0bdfe, org.springframework.security.web.context.SecurityContextPersistenceFilter@2d765034, org.springframework.security.web.header.HeaderWriterFilter@473d405, org.springframework.security.web.authentication.logout.LogoutFilter@5b76d1ce, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1296c00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@aab2acc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27df3f4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@28d1a29, org.springframework.security.web.session.SessionManagementFilter@25615901, org.springframework.security.web.access.ExceptionTranslationFilter@1b096a4e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b04a413]
+[INFO ] [25-07-2024 05:30:38] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-07-2024 05:30:39] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-07-2024 05:30:39] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-07-2024 05:30:39] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-07-2024 05:30:39] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.716 seconds (JVM running for 5.188)
+[INFO ] [25-07-2024 05:30:40] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-07-2024 05:30:40] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-07-2024 05:30:40] [DispatcherServlet              :: 547 ] - Completed initialization in 0 ms
+[DEBUG] [25-07-2024 05:30:40] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:30:40] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:30:40] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:30:40] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:30:40] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:30:40] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [25-07-2024 05:31:09] [FxComunes                      :: 67  ] - VentaRequest{"detallesVentas":[{"producto":null,"venDetId":null,"venDetCantidad":2,"venDetSubtotal":20.0,"ventaId":null,"productoId":8,"venDetPrecio":10.0},{"producto":null,"venDetId":null,"venDetCantidad":1,"venDetSubtotal":2.0,"ventaId":null,"productoId":3,"venDetPrecio":2.0}],"venId":null,"venFecha":null,"venTotal":12.0,"empresaId":1,"clienteId":8,"venTipoPago":"YAPE","usuarioId":2}
+[INFO ] [25-07-2024 05:31:09] [FxComunes                      :: 67  ] - VentaRequest{"detallesVentas":[{"producto":null,"venDetId":null,"venDetCantidad":2,"venDetSubtotal":20.0,"ventaId":null,"productoId":8,"venDetPrecio":10.0},{"producto":null,"venDetId":null,"venDetCantidad":1,"venDetSubtotal":2.0,"ventaId":null,"productoId":3,"venDetPrecio":2.0}],"venId":null,"venFecha":null,"venTotal":12.0,"empresaId":1,"clienteId":8,"venTipoPago":"YAPE","usuarioId":2}
+[INFO ] [25-07-2024 05:31:09] [FxComunes                      :: 67  ] - VentaEntity{"venId":78,"venFecha":1721903469048,"venTotal":12.0,"empresaId":1,"clienteId":8,"venTipoPago":"YAPE","usuarioId":2}
+[INFO ] [25-07-2024 05:31:09] [FxComunes                      :: 67  ] - VentaDetalleEntity[{"venDetId":null,"ventaId":78,"productoId":8,"venDetCantidad":2,"venDetSubtotal":20.0,"venDetPrecio":10.0},{"venDetId":null,"ventaId":78,"productoId":3,"venDetCantidad":1,"venDetSubtotal":2.0,"venDetPrecio":2.0}]
+[DEBUG] [25-07-2024 05:31:44] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:31:44] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:31:44] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:31:44] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:31:44] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:31:44] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:38:58] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:38:59] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:38:59] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:38:59] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:38:59] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:38:59] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:39:05] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:39:05] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:39:05] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:39:05] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:39:05] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:39:05] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:39:07] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:39:07] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:39:07] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:39:08] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:39:08] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:39:08] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:39:10] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:39:10] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:39:10] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:39:10] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:39:10] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:39:10] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:39:14] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:39:14] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:39:14] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:39:14] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:39:14] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:39:14] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [25-07-2024 05:39:17] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-07-2024 05:39:17] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-07-2024 05:39:17] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [25-07-2024 05:40:31] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 10064 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [25-07-2024 05:40:31] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-07-2024 05:40:31] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-07-2024 05:40:31] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-07-2024 05:40:32] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-07-2024 05:40:32] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 77 ms. Found 9 JPA repository interfaces.
+[INFO ] [25-07-2024 05:40:33] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-07-2024 05:40:33] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-07-2024 05:40:33] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-07-2024 05:40:33] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-07-2024 05:40:33] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-07-2024 05:40:33] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-07-2024 05:40:33] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1746 ms
+[INFO ] [25-07-2024 05:40:33] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-07-2024 05:40:33] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-07-2024 05:40:33] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-07-2024 05:40:34] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-07-2024 05:40:34] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-07-2024 05:40:34] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-07-2024 05:40:35] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-07-2024 05:40:35] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [25-07-2024 05:40:35] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [25-07-2024 05:40:35] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@43143836, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@753f42c7, org.springframework.security.web.context.SecurityContextPersistenceFilter@40021f7e, org.springframework.security.web.header.HeaderWriterFilter@1bd422e2, org.springframework.security.web.authentication.logout.LogoutFilter@3d13f700, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a764fda, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54f89fce, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f0adca, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1d44265a, org.springframework.security.web.session.SessionManagementFilter@5add67d2, org.springframework.security.web.access.ExceptionTranslationFilter@7f89323b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ea6d45f]
+[INFO ] [25-07-2024 05:40:35] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-07-2024 05:40:36] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-07-2024 05:40:36] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-07-2024 05:40:36] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-07-2024 05:40:36] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.06 seconds (JVM running for 5.574)
+[INFO ] [25-07-2024 05:40:38] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-07-2024 05:40:38] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-07-2024 05:40:38] [DispatcherServlet              :: 547 ] - Completed initialization in 0 ms
+[DEBUG] [25-07-2024 05:40:38] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:40:38] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:40:38] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:40:38] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:40:38] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:40:38] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:40:44] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:40:44] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:40:44] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:40:44] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:40:44] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:40:44] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:41:05] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:41:05] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:41:05] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:41:05] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:41:05] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:41:05] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:41:17] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:41:17] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:41:17] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:41:17] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:41:17] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:41:17] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:41:47] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:41:47] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:41:47] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:41:47] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:41:47] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:41:47] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 05:42:37] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 05:42:37] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 05:42:37] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 05:42:37] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 05:42:37] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 05:42:37] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [25-07-2024 05:59:18] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-07-2024 05:59:19] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-07-2024 05:59:19] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.

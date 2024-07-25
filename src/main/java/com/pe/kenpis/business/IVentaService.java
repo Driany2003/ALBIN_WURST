@@ -16,4 +16,6 @@ public interface IVentaService {
 
   List<VentaDetalleResponse> obtenerDetallesDeVenta();
 
+
+
 }

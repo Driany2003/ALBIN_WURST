@@ -9,8 +9,10 @@ import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.VentaDetalleEntity;
 import com.pe.kenpis.model.entity.VentaEntity;
+import com.pe.kenpis.model.entity.VentaEstadoEntity;
 import com.pe.kenpis.repository.ProductoRepository;
 import com.pe.kenpis.repository.VentaDetalleRepository;
+import com.pe.kenpis.repository.VentaEstadoRepository;
 import com.pe.kenpis.repository.VentaRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +34,7 @@ public class VentaImpl implements IVentaService {
   private final VentaRepository ventaRepository;
   private final ProductoRepository productoRepository;
   private final VentaDetalleRepository detalleVentaRepository;
+  private final VentaEstadoRepository ventaEstadoRepository;
 
   @Override
   public VentaResponse findById(Integer venId) {
@@ -71,7 +74,12 @@ public class VentaImpl implements IVentaService {
     // Guardar todos los detalles de la venta
     detalleVentaRepository.saveAll(detallesVentas);
 
-
+    // Crear y guardar el estado inicial
+    VentaEstadoEntity estadoInicial = new VentaEstadoEntity();
+    estadoInicial.setVentaId(ventaGuardada.getVenId());
+    estadoInicial.setVenEstado("Registrado");
+    estadoInicial.setVenEstadoFechaRegistrado(new Date());
+    ventaEstadoRepository.save(estadoInicial);
 
     // Preparar la respuesta
     VentaResponse response = new VentaResponse();
@@ -94,6 +102,16 @@ public class VentaImpl implements IVentaService {
       return new VentaDetalleResponse(productoResponse, detalle.getVenDetId(), detalle.getVenDetCantidad(), detalle.getVenDetSubtotal(), detalle.getVentaId());
     }).collect(Collectors.toList());
   }
+
+
+
+
+
+
+
+
+
+
 
   private VentaEntity convertVentasRequestToEntity(VentaRequest request) {
     VentaEntity entity = new VentaEntity();

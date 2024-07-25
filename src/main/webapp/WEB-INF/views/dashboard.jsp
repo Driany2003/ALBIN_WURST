@@ -60,7 +60,7 @@
                                     <p class="font-16 m-b-5">Registrado</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 class="font-light text-right mb-0">23</h1>
+                                    <h1 class="font-light text-right mb-0">${registrados}</h1>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +75,7 @@
                                     <p class="font-16 m-b-5">Pagados</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 class="font-light text-right mb-0">169</h1>
+                                    <h1 class="font-light text-right mb-0">${pagados}</h1>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                                     <p class="font-16 m-b-5">En proceso</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 class="font-light text-right mb-0">157</h1>
+                                    <h1 class="font-light text-right mb-0">${enProceso}</h1>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                     <p class="font-16 m-b-5">Atendido</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 class="font-light text-right mb-0">236</h1>
+                                    <h1 class="font-light text-right mb-0">${atendidos}</h1>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,6 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-
                                     <td class="txt-oflo">Risk</td>
                                     <td class="txt-oflo">Natalia</td>
                                     <td class="txt-oflo">2</td>
@@ -149,7 +148,6 @@
                                     <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
                                 </tr>
                                 <tr>
-
                                     <td class="txt-oflo">Construye Experto</td>
                                     <td class="txt-oflo">Patricia</td>
                                     <td class="txt-oflo">2</td>
@@ -158,7 +156,6 @@
                                     <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
                                 </tr>
                                 <tr>
-
                                     <td class="txt-oflo">Pentagono</td>
                                     <td class="txt-oflo">Luis</td>
                                     <td class="txt-oflo">3</td>
@@ -167,12 +164,11 @@
                                     <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
                                 </tr>
                                 <tr>
-
-                                    <td class="txt-oflo">Gestiona</td>
-                                    <td class="txt-oflo">Sabrina</td>
+                                    <td class="txt-oflo">Oculus</td>
+                                    <td class="txt-oflo">Walter</td>
+                                    <td class="txt-oflo">1</td>
                                     <td class="txt-oflo">3</td>
-                                    <td class="txt-oflo">6</td>
-                                    <td><span class="label label-red label-rounded">Sin registro</span></td>
+                                    <td><span class="label label-success label-rounded">Pagado</span></td>
                                     <td class="txt-oflo"><a href="/okr/detalle"><img height="20%" width="20%" src="/static/web/assets/images/quote.png"></a></td>
                                 </tr>
                                 </tbody>
@@ -180,6 +176,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- column -->
             </div>
         </div>
         <!-- ============================================================== -->
@@ -197,6 +194,15 @@
     <!-- End Page wrapper  -->
     <!-- ============================================================== -->
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<!--  modal: NUEVA VENTA -->
+<script src="/static/web/dist/js/funciones/dashboard.js"></script>
 <!-- ============================================================== -->
 <!-- End Wrapper -->
 <!-- ============================================================== -->
