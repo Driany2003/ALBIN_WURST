@@ -44,7 +44,6 @@ $(document).ready(function () {
             success: function (productos) {
                 var productoSelect = (categoria === 'Bebida') ? $('#bebida') : $('#chorizo');
                 productoSelect.empty().append('<option value="">-- Seleccione --</option>');
-
                 productos.forEach(function (producto) {
                     productoSelect.append('<option value="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' + producto.proTipo + '</option>');
                 });
@@ -52,62 +51,16 @@ $(document).ready(function () {
         });
     }
 
-    // Añadir un nuevo chorizo
-    $('#addChorizo').click(function () {
-        const chorizoId = `chorizo-${Date.now()}`;
-        const cantidadChorizosId = `cantidadChorizos-${Date.now()}`;
-        const precioChorizoId = `precioChorizo-${Date.now()}`;
-        $('#chorizos-container').append(`
-            <div class="form-group">
-                <label for="${chorizoId}" class="form-label">Sabor de Chorizo</label>
-                <select id="${chorizoId}" class="form-select form-select-sm chorizo-select">
-                    <option value="">-- Seleccione --</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="${precioChorizoId}">Precio</label>
-                <input id="${precioChorizoId}" type="text" class="form-control form-control-sm precio-chorizo" placeholder="Precio">
-            </div>
-            <div class="form-group">
-                <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
-                <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
-            </div>
-        `);
-        cargarProductos('Chorizo', chorizoId);
-
-        $(document).on('change', `#${chorizoId}`, function () {
-            var precio = $(this).find('option:selected').data('precio');
-            $(`#${precioChorizoId}`).val(precio);
-        });
+    // Cuando cambia la categoría de chorizo
+    $('#chorizo').change(function () {
+        var precio = $(this).find('option:selected').data('precio');
+        $('#precioChorizo').val(precio);
     });
 
-    // Añadir una nueva bebida
-    $('#addBebida').click(function () {
-        const bebidaId = `bebida-${Date.now()}`;
-        const cantidadBebidasId = `cantidadBebidas-${Date.now()}`;
-        const precioBebidaId = `precioBebida-${Date.now()}`;
-        $('#bebidas-container').append(`
-            <div class="form-group">
-                <label for="${bebidaId}" class="form-label">Bebida</label>
-                <select id="${bebidaId}" class="form-select form-select-sm bebida-select">
-                    <option value="">-- Seleccione --</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="${precioBebidaId}">Precio</label>
-                <input id="${precioBebidaId}" type="text" class="form-control form-control-sm precio-bebida" placeholder="Precio" readonly>
-            </div>
-            <div class="form-group">
-                <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
-                <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
-            </div>
-        `);
-        cargarProductos('Bebida', bebidaId);
-
-        $(document).on('change', `#${bebidaId}`, function () {
-            var precio = $(this).find('option:selected').data('precio');
-            $(`#${precioBebidaId}`).val(precio);
-        });
+    // Cuando cambia la categoría de chorizo
+    $('#bebida').change(function () {
+        var precio = $(this).find('option:selected').data('precio');
+        $('#precioBebida').val(precio);
     });
 
     function actualizarTotal() {
@@ -123,14 +76,19 @@ $(document).ready(function () {
 
     // Guardar el pedido
     $('#guardarPedido').click(function () {
+        alert("entradndo a guardar pedido");
         detallesVenta = [];
 
         $('.chorizo-select').each(function () {
             var chorizoData = $(this).val();
+            alert("entradndo a guardar pedido" + chorizoData);
             if (chorizoData) {
                 var chorizo = $(this).find('option:selected').text();
-                var cantidadChorizos = $(this).closest('.form-group').next().find('.cantidad-chorizo').val();
+                alert("chorizo" + chorizo);
+                var cantidadChorizos = $(this).closest('.form-group').next().find('cantidad-bebida').val();
+                alert("cantidad chorizo" + cantidadChorizos);
                 var precioChorizo = $(this).find('option:selected').data('precio');
+                alert("precio chorizo" + precioChorizo);
                 if (cantidadChorizos > 0) {
                     var subtotalChorizo = cantidadChorizos * precioChorizo;
                     detallesVenta.push({
@@ -145,10 +103,14 @@ $(document).ready(function () {
 
         $('.bebida-select').each(function () {
             var bebidaData = $(this).val();
+            alert("entradndo a guardar pedido" + bebidaData);
             if (bebidaData) {
                 var bebida = $(this).find('option:selected').text();
-                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidad-bebida').val();
+                alert("bebida" + bebida);
+                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidadBebidas').val();
+                alert("cantidad bebidas" + cantidadBebidas);
                 var precioBebida = $(this).find('option:selected').data('precio');
+                alert("precio bebida" + precioBebida);
                 if (cantidadBebidas > 0) {
                     var subtotalBebida = cantidadBebidas * precioBebida;
                     detallesVenta.push({
@@ -162,14 +124,16 @@ $(document).ready(function () {
         });
 
         var detallesHtml = detallesVenta.map(function (detalle) {
+
             return '<tr>' +
                 '<td>' + detalle.producto + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
                 '<td>S/ ' + detalle.venDetPrecio + '</td>' +
                 '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
                 '</tr>';
-        }).join('');
 
+        }).join('');
+alert(detallesHtml);
         $('#ventasBody').append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();

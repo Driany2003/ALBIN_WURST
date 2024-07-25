@@ -94,6 +94,7 @@
                                 </tr>
                                 </thead>
                                 <tbody id="ventasBody">
+
                                 </tbody>
                                 <tfoot>
                                 <tr>
@@ -155,7 +156,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <input id="precioChorizo" type="number" class="form-control form-control-sm precio-chorizo" min="1">
+                                                <input id="precioChorizo" type="number" class="form-control form-control-sm precio-chorizo" min="1" disabled>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <input id="cantidadChorizos" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
@@ -173,7 +174,7 @@
                                                 <label for="bebida" class="control-label col-form-label">Bebida</label>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <label for="precioBebida" class="control-label col-form-label" disabled>Precio</label>
+                                                <label for="precioBebida" class="control-label col-form-label" readonly>Precio</label>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <label for="cantidadBebidas">Cantidad</label>
@@ -191,7 +192,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <input id="precioBebida" type="number" class="form-control form-control-sm precio-bebida" min="1">
+                                                <input id="precioBebida" type="number" class="form-control form-control-sm precio-bebida" min="1" readonly>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <input id="cantidadBebidas" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
