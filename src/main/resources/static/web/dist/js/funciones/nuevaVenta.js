@@ -221,14 +221,21 @@ $(document).ready(function () {
                 url: '/kenpis/cliente/find-by-telefono/' + telefono,
                 method: 'GET',
                 success: function (response) {
-                    if (response) {
+                    //alert('Cliente ID : ' + response.cliId);
+                    if (response.cliId != null) {
                         $('#cliNombre').val(response.cliNombre);
                         $('#cliNombre').prop('disabled', true);
                     } else {
+<<<<<<< HEAD
                         console.log("hola");
                         $('#registrarCliente').show();
                         $('#cliNombre').val('');
                         $('#cliNombre').prop('disabled', true);
+=======
+                        $('#registrarCliente').show();
+                        $('#cliNombre').val('');
+                        $('#cliNombre').prop('disabled', false);
+>>>>>>> 2baeb7a85d196e153dc5fa6c5a3ffcbf469fe1cb
                         $('#cliTelefonoNoRegistrado').val(telefono);
                         $('#clienteModal').modal('show'); // Mostrar el modal
                     }
