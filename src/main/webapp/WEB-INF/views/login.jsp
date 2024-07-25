@@ -18,9 +18,8 @@
             <div class="logo">
                 <span class="db"><img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Kenpis"/></span>
                 <br>
-                <br>
-                <h5 class="font-medium m-b-20">KENPIS</h5>
-                <h5 class="font-10 m-b-20">VENDE SIMPLE Y GANA MÁS</h5>
+                <h1 class="font-medium m-b-10">KENPIS</h1>
+                <h3 class="font-10 m-b-5">VENDE SIMPLE Y GANA MÁS</h3>
             </div>
             <!-- Form -->
             <div class="row">
