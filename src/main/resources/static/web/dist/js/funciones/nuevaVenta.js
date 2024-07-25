@@ -94,15 +94,23 @@ $(document).ready(function () {
         totalPagar = 0;
         // Itera sobre cada fila en el cuerpo de la tabla de ventas
         $('#ventasBody tr').each(function () {
+<<<<<<< HEAD:src/main/resources/static/web/dist/js/nuevaVenta.js
             const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.'));
+=======
+            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.').replace(',', '.'));
+            alert(subtotal);
+>>>>>>> 6c185e3f443134489d5a391b01de6693318421dc:src/main/resources/static/web/dist/js/funciones/nuevaVenta.js
             if (!isNaN(subtotal)) {
                 totalPagar += subtotal;
             }
         });
-
-        $('#totalPagar').text('S/.' + totalPagar.toFixed(2));
+        $('#totalPagar').text('S/' + totalPagar.toFixed(2));
     }
 
+<<<<<<< HEAD:src/main/resources/static/web/dist/js/nuevaVenta.js
+=======
+
+>>>>>>> 6c185e3f443134489d5a391b01de6693318421dc:src/main/resources/static/web/dist/js/funciones/nuevaVenta.js
     // Guardar el pedido
     $('#guardarPedido').click(function () {
         detallesVenta = [];

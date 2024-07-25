@@ -227,7 +227,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- PARA MODAL -->
     <!--  modal: NUEVA VENTA -->
-    <script src="/static/web/dist/js/nuevaVenta.js"></script>
+    <script src="/static/web/dist/js/funciones/nuevaVenta.js"></script>
     <style>
         .card {
             margin-top: 10px;
