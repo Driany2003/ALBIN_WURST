@@ -1109,6 +1109,7 @@ com.microsoft.sqlserver.jdbc.SQLServerException: Cannot insert the value NULL in
 [INFO ] [25-07-2024 02:28:02] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [25-07-2024 02:28:02] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [25-07-2024 02:28:02] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+<<<<<<< Updated upstream
 [INFO ] [25-07-2024 02:32:23] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 17148 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
 [DEBUG] [25-07-2024 02:32:23] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
 [INFO ] [25-07-2024 02:32:23] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
@@ -1181,3 +1182,53 @@ com.microsoft.sqlserver.jdbc.SQLServerException: Cannot insert the value NULL in
 [INFO ] [25-07-2024 02:36:00] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [25-07-2024 02:36:00] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [25-07-2024 02:36:00] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+=======
+[INFO ] [25-07-2024 02:31:59] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 75820 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [25-07-2024 02:31:59] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-07-2024 02:31:59] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-07-2024 02:31:59] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-07-2024 02:31:59] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-07-2024 02:31:59] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 65 ms. Found 9 JPA repository interfaces.
+[INFO ] [25-07-2024 02:32:00] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-07-2024 02:32:00] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-07-2024 02:32:00] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-07-2024 02:32:00] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-07-2024 02:32:00] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-07-2024 02:32:00] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-07-2024 02:32:00] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1445 ms
+[INFO ] [25-07-2024 02:32:01] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-07-2024 02:32:01] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-07-2024 02:32:01] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-07-2024 02:32:01] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-07-2024 02:32:01] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-07-2024 02:32:01] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-07-2024 02:32:02] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-07-2024 02:32:02] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [25-07-2024 02:32:02] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [25-07-2024 02:32:02] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1d2cc9d8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@38c4af25, org.springframework.security.web.context.SecurityContextPersistenceFilter@51bdc8c3, org.springframework.security.web.header.HeaderWriterFilter@7ef1305f, org.springframework.security.web.authentication.logout.LogoutFilter@3b7e327, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4f44189c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6e3ae40d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@30b1c05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5427db1d, org.springframework.security.web.session.SessionManagementFilter@77836ba, org.springframework.security.web.access.ExceptionTranslationFilter@4b97a39c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@49514dc8]
+[INFO ] [25-07-2024 02:32:03] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-07-2024 02:32:03] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-07-2024 02:32:03] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-07-2024 02:32:03] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-07-2024 02:32:03] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.428 seconds (JVM running for 4.977)
+[INFO ] [25-07-2024 02:32:10] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-07-2024 02:32:10] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-07-2024 02:32:10] [DispatcherServlet              :: 547 ] - Completed initialization in 11 ms
+[DEBUG] [25-07-2024 02:32:19] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 02:32:19] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 02:32:19] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 02:32:19] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 02:32:19] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 02:32:19] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [25-07-2024 02:32:35] [ClienteImpl                    :: 44  ] - Implements :: create :: Inicio
+[INFO ] [25-07-2024 02:32:35] [FxComunes                      :: 67  ] - ClienteRequest{"cliId":null,"cliTelefono":"111111112","cliNombre":"test 2","cliCorreo":"correo@correo.com","cliNotificacion":true,"cliIsActive":true,"cliFechaCreacion":1721892755133}
+[DEBUG] [25-07-2024 02:35:47] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-07-2024 02:35:47] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-07-2024 02:35:47] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [25-07-2024 02:35:47] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [25-07-2024 02:35:47] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [25-07-2024 02:35:47] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [25-07-2024 02:36:01] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-07-2024 02:36:01] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-07-2024 02:36:01] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+>>>>>>> Stashed changes
