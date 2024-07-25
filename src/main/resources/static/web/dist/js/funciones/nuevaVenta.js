@@ -185,36 +185,7 @@ $(document).ready(function () {
             }
         });
     });
-    $('#cliTelefono').on('input', function () {
-        var telefono = $(this).val();
-        if (telefono.length === 9) {
-            $.ajax({
-                url: '/kenpis/cliente/find-by-telefono/' + telefono,
-                method: 'GET',
-                success: function (response) {
-                    if (response) {
-                        $('#cliNombre').val(response.cliNombre);
-                        clienteId = response.cliId;
-                        $('#cliNombre').prop('disabled', true);
-                        $('#registrarCliente').hide(); // Ocultar el botón si el cliente está registrado
-                    } else {
-                        $('#cliNombre').val('');
-                        $('#cliNombre').prop('disabled', false);
-                        $('#registrarCliente').show(); // Mostrar el botón si el cliente no está registrado
-                        $('#cliTelefonoNoRegistrado').val(telefono);
-                        $('#clienteModal').modal('show');
-                    }
-                },
-                error: function () {
-                    alert('Error al buscar el cliente. Intente nuevamente.');
-                }
-            });
-        } else {
-            $('#cliNombre').val('');
-            $('#cliNombre').prop('disabled', false);
-            $('#registrarCliente').show(); // Asegúrate de mostrar el botón también cuando el teléfono no tenga 9 dígitos
-        }
-    });
+
 
     $('#registrarCliente').click(function() {
         var nombre = $('#cliNombrePopap').val();
