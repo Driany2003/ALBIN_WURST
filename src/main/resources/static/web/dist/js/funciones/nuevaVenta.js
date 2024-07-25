@@ -1,11 +1,12 @@
 $(document).ready(function () {
-    let totalPagar=0;
-    const currentUserId = 1; // Cambiar según la lógica de autenticación
-    let detallesVenta = []; // Array para almacenar detalles de venta temporalmente
+    let totalPagar;
+    const currentUserId = 1;
+    let detallesVenta = [];
+    let clienteId = null;
     actualizarTotal();
 
     $('#ventaModal').on('show.bs.modal', function () {
-
+        // Obtener categorías y llenar el selector
         $.ajax({
             url: '/kenpis/producto/categorias',
             method: 'GET',
@@ -27,12 +28,12 @@ $(document).ready(function () {
         });
     });
 
-
+    // Cuando cambia la categoría de bebida
     $('#tipoBebida').change(function () {
         cargarProductos($(this).val());
     });
 
-
+    // Cuando cambia la categoría de chorizo
     $('#tipoChorizo').change(function () {
         cargarProductos($(this).val());
     });
@@ -92,14 +93,8 @@ $(document).ready(function () {
 
     function actualizarTotal() {
         totalPagar = 0;
-        // Itera sobre cada fila en el cuerpo de la tabla de ventas
         $('#ventasBody tr').each(function () {
-<<<<<<< HEAD:src/main/resources/static/web/dist/js/nuevaVenta.js
-            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.'));
-=======
             const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.').replace(',', '.'));
-            alert(subtotal);
->>>>>>> 6c185e3f443134489d5a391b01de6693318421dc:src/main/resources/static/web/dist/js/funciones/nuevaVenta.js
             if (!isNaN(subtotal)) {
                 totalPagar += subtotal;
             }
@@ -107,10 +102,6 @@ $(document).ready(function () {
         $('#totalPagar').text('S/' + totalPagar.toFixed(2));
     }
 
-<<<<<<< HEAD:src/main/resources/static/web/dist/js/nuevaVenta.js
-=======
-
->>>>>>> 6c185e3f443134489d5a391b01de6693318421dc:src/main/resources/static/web/dist/js/funciones/nuevaVenta.js
     // Guardar el pedido
     $('#guardarPedido').click(function () {
         detallesVenta = [];
@@ -167,13 +158,13 @@ $(document).ready(function () {
 
     // Procesar el pago
     $('#pagarButton').click(function () {
-        // Aquí puedes usar la variable detallesVenta directamente
         $.ajax({
             url: '/kenpis/venta/guardar',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
                 usuarioId: currentUserId,
+                clienteId: clienteId,
                 detalles: detallesVenta,
                 total: totalPagar
             }),
@@ -195,30 +186,64 @@ $(document).ready(function () {
         });
     });
 
-});
     $('#cliTelefono').on('input', function () {
-        let cliTel = $(this).val();
-
-        if (cliTel.length === 9) {
+        var telefono = $(this).val();
+        if (telefono.length === 9) {
             $.ajax({
-                type: 'GET',
-                url: '/api/usuarios/verificar/' + cliTel,
+                url: '/kenpis/cliente/find-by-telefono/' + telefono,
+                method: 'GET',
                 success: function (response) {
                     if (response) {
-                        $('#clientName').text(response.cliNombre);
-                        $('#clientInfoModal').modal('show');
-                        $('#nombreCliente').val(response.cliNombre);
+                        $('#cliNombre').val(response.cliNombre);
+                        clienteId = response.cliId;
+                        $('#cliNombre').prop('disabled', true);
+                        $('#registrarCliente').hide();
                     } else {
-                        $('#clientInfoModal').modal('show');
-                        $('#clientInfoModal .modal-body').text('Usuario no registrado.');
-                        $('#nombreCliente').val('');
+                        $('#cliNombre').val('');
+                        $('#cliNombre').prop('disabled', false);
+                        $('#registrarCliente').show();
+                        $('#cliTelefonoNoRegistrado').val(telefono);
+                        $('#clienteModal').modal('show');
                     }
                 },
-                error: function (error) {
-                    console.error('Error al verificar el celular:', error);
+                error: function () {
+                    alert('Error al buscar el cliente.');
+                    $('#cliTelefonoNoRegistrado').val(telefono);
+                    $('#clienteModal').modal('show');
+                }
+            });
+        } else if (telefono.length > 9) {
+            // Limpiar nombre si el teléfono no tiene exactamente 9 dígitos
+            $('#cliNombre').val('');
+        }
+    });
+
+    $('#registrarCliente').click(function () {
+        var nombre = $('#cliNombreNoRegistrado').val();
+        var telefono = $('#cliTelefonoNoRegistrado').val();
+        if (telefono.length === 9 && !nombre) {
+            $('#clienteModal').modal('show');
+        } else if (nombre && telefono) {
+            $.ajax({
+                url: '/kenpis/cliente/create',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ cliNombre: nombre, cliTelefono: telefono }),
+                success: function (response) {
+                    clienteId = response.cliId;
+                    $('#cliNombre').val(nombre);
+                    $('#cliNombre').prop('disabled', true);
+                    $('#registrarCliente').hide();
+                    $('#clienteModal').modal('hide');
+                },
+                error: function () {
+                    alert('Error al registrar el cliente.');
                 }
             });
         } else {
-            $('#nombreCliente').val('');
+            alert('Por favor, complete todos los campos.');
         }
     });
+});
+
+
