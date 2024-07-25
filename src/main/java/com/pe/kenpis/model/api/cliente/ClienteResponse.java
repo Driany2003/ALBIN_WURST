@@ -2,6 +2,8 @@ package com.pe.kenpis.model.api.cliente;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
@@ -15,5 +17,5 @@ public class ClienteResponse {
   private String cliCorreo;
   private Boolean cliNotificacion;
   private Boolean cliIsActive;
-
+  private Date cliFechaCreacion;
 }
