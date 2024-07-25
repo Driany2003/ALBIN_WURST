@@ -228,6 +228,10 @@
                                 <label for="cliTelefonoNoRegistrado">Teléfono</label>
                                 <input type="text" class="form-control" id="cliTelefonoNoRegistrado">
                             </div>
+                            <div class="form-group">
+                                <label for="cliCorreoPopap">Correo</label>
+                                <input type="email" class="form-control" id="cliCorreoPopap" value="correo@correo.com">
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>

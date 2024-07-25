@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -42,6 +43,7 @@ public class ClienteImpl implements IClienteService {
   public ClienteResponse create(ClienteRequest request) {
     log.debug("Implements :: create :: Inicio");
     request.setCliIsActive(true);
+    request.setCliFechaCreacion(new Date());
     FxComunes.printJson("ClienteRequest",request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }

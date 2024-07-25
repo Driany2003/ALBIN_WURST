@@ -190,17 +190,26 @@ $(document).ready(function () {
     $('#registrarCliente').click(function() {
         var nombre = $('#cliNombrePopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
+        var correo = $('#cliCorreoPopap').val();
+
         if (nombre && telefono) {
+
             $.ajax({
                 url: '/kenpis/cliente/create',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({
                     cliNombre: nombre,
-                    cliTelefono: telefono
+                    cliTelefono: telefono,
+                    cliNotificacion: true,
+                    cliCorreo: correo
+
                 }),
                 success: function (response) {
                     clienteId = response.cliId;
+                    $('#cliNombrePopap').val('');
+                    $('#cliTelefonoNoRegistrado').val('');
+                    $('#cliCorreoPopap').val('correo@correo.com');
                     $('#clienteModal').modal('hide');
                     $('#cliNombre').prop('disabled', true);
                     $('#registrarCliente').hide();
@@ -221,7 +230,6 @@ $(document).ready(function () {
                 url: '/kenpis/cliente/find-by-telefono/' + telefono,
                 method: 'GET',
                 success: function (response) {
-                    //alert('Cliente ID : ' + response.cliId);
                     if (response.cliId != null) {
                         $('#cliNombre').val(response.cliNombre);
                         $('#cliNombre').prop('disabled', true);
