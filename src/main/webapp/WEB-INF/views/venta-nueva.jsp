@@ -63,12 +63,22 @@
                             <div class="form-group col-md-1 text-md-right align-middle">
                                 <label for="cliNombre" class="control-label col-form-label">Nombre</label>
                             </div>
-                            <div class="form-group col-md-5">
+                            <div class="form-group col-md-3">
                                 <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
                                 <input id="clienteId" type="hidden"/>
                             </div>
+                            <div class="form-group col-md-2 text-md-right align-middle">
+                                <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
+                            </div>
+                            <div class="form-group col-md-2 text-md-right align-middle">
+                                <select id="venTipoPago" class="form-control form-control-sm">
+                                    <option value="">-- Seleccione --</option>
+                                    <option value="EFECTIVO">EFECTIVO</option>
+                                    <option value="YAPE">YAPE</option>
+                                    <option value="PLIN">PLIN</option>
+                                </select>
+                            </div>
                         </div>
-
                     </div>
                     <div class="card-header">
                         <div class="form-row">
@@ -87,6 +97,7 @@
                             <table id="ventasTable" class="table table-sm table-bordered table-striped">
                                 <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">ID</th>
                                     <th scope="col">PRODUCTO</th>
                                     <th scope="col">CANTIDAD</th>
                                     <th scope="col">PRECIO</th>
@@ -98,12 +109,12 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
-                                    <th colspan="3" class="text-right">Total a pagar:</th>
+                                    <th colspan="4" class="text-right">Total a pagar:</th>
                                     <th id="totalPagar">S/ 0.00</th>
                                 </tr>
                                 <tr>
-                                    <th colspan="3"></th>
-                                    <th>
+                                    <th colspan="4"></th>
+                                    <th class="text-right">
                                         <button id="pagarButton" class="btn btn-success btn-sm">Pagar</button>
                                     </th>
                                 </tr>
@@ -146,12 +157,12 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="tipoChorizo" class="form-control form-control-sm chorizo-select">
+                                                <select id="tipoChorizo" class="form-control form-control-sm tipo-chorizo-select">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="chorizo" class="form-control form-control-sm chorizo-select">
+                                                <select id="chorizo" class="form-control form-control-sm categoria-chorizo-select">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
@@ -182,12 +193,12 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="tipoBebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la presentación">
+                                                <select id="tipoBebida" class="form-control form-control-sm tipo-bebida-select" data-placeholder="Elige tu bebida">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <select id="bebida" class="form-control form-control-sm bebida-select" data-placeholder="Elige la bebida">
+                                                <select id="bebida" class="form-control form-control-sm categoria-bebida-select" data-placeholder="Elige el sabor">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>

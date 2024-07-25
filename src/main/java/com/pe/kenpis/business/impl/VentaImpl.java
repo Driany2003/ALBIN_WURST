@@ -12,6 +12,7 @@ import com.pe.kenpis.model.entity.VentaEntity;
 import com.pe.kenpis.repository.ProductoRepository;
 import com.pe.kenpis.repository.VentaDetalleRepository;
 import com.pe.kenpis.repository.VentaRepository;
+import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -46,27 +47,31 @@ public class VentaImpl implements IVentaService {
     return ventasList.stream().map(this::convertVentasEntityToResponse).collect(Collectors.toList());
   }
 
-  public VentaResponse registrarVenta(VentaRequest ventaRequest) {
-    VentaEntity nuevaVenta = new VentaEntity();
-    nuevaVenta.setVenTotal(ventaRequest.getVenTotal());
+  public VentaResponse create(VentaRequest ventaRequest) {
+    FxComunes.printJson("VentaRequest", ventaRequest);
+
+    VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
     nuevaVenta.setVenFecha(new Date());
     // Guardar la nueva venta para obtener su ID
     VentaEntity ventaGuardada = ventaRepository.save(nuevaVenta);
+    FxComunes.printJson("VentaEntity", ventaGuardada);
 
-    // Crear los detalles de la venta
     List<VentaDetalleEntity> detallesVentas = new ArrayList<>();
     for (VentaDetalleRequest detalle : ventaRequest.getDetallesVentas()) {
       VentaDetalleEntity nuevoDetalle = new VentaDetalleEntity();
       nuevoDetalle.setVentaId(ventaGuardada.getVenId());
-      nuevoDetalle.setProductoId(detalle.getProducto().getProId());
+      nuevoDetalle.setProductoId(detalle.getProductoId());
       nuevoDetalle.setVenDetCantidad(detalle.getVenDetCantidad());
       nuevoDetalle.setVenDetPrecio(detalle.getVenDetPrecio());
       nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
       detallesVentas.add(nuevoDetalle);
     }
 
+    FxComunes.printJson("VentaDetalleEntity", detallesVentas);
     // Guardar todos los detalles de la venta
     detalleVentaRepository.saveAll(detallesVentas);
+
+
 
     // Preparar la respuesta
     VentaResponse response = new VentaResponse();

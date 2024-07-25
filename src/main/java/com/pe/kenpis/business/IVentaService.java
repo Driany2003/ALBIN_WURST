@@ -12,7 +12,7 @@ public interface IVentaService {
 
   List<VentaResponse> findAll();
 
-  VentaResponse registrarVenta(VentaRequest ventaRequest);
+  VentaResponse create(VentaRequest ventaRequest);
 
   List<VentaDetalleResponse> obtenerDetallesDeVenta();
 

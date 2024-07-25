@@ -76,67 +76,65 @@ $(document).ready(function () {
 
     // Guardar el pedido
     $('#guardarPedido').click(function () {
-        alert("Entrando a guardar pedido");
+      //  alert("Dentro de guardar pedido");
         detallesVenta = [];
 
-        $('.chorizo-select').each(function () {
-            var chorizoData = $(this).val();
-            if (chorizoData) {
-                var chorizo = $(this).find('option:selected').text();
-                var cantidadChorizos = $(this).closest('.form-group').next().find('.cantidad-chorizo').val();
-                alert(cantidadChorizos);
-                var precioChorizo = $(this).find('option:selected').data('precio');
-                alert(precioChorizo);
-                if (cantidadChorizos > 0) {
-                    var subtotalChorizo = cantidadChorizos * precioChorizo;
-                    detallesVenta.push({
-                        producto: chorizo,
-                        venDetCantidad: cantidadChorizos,
-                        venDetSubtotal: subtotalChorizo.toFixed(2),
-                        venDetPrecio: precioChorizo.toFixed(2)
-                    });
-                }
-            }
-        });
+        var chorizo = $('.categoria-chorizo-select').find('option:selected').text();
+        var choridoId = $('#chorizo').val();
+        var precioChorizo = $('.categoria-chorizo-select').find('option:selected').data('precio');
+        var cantidadChorizos = $('#cantidadChorizos').val();
+        //alert("Detalle Chorizos :: " + chorizo + " - " + cantidadChorizos + " - " + precioChorizo);
+        if (cantidadChorizos > 0) {
+            var subtotalChorizo = cantidadChorizos * precioChorizo;
+            detallesVenta.push({
+                productoId: choridoId,
+                proTipo: chorizo,
+                venDetCantidad: cantidadChorizos,
+                venDetSubtotal: subtotalChorizo.toFixed(2),
+                venDetPrecio: precioChorizo.toFixed(2)
+            });
+        }
 
-        $('.bebida-select').each(function () {
-            var bebidaData = $(this).val();
-            if (bebidaData) {
-                var bebida = $(this).find('option:selected').text();
-                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidad-bebida').val();
-                var precioBebida = $(this).find('option:selected').data('precio');
-                if (cantidadBebidas > 0) {
-                    var subtotalBebida = cantidadBebidas * precioBebida;
-                    detallesVenta.push({
-                        producto: bebida,
-                        venDetCantidad: cantidadBebidas,
-                        venDetSubtotal: subtotalBebida.toFixed(2),
-                        venDetPrecio: precioBebida.toFixed(2)
-                    });
-                }
-            }
-        });
+        var bebida = $('.categoria-bebida-select').find('option:selected').text();
+        var precioBebida = $('.categoria-bebida-select').find('option:selected').data('precio');
+        var bebidaId = $('#bebida').val();
+        var cantidadBebidas = $('#cantidadBebidas').val();
+        //alert("Detalle Bebidas :: " + bebida + " - " + cantidadBebidas + " - " + precioBebida);
+        if (cantidadBebidas > 0) {
+            var subtotalBebida = cantidadBebidas * precioBebida;
+            detallesVenta.push({
+                productoId: bebidaId,
+                proTipo: bebida,
+                venDetCantidad: cantidadBebidas,
+                venDetSubtotal: subtotalBebida.toFixed(2),
+                venDetPrecio: precioBebida.toFixed(2)
+            });
+        }
 
         var detallesHtml = detallesVenta.map(function (detalle) {
             return '<tr>' +
-                '<td>' + detalle.producto + '</td>' +
+                '<td>' + detalle.productoId + '</td>' +
+                '<td>' + detalle.proTipo + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
                 '<td>S/ ' + detalle.venDetPrecio + '</td>' +
                 '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
                 '</tr>';
-        }).join('');
 
-        $('#ventasBody').append(detallesHtml);
+        }).join('');
+        //alert(detallesHtml);
+
+        $('#ventasBody')    .append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
     });
-
 
     // Procesar el pago
     $('#pagarButton').click(function () {
 
         var empresaId = $('#empresaId').val();
         var usuarioId = $('#usuarioId').val();
+        var clienteId = $('#clienteId').val();
+        var tipoPago = $('#venTipoPago').val();
 
         $.ajax({
             url: '/kenpis/venta/create',
@@ -146,8 +144,9 @@ $(document).ready(function () {
                 empresaId: empresaId,
                 usuarioId: usuarioId,
                 clienteId: clienteId,
-                detalles: detallesVenta,
-                total: totalPagar
+                detallesVentas: detallesVenta,
+                venTotal: totalPagar,
+                venTipoPago: tipoPago
             }),
             success: function (response) {
                 alert('Pedido guardado correctamente.');
@@ -168,7 +167,7 @@ $(document).ready(function () {
     });
 
 
-    $('#registrarCliente').click(function() {
+    $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
         var correo = $('#cliCorreoPopap').val();
@@ -188,6 +187,7 @@ $(document).ready(function () {
                 }),
                 success: function (response) {
                     clienteId = response.cliId;
+                    $('#clienteId').val(clienteId);
                     $('#cliNombrePopap').val('');
                     $('#cliTelefonoNoRegistrado').val('');
                     $('#cliCorreoPopap').val('correo@correo.com');
@@ -214,6 +214,7 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.cliId != null) {
                         $('#cliNombre').val(response.cliNombre);
+                        $('#clienteId').val(response.cliId);
                         $('#cliNombre').prop('disabled', true);
                         $('#registrarCliente').hide();
                     } else {
