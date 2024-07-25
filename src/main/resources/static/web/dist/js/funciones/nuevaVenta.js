@@ -224,11 +224,11 @@ $(document).ready(function () {
                     if (response) {
                         $('#cliNombre').val(response.cliNombre);
                         $('#cliNombre').prop('disabled', true);
-                        $('#registrarCliente').hide();
                     } else {
-                        $('#cliNombre').val('');
-                        $('#cliNombre').prop('disabled', false);
+                        console.log("hola");
                         $('#registrarCliente').show();
+                        $('#cliNombre').val('');
+                        $('#cliNombre').prop('disabled', true);
                         $('#cliTelefonoNoRegistrado').val(telefono);
                         $('#clienteModal').modal('show'); // Mostrar el modal
                     }
