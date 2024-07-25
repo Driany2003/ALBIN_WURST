@@ -57,6 +57,7 @@ $(document).ready(function () {
     $('#addChorizo').click(function () {
         const chorizoId = `chorizo-${Date.now()}`;
         const cantidadChorizosId = `cantidadChorizos-${Date.now()}`;
+        const precioChorizoId = `precioChorizo-${Date.now()}`;
         $('#chorizos-container').append(`
             <div class="form-group">
                 <label for="${chorizoId}" class="form-label">Sabor de Chorizo</label>
@@ -65,11 +66,21 @@ $(document).ready(function () {
                 </select>
             </div>
             <div class="form-group">
+                <label for="${precioChorizoId}">Precio</label>
+                <input id="${precioChorizoId}" type="text" class="form-control form-control-sm precio-chorizo" placeholder="Precio" readonly>
+            </div>
+            <div class="form-group">
                 <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
                 <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
             </div>
         `);
         cargarProductos('Chorizo');
+
+        $(document).on('change', `#${chorizoId}`, function () {
+            var precio = $(this).find('option:selected').data('precio');
+            $(`#${precioChorizoId}`).val(precio);
+        });
+
     });
 
     // Añadir una nueva bebida
