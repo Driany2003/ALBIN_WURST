@@ -38,7 +38,7 @@ public class ProductoImpl implements IProductoService {
   public ProductoResponse create(ProductoRequest request) {
     log.debug("Implements :: create :: Inicio");
     request.setProIsActive(true);
-    FxComunes.printJson(request);
+    FxComunes.printJson("ProductoRequest",request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 

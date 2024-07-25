@@ -35,24 +35,9 @@
                 <div class="card-header">
                     <div class="form-row">
                         <div class="col-md-12">
-                            <h5 class="card-title">Datos de la Empresa</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body p-4">
-                    <div class="form-row">
-                        <div class="form-group col-md-2">
-                            <label for="empDocumentoTipo" class="control-label col-form-label">Documento Tipo</label>
-                            <input id="empDocumentoTipo" type="text" class="form-control form-control-sm" value="---">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label for="empDocumentoNumero" class="control-label col-form-label">Documento Numero</label>
-                            <input id="empDocumentoNumero" type="text" class="form-control form-control-sm" value="---">
-                        </div>
-                        <div class="form-group col-md-8">
-                            <label for="empRazonSocial" class="control-label col-form-label">Razón Social</label>
-                            <input id="empRazonSocial" type="text" class="form-control form-control-sm" value="---">
-                            <input id="empId" type="hidden"/>
+                            <h3 class="card-title">${empresaSession.empNombreComercial}</h3>
+                            <h5 class="card-title">${empresaSession.empDocumentoTipo} : ${empresaSession.empDocumentoNumero}</h5>
+                            <input id="empId" type="hidden" value="${empresaSession.empId}"/>
                         </div>
                     </div>
                 </div>
