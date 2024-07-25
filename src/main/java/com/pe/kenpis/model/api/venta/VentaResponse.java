@@ -19,6 +19,7 @@ public class VentaResponse {
   private float venTotal;
   private Integer empresaId;
   private Integer clienteId;
-  private String venTipoPago ;
+  private String venTipoPago;
+  private Integer usuarioId;
 
 }

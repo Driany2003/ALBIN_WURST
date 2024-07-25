@@ -34,10 +34,14 @@
             <div class="card mt-3">
                 <div class="card-header">
                     <div class="form-row">
-                        <div class="col-md-12">
-                            <h3 class="card-title">${empresaSession.empNombreComercial}</h3>
-                            <h5 class="card-title">${empresaSession.empDocumentoTipo} : ${empresaSession.empDocumentoNumero}</h5>
-                            <input id="empId" type="hidden" value="${empresaSession.empId}"/>
+                        <div class="col-md-9">
+                            <h1 class="card-title">${empresaSession.empNombreComercial}</h1>
+                            <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
+                        </div>
+                        <div class="form-group col-md-3 text-md-right">
+                            <label class="font-10">${empresaSession.empDocumentoTipo} : ${empresaSession.empDocumentoNumero}</label><br>
+                            <label class="font-10">Vendedor: ${usuSessionNombre}</label>
+                            <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
                         </div>
                     </div>
                 </div>
@@ -63,7 +67,7 @@
                             <div class="form-group col-md-6">
                                 <label for="cliNombre" class="control-label col-form-label">Nombre</label>
                                 <input id="cliNombre" type="text" class="form-control form-control-sm" readonly placeholder="---">
-                                <input id="cliId" type="hidden"/>
+                                <input id="clienteId" type="hidden"/>
                             </div>
                         </div>
                     </div>

@@ -42,13 +42,15 @@ public class WLoginController {
     String usuarioLogueado = FxComunes.getLoggedInUserName();
     UsuarioResponse usuarioResponse = service.findUsuarioByAuthUsername(usuarioLogueado);
     UsuarioAuthorityResponse usuarioAuthorityResponse = service.findUsuarioAuthorityByUsuId(usuarioResponse.getUsuId());
+    String nombre = usuarioResponse.getUsuNombre() + " " + usuarioResponse.getUsuApePaterno() + " " + usuarioResponse.getUsuApeMaterno();
     model.put("usuSession", usuarioResponse);
 
     EmpresaResponse empresaResponse = empresaService.findById(usuarioResponse.getEmpresaId());
 
     request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
-    request.getSession().setAttribute("usuSessionNombre", usuarioResponse.getUsuNombre());
+    request.getSession().setAttribute("usuSessionNombre", nombre);
     request.getSession().setAttribute("usuSessionId", usuarioResponse.getUsuId());
+    request.getSession().setAttribute("usuarioSession", usuarioResponse);
     request.getSession().setAttribute("empresaSession", empresaResponse);
 
     // LOGS CONSOLE

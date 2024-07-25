@@ -28,6 +28,9 @@ public class VentaEntity {
   private Integer clienteId;
 
   @Column(name = "ven_tipo_pago")
-  private String venTipoPago ;
+  private String venTipoPago;
+
+  @Column(name = "usuario_id")
+  private Integer usuarioId;
 
 }
