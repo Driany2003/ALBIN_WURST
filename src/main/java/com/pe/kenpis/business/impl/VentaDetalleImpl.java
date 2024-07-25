@@ -6,7 +6,7 @@ import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import com.pe.kenpis.model.entity.VentaDetalleEntity;
 import org.springframework.beans.BeanUtils;
 
-public class VentaVentaDetalleImpl implements IVentaDetalleService {
+public class VentaDetalleImpl implements IVentaDetalleService {
 
   private VentaDetalleResponse convertDetallesVentasEntityToResponse(VentaDetalleEntity in) {
     VentaDetalleResponse out = new VentaDetalleResponse();

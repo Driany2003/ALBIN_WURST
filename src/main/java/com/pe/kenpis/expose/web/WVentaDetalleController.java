@@ -1,7 +1,6 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IVentaService;
-import com.pe.kenpis.business.impl.VentaVentaDetalleImpl;
 import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import com.pe.kenpis.model.api.venta.estado.VentaEstadoRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +21,7 @@ public class WVentaDetalleController {
   @Autowired
   private IVentaService service;
 
-  @Autowired
-  private VentaVentaDetalleImpl ventaDetalle;
+
 
   @GetMapping("/find-all")
   public ResponseEntity<List<VentaDetalleResponse>> findAll() {
@@ -31,15 +29,5 @@ public class WVentaDetalleController {
     return new ResponseEntity<>(detalles, HttpStatus.OK);
   }
 
-
-  @PostMapping("/actualizarEstado")
-  public ResponseEntity<?> updateStatus(@RequestBody VentaEstadoRequest request) {
-    boolean actualizar = ventaDetalle.updateEstado(request.getId(), request.getNuevoEstado());
-    if (actualizar) {
-      return ResponseEntity.ok().body("Estado actualizado correctamente");
-    } else {
-      return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error al actualizar estado");
-    }
-  }
 
 }
