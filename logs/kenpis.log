@@ -2904,3 +2904,166 @@ Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-valid
 [INFO ] [24-07-2024 21:09:30] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [24-07-2024 21:09:30] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [24-07-2024 21:09:30] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 21:12:47] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 16176 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [24-07-2024 21:12:47] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 21:12:47] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 21:12:48] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 21:12:48] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 21:12:48] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 68 ms. Found 9 JPA repository interfaces.
+[INFO ] [24-07-2024 21:12:49] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 21:12:49] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:12:49] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 21:12:49] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 21:12:49] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 21:12:49] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 21:12:49] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1533 ms
+[INFO ] [24-07-2024 21:12:49] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 21:12:49] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 21:12:49] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 21:12:49] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 21:12:50] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 21:12:50] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 21:12:51] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 21:12:51] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 21:12:51] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 21:12:51] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@357cac3c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68f99643, org.springframework.security.web.context.SecurityContextPersistenceFilter@646eb5c8, org.springframework.security.web.header.HeaderWriterFilter@4dd072c4, org.springframework.security.web.authentication.logout.LogoutFilter@1e404f26, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@44d0f722, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1bfde37f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@41846731, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@473c9a2, org.springframework.security.web.session.SessionManagementFilter@11bb49d9, org.springframework.security.web.access.ExceptionTranslationFilter@38e7409e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@52b5b52f]
+[INFO ] [24-07-2024 21:12:51] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 21:12:52] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 21:12:52] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:12:52] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 21:12:52] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.687 seconds (JVM running for 5.173)
+[INFO ] [24-07-2024 21:12:55] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:12:55] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:12:55] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [24-07-2024 21:20:13] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 21:20:13] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 21:20:14] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 21:20:22] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 21368 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [24-07-2024 21:20:22] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 21:20:22] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 21:20:22] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 21:20:23] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 21:20:23] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 69 ms. Found 9 JPA repository interfaces.
+[INFO ] [24-07-2024 21:20:24] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 21:20:24] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1489 ms
+[INFO ] [24-07-2024 21:20:24] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 21:20:24] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 21:20:24] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 21:20:24] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 21:20:25] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 21:20:25] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 21:20:25] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 21:20:26] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 21:20:26] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 21:20:26] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6eb688bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@712bac00, org.springframework.security.web.context.SecurityContextPersistenceFilter@683b1b0d, org.springframework.security.web.header.HeaderWriterFilter@1b204c, org.springframework.security.web.authentication.logout.LogoutFilter@4b591433, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6fd75799, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@c542553, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ffc0001, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65c6ba4e, org.springframework.security.web.session.SessionManagementFilter@528d0200, org.springframework.security.web.access.ExceptionTranslationFilter@1090778f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@638d1f77]
+[INFO ] [24-07-2024 21:20:26] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 21:20:26] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 21:20:27] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 21:20:27] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.452 seconds (JVM running for 5.196)
+[INFO ] [24-07-2024 21:20:27] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 21:20:27] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 21:20:27] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 21:20:33] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 22064 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [24-07-2024 21:20:33] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 21:20:33] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 21:20:33] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 21:20:33] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 21:20:33] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 55 ms. Found 9 JPA repository interfaces.
+[INFO ] [24-07-2024 21:20:34] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 21:20:34] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:20:34] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 21:20:34] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 21:20:34] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 21:20:34] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 21:20:34] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1024 ms
+[INFO ] [24-07-2024 21:20:34] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 21:20:34] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 21:20:34] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 21:20:34] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 21:20:35] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 21:20:35] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 21:20:35] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 21:20:35] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 21:20:35] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 21:20:36] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@280f7e4e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@49fb8bd2, org.springframework.security.web.context.SecurityContextPersistenceFilter@21dccf84, org.springframework.security.web.header.HeaderWriterFilter@7eded7af, org.springframework.security.web.authentication.logout.LogoutFilter@73d87def, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@40c42e30, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27b9b54d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43b1f4c5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d3e4c1f, org.springframework.security.web.session.SessionManagementFilter@5205f9e9, org.springframework.security.web.access.ExceptionTranslationFilter@4194efeb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2d034322]
+[INFO ] [24-07-2024 21:20:36] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 21:20:36] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 21:20:36] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:20:36] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 21:20:36] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.261 seconds (JVM running for 3.57)
+[INFO ] [24-07-2024 21:20:38] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:20:38] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:20:38] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [24-07-2024 21:22:04] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 21:22:04] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 21:22:04] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 21:22:10] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 24364 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [24-07-2024 21:22:10] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 21:22:10] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 21:22:10] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 21:22:11] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 21:22:11] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 57 ms. Found 9 JPA repository interfaces.
+[INFO ] [24-07-2024 21:22:11] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 21:22:11] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:22:11] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 21:22:11] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 21:22:12] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 21:22:12] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 21:22:12] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1313 ms
+[INFO ] [24-07-2024 21:22:12] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 21:22:12] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 21:22:12] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 21:22:12] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 21:22:12] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 21:22:12] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 21:22:13] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 21:22:13] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 21:22:13] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 21:22:13] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@713f6464, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a2e0620, org.springframework.security.web.context.SecurityContextPersistenceFilter@63648e1e, org.springframework.security.web.header.HeaderWriterFilter@2c4aebfa, org.springframework.security.web.authentication.logout.LogoutFilter@646eb5c8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@51f12b28, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3931744e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ea69b4b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@61766325, org.springframework.security.web.session.SessionManagementFilter@5665f5c3, org.springframework.security.web.access.ExceptionTranslationFilter@74cfffc2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@682fbfa6]
+[INFO ] [24-07-2024 21:22:14] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 21:22:14] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 21:22:14] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:22:14] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 21:22:14] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.307 seconds (JVM running for 4.709)
+[INFO ] [24-07-2024 21:22:14] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:22:14] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:22:14] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [24-07-2024 21:23:36] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 21:23:36] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 21:23:36] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [24-07-2024 21:23:43] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 20408 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [24-07-2024 21:23:43] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [24-07-2024 21:23:43] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [24-07-2024 21:23:43] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [24-07-2024 21:23:44] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [24-07-2024 21:23:44] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 56 ms. Found 9 JPA repository interfaces.
+[INFO ] [24-07-2024 21:23:44] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [24-07-2024 21:23:44] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:23:44] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [24-07-2024 21:23:44] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [24-07-2024 21:23:45] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [24-07-2024 21:23:45] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [24-07-2024 21:23:45] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1194 ms
+[INFO ] [24-07-2024 21:23:45] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [24-07-2024 21:23:45] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [24-07-2024 21:23:45] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [24-07-2024 21:23:45] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [24-07-2024 21:23:45] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [24-07-2024 21:23:45] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [24-07-2024 21:23:46] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [24-07-2024 21:23:46] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [24-07-2024 21:23:46] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [24-07-2024 21:23:46] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@93282a7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@18473b90, org.springframework.security.web.context.SecurityContextPersistenceFilter@ad40f69, org.springframework.security.web.header.HeaderWriterFilter@57072cd9, org.springframework.security.web.authentication.logout.LogoutFilter@35f7b48c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@66ef5eed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6303238, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@540dabf2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5a7c9ac0, org.springframework.security.web.session.SessionManagementFilter@42c37e09, org.springframework.security.web.access.ExceptionTranslationFilter@4d1abe1a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7e2f93eb]
+[INFO ] [24-07-2024 21:23:47] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [24-07-2024 21:23:47] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [24-07-2024 21:23:47] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [24-07-2024 21:23:47] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [24-07-2024 21:23:47] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.786 seconds (JVM running for 4.173)
+[INFO ] [24-07-2024 21:23:51] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:23:51] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [24-07-2024 21:23:51] [DispatcherServlet              :: 547 ] - Completed initialization in 0 ms
+[WARN ] [24-07-2024 21:25:41] [PageNotFound                   :: 1283] - No mapping for POST /kenpis/venta/guardar
+[WARN ] [24-07-2024 21:27:17] [PageNotFound                   :: 1283] - No mapping for GET /api/usuarios/verificar/970180035
+[INFO ] [24-07-2024 21:28:12] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [24-07-2024 21:28:13] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [24-07-2024 21:28:13] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.

@@ -1,11 +1,11 @@
 $(document).ready(function () {
-    let totalPagar;
+    let totalPagar=0;
     const currentUserId = 1; // Cambiar según la lógica de autenticación
     let detallesVenta = []; // Array para almacenar detalles de venta temporalmente
     actualizarTotal();
-    // Al cargar el modal
+
     $('#ventaModal').on('show.bs.modal', function () {
-        // Obtener categorías y llenar el selector
+
         $.ajax({
             url: '/kenpis/producto/categorias',
             method: 'GET',
@@ -27,12 +27,12 @@ $(document).ready(function () {
         });
     });
 
-    // Cuando cambia la categoría de bebida
+
     $('#tipoBebida').change(function () {
         cargarProductos($(this).val());
     });
 
-    // Cuando cambia la categoría de chorizo
+
     $('#tipoChorizo').change(function () {
         cargarProductos($(this).val());
     });
@@ -92,8 +92,9 @@ $(document).ready(function () {
 
     function actualizarTotal() {
         totalPagar = 0;
+        // Itera sobre cada fila en el cuerpo de la tabla de ventas
         $('#ventasBody tr').each(function () {
-            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/.', '').replace(',', '.'));
+            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.'));
             if (!isNaN(subtotal)) {
                 totalPagar += subtotal;
             }
@@ -101,9 +102,6 @@ $(document).ready(function () {
 
         $('#totalPagar').text('S/.' + totalPagar.toFixed(2));
     }
-
-
-
 
     // Guardar el pedido
     $('#guardarPedido').click(function () {
@@ -190,3 +188,29 @@ $(document).ready(function () {
     });
 
 });
+    $('#cliTelefono').on('input', function () {
+        let cliTel = $(this).val();
+
+        if (cliTel.length === 9) {
+            $.ajax({
+                type: 'GET',
+                url: '/api/usuarios/verificar/' + cliTel,
+                success: function (response) {
+                    if (response) {
+                        $('#clientName').text(response.cliNombre);
+                        $('#clientInfoModal').modal('show');
+                        $('#nombreCliente').val(response.cliNombre);
+                    } else {
+                        $('#clientInfoModal').modal('show');
+                        $('#clientInfoModal .modal-body').text('Usuario no registrado.');
+                        $('#nombreCliente').val('');
+                    }
+                },
+                error: function (error) {
+                    console.error('Error al verificar el celular:', error);
+                }
+            });
+        } else {
+            $('#nombreCliente').val('');
+        }
+    });
