@@ -36,7 +36,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 align-self-center">
-                    <h4 class="page-title">DASHBOARD <span class="label label-rounded label-info">OKR</span></h4>
+                    <h4 class="page-title">DASHBOARD <span class="label label-rounded label-info">Pedidos</span></h4>
                 </div>
             </div>
         </div>
@@ -50,96 +50,62 @@
             <!-- ============================================================== -->
             <!-- DATOS GENERALES -->
             <!-- ============================================================== -->
-            <div class="card-group">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-emoticon font-20 text-muted"></i>
-                                        <p class="font-16 m-b-5">Registrados</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">20</h1><small>de 30</small>
-                                    </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-7">
+                                    <i class="mdi mdi-account-check font-20 text-info"></i>
+                                    <p class="font-16 m-b-5">Registrado</p>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 75%; height: 6px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="col-5">
+                                    <h1 class="font-light text-right mb-0">23</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-image font-20  text-muted"></i>
-                                        <p class="font-16 m-b-5">Completados</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">0</h1><small>de 20</small>
-                                    </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-7">
+                                    <i class="mdi mdi-currency-usd font-20 text-success"></i>
+                                    <p class="font-16 m-b-5">Pagados</p>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 60%; height: 6px;" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="col-5">
+                                    <h1 class="font-light text-right mb-0">169</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-currency-eur font-20 text-muted"></i>
-                                        <p class="font-16 m-b-5">En proceso</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">20</h1><small>de 20</small>
-                                    </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-7">
+                                    <i class="mdi mdi-av-timer font-20 text-purple"></i>
+                                    <p class="font-16 m-b-5">En proceso</p>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-purple" role="progressbar" style="width: 65%; height: 6px;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="col-5">
+                                    <h1 class="font-light text-right mb-0">157</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- Column -->
-                <!-- Column -->
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="d-flex no-block align-items-center">
-                                    <div>
-                                        <i class="mdi mdi-poll font-20 text-muted"></i>
-                                        <p class="font-16 m-b-5">Sin registrar</p>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <h1 class="font-light text-right">10</h1><small>de 30</small>
-                                    </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-7">
+                                    <i class="mdi mdi-check-all font-20 text-danger"></i>
+                                    <p class="font-16 m-b-5">Atendido</p>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 70%; height: 6px;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                <div class="col-5">
+                                    <h1 class="font-light text-right mb-0">236</h1>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +113,7 @@
                 </div>
             </div>
             <!-- ============================================================== -->
-            <!-- SEGUIMIENTO DE CLIENTES -->
+            <!-- SEGUIMIENTO -->
             <!-- ============================================================== -->
             <div class="row">
                 <!-- column -->
