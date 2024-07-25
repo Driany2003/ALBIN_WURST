@@ -29,4 +29,5 @@ public class UsuarioEntity {
   @Column(name = "empresa_id")
   private Integer empresaId;
 
+
 }

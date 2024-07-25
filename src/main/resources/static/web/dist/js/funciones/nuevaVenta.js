@@ -1,6 +1,5 @@
 $(document).ready(function () {
     let totalPagar;
-    const currentUserId = 1;
     let detallesVenta = [];
     let clienteId = null;
     actualizarTotal();
@@ -67,20 +66,19 @@ $(document).ready(function () {
             </div>
             <div class="form-group">
                 <label for="${precioChorizoId}">Precio</label>
-                <input id="${precioChorizoId}" type="text" class="form-control form-control-sm precio-chorizo" placeholder="Precio" readonly>
+                <input id="${precioChorizoId}" type="text" class="form-control form-control-sm precio-chorizo" placeholder="Precio">
             </div>
             <div class="form-group">
                 <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
                 <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
             </div>
         `);
-        cargarProductos('Chorizo');
+        cargarProductos('Chorizo', chorizoId);
 
         $(document).on('change', `#${chorizoId}`, function () {
             var precio = $(this).find('option:selected').data('precio');
             $(`#${precioChorizoId}`).val(precio);
         });
-
     });
 
     // Añadir una nueva bebida
@@ -104,7 +102,7 @@ $(document).ready(function () {
                 <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
             </div>
         `);
-        cargarProductos('Bebida');
+        cargarProductos('Bebida', bebidaId);
 
         $(document).on('change', `#${bebidaId}`, function () {
             var precio = $(this).find('option:selected').data('precio');
@@ -179,12 +177,17 @@ $(document).ready(function () {
 
     // Procesar el pago
     $('#pagarButton').click(function () {
+
+        var empresaId = $('#empresaId').val();
+        var usuarioId = $('#usuarioId').val();
+
         $.ajax({
-            url: '/kenpis/venta/guardar',
+            url: '/kenpis/venta/create',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({
-                usuarioId: currentUserId,
+                empresaId: empresaId,
+                usuarioId: usuarioId,
                 clienteId: clienteId,
                 detalles: detallesVenta,
                 total: totalPagar

@@ -137,7 +137,7 @@
                                                 <label for="chorizo" class="control-label col-form-label">Sabor</label>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <label for="precioChorizo" class="control-label col-form-label">Precio</label>
+                                                <label for="precioChorizo" class="control-label col-form-label" disabled >Precio</label>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <label for="cantidadChorizos" class="control-label col-form-label">Cantidad</label>
@@ -173,7 +173,7 @@
                                                 <label for="bebida" class="control-label col-form-label">Bebida</label>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <label for="precioBebida" class="control-label col-form-label">Precio</label>
+                                                <label for="precioBebida" class="control-label col-form-label" disabled>Precio</label>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <label for="cantidadBebidas">Cantidad</label>
