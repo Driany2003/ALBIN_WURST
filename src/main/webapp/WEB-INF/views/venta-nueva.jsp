@@ -155,7 +155,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <input id="precioChorizo" type="number" class="form-control form-control-sm precio-chorizo" value="-" min="1">
+                                                <input id="precioChorizo" type="number" class="form-control form-control-sm precio-chorizo" min="1">
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <input id="cantidadChorizos" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
@@ -191,7 +191,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
-                                                <input id="precioBebida" type="number" class="form-control form-control-sm precio-bebida" value="-" min="1">
+                                                <input id="precioBebida" type="number" class="form-control form-control-sm precio-bebida" min="1">
                                             </div>
                                             <div class="form-group col-md-3 align-middle">
                                                 <input id="cantidadBebidas" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
