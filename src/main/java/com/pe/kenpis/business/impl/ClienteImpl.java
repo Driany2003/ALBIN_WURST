@@ -42,7 +42,7 @@ public class ClienteImpl implements IClienteService {
   public ClienteResponse create(ClienteRequest request) {
     log.debug("Implements :: create :: Inicio");
     request.setCliIsActive(true);
-    FxComunes.printJson(request);
+    FxComunes.printJson("ClienteRequest",request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 

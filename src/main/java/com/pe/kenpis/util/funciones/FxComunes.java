@@ -57,14 +57,14 @@ public class FxComunes {
     return sHostName;
   }
 
-  public static void printJson(Object obj) {
+  public static void printJson(String tipo, Object obj) {
     //Creating the ObjectMapper object
     ObjectMapper mapper = new ObjectMapper();
     //Converting the Object to JSONString
     String jsonPrint = "";
     try {
       jsonPrint = mapper.writeValueAsString(obj);
-      log.info(jsonPrint);
+      log.info("{}{}", tipo, jsonPrint);
     } catch (JsonProcessingException e) {
       log.error(e.getMessage(), e);
     }

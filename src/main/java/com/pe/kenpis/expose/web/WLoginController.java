@@ -1,6 +1,8 @@
 package com.pe.kenpis.expose.web;
 
+import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
+import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
@@ -21,6 +23,9 @@ public class WLoginController {
   @Autowired
   IUsuarioService service;
 
+  @Autowired
+  IEmpresaService empresaService;
+
   @RequestMapping(value = {"/login", "/"}, method = RequestMethod.GET)
   public String login() {
     return "login";
@@ -33,19 +38,25 @@ public class WLoginController {
 
   @RequestMapping(value = {"/kenpis/dashboard"}, method = RequestMethod.GET)
   public String welcome(ModelMap model, HttpServletRequest request) {
+
     String usuarioLogueado = FxComunes.getLoggedInUserName();
     UsuarioResponse usuarioResponse = service.findUsuarioByAuthUsername(usuarioLogueado);
     UsuarioAuthorityResponse usuarioAuthorityResponse = service.findUsuarioAuthorityByUsuId(usuarioResponse.getUsuId());
+    String nombre = usuarioResponse.getUsuNombre() + " " + usuarioResponse.getUsuApePaterno() + " " + usuarioResponse.getUsuApeMaterno();
     model.put("usuSession", usuarioResponse);
 
-    request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
-    request.getSession().setAttribute("usuSessionNombre", usuarioResponse.getUsuNombre());
-    request.getSession().setAttribute("usuSessionId", usuarioResponse.getUsuId());
+    EmpresaResponse empresaResponse = empresaService.findById(usuarioResponse.getEmpresaId());
 
-    // Ejemplo de depuración en el controlador
-    System.out.println("Usuario Role: " + usuarioAuthorityResponse.getAuthRoles());
-    System.out.println("Usuario NOMBRE : " + usuarioResponse.getUsuNombre());
-    System.out.println("Usuario ID: " + usuarioResponse.getUsuId());
+    request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
+    request.getSession().setAttribute("usuSessionNombre", nombre);
+    request.getSession().setAttribute("usuSessionId", usuarioResponse.getUsuId());
+    request.getSession().setAttribute("usuarioSession", usuarioResponse);
+    request.getSession().setAttribute("empresaSession", empresaResponse);
+
+    // LOGS CONSOLE
+    FxComunes.printJson("UsuarioAuthorityResponse", usuarioAuthorityResponse);
+    FxComunes.printJson("UsuarioResponse", usuarioResponse);
+    FxComunes.printJson("EmpresaSession", empresaResponse);
 
     return "dashboard";
   }

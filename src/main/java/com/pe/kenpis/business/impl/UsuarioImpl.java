@@ -42,7 +42,7 @@ public class UsuarioImpl implements IUsuarioService {
   @Override
   public UsuarioResponse create(UsuarioRequest request) {
     log.debug("Implements :: create :: Inicio");
-    FxComunes.printJson(request);
+    FxComunes.printJson("UsuarioRequest",request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 

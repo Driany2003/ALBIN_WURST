@@ -14,16 +14,12 @@
                     <!-- Logo icon -->
                     <b class="logo-icon">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Pacasmayo" class="light-logo">
-                        <!-- Dark Logo icon <img src="/static/web/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />-->
-                        <!-- Light Logo icon <img src="/static/web/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />-->
+                        <img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Kenpis" class="light-logo">
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
                     <span class="logo-text">
-                        <img src="/static/web/assets/images/0_logo/logo_kenpis_texto.png" alt="Pacasmayo" class="light-logo"/>
-                        <!-- dark Logo text  <img src="/static/web/assets/images/logo-text.png" class="dark-logo" alt="Exclusividad Inmobiliaria" />-->
-                        <!-- Light Logo text <img src="/static/web/assets/images/logo-light-text.png" class="light-logo" alt="Exclusividad Inmobiliaria"/>-->
+                        <img src="/static/web/assets/images/0_logo/logo_kenpis_texto.png" alt="Kenpis" class="light-logo"/>
                     </span>
                 </a>
                 <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
@@ -97,10 +93,10 @@
                             </div>
                         </div>
                         <div class="profile-dis scrollable">
-                            <a class="dropdown-item" href="/crm-ei/usuarios/clave?id=${usuSessionId}">
+                            <a class="dropdown-item" href="/kenpis/usuario/clave?id=${usuSessionId}">
                                 <i class="ti-lock m-r-5 m-l-5"></i> Cambiar clave</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/crm-ei/usuarios/mi-perfil?id=${usuSessionId}">
+                            <a class="dropdown-item" href="/kenpis/usuario/mi-perfil?id=${usuSessionId}">
                                 <i class="ti-settings m-r-5 m-l-5"></i> Mi Perfil</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/logout">

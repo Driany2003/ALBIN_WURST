@@ -37,7 +37,7 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   @Override
   public ProductoInventarioResponse create(ProductoInventarioRequest request) {
     log.debug("Implements :: create :: Inicio");
-    FxComunes.printJson(request);
+    FxComunes.printJson("ProductoInventarioRequest",request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 

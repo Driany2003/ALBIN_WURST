@@ -14,5 +14,6 @@ public class UsuarioRequest {
   private String usuApePaterno;
   private String usuApeMaterno;
   private String usuTelefono;
+  private Integer empresaId;
 
 }

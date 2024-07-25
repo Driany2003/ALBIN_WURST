@@ -38,7 +38,7 @@ public class EmpresaImpl implements IEmpresaService {
   public EmpresaResponse create(EmpresaRequest request) {
     log.debug("Implements :: create :: Inicio");
     request.setEmpIsActive(true);
-    FxComunes.printJson(request);
+    FxComunes.printJson("EmpresaRequest",request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
