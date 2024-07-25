@@ -14,13 +14,10 @@ public class VentaEstadoRequest {
 
   private Integer venEstadoId;
   private Integer ventaId;
-  private Boolean venEstadoRegistrado;
-  private Date venEstadoRegistradoFecha;
-  private Boolean venEstadoPagado;
-  private Date venEstadoPagadoFecha;
-  private Boolean venEstadoEnProceso;
-  private Date venEstadoEnProcesoFecha;
-  private Boolean venEstadoAtendido;
-  private Date venEstadoAtendidoFecha;
+  private String venEstado;
+  private Date venEstadoFechaRegistrado;
+  private Date venEstadoFechaPagado;
+  private Date venEstadoFechaEnProceso;
+  private Date venEstadoFechaAtendido;
 
 }

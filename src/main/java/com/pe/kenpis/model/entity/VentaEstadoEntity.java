@@ -18,28 +18,19 @@ public class VentaEstadoEntity {
   @Column(name = "venta_id")
   private Integer ventaId;
 
-  @Column(name = "ven_estado_registrado")
-  private Boolean venEstadoRegistrado;
+  @Column(name = "ven_estado")
+  private String venEstado;
 
-  @Column(name = "ven_estado_registrado_fecha")
-  private Date venEstadoRegistradoFecha;
+  @Column(name = "ven_estado_fecha_registrado")
+  private Date venEstadoFechaRegistrado;
 
-  @Column(name = "ven_estado_pagado")
-  private Boolean venEstadoPagado;
+  @Column(name = "ven_estado_fecha_pagado")
+  private Date venEstadoFechaPagado;
 
-  @Column(name = "ven_estado_pagado_fecha")
-  private Date venEstadoPagadoFecha;
+  @Column(name = "ven_estado_fecha_en_proceso")
+  private Date venEstadoFechaEnProceso;
 
-  @Column(name = "ven_estado_en_proceso")
-  private Boolean venEstadoEnProceso;
-
-  @Column(name = "ven_estado_en_proceso_fecha")
-  private Date venEstadoEnProcesoFecha;
-
-  @Column(name = "ven_estado_atendido")
-  private Boolean venEstadoAtendido;
-
-  @Column(name = "ven_estado_atendido_fecha")
-  private Date venEstadoAtendidoFecha;
+  @Column(name = "ven_estado_fecha_atendido")
+  private Date venEstadoFechaAtendido;
 
 }
