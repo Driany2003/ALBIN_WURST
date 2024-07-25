@@ -221,7 +221,7 @@ $(document).ready(function () {
                 url: '/kenpis/cliente/find-by-telefono/' + telefono,
                 method: 'GET',
                 success: function (response) {
-                    alert('Cliente ID : ' + response.cliId);
+                    //alert('Cliente ID : ' + response.cliId);
                     if (response.cliId != null) {
                         $('#cliNombre').val(response.cliNombre);
                         $('#cliNombre').prop('disabled', true);
