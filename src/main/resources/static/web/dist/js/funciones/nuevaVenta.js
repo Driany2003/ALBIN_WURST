@@ -87,6 +87,7 @@ $(document).ready(function () {
     $('#addBebida').click(function () {
         const bebidaId = `bebida-${Date.now()}`;
         const cantidadBebidasId = `cantidadBebidas-${Date.now()}`;
+        const precioBebidaId = `precioBebida-${Date.now()}`;
         $('#bebidas-container').append(`
             <div class="form-group">
                 <label for="${bebidaId}" class="form-label">Bebida</label>
@@ -95,11 +96,20 @@ $(document).ready(function () {
                 </select>
             </div>
             <div class="form-group">
+                <label for="${precioBebidaId}">Precio</label>
+                <input id="${precioBebidaId}" type="text" class="form-control form-control-sm precio-bebida" placeholder="Precio" readonly>
+            </div>
+            <div class="form-group">
                 <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
                 <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
             </div>
         `);
         cargarProductos('Bebida');
+
+        $(document).on('change', `#${bebidaId}`, function () {
+            var precio = $(this).find('option:selected').data('precio');
+            $(`#${precioBebidaId}`).val(precio);
+        });
     });
 
     function actualizarTotal() {
@@ -223,6 +233,7 @@ $(document).ready(function () {
                     $('#cliCorreoPopap').val('correo@correo.com');
                     $('#clienteModal').modal('hide');
                     $('#cliNombre').prop('disabled', true);
+                    $('#cliNombre').val(nombre);
                     $('#registrarCliente').hide();
                 },
                 error: function () {
