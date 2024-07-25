@@ -65,25 +65,6 @@ public class ProductoImpl implements IProductoService {
     }
   }
 
-<<<<<<< HEAD
-  public List<ProductoResponse> findAllByProCategoria(String categoria) {
-    List<ProductoEntity> productosEntity = productoRepository.findAllByProCategoria(categoria);
-    return productosEntity.stream()
-        .map(this::convertProductoEntityToResponse)
-        .collect(Collectors.toList());
-  }
-
-  private ProductoResponse convertProductoEntityToResponse(ProductoEntity productoEntity) {
-    ProductoResponse response = new ProductoResponse();
-    response.setProId(productoEntity.getProId());
-    response.setProTipo(productoEntity.getProTipo());
-    response.setProPrecio(productoEntity.getProPrecio());
-    response.setProCategoria(productoEntity.getProCategoria());
-    return response;
-  }
-
-  private ProductoEntity convertProductosRequestToEntity(ProductoRequest in) {
-=======
   public List<ProductoResponse> findAllByProCategoria(String dato) {
     if (dato == null || dato.isEmpty()) {
       throw new IllegalArgumentException("El tipo no puede ser nulo o vacío");
@@ -92,8 +73,12 @@ public class ProductoImpl implements IProductoService {
     return productos.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
+  @Override
+  public List<String> findAllCategories() {
+    return repository.findDistinctCategories();
+  }
+
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {
->>>>>>> 7e329a8ce320c011e34b63496ba8f030ca3621f7
     ProductoEntity out = new ProductoEntity();
     BeanUtils.copyProperties(in, out);
     return out;

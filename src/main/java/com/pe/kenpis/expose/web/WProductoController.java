@@ -21,6 +21,12 @@ public class WProductoController {
   @Autowired
   ProductoImpl service;
 
+  @GetMapping("/categorias")
+  public ResponseEntity<List<String>> getCategories() {
+    List<String> categories = service.findAllCategories();
+    return ResponseEntity.ok(categories);
+  }
+
   @GetMapping("/find-all-by-type/{categoria}")
   public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable String categoria) {
     List<ProductoResponse> productos = service.findAllByProCategoria(categoria);

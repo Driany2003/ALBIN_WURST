@@ -1,106 +1,123 @@
 $(document).ready(function () {
-    let totalPagar = 0;
-
-    function SeleccionarOpciones(selectClass, categoria) {
+    let totalPagar;
+    const currentUserId = 1; // Cambiar según la lógica de autenticación
+    let detallesVenta = []; // Array para almacenar detalles de venta temporalmente
+    actualizarTotal();
+    // Al cargar el modal
+    $('#ventaModal').on('show.bs.modal', function () {
+        // Obtener categorías y llenar el selector
         $.ajax({
-            type: 'GET',
-            url: '/kenpis/producto/find-all-by-type/' + categoria,
-            success: function (response) {
-                $('.' + selectClass).each(function () {
-                    $(this).empty();
-                    $(this).append($('<option>', { text: 'Elige una opción', value: '' }));
-                    response.forEach(function (producto) {
-                        $(this).append($('<option>', {
-                            value: JSON.stringify({ proId: producto.proId, proTipo: producto.proTipo, proPrecio: producto.proPrecio }),
-                            text: producto.proTipo,
-                            'data-precio': producto.proPrecio
-                        }));
-                    }.bind(this));
+            url: '/kenpis/producto/categorias',
+            method: 'GET',
+            success: function (categorias) {
+                var bebidaSelect = $('#tipoBebida');
+                var chorizoSelect = $('#tipoChorizo');
+
+                bebidaSelect.empty().append('<option value="">-- Seleccione --</option>');
+                chorizoSelect.empty().append('<option value="">-- Seleccione --</option>');
+
+                categorias.forEach(function (categoria) {
+                    if (categoria !== 'Bebida') {
+                        chorizoSelect.append('<option value="' + categoria + '">' + categoria + '</option>');
+                    } else {
+                        bebidaSelect.append('<option value="' + categoria + '">' + categoria + '</option>');
+                    }
                 });
-            },
-            error: function (error) {
-                console.error('Error al obtener los productos:', error);
+            }
+        });
+    });
+
+    // Cuando cambia la categoría de bebida
+    $('#tipoBebida').change(function () {
+        cargarProductos($(this).val());
+    });
+
+    // Cuando cambia la categoría de chorizo
+    $('#tipoChorizo').change(function () {
+        cargarProductos($(this).val());
+    });
+
+    function cargarProductos(categoria) {
+        $.ajax({
+            url: '/kenpis/producto/find-all-by-type/' + categoria,
+            method: 'GET',
+            success: function (productos) {
+                var productoSelect = (categoria === 'Bebida') ? $('#bebida') : $('#chorizo');
+                productoSelect.empty().append('<option value="">-- Seleccione --</option>');
+
+                productos.forEach(function (producto) {
+                    productoSelect.append('<option value="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' + producto.proTipo + '</option>');
+                });
             }
         });
     }
 
-
-    function updateProductOptions() {
-        const selectedChorizoType = $('#tipoChorizo').val();
-        const selectedBebidaType = $('#tipoBebida').val();
-
-        SeleccionarOpciones('chorizo-select', 'chorizo', selectedChorizoType);
-        SeleccionarOpciones('bebida-select', 'bebida', selectedBebidaType);
-    }
-
-    // Inicializar opciones al cargar la página
-    SeleccionarOpciones('chorizo-select', 'choripan');
-    SeleccionarOpciones('bebida-select', 'bebida');
-
-    // Manejar cambios en las categorías
-    $('#tipoChorizo').change(updateProductOptions);
-    $('#tipoBebida').change(updateProductOptions);
-
+    // Añadir un nuevo chorizo
     $('#addChorizo').click(function () {
         const chorizoId = `chorizo-${Date.now()}`;
         const cantidadChorizosId = `cantidadChorizos-${Date.now()}`;
         $('#chorizos-container').append(`
-        <div class="form-group">
-            <label for="${chorizoId}" class="form-label">Sabor de Chorizo</label>
-            <select id="${chorizoId}" class="form-select form-select-sm chorizo-select">
-                <option value="">-- Seleccione --</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
-            <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
-        </div>
-    `);
-        SeleccionarOpciones('chorizo-select', 'chorizo'); // Actualiza los nuevos comboboxes
+            <div class="form-group">
+                <label for="${chorizoId}" class="form-label">Sabor de Chorizo</label>
+                <select id="${chorizoId}" class="form-select form-select-sm chorizo-select">
+                    <option value="">-- Seleccione --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="${cantidadChorizosId}">Cantidad de Chorizos</label>
+                <input id="${cantidadChorizosId}" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
+            </div>
+        `);
+        cargarProductos('Chorizo');
     });
 
+    // Añadir una nueva bebida
     $('#addBebida').click(function () {
         const bebidaId = `bebida-${Date.now()}`;
         const cantidadBebidasId = `cantidadBebidas-${Date.now()}`;
         $('#bebidas-container').append(`
-        <div class="form-group">
-            <label for="${bebidaId}" class="form-label">Bebida</label>
-            <select id="${bebidaId}" class="form-select form-select-sm bebida-select">
-                <option value="">-- Seleccione --</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
-            <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
-        </div>
-    `);
-        SeleccionarOpciones('bebida-select', 'bebida'); // Actualiza los nuevos comboboxes
+            <div class="form-group">
+                <label for="${bebidaId}" class="form-label">Bebida</label>
+                <select id="${bebidaId}" class="form-select form-select-sm bebida-select">
+                    <option value="">-- Seleccione --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="${cantidadBebidasId}">Cantidad de Bebidas</label>
+                <input id="${cantidadBebidasId}" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
+            </div>
+        `);
+        cargarProductos('Bebida');
     });
-
 
     function actualizarTotal() {
         totalPagar = 0;
         $('#ventasBody tr').each(function () {
-            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/.', ''));
+            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/.', '').replace(',', '.'));
             if (!isNaN(subtotal)) {
                 totalPagar += subtotal;
             }
         });
+
         $('#totalPagar').text('S/.' + totalPagar.toFixed(2));
     }
 
+
+
+
+    // Guardar el pedido
     $('#guardarPedido').click(function () {
-        var detalles = [];
+        detallesVenta = [];
 
         $('.chorizo-select').each(function () {
             var chorizoData = $(this).val();
             if (chorizoData) {
-                var chorizo = JSON.parse(chorizoData);
+                var chorizo = $(this).find('option:selected').text();
                 var cantidadChorizos = $(this).closest('.form-group').next().find('.cantidad-chorizo').val();
                 var precioChorizo = $(this).find('option:selected').data('precio');
                 if (cantidadChorizos > 0) {
                     var subtotalChorizo = cantidadChorizos * precioChorizo;
-                    detalles.push({
+                    detallesVenta.push({
                         producto: chorizo,
                         venDetCantidad: cantidadChorizos,
                         venDetSubtotal: subtotalChorizo.toFixed(2),
@@ -113,12 +130,12 @@ $(document).ready(function () {
         $('.bebida-select').each(function () {
             var bebidaData = $(this).val();
             if (bebidaData) {
-                var bebida = JSON.parse(bebidaData);
+                var bebida = $(this).find('option:selected').text();
                 var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidad-bebida').val();
                 var precioBebida = $(this).find('option:selected').data('precio');
                 if (cantidadBebidas > 0) {
                     var subtotalBebida = cantidadBebidas * precioBebida;
-                    detalles.push({
+                    detallesVenta.push({
                         producto: bebida,
                         venDetCantidad: cantidadBebidas,
                         venDetSubtotal: subtotalBebida.toFixed(2),
@@ -128,12 +145,12 @@ $(document).ready(function () {
             }
         });
 
-        var detallesHtml = detalles.map(function (detalle) {
+        var detallesHtml = detallesVenta.map(function (detalle) {
             return '<tr>' +
-                '<td data-producto=\'' + JSON.stringify(detalle.producto) + '\'>' + (detalle.producto ? detalle.producto.proTipo : 'N/A') + '</td>' +
+                '<td>' + detalle.producto + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
-                '<td>' + detalle.venDetPrecio + '</td>' +
-                '<td>' + 'S/.' + detalle.venDetSubtotal + '</td>' +
+                '<td>S/ ' + detalle.venDetPrecio + '</td>' +
+                '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
                 '</tr>';
         }).join('');
 
@@ -142,100 +159,34 @@ $(document).ready(function () {
         $('#ventaForm')[0].reset();
     });
 
+    // Procesar el pago
     $('#pagarButton').click(function () {
-        var detalles = [];
-
-        $('#ventasBody tr').each(function () {
-            var productoData = $(this).find('td').eq(0).attr('data-producto');
-            if (productoData) {
-                try {
-                    var producto = JSON.parse(productoData);
-                    var cantidad = $(this).find('td').eq(1).text();
-                    var precio = $(this).find('td').eq(2).text().replace('S/.', '');
-                    var subtotal = $(this).find('td').eq(3).text().replace('S/.', '');
-
-                    detalles.push({
-                        producto: producto,
-                        venDetCantidad: cantidad,
-                        venDetPrecio: precio,
-                        venDetSubtotal: subtotal
-                    });
-                } catch (e) {
-                    console.error('Error parsing productoData:', e);
-                }
-            }
-        });
-
-        var ventaData = {
-            detallesVentas: detalles,
-            venTotal: totalPagar
-        };
-        console.log('Datos de la venta final:', ventaData);
-
+        // Aquí puedes usar la variable detallesVenta directamente
         $.ajax({
-            type: 'POST',
-            url: '/kenpis/venta/create',
-            data: JSON.stringify(ventaData),
+            url: '/kenpis/venta/guardar',
+            method: 'POST',
             contentType: 'application/json',
+            data: JSON.stringify({
+                usuarioId: currentUserId,
+                detalles: detallesVenta,
+                total: totalPagar
+            }),
             success: function (response) {
-                alert('Venta registrada exitosamente.');
-                $('#ventaForm')[0].reset();
+                alert('Pedido guardado correctamente.');
                 $('#ventaModal').modal('hide');
+                // Limpiar el formulario y las tablas
+                $('#ventaForm')[0].reset();
                 $('#ventasBody').empty();
+                $('#chorizos-container').empty();
+                $('#bebidas-container').empty();
+                totalPagar = 0;
                 $('#totalPagar').text('S/ 0.00');
+                detallesVenta = [];
             },
-            error: function (error) {
-                console.error('Error al registrar la venta:', error);
+            error: function () {
+                alert('Error al guardar el pedido. Intente nuevamente.');
             }
         });
     });
 
-    function cargarDetallesDeVenta() {
-        $.ajax({
-            type: 'GET',
-            url: '/kenpis/venta/detalle/find-all',
-            success: function (response) {
-                var detallesHtml = response.map(function (detalle) {
-                    return '<tr>' +
-                        '<td data-producto=\'' + JSON.stringify(detalle.producto) + '\'>' + (detalle.producto ? detalle.producto.proTipo : 'N/A') + '</td>' +
-                        '<td>' + detalle.venDetCantidad + '</td>' +
-                        '<td>' + detalle.venDetPrecio + '</td>' +
-                        '<td>' + 'S/.' + detalle.venDetSubtotal + '</td>' +
-                        '</tr>';
-                }).join('');
-                $('#ventasBody').html(detallesHtml);
-                actualizarTotal();
-            },
-            error: function (error) {
-                console.error('Error al obtener los detalles de ventas:', error);
-            }
-        });
-    }
-
-    $('#cliTelefono').on('input', function () {
-        let cliTel = $(this).val();
-
-        if (cliTel.length === 9) {
-            $.ajax({
-                type: 'GET',
-                url: '/api/usuarios/verificar/' + cliTel,
-                success: function (response) {
-                    if (response) {
-                        $('#clientName').text(response.cliNombre);
-                        $('#clientInfoModal').modal('show');
-                        $('#nombreCliente').val(response.cliNombre);
-                    } else {
-                        $('#clientInfoModal').modal('show');
-                        $('#clientInfoModal .modal-body').text('Usuario no registrado.');
-                        $('#nombreCliente').val('');
-                    }
-                },
-                error: function (error) {
-                    console.error('Error al verificar el celular:', error);
-                }
-            });
-        } else {
-            $('#nombreCliente').val('');
-        }
-    });
 });
