@@ -76,19 +76,17 @@ $(document).ready(function () {
 
     // Guardar el pedido
     $('#guardarPedido').click(function () {
-        alert("entradndo a guardar pedido");
+        alert("Entrando a guardar pedido");
         detallesVenta = [];
 
         $('.chorizo-select').each(function () {
             var chorizoData = $(this).val();
-            alert("entradndo a guardar pedido" + chorizoData);
             if (chorizoData) {
                 var chorizo = $(this).find('option:selected').text();
-                alert("chorizo" + chorizo);
-                var cantidadChorizos = $(this).closest('.form-group').next().find('cantidad-bebida').val();
-                alert("cantidad chorizo" + cantidadChorizos);
+                var cantidadChorizos = $(this).closest('.form-group').next().find('.cantidad-chorizo').val();
+                alert(cantidadChorizos);
                 var precioChorizo = $(this).find('option:selected').data('precio');
-                alert("precio chorizo" + precioChorizo);
+                alert(precioChorizo);
                 if (cantidadChorizos > 0) {
                     var subtotalChorizo = cantidadChorizos * precioChorizo;
                     detallesVenta.push({
@@ -103,14 +101,10 @@ $(document).ready(function () {
 
         $('.bebida-select').each(function () {
             var bebidaData = $(this).val();
-            alert("entradndo a guardar pedido" + bebidaData);
             if (bebidaData) {
                 var bebida = $(this).find('option:selected').text();
-                alert("bebida" + bebida);
-                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidadBebidas').val();
-                alert("cantidad bebidas" + cantidadBebidas);
+                var cantidadBebidas = $(this).closest('.form-group').next().find('.cantidad-bebida').val();
                 var precioBebida = $(this).find('option:selected').data('precio');
-                alert("precio bebida" + precioBebida);
                 if (cantidadBebidas > 0) {
                     var subtotalBebida = cantidadBebidas * precioBebida;
                     detallesVenta.push({
@@ -124,20 +118,19 @@ $(document).ready(function () {
         });
 
         var detallesHtml = detallesVenta.map(function (detalle) {
-
             return '<tr>' +
                 '<td>' + detalle.producto + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
                 '<td>S/ ' + detalle.venDetPrecio + '</td>' +
                 '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
                 '</tr>';
-
         }).join('');
-alert(detallesHtml);
+
         $('#ventasBody').append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
     });
+
 
     // Procesar el pago
     $('#pagarButton').click(function () {
