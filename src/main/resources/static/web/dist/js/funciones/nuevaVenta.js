@@ -185,7 +185,6 @@ $(document).ready(function () {
             }
         });
     });
-
     $('#cliTelefono').on('input', function () {
         var telefono = $(this).val();
         if (telefono.length === 9) {
@@ -197,51 +196,78 @@ $(document).ready(function () {
                         $('#cliNombre').val(response.cliNombre);
                         clienteId = response.cliId;
                         $('#cliNombre').prop('disabled', true);
+                        $('#registrarCliente').hide(); // Ocultar el botón si el cliente está registrado
+                    } else {
+                        $('#cliNombre').val('');
+                        $('#cliNombre').prop('disabled', false);
+                        $('#registrarCliente').show(); // Mostrar el botón si el cliente no está registrado
+                        $('#cliTelefonoNoRegistrado').val(telefono);
+                        $('#clienteModal').modal('show');
+                    }
+                },
+                error: function () {
+                    alert('Error al buscar el cliente. Intente nuevamente.');
+                }
+            });
+        } else {
+            $('#cliNombre').val('');
+            $('#cliNombre').prop('disabled', false);
+            $('#registrarCliente').show(); // Asegúrate de mostrar el botón también cuando el teléfono no tenga 9 dígitos
+        }
+    });
+
+    $('#registrarCliente').click(function() {
+        var nombre = $('#cliNombrePopap').val();
+        var telefono = $('#cliTelefonoNoRegistrado').val();
+        if (nombre && telefono) {
+            $.ajax({
+                url: '/kenpis/cliente/create',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    cliNombre: nombre,
+                    cliTelefono: telefono
+                }),
+                success: function (response) {
+                    clienteId = response.cliId;
+                    $('#clienteModal').modal('hide');
+                    $('#cliNombre').prop('disabled', true);
+                    $('#registrarCliente').hide();
+                },
+                error: function () {
+                    alert('Error al registrar el cliente. Intente nuevamente.');
+                }
+            });
+        } else {
+            alert('Por favor, ingrese el nombre y el teléfono.');
+        }
+    });
+
+    $('#buscarCliente').click(function () {
+        var telefono = $('#cliTelefono').val();
+        if (telefono.length === 9) {
+            $.ajax({
+                url: '/kenpis/cliente/find-by-telefono/' + telefono,
+                method: 'GET',
+                success: function (response) {
+                    if (response) {
+                        $('#cliNombre').val(response.cliNombre);
+                        $('#cliNombre').prop('disabled', true);
                         $('#registrarCliente').hide();
                     } else {
                         $('#cliNombre').val('');
                         $('#cliNombre').prop('disabled', false);
                         $('#registrarCliente').show();
                         $('#cliTelefonoNoRegistrado').val(telefono);
-                        $('#clienteModal').modal('show');
+                        $('#clienteModal').modal('show'); // Mostrar el modal
                     }
                 },
                 error: function () {
-                    alert('Error al buscar el cliente.');
-                    $('#cliTelefonoNoRegistrado').val(telefono);
-                    $('#clienteModal').modal('show');
-                }
-            });
-        } else if (telefono.length > 9) {
-            // Limpiar nombre si el teléfono no tiene exactamente 9 dígitos
-            $('#cliNombre').val('');
-        }
-    });
-
-    $('#registrarCliente').click(function () {
-        var nombre = $('#cliNombreNoRegistrado').val();
-        var telefono = $('#cliTelefonoNoRegistrado').val();
-        if (telefono.length === 9 && !nombre) {
-            $('#clienteModal').modal('show');
-        } else if (nombre && telefono) {
-            $.ajax({
-                url: '/kenpis/cliente/create',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ cliNombre: nombre, cliTelefono: telefono }),
-                success: function (response) {
-                    clienteId = response.cliId;
-                    $('#cliNombre').val(nombre);
-                    $('#cliNombre').prop('disabled', true);
-                    $('#registrarCliente').hide();
-                    $('#clienteModal').modal('hide');
-                },
-                error: function () {
-                    alert('Error al registrar el cliente.');
+                    alert('Error al buscar el cliente. Intente nuevamente.');
                 }
             });
         } else {
-            alert('Por favor, complete todos los campos.');
+            alert('Ingrese un número de teléfono válido.');
         }
     });
 });

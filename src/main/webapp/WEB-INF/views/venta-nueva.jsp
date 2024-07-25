@@ -51,28 +51,15 @@
                             <div class="form-group col-md-2 text-md-right align-middle">
                                 <label for="cliTelefono" class="control-label col-form-label"># Celular Cliente</label>
                             </div>
-<<<<<<< HEAD
-
-                        </div>
-                    </div>
-                    <div class="card-body p-4">
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="cliTelefono" class="control-label col-form-label">Número Celular</label>
-                                <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese el número de celular">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="cliNombre" class="control-label col-form-label">Nombre</label>
-                                <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
-                                <input id="cliId" type="hidden"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card mt-3">
-=======
                             <div class="form-group col-md-2">
-                                <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese número">
+                                <div class="input-group">
+                                    <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese número">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="buscarCliente" style="cursor: pointer;">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group col-md-1 text-md-right align-middle">
                                 <label for="cliNombre" class="control-label col-form-label">Nombre</label>
@@ -81,14 +68,9 @@
                                 <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
                                 <input id="clienteId" type="hidden"/>
                             </div>
-                            <div class="form-group col-md-2 text-md-right align-middle">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#clienteModal">
-                                    Nuevo
-                                </button>
-                            </div>
                         </div>
+
                     </div>
->>>>>>> cd1e1d2295136aac7960d1d2d429c2d3cc9f9828
                     <div class="card-header">
                         <div class="form-row">
                             <div class="col-md-11">
@@ -228,24 +210,24 @@
                 </div>
             </div>
 
-            <!-- Modal para registrar un nuevo cliente -->
+            <!-- Modal -->
             <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="clienteModalLabel">Registrar Nuevo Cliente</h5>
+                            <h5 class="modal-title" id="clienteModalLabel">Registrar Cliente</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="cliNombreNoRegistrado">Nombre del Cliente</label>
-                                <input type="text" class="form-control" id="cliNombreNoRegistrado" placeholder="Ingrese el nombre">
+                                <label for="cliNombrePopap">Nombre</label>
+                                <input type="text" class="form-control" id="cliNombrePopap">
                             </div>
                             <div class="form-group">
-                                <label for="cliTelefonoNoRegistrado">Teléfono del Cliente</label>
-                                <input type="text" class="form-control" id="cliTelefonoNoRegistrado" placeholder="Ingrese el teléfono" readonly>
+                                <label for="cliTelefonoNoRegistrado">Teléfono</label>
+                                <input type="text" class="form-control" id="cliTelefonoNoRegistrado">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -255,6 +237,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
@@ -271,6 +255,12 @@
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <!-- CSS de Bootstrap -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+
         <!-- PARA MODAL -->
         <!--  modal: NUEVA VENTA -->
         <script src="/static/web/dist/js/funciones/nuevaVenta.js"></script>
@@ -282,103 +272,5 @@
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
-<<<<<<< HEAD
-    </div>
-    <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/static/web/dist/js/funciones/nuevaVenta.js"></script>
-
-
-    <style>
-        .card {
-            margin-top: 10px;
-        }
-
-        .form-body {
-            padding: 10px;
-        }
-
-        .form-actions {
-            padding: 10px;
-        }
-
-        .table-responsive {
-            margin-top: 10px;
-        }
-
-        .table th, .table td {
-            text-align: center;
-            padding: 5px;
-        }
-
-        .btn-sm {
-            font-size: 0.8rem;
-        }
-
-        .card-header h5 {
-            margin-bottom: 0;
-        }
-
-        .card {
-            margin-top: 10px;
-        }
-
-        .form-body {
-            padding: 10px;
-        }
-
-        .form-actions {
-            padding: 10px;
-        }
-
-        .table-responsive {
-            margin-top: 10px;
-        }
-
-        .table th, .table td {
-            text-align: center;
-            padding: 5px;
-        }
-
-        .btn-sm {
-            font-size: 0.8rem;
-        }
-
-        .card-header h5 {
-            margin-bottom: 0;
-        }
-
-        .modal-content {
-            border-radius: 10px;
-        }
-
-        .modal-header {
-            background-color: #f5f5f5;
-            border-bottom: none;
-        }
-
-        .modal-title {
-            color: #333;
-        }
-
-        .modal-footer {
-            border-top: none;
-        }
-    </style>
-    <%@ include file="includes/all-jquery.jspf" %>
-    <!-- ============================================================== -->
-    <!-- footer -->
-    <!-- ============================================================== -->
-    <%@ include file="includes/footer.jspf" %>
-    <!-- ============================================================== -->
-    <!-- End footer -->
-    <!-- ============================================================== -->
-=======
->>>>>>> cd1e1d2295136aac7960d1d2d429c2d3cc9f9828
 </body>
 </html>
