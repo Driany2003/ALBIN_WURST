@@ -82,7 +82,7 @@ $(document).ready(function () {
         var chorizo = $('.categoria-chorizo-select').find('option:selected').text();
         var precioChorizo = $('.categoria-chorizo-select').find('option:selected').data('precio');
         var cantidadChorizos = $('#cantidadChorizos').val();
-        alert("Detalle Chorizos :: " + chorizo + " - " + cantidadChorizos + " - " + precioChorizo);
+        //alert("Detalle Chorizos :: " + chorizo + " - " + cantidadChorizos + " - " + precioChorizo);
         if (cantidadChorizos > 0) {
             var subtotalChorizo = cantidadChorizos * precioChorizo;
             detallesVenta.push({
@@ -96,7 +96,7 @@ $(document).ready(function () {
         var bebida = $('.categoria-bebida-select').find('option:selected').text();
         var precioBebida = $('.categoria-bebida-select').find('option:selected').data('precio');
         var cantidadBebidas = $('#cantidadBebidas').val();
-        alert("Detalle Bebidas :: " + bebida + " - " + cantidadBebidas + " - " + precioBebida);
+        //alert("Detalle Bebidas :: " + bebida + " - " + cantidadBebidas + " - " + precioBebida);
         if (cantidadBebidas > 0) {
             var subtotalBebida = cantidadBebidas * precioBebida;
             detallesVenta.push({
@@ -116,8 +116,9 @@ $(document).ready(function () {
                 '</tr>';
 
         }).join('');
+        alert(detallesHtml);
 
-        $('#ventasBody').append(detallesHtml);
+        $('#ventasBody')    .append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
     });
