@@ -93,16 +93,14 @@ $(document).ready(function () {
     function actualizarTotal() {
         totalPagar = 0;
         $('#ventasBody tr').each(function () {
-            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/.', '').replace(',', '.'));
+            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.').replace(',', '.'));
+            alert(subtotal);
             if (!isNaN(subtotal)) {
                 totalPagar += subtotal;
             }
         });
-
-        $('#totalPagar').text('S/.' + totalPagar.toFixed(2));
+        $('#totalPagar').text('S/' + totalPagar.toFixed(2));
     }
-
-
 
 
     // Guardar el pedido
