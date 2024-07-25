@@ -150,6 +150,10 @@ $(document).ready(function () {
             }),
             success: function (response) {
                 alert('Pedido guardado correctamente.');
+                $('#cliTelefono').val("");
+                $('#cliNombre').val("");
+                $('#clienteId').val("");
+                $('#venTipoPago').val("");
                 $('#ventaModal').modal('hide');
                 // Limpiar el formulario y las tablas
                 $('#ventaForm')[0].reset();

@@ -33,4 +33,7 @@ public class VentaEstadoEntity {
   @Column(name = "ven_estado_fecha_atendido")
   private Date venEstadoFechaAtendido;
 
+  @Column(name = "ven_estado_fecha_descartado")
+  private Date venEstadoFechaDescartado;
+
 }

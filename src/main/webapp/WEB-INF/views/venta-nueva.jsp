@@ -115,7 +115,7 @@
                                 <tr>
                                     <th colspan="4"></th>
                                     <th class="text-right">
-                                        <button id="pagarButton" class="btn btn-success btn-sm">Pagar</button>
+                                        <button id="pagarButton" class="btn btn-success btn-sm">Grabar</button>
                                     </th>
                                 </tr>
                                 </tfoot>
