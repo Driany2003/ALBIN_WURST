@@ -2,9 +2,16 @@ package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
+import com.pe.kenpis.business.impl.VentaDetalleImpl;
+import com.pe.kenpis.business.impl.VentaEstadoImpl;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
+import com.pe.kenpis.model.api.venta.detalle.VentaDetailDTO;
+import com.pe.kenpis.model.api.venta.estado.del_dia.VentaEstadoDelDiaResponse;
+import com.pe.kenpis.model.entity.VentaDetalleEntity;
+import com.pe.kenpis.repository.VentaEstadoRepository;
+import com.pe.kenpis.repository.VentaRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 @Slf4j
@@ -25,6 +34,16 @@ public class WLoginController {
 
   @Autowired
   IEmpresaService empresaService;
+
+  @Autowired
+  private VentaEstadoImpl ventaEstado;
+
+
+  @Autowired
+  private VentaEstadoRepository ventaEstadoRepository;
+
+
+
 
   @RequestMapping(value = {"/login", "/"}, method = RequestMethod.GET)
   public String login() {
@@ -57,6 +76,29 @@ public class WLoginController {
     FxComunes.printJson("UsuarioAuthorityResponse", usuarioAuthorityResponse);
     FxComunes.printJson("UsuarioResponse", usuarioResponse);
     FxComunes.printJson("EmpresaSession", empresaResponse);
+
+    //MUESTRA LA CANTIDAD DE PEDIDOSESTADOS EN EL DASHBOARD
+    Map<String, Object> pedidosEstado = ventaEstado.getCountPedidosXEstado();
+    model.put("pedidosEstado", pedidosEstado);
+    FxComunes.printJson("PedidosEstado", pedidosEstado);
+
+
+    //LISTA PARA LOS DIV REGISTRADO, EN PROCESO, COMPLETADO, ATENDIDO
+    List<Map<String, Object>> REGISTRADO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("REGISTRADO");
+    List<Map<String, Object>> EN_PROCESO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("EN_PROCESO");
+    List<Map<String, Object>> PAGADO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("PAGADO");
+    List<Map<String, Object>> ATENDIDO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("ATENDIDO");
+
+    model.addAttribute("Registrados", REGISTRADO);
+    model.addAttribute("EnProceso", EN_PROCESO);
+    model.addAttribute("Completados", PAGADO);
+    model.addAttribute("Atendidos", ATENDIDO);
+
+    FxComunes.printJson("Registrados", REGISTRADO);
+    FxComunes.printJson("EnProceso", EN_PROCESO);
+    FxComunes.printJson("Completados", PAGADO);
+    FxComunes.printJson("Atendidos", ATENDIDO);
+
 
     return "dashboard";
   }

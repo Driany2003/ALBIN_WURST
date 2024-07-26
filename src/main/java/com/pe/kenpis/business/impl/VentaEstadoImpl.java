@@ -3,6 +3,7 @@ package com.pe.kenpis.business.impl;
 import com.pe.kenpis.business.IVentaEstadoService;
 import com.pe.kenpis.model.api.venta.estado.VentaEstadoRequest;
 import com.pe.kenpis.model.api.venta.estado.VentaEstadoResponse;
+import com.pe.kenpis.model.api.venta.estado.del_dia.VentaEstadoDelDiaResponse;
 import com.pe.kenpis.model.entity.VentaEstadoEntity;
 import com.pe.kenpis.repository.VentaEstadoRepository;
 import com.pe.kenpis.util.funciones.DateUtil;
@@ -14,6 +15,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -93,6 +95,10 @@ public class VentaEstadoImpl implements IVentaEstadoService {
     } else {
       return new VentaEstadoResponse();
     }
+  }
+
+  public Map<String, Object> getCountPedidosXEstado() {
+    return repository.getCountPedidosXEstado();
   }
 
   private VentaEstadoEntity convertRequestToEntity(VentaEstadoRequest in) {

@@ -71,8 +71,6 @@ public class VentaImpl implements IVentaService {
       nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
       detallesVentas.add(nuevoDetalle);
     }
-
-    FxComunes.printJson("VentaDetalleEntity", detallesVentas);
     // Guardar todos los detalles de la venta
     detalleVentaRepository.saveAll(detallesVentas);
 

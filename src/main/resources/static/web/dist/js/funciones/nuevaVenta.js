@@ -66,7 +66,7 @@ $(document).ready(function () {
     function actualizarTotal() {
         totalPagar = 0;
         $('#ventasBody tr').each(function () {
-            const subtotal = parseFloat($(this).find('td').eq(3).text().replace('S/', '').replace(',', '.').replace(',', '.'));
+            const subtotal = parseFloat($(this).find('td').eq(4).text().replace('S/', '').replace(',', '.'));
             if (!isNaN(subtotal)) {
                 totalPagar += subtotal;
             }
@@ -119,18 +119,28 @@ $(document).ready(function () {
                 '<td>S/ ' + detalle.venDetPrecio + '</td>' +
                 '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
                 '</tr>';
-
         }).join('');
         //alert(detallesHtml);
 
         $('#ventasBody')    .append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
+        verificarTabla();
     });
+
+
+    $('#pagarButton').prop('disabled', true);
+
+    function verificarTabla() {
+        if ($('#ventasBody tr').length > 0) {
+            $('#pagarButton').prop('disabled', false);
+        } else {
+            $('#pagarButton').prop('disabled', true);
+        }
+    }
 
     // Procesar el pago
     $('#pagarButton').click(function () {
-
         var empresaId = $('#empresaId').val();
         var usuarioId = $('#usuarioId').val();
         var clienteId = $('#clienteId').val();
@@ -163,9 +173,11 @@ $(document).ready(function () {
                 totalPagar = 0;
                 $('#totalPagar').text('S/ 0.00');
                 detallesVenta = [];
+                verificarTabla();
             },
             error: function () {
                 alert('Error al guardar el pedido. Intente nuevamente.');
+                $('#pagarButton').prop('disabled', false);
             }
         });
     });
