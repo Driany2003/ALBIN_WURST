@@ -51,334 +51,173 @@
             <!-- DATOS GENERALES -->
             <!-- ============================================================== -->
             <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-7">
                                     <i class="mdi mdi-account-check font-20 text-info"></i>
-                                    <p class="font-16 m-b-5">Registrado</p>
+                                    <p class="font-16 m-b-5 text-truncate">Registrado</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 id="registrado" class="font-light text-right mb-0">${pedidosEstado.registrado}</h1>
+                                    <h1 class="font-light text-right mb-0">${pedidosEstado.registrado}</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-2">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-7">
                                     <i class="mdi mdi-currency-usd font-20 text-success"></i>
-                                    <p class="font-16 m-b-5">Pagados</p>
+                                    <p class="font-16 m-b-5 text-truncate">Pagados</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 id="pagado" class="font-light text-right mb-0">${pedidosEstado.pagado}</h1>
+                                    <h1  class="font-light text-right mb-0">${pedidosEstado.pagado}</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-7">
                                     <i class="mdi mdi-av-timer font-20 text-purple"></i>
-                                    <p class="font-16 m-b-5">En proceso</p>
+                                    <p class="font-16 m-b-5 text-truncate">En proceso</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 id="enProceso" class="font-light text-right mb-0">${pedidosEstado.en_Proceso}</h1>
+                                    <h1  class="font-light text-right mb-0">${pedidosEstado.en_Proceso}</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-7">
                                     <i class="mdi mdi-check-all font-20 text-danger"></i>
-                                    <p class="font-16 m-b-5">Atendido</p>
+                                    <p class="font-16 m-b-5 text-truncate">Atendido</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 id="atendido" class="font-light text-right mb-0">${pedidosEstado.atendido}</h1>
+                                    <h1  class="font-light text-right mb-0">${pedidosEstado.atendido}</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-2">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-7">
                                     <i class="mdi mdi-check-all font-20 text-danger"></i>
-                                    <p class="font-16 m-b-5">Descartado</p>
+                                    <p class="font-16 m-b-5 text-truncate">Descartado</p>
                                 </div>
                                 <div class="col-5">
-                                    <h1 id="descartado" class="font-light text-right mb-0">${pedidosEstado.descartado}</h1>
+                                    <h1 class="font-light text-right mb-0">${pedidosEstado.descartado}</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <!-- ============================================================== -->
             <!-- SEGUIMIENTO -->
             <!-- ============================================================== -->
             <div class="container-fluid">
                 <div class="row d-flex justify-content-center">
-                    <div class="col-12">
+                    <div class="col-md-3 col-sm-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Taskboard-Pacasmayo</h4>
-                                <div id="todo-lists-basic" class="lobilists single-line">
-                                    <div class="lobilist-wrapper">
-                                        <div id="todo" class="lobilist lobilist-danger">
-                                            <div class="lobilist-header">
-                                                <div class="lobilist-actions">
-                                                    <div class="dropdown">
-                                                        <button type="button" data-toggle="dropdown" class="btn btn-xs">
-                                                            <i class="ti-view-grid"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <div class="lobilist-default"></div>
-                                                            <div class="lobilist-danger"></div>
-                                                            <div class="lobilist-success"></div>
-                                                            <div class="lobilist-warning"></div>
-                                                            <div class="lobilist-info"></div>
-                                                            <div class="lobilist-primary"></div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-finish-title-editing">
-                                                        <i class="ti-check-box"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-cancel-title-editing">
-                                                        <i class="ti-close"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-plus"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-trash"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="lobilist-title">Registrado</div>
-                                            </div>
-                                            <div class="lobilist-body">
-                                                <ul class="lobilist-items">
-                                                    <li data-id="1" class="lobilist-item">
-                                                        <div class="lobilist-item-title">Floor coolsdded cinders</div>
-                                                        <div class="lobilist-item-description">Thunder fulfilled travellers folly, wading, lake.</div>
-                                                        <div class="lobilist-item-duedate">2015-01-31</div>
-                                                        <label class="checkbox-inline lobilist-check"><input type="checkbox"></label>
-                                                        <div class="todo-actions">
-                                                            <div class="edit-todo todo-action">
-                                                                <i class="ti-pencil"></i>
-                                                            </div>
-                                                            <div class="delete-todo todo-action">
-                                                                <i class="ti-close"></i>
-                                                            </div>
-                                                        </div>
-                                                        <div class="drag-handler"></div>
-                                                    </li>
-                                                </ul>
-                                                <form class="lobilist-add-todo-form hide">
-                                                    <input type="hidden" name="id">
-                                                    <div class="form-group">
-                                                        <input type="text" name="title" class="form-control" placeholder="TODO title">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea rows="2" name="description" class="form-control" placeholder="TODO description"></textarea>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <input type="text" name="dueDate" class="datepicker form-control hasDatepicker" placeholder="Due Date" id="dp1718646903560">
-                                                    </div>
-                                                    <div class="lobilist-form-footer">
-                                                        <button class="btn btn-primary btn-sm btn-add-todo">Add/Update</button>
-                                                        <button type="button" class="btn btn-danger btn-sm btn-discard-todo">Cancel</button>
-                                                    </div>
-                                                </form>
+                                <h4 class="card-title">Registrado</h4>
+                                <div id="registrado" class="task-list">
+                                    <th:block th:each="venta : ${Registrados}">
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title" th:text="${venta['clienteNombre']}"></h5>
+                                                <p class="card-text" th:text="'Tipo: ' + ${venta['proTipo']}"></p>
+                                                <p class="card-text" th:text="'Cantidad: ' + ${venta['venDetCantidad']}"></p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="lobilist-wrapper">
-                                        <div id="doing" class="lobilist lobilist-primary">
-                                            <div class="lobilist-header ui-sortable-handle">
-                                                <div class="lobilist-actions">
-                                                    <div class="dropdown">
-                                                        <button type="button" data-toggle="dropdown" class="btn btn-xs">
-                                                            <i class="ti-view-grid"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <div class="lobilist-default"></div>
-                                                            <div class="lobilist-danger"></div>
-                                                            <div class="lobilist-success"></div>
-                                                            <div class="lobilist-warning"></div>
-                                                            <div class="lobilist-info"></div>
-                                                            <div class="lobilist-primary"></div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-finish-title-editing">
-                                                        <i class="ti-check-box"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-cancel-title-editing">
-                                                        <i class="ti-close"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-plus"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-trash"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="lobilist-title">En proceso</div>
-                                            </div>
-                                            <div class="lobilist-body">
-                                                <ul class="lobilist-items ui-sortable" id="doing-items">
-                                                    <li data-id="2" class="lobilist-item">
-                                                        <div class="lobilist-item-title">Tarea en proceso 1</div>
-                                                        <div class="lobilist-item-description">Descripción de la tarea en proceso 1</div>
-                                                    </li>
-                                                </ul>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">En Proceso</h4>
+                                <div id="enProceso" class="task-list">
+                                    <th:block th:each="venta : ${EnProcesos}">
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title" th:text="${venta.get('clienteNombre')}"></h5>
+                                                <p class="card-text" th:text="'Tipo: ' + ${venta.get('proTipo')}"></p>
+                                                <p class="card-text" th:text="'Cantidad: ' + ${venta.get('venDetCantidad')}"></p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="lobilist-wrapper">
-                                        <div id="done" class="lobilist lobilist-success">
-                                            <div class="lobilist-header">
-                                                <div class="lobilist-actions">
-                                                    <div class="dropdown">
-                                                        <button type="button" data-toggle="dropdown" class="btn btn-xs">
-                                                            <i class="ti-view-grid"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <div class="lobilist-default"></div>
-                                                            <div class="lobilist-danger"></div>
-                                                            <div class="lobilist-success"></div>
-                                                            <div class="lobilist-warning"></div>
-                                                            <div class="lobilist-info"></div>
-                                                            <div class="lobilist-primary"></div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-finish-title-editing">
-                                                        <i class="ti-check-box"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-cancel-title-editing">
-                                                        <i class="ti-close"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-plus"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-trash"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="lobilist-title">Completado</div>
-                                            </div>
-                                            <div class="lobilist-body">
-                                                <ul class="lobilist-items">
-                                                    <li data-id="4" class="lobilist-item">
-                                                        <div class="lobilist-item-title">Tarea completada 1</div>
-                                                        <div class="lobilist-item-description">Descripción de la tarea completada 1</div>
-                                                    </li>
-                                                </ul>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Completado</h4>
+                                <div id="pagado" class="task-list">
+                                    <th:block th:each="venta : ${Pagados}">
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title" th:text="${venta.get('clienteNombre')}"></h5>
+                                                <p class="card-text" th:text="'Tipo: ' + ${venta.get('proTipo')}"></p>
+                                                <p class="card-text" th:text="'Cantidad: ' + ${venta.get('venDetCantidad')}"></p>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="lobilist-wrapper">
-                                        <div id="atendidos" class="lobilist lobilist-warning">
-                                            <div class="lobilist-header">
-                                                <div class="lobilist-actions">
-                                                    <div class="dropdown">
-                                                        <button type="button" data-toggle="dropdown" class="btn btn-xs">
-                                                            <i class="ti-view-grid"></i>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-right">
-                                                            <div class="lobilist-default"></div>
-                                                            <div class="lobilist-danger"></div>
-                                                            <div class="lobilist-success"></div>
-                                                            <div class="lobilist-warning"></div>
-                                                            <div class="lobilist-info"></div>
-                                                            <div class="lobilist-primary"></div>
-                                                        </div>
-                                                    </div>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-pencil"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-finish-title-editing">
-                                                        <i class="ti-check-box"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs btn-cancel-title-editing">
-                                                        <i class="ti-close"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-plus"></i>
-                                                    </button>
-                                                    <button class="btn btn-xs">
-                                                        <i class="ti-trash"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="lobilist-title">Atendido</div>
-                                            </div>
-                                            <div class="lobilist-body">
-                                                <ul class="lobilist-items">
-                                                    <li data-id="6" class="lobilist-item">
-                                                        <div class="lobilist-item-title">Tarea atendida 1</div>
-                                                        <div class="lobilist-item-description">Descripción de la tarea atendida 1</div>
-                                                    </li>
-                                                </ul>
+                                    </th:block>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Atendido</h4>
+                                <div id="atendido" class="task-list">
+                                    <th:block th:each="venta : ${Atendidos}">
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title" th:text="${venta.get('clienteNombre')}"></h5>
+                                                <p class="card-text" th:text="'Tipo: ' + ${venta.get('proTipo')}"></p>
+                                                <p class="card-text" th:text="'Cantidad: ' + ${venta.get('venDetCantidad')}"></p>
                                             </div>
                                         </div>
-                                    </div>
+                                    </th:block>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- column -->
         </div>
     </div>
 </div>
 <style>
-    .drag-handler {
-        cursor: move;
+    .card-text {
+        font-size: 14px;
     }
-
-    .lobilist-wrapper {
-        min-width: 400px; /* Ajusta según tus necesidades */
-        max-width: 400px; /* Ajusta según tus necesidades */
-        flex: 1 0 auto; /* Evitar que se compriman verticalmente */
-        margin: 10px; /* Espacio alrededor de cada tarjeta */
-        display: flex;
-        flex-direction: column;
+    .task-list {
+        max-height: 300px;
+        overflow-y: auto;
     }
-
-    .lobilist-header {
-        display: flex;
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-
-
-    .lobilists::-webkit-scrollbar-track {
-        background: #f1f1f1; /* Color de fondo del track */
-    }
-
 </style>
 
 <!-- This page plugin CSS -->
@@ -396,9 +235,42 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+
+<script>
+
+    // Inicializar SortableJS para cada lista
+    ["registrados", "enProcesos", "pagados", "atendidos"].forEach(id => {
+        new Sortable(document.getElementById(id), {
+            group: 'shared',
+            animation: 150
+        });
+    });
+
+    // Event listener para detectar cuando se mueve una tarjeta
+    document.addEventListener('DOMContentLoaded', () => {
+        ['registrado', 'enProceso', 'completado', 'atendido'].forEach(id => {
+            const el = document.getElementById(id);
+            new Sortable(el, {
+                group: 'shared',
+                animation: 150,
+                onEnd: function (evt) {
+                    const itemEl = evt.item;  // Tarjeta movida
+                    const newParent = evt.to.id;  // Nuevo contenedor
+                    console.log(`Moved ${itemEl.querySelector('.card-title').innerText} to ${newParent}`);
+                }
+            });
+        });
+    });
 
 
+</script>
 <%@ include file="includes/all-jquery.jspf" %>
 <%@ include file="includes/footer.jspf" %>
 </body>

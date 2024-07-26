@@ -211,6 +211,7 @@ $(document).ready(function () {
                     $('#cliNombre').prop('disabled', true);
                     $('#cliNombre').val(nombre);
                     $('#registrarCliente').hide();
+
                 },
                 error: function () {
                     alert('Error al registrar el cliente. Intente nuevamente.');

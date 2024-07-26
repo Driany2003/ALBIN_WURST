@@ -90,13 +90,13 @@ public class WLoginController {
     List<Map<String, Object>> ATENDIDO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("ATENDIDO");
 
     model.addAttribute("Registrados", REGISTRADO);
-    model.addAttribute("EnProceso", EN_PROCESO);
-    model.addAttribute("Completados", PAGADO);
+    model.addAttribute("EnProcesos", EN_PROCESO);
+    model.addAttribute("Pagados", PAGADO);
     model.addAttribute("Atendidos", ATENDIDO);
 
     FxComunes.printJson("Registrados", REGISTRADO);
     FxComunes.printJson("EnProceso", EN_PROCESO);
-    FxComunes.printJson("Completados", PAGADO);
+    FxComunes.printJson("Pagado", PAGADO);
     FxComunes.printJson("Atendidos", ATENDIDO);
 
 

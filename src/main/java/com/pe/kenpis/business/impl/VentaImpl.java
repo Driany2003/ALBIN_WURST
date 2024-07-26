@@ -71,27 +71,19 @@ public class VentaImpl implements IVentaService {
       nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
       detallesVentas.add(nuevoDetalle);
     }
-    // Guardar todos los detalles de la venta
     detalleVentaRepository.saveAll(detallesVentas);
 
-    // Crear y guardar el estado inicial
     VentaEstadoEntity estadoInicial = new VentaEstadoEntity();
     estadoInicial.setVentaId(ventaGuardada.getVenId());
-    estadoInicial.setVenEstado("Registrado");
+    estadoInicial.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
     estadoInicial.setVenEstadoFechaRegistrado(new Date());
     ventaEstadoRepository.save(estadoInicial);
 
 
-    VentaEstadoEntity ventaEstadoEntity = new VentaEstadoEntity();
-    ventaEstadoEntity.setVentaId(ventaGuardada.getVenId());
-    ventaEstadoEntity.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
-    ventaEstadoEntity.setVenEstadoFechaRegistrado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
-    ventaEstadoRepository.save(ventaEstadoEntity);
-
-    // Preparar la respuesta
     VentaResponse response = convertVentasEntityToResponse(ventaGuardada);
     return response;
   }
+
 
   @Override
   public List<VentaDetalleResponse> obtenerDetallesDeVenta() {
