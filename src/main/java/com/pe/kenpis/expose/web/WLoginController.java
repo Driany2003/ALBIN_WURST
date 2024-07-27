@@ -1,5 +1,6 @@
 package com.pe.kenpis.expose.web;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.business.impl.VentaDetalleImpl;
@@ -7,9 +8,6 @@ import com.pe.kenpis.business.impl.VentaEstadoImpl;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
-import com.pe.kenpis.model.api.venta.detalle.VentaDetailDTO;
-import com.pe.kenpis.model.api.venta.estado.del_dia.VentaEstadoDelDiaResponse;
-import com.pe.kenpis.model.entity.VentaDetalleEntity;
 import com.pe.kenpis.repository.VentaEstadoRepository;
 import com.pe.kenpis.repository.VentaRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
@@ -89,15 +87,19 @@ public class WLoginController {
     List<Map<String, Object>> PAGADO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("PAGADO");
     List<Map<String, Object>> ATENDIDO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("ATENDIDO");
 
-    model.addAttribute("Registrados", REGISTRADO);
-    model.addAttribute("EnProcesos", EN_PROCESO);
-    model.addAttribute("Pagados", PAGADO);
-    model.addAttribute("Atendidos", ATENDIDO);
+    model.put("Registrados", REGISTRADO);
+    model.put("EnProcesos", EN_PROCESO);
+    model.put("Pagados", PAGADO);
+    model.put("Atendidos", ATENDIDO);
 
     FxComunes.printJson("Registrados", REGISTRADO);
     FxComunes.printJson("EnProceso", EN_PROCESO);
     FxComunes.printJson("Pagado", PAGADO);
     FxComunes.printJson("Atendidos", ATENDIDO);
+
+    System.out.println("REGISTRADO Data: " + REGISTRADO);
+
+    //estuve probando diferentes alternativas, por eso veras un VentaEstadoDTo
 
 
     return "dashboard";

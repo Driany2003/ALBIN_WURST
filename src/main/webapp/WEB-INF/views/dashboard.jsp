@@ -27,7 +27,6 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
         <!-- ============================================================== -->
@@ -141,9 +140,9 @@
                                     <th:block th:each="venta : ${Registrados}">
                                         <div class="card mb-2">
                                             <div class="card-body">
-                                                <h5 class="card-title" th:text="${venta['clienteNombre']}"></h5>
-                                                <p class="card-text" th:text="'Tipo: ' + ${venta['proTipo']}"></p>
-                                                <p class="card-text" th:text="'Cantidad: ' + ${venta['venDetCantidad']}"></p>
+                                                <h5 class="card-title" th:text="${venta['clienteNombre']}">Comprador: </h5>
+                                                <p class="card-text" th:text="'Tipo: ' + ${venta['proTipo']}"> Tipo: </p>
+                                                <p class="card-text" th:text="'Cantidad: ' + ${venta['venDetCantidad']}">Cantidad: </p>
                                             </div>
                                         </div>
                                     </th:block>
@@ -246,7 +245,7 @@
 <script>
 
     // Inicializar SortableJS para cada lista
-    ["registrados", "enProcesos", "pagados", "atendidos"].forEach(id => {
+    ["registrado", "enProceso", "pagado", "atendido"].forEach(id => {
         new Sortable(document.getElementById(id), {
             group: 'shared',
             animation: 150
@@ -255,7 +254,7 @@
 
     // Event listener para detectar cuando se mueve una tarjeta
     document.addEventListener('DOMContentLoaded', () => {
-        ['registrado', 'enProceso', 'completado', 'atendido'].forEach(id => {
+        ['registrado', 'enProceso', 'pagado', 'atendido'].forEach(id => {
             const el = document.getElementById(id);
             new Sortable(el, {
                 group: 'shared',
