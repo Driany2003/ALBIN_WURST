@@ -99,16 +99,6 @@ public class VentaEstadoImpl implements IVentaEstadoService {
     }
   }
 
-  /*
-  @Override
-  public List<VentaEstadoResponse> findVentasByEstado(String estado) {
-    List<Map<String, Object>> result = ventaEstadoRepository.findVentaEstadoEntityByVenEstado(estado);
-    return result.stream()
-        .map(this::convertMapToResponse)
-        .collect(Collectors.toList());
-  }
-   */
-
   @Override
   public List<VentasEstadoDTO> SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(String estado) {
     List<Map<String, Object>> result = ventaEstadoRepository.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(estado);
@@ -118,24 +108,19 @@ public class VentaEstadoImpl implements IVentaEstadoService {
   public Map<String, Object> getCountPedidosXEstado() {
     return repository.SP_COUNT_PEDIDOS_X_ESTADO();
   }
-/*
-  private VentaEstadoResponse convertMapToResponse(Map<String, Object> map) {
-    VentaEstadoResponse response = new VentaEstadoResponse();
 
-    response.setProTipo((String) map.get("proTipo"));
-    response.setVenDetCantidad((Integer) map.get("venDetCantidad"));
-    response.setClienteNombre((String) map.get("clienteNombre"));
 
-    return response;
+  public void save(VentaEstadoEntity ventaEstado) {
+    ventaEstadoRepository.save(ventaEstado);
   }
-*/
 
   private VentasEstadoDTO convertMapToDTO(Map<String, Object> map) {
     String proTipo = (String) map.get("proTipo");
     Integer venDetCantidad = (Integer) map.get("venDetCantidad");
     String clienteNombre = (String) map.get("clienteNombre");
+    Integer idVenta = (Integer) map.get("id");
 
-    return new VentasEstadoDTO(proTipo, venDetCantidad, clienteNombre);
+    return new VentasEstadoDTO(proTipo, venDetCantidad, clienteNombre,idVenta);
   }
 
   private VentaEstadoEntity convertRequestToEntity(VentaEstadoRequest in) {

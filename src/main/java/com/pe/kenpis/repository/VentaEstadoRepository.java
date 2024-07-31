@@ -4,10 +4,12 @@ import com.pe.kenpis.model.entity.VentaEstadoEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public interface VentaEstadoRepository extends JpaRepository<VentaEstadoEntity, Integer> {
 
   @Query(value = "{call SP_COUNT_PEDIDOS_X_ESTADO}", nativeQuery = true)

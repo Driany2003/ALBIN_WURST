@@ -136,9 +136,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">REGISTRADO</h4>
-                                <div id="registrado" class="task-list">
+                                <div id="REGISTRADO" class="task-list">
                                     <c:forEach var="item" items="${REGISTRADO}">
-                                        <div class="card mb-2">
+                                        <div class="card mb-2" data-id="${item.id}">
                                             <div class="card-body">
                                                 <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
                                                 <p class="card-text">Tipo: ${item.proTipo}</p>
@@ -154,9 +154,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">PAGADO</h4>
-                                <div id="pagado" class="task-list">
+                                <div id="PAGADO" class="task-list">
                                     <c:forEach var="item" items="${PAGADO}">
-                                        <div class="card mb-2">
+                                        <div class="card mb-2" data-id="${item.id}">
                                             <div class="card-body">
                                                 <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
                                                 <p class="card-text">Tipo: ${item.proTipo}</p>
@@ -172,9 +172,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">EN PROCESO</h4>
-                                <div id="enProceso" class="task-list">
+                                <div id="EN_PROCESO" class="task-list">
                                     <c:forEach var="item" items="${EN_PROCESO}">
-                                        <div class="card mb-2">
+                                        <div class="card mb-2" data-id="${item.id}">
                                             <div class="card-body">
                                                 <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
                                                 <p class="card-text">Tipo: ${item.proTipo}</p>
@@ -190,9 +190,9 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">ATENDIDO</h4>
-                                <div id="atendido" class="task-list">
+                                <div id="ATENDIDO" class="task-list">
                                     <c:forEach var="item" items="${ATENDIDO}">
-                                        <div class="card mb-2">
+                                        <div class="card mb-2" data-id="${item.id}">
                                             <div class="card-body">
                                                 <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
                                                 <p class="card-text">Tipo: ${item.proTipo}</p>
@@ -245,28 +245,53 @@
 <script>
 
     // Inicializar SortableJS para cada lista
-    ["registrado", "enProceso", "pagado", "atendido"].forEach(id => {
+    ["REGISTRADO", "EN_PROCESO", "PAGADO", "ATENDIDO"].forEach(id => {
         new Sortable(document.getElementById(id), {
             group: 'shared',
             animation: 150
         });
     });
 
-    // Event listener para detectar cuando se mueve una tarjeta
     document.addEventListener('DOMContentLoaded', () => {
-        ['registrado', 'enProceso', 'pagado', 'atendido'].forEach(id => {
+        const containerIds = ['REGISTRADO', 'EN_PROCESO', 'PAGADO', 'ATENDIDO'];
+
+
+        containerIds.forEach(id => {
             const el = document.getElementById(id);
             new Sortable(el, {
                 group: 'shared',
                 animation: 150,
                 onEnd: function (evt) {
-                    const itemEl = evt.item;  // Tarjeta movida
-                    const newParent = evt.to.id;  // Nuevo contenedor
-                    console.log(`Moved ${itemEl.querySelector('.card-title').innerText} to ${newParent}`);
+                    const itemEl = evt.item;
+                    const newParent = evt.to.id;
+                    const oldParent = evt.from.id;
+
+                    console.log(`Moved ${itemEl.querySelector('.card-title').innerText} from ${oldParent} to ${newParent}`);
+
+
+                    $.ajax({
+                        url: '/api/registroMovimiento',
+                        method: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                            divId: itemEl.dataset.id,  // ID del elemento
+                            antiguoContainer: oldParent,
+                            nuevoContainer: newParent
+                        }),
+                        success: function (data) {
+                            console.log('Movimiento registrado:', data);
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error al registrar el movimiento:', error);
+                        }
+                    });
                 }
             });
         });
     });
+
+
+
 
 
 </script>

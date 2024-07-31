@@ -8,9 +8,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class VentasEstadoDTO {
-
   private String proTipo;
   private Integer venDetCantidad;
   private String clienteNombre;
+  private Integer id;
 
 }
