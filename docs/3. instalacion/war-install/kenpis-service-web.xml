@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+    <id>kenpis-service-web</id>
+    <name>KENPIS SERVICIO WEB</name>
+    <description>VENDE SIMPLE Y GANA MÁS</description>
+    <executable>java</executable>
+    <arguments>-jar "kenpis-service-web.war"</arguments>
+    <logmode>rotate</logmode>
+</service>

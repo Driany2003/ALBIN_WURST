@@ -29,7 +29,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                             </div>
+<<<<<<< Updated upstream
                             <input type="text" class="form-control form-control-lg" placeholder="USUARIO" aria-label="Username" aria-describedby="basic-addon1" id="username" name="username">
+=======
+                            <input type="text" class="form-control form-control-lg" placeholder="USUARIO" aria-label="Username" aria-describedby="basic-addon1" id="username" name="username" >
+>>>>>>> Stashed changes
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
