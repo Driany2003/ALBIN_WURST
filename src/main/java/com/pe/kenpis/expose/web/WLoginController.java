@@ -1,16 +1,14 @@
 package com.pe.kenpis.expose.web;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
-import com.pe.kenpis.business.impl.VentaDetalleImpl;
-import com.pe.kenpis.business.impl.VentaEstadoImpl;
+import com.pe.kenpis.business.IVentaEstadoService;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
-import com.pe.kenpis.repository.VentaEstadoRepository;
-import com.pe.kenpis.repository.VentaRepository;
+import com.pe.kenpis.model.api.venta.estado.VentasEstadoDTO;
 import com.pe.kenpis.util.funciones.FxComunes;
+import com.pe.kenpis.util.variables.Constantes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,14 +32,7 @@ public class WLoginController {
   IEmpresaService empresaService;
 
   @Autowired
-  private VentaEstadoImpl ventaEstado;
-
-
-  @Autowired
-  private VentaEstadoRepository ventaEstadoRepository;
-
-
-
+  IVentaEstadoService ventaEstadoService;
 
   @RequestMapping(value = {"/login", "/"}, method = RequestMethod.GET)
   public String login() {
@@ -76,31 +67,26 @@ public class WLoginController {
     FxComunes.printJson("EmpresaSession", empresaResponse);
 
     //MUESTRA LA CANTIDAD DE PEDIDOSESTADOS EN EL DASHBOARD
-    Map<String, Object> pedidosEstado = ventaEstado.getCountPedidosXEstado();
+    Map<String, Object> pedidosEstado = ventaEstadoService.getCountPedidosXEstado();
     model.put("pedidosEstado", pedidosEstado);
     FxComunes.printJson("PedidosEstado", pedidosEstado);
 
+    List<VentasEstadoDTO> registrado = ventaEstadoService.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(Constantes.VENTA_ESTADO.REGISTRADO);
+    List<VentasEstadoDTO> enProceso = ventaEstadoService.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(Constantes.VENTA_ESTADO.EN_PROCESO);
+    List<VentasEstadoDTO> pagado = ventaEstadoService.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(Constantes.VENTA_ESTADO.PAGADO);
+    List<VentasEstadoDTO> atendido = ventaEstadoService.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(Constantes.VENTA_ESTADO.ATENDIDO);
 
-    //LISTA PARA LOS DIV REGISTRADO, EN PROCESO, COMPLETADO, ATENDIDO
-    List<Map<String, Object>> REGISTRADO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("REGISTRADO");
-    List<Map<String, Object>> EN_PROCESO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("EN_PROCESO");
-    List<Map<String, Object>> PAGADO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("PAGADO");
-    List<Map<String, Object>> ATENDIDO = ventaEstadoRepository.findVentaEstadoEntityByVenEstado("ATENDIDO");
+    model.put(Constantes.VENTA_ESTADO.REGISTRADO, registrado);
+    model.put(Constantes.VENTA_ESTADO.EN_PROCESO, enProceso);
+    model.put(Constantes.VENTA_ESTADO.PAGADO, pagado);
+    model.put(Constantes.VENTA_ESTADO.ATENDIDO, atendido);
 
-    model.put("Registrados", REGISTRADO);
-    model.put("EnProcesos", EN_PROCESO);
-    model.put("Pagados", PAGADO);
-    model.put("Atendidos", ATENDIDO);
+    FxComunes.printJson(Constantes.VENTA_ESTADO.REGISTRADO, registrado);
+    FxComunes.printJson(Constantes.VENTA_ESTADO.EN_PROCESO, enProceso);
+    FxComunes.printJson(Constantes.VENTA_ESTADO.PAGADO, pagado);
+    FxComunes.printJson(Constantes.VENTA_ESTADO.ATENDIDO, atendido);
 
-    FxComunes.printJson("Registrados", REGISTRADO);
-    FxComunes.printJson("EnProceso", EN_PROCESO);
-    FxComunes.printJson("Pagado", PAGADO);
-    FxComunes.printJson("Atendidos", ATENDIDO);
-
-    System.out.println("REGISTRADO Data: " + REGISTRADO);
-
-    //estuve probando diferentes alternativas, por eso veras un VentaEstadoDTo
-
+    log.info("REGISTRADO Data: " + registrado);
 
     return "dashboard";
   }

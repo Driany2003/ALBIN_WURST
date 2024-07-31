@@ -20,4 +20,10 @@ public class VentaEstadoResponse {
   private Date venEstadoFechaAtendido;
   private Date venEstadoFechaDescartado;
 
+
+
+  private String proTipo;
+  private Integer venDetCantidad;
+  private String clienteNombre;
+
 }

@@ -135,17 +135,17 @@
                     <div class="col-md-3 col-sm-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Registrado</h4>
+                                <h4 class="card-title">REGISTRADO</h4>
                                 <div id="registrado" class="task-list">
-                                    <th:block th:each="venta : ${Registrados}">
+                                    <c:forEach var="item" items="${REGISTRADO}">
                                         <div class="card mb-2">
                                             <div class="card-body">
-                                                <h5 class="card-title" th:text="${venta['clienteNombre']}">Comprador: </h5>
-                                                <p class="card-text" th:text="'Tipo: ' + ${venta['proTipo']}"> Tipo: </p>
-                                                <p class="card-text" th:text="'Cantidad: ' + ${venta['venDetCantidad']}">Cantidad: </p>
+                                                <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
+                                                <p class="card-text">Tipo: ${item.proTipo}</p>
+                                                <p class="card-text">Cantidad: ${item.venDetCantidad} </p>
                                             </div>
                                         </div>
-                                    </th:block>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -153,35 +153,17 @@
                     <div class="col-md-3 col-sm-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">En Proceso</h4>
-                                <div id="enProceso" class="task-list">
-                                    <th:block th:each="venta : ${EnProcesos}">
-                                        <div class="card mb-2">
-                                            <div class="card-body">
-                                                <h5 class="card-title" th:text="${venta.get('clienteNombre')}"></h5>
-                                                <p class="card-text" th:text="'Tipo: ' + ${venta.get('proTipo')}"></p>
-                                                <p class="card-text" th:text="'Cantidad: ' + ${venta.get('venDetCantidad')}"></p>
-                                            </div>
-                                        </div>
-                                    </th:block>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Completado</h4>
+                                <h4 class="card-title">PAGADO</h4>
                                 <div id="pagado" class="task-list">
-                                    <th:block th:each="venta : ${Pagados}">
+                                    <c:forEach var="item" items="${PAGADO}">
                                         <div class="card mb-2">
                                             <div class="card-body">
-                                                <h5 class="card-title" th:text="${venta.get('clienteNombre')}"></h5>
-                                                <p class="card-text" th:text="'Tipo: ' + ${venta.get('proTipo')}"></p>
-                                                <p class="card-text" th:text="'Cantidad: ' + ${venta.get('venDetCantidad')}"></p>
+                                                <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
+                                                <p class="card-text">Tipo: ${item.proTipo}</p>
+                                                <p class="card-text">Cantidad: ${item.venDetCantidad} </p>
                                             </div>
                                         </div>
-                                    </th:block>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
@@ -189,17 +171,35 @@
                     <div class="col-md-3 col-sm-6 mb-3">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Atendido</h4>
-                                <div id="atendido" class="task-list">
-                                    <th:block th:each="venta : ${Atendidos}">
+                                <h4 class="card-title">EN PROCESO</h4>
+                                <div id="enProceso" class="task-list">
+                                    <c:forEach var="item" items="${EN_PROCESO}">
                                         <div class="card mb-2">
                                             <div class="card-body">
-                                                <h5 class="card-title" th:text="${venta.get('clienteNombre')}"></h5>
-                                                <p class="card-text" th:text="'Tipo: ' + ${venta.get('proTipo')}"></p>
-                                                <p class="card-text" th:text="'Cantidad: ' + ${venta.get('venDetCantidad')}"></p>
+                                                <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
+                                                <p class="card-text">Tipo: ${item.proTipo}</p>
+                                                <p class="card-text">Cantidad: ${item.venDetCantidad} </p>
                                             </div>
                                         </div>
-                                    </th:block>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">ATENDIDO</h4>
+                                <div id="atendido" class="task-list">
+                                    <c:forEach var="item" items="${ATENDIDO}">
+                                        <div class="card mb-2">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Comprador: ${item.clienteNombre}</h5>
+                                                <p class="card-text">Tipo: ${item.proTipo}</p>
+                                                <p class="card-text">Cantidad: ${item.venDetCantidad} </p>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
