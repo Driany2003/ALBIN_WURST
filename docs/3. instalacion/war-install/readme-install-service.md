@@ -2,7 +2,7 @@
 
 1. Open "cmd" (you may need to run as administrator)
 2. Write the next steps in the console:
-   a. cd e:
+   a. cd C:
    b. cd Apps/
    c. cd kenpis/
    d. cd war-install/
@@ -13,7 +13,7 @@
 
 1. Open "cmd" (you may need to run as administrator)
 2. Write the next steps in the console:
-   a. cd e:
+   a. cd C:
    b. cd Apps/
    c. cd kenpis/
    d. cd war-install/
