@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [INFO ] [31-07-2024 00:09:31] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [31-07-2024 00:09:31] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [31-07-2024 00:09:31] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
@@ -48,6 +49,380 @@
 [INFO ] [31-07-2024 00:10:35] [FxComunes                      :: 67  ] - VentaRequest{"detallesVentas":[],"venId":null,"venFecha":null,"venTotal":20.0,"empresaId":1,"clienteId":5,"venTipoPago":"YAPE","usuarioId":2}
 [INFO ] [31-07-2024 00:10:35] [FxComunes                      :: 67  ] - VentaRequest{"detallesVentas":[],"venId":null,"venFecha":null,"venTotal":20.0,"empresaId":1,"clienteId":5,"venTipoPago":"YAPE","usuarioId":2}
 [INFO ] [31-07-2024 00:10:35] [FxComunes                      :: 67  ] - VentaEntity{"venId":5,"venFecha":1722402635512,"venTotal":20.0,"empresaId":1,"clienteId":5,"venTipoPago":"YAPE","usuarioId":2}
+=======
+[DEBUG] [31-07-2024 00:00:51] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:00:51] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:00:51] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:00:51] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:00:51] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:01:50] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:01:50] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:01:50] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:01:51] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:01:51] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:02:04] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:02:04] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:02:04] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:02:04] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:02:04] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:02:23] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:02:23] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:02:23] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:02:23] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:02:23] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:02:30] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:02:31] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:02:31] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:02:31] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:02:31] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:02:43] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:02:43] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:02:43] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:02:43] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:02:43] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:02:59] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:02:59] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:02:59] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:02:59] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:02:59] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:02:59] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:02:59] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:03:00] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:03:00] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:03:00] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:03:00] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:03:00] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:03:13] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:03:13] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:03:13] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:03:13] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:03:13] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:03:31] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:03:31] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:03:31] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:03:31] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:03:31] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:03:53] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:03:53] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:03:53] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:03:53] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:03:53] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:04:01] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:04:01] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:04:01] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:04:01] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:04:01] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:04:26] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:04:26] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:04:26] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:04:26] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:04:26] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:04:59] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:04:59] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:04:59] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:04:59] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:04:59] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:05:00] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:05:00] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:05:00] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:05:01] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:05:01] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:05:26] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:05:26] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:05:26] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:05:26] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:05:26] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:05:34] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:05:35] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:05:35] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:05:35] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:05:35] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:05:54] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:05:54] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:05:54] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:05:54] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:05:54] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:05:54] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:05:55] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:05:55] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:05:55] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:05:55] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:05:55] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:05:55] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:05:56] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:05:56] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:05:56] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:05:56] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:05:56] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:05:56] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:05:56] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:05:57] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:05:57] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:05:57] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:05:57] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:05:57] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:06:21] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:06:21] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:06:21] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:06:21] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:06:21] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:06:23] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:06:23] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:06:23] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:06:23] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:06:23] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:06:28] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:06:28] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:06:28] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:06:28] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:06:28] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:06:49] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:06:49] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:06:49] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:06:49] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:06:49] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:06:50] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:06:50] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:06:51] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:06:51] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:06:51] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:07:14] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:07:14] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:07:14] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:07:14] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:07:14] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:07:16] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:07:16] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:07:16] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:07:16] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:07:16] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:07:33] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:07:33] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:07:33] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:07:33] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:07:33] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:07:35] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:07:35] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:07:35] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:07:35] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:07:35] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:08:49] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:08:49] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:08:49] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:08:49] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:08:49] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:09:02] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:09:02] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:09:02] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:09:02] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:09:02] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:09:02] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:09:03] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:09:03] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:09:03] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:09:03] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:09:03] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:09:03] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:09:04] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:09:04] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:09:05] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:09:05] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:09:05] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:10:13] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:10:13] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:10:13] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:10:13] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:10:13] [WLoginController               :: 89  ] - REGISTRADO Data: []
+>>>>>>> c26c3e325d93724215a8a9f51a867950317d25ea
 [DEBUG] [31-07-2024 00:10:38] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
 [DEBUG] [31-07-2024 00:10:38] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
 [INFO ] [31-07-2024 00:10:38] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
@@ -60,6 +435,7 @@
 [INFO ] [31-07-2024 00:10:38] [FxComunes                      :: 67  ] - PAGADO[]
 [INFO ] [31-07-2024 00:10:38] [FxComunes                      :: 67  ] - ATENDIDO[]
 [INFO ] [31-07-2024 00:10:38] [WLoginController               :: 89  ] - REGISTRADO Data: []
+<<<<<<< HEAD
 [DEBUG] [31-07-2024 00:10:45] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
 [DEBUG] [31-07-2024 00:10:45] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
 [INFO ] [31-07-2024 00:10:45] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
@@ -578,3 +954,505 @@ javax.el.PropertyNotFoundException: Property [id] not found on type [com.pe.kenp
 [INFO ] [31-07-2024 00:36:39] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [31-07-2024 00:36:39] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [31-07-2024 00:36:39] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+=======
+[DEBUG] [31-07-2024 00:12:57] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:12:57] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:12:57] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:12:57] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:12:57] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:14:03] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:14:03] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:14:03] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:14:03] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:14:03] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:14:20] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:14:20] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:14:20] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:14:20] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:14:20] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:15:05] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:15:07] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:15:09] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[DEBUG] [31-07-2024 00:15:09] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:15:09] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:15:09] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:15:09] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:15:09] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:15:09] [WLoginController               :: 89  ] - REGISTRADO Data: []
+[DEBUG] [31-07-2024 00:15:59] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:15:59] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:15:59] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"REGISTRADO":2,"EN_PROCESO":0,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:15:59] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:15:59] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:16:19] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:16:19] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:16:20] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"REGISTRADO":2,"EN_PROCESO":0,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:16:20] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:16:20] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:17:52] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:17:52] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:17:52] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:17:52] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:17:52] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:18:13] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:18:13] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:18:13] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:18:13] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:18:13] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:18:45] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:18:45] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:18:45] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:18:45] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:18:45] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:18:54] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:18:54] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:18:54] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[DEBUG] [31-07-2024 00:18:54] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[DEBUG] [31-07-2024 00:18:54] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:18:54] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:18:54] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:18:54] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:18:54] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:18:59] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:18:59] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:18:59] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:18:59] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:18:59] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:19:47] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:19:47] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:19:47] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:19:47] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:19:47] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:19:47] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:19:47] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:19:48] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:19:48] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:19:48] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:19:48] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:19:48] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:20:37] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:20:37] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:20:37] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:20:37] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:20:37] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:20:39] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:20:39] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:20:39] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:20:39] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:20:39] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:20:53] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:20:53] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:20:53] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:20:53] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:20:53] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:20:53] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:20:53] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:20:54] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:20:54] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:20:54] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:20:54] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:20:54] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:21:33] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:21:33] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:21:33] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:21:33] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:21:33] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:22:00] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:22:00] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:22:00] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:22:00] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:22:00] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:22:25] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:22:25] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:22:25] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:22:26] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:22:26] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:25:18] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:25:18] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:25:18] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:25:18] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:25:18] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:25:39] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:25:39] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:25:39] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:25:39] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:25:39] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:25:52] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:25:52] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:25:52] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:25:53] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:25:53] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:26:32] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:26:32] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:26:32] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:26:32] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:26:32] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[WARN ] [31-07-2024 00:27:48] [PageNotFound                   :: 1283] - No mapping for GET /okr/dashboard
+[WARN ] [31-07-2024 00:27:48] [PageNotFound                   :: 1283] - No mapping for GET /favicon.ico
+[WARN ] [31-07-2024 00:27:49] [PageNotFound                   :: 1283] - No mapping for GET /okr/dashboard
+[WARN ] [31-07-2024 00:27:50] [PageNotFound                   :: 1283] - No mapping for GET /okr/dashboard
+[WARN ] [31-07-2024 00:27:52] [PageNotFound                   :: 1283] - No mapping for GET /okr/dashboard
+[DEBUG] [31-07-2024 00:28:05] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:28:05] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:28:05] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:28:05] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:28:05] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:29:47] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:29:47] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:29:47] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:29:47] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:29:47] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:31:35] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:31:35] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:31:35] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:31:36] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:31:36] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:31:37] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:31:37] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:31:37] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:31:37] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:31:37] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:31:37] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:31:37] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:31:38] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:31:38] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:31:38] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:31:38] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:31:38] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:31:55] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:31:55] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:31:55] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:31:55] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:31:55] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:32:13] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:32:13] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:32:14] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:32:14] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:32:14] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:32:19] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:32:19] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:32:19] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:32:19] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:32:19] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:32:29] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:32:29] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:32:29] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:32:29] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:32:29] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:32:29] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:32:29] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:32:30] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:32:30] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:32:30] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:32:30] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:32:30] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:33:20] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:33:20] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:33:20] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:33:20] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:33:20] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:33:39] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:33:39] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:33:39] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:33:39] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:33:39] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:33:42] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:33:42] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:33:42] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:33:42] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:33:42] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:33:49] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:33:49] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:33:49] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:33:49] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:33:49] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:34:10] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:34:10] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:34:10] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:34:10] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:34:10] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:35:11] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:35:11] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:35:11] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:35:11] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:35:11] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:35:34] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:35:34] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:35:34] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:35:34] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:35:34] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:35:35] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:35:35] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:35:35] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:35:35] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:35:35] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[DEBUG] [31-07-2024 00:35:52] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [31-07-2024 00:35:52] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [31-07-2024 00:35:52] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [31-07-2024 00:35:52] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [31-07-2024 00:35:52] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [31-07-2024 00:35:52] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [31-07-2024 00:35:53] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":1,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [31-07-2024 00:35:53] [FxComunes                      :: 67  ] - REGISTRADO[{"proTipo":"Combo - Tradicional","venDetCantidad":1,"clienteNombre":"GIOMAR"}]
+[INFO ] [31-07-2024 00:35:53] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [31-07-2024 00:35:53] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [31-07-2024 00:35:53] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [31-07-2024 00:35:53] [WLoginController               :: 89  ] - REGISTRADO Data: [VentasEstadoDTO(proTipo=Combo - Tradicional, venDetCantidad=1, clienteNombre=GIOMAR)]
+[INFO ] [31-07-2024 00:36:05] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [31-07-2024 00:36:05] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [31-07-2024 00:36:05] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+>>>>>>> c26c3e325d93724215a8a9f51a867950317d25ea
