@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -50,38 +51,45 @@ public class VentaEstadoImpl implements IVentaEstadoService {
   }
 
   @Override
-  public VentaEstadoResponse update(VentaEstadoRequest request) throws Exception {//request.getUsuId()
+  public VentaEstadoResponse update(VentaEstadoRequest request) throws Exception {
+    FxComunes.printJson("ventaEstadoRequest", request);
     VentaEstadoResponse res = repository.findById(request.getVenEstadoId()).map(this::convertEntityToResponse).orElse(new VentaEstadoResponse());
 
+
+    FxComunes.printJson("RES", res);
+    Date currentDate = new Date();
+
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.REGISTRADO)) {
-      request.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
-      request.setVenEstadoFechaRegistrado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+      res.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
+      res.setVenEstadoFechaRegistrado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
     }
 
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.PAGADO)) {
-      request.setVenEstado(Constantes.VENTA_ESTADO.PAGADO);
-      request.setVenEstadoFechaPagado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+      res.setVenEstado(Constantes.VENTA_ESTADO.PAGADO);
+      res.setVenEstadoFechaPagado(currentDate);
     }
 
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.EN_PROCESO)) {
-      request.setVenEstado(Constantes.VENTA_ESTADO.EN_PROCESO);
-      request.setVenEstadoFechaEnProceso(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+      res.setVenEstado(Constantes.VENTA_ESTADO.EN_PROCESO);
+      res.setVenEstadoFechaEnProceso(currentDate);
     }
 
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.ATENDIDO)) {
-      request.setVenEstado(Constantes.VENTA_ESTADO.ATENDIDO);
-      request.setVenEstadoFechaAtendido(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+      res.setVenEstado(Constantes.VENTA_ESTADO.ATENDIDO);
+      res.setVenEstadoFechaAtendido(currentDate);
     }
 
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.DESCARTADO)) {
-      request.setVenEstado(Constantes.VENTA_ESTADO.DESCARTADO);
-      request.setVenEstadoFechaDescartado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+      res.setVenEstado(Constantes.VENTA_ESTADO.DESCARTADO);
+      res.setVenEstadoFechaDescartado(currentDate);
     }
+
+    FxComunes.printJson("ventaEstadoResponse", res);
 
     if (res.getVenEstadoId() == null) {
       return new VentaEstadoResponse();
     } else {
-      return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+      return convertEntityToResponse(repository.save(convertRequestToEntity(convertResponseToRequest(res))));
     }
   }
 
@@ -109,18 +117,13 @@ public class VentaEstadoImpl implements IVentaEstadoService {
     return repository.SP_COUNT_PEDIDOS_X_ESTADO();
   }
 
-
-  public void save(VentaEstadoEntity ventaEstado) {
-    ventaEstadoRepository.save(ventaEstado);
-  }
-
   private VentasEstadoDTO convertMapToDTO(Map<String, Object> map) {
     String proTipo = (String) map.get("proTipo");
     Integer venDetCantidad = (Integer) map.get("venDetCantidad");
     String clienteNombre = (String) map.get("clienteNombre");
-    Integer idVenta = (Integer) map.get("id");
+    Integer venEstadoId = (Integer) map.get("venEstadoId");
 
-    return new VentasEstadoDTO(proTipo, venDetCantidad, clienteNombre,idVenta);
+    return new VentasEstadoDTO(proTipo, venDetCantidad, clienteNombre, venEstadoId);
   }
 
   private VentaEstadoEntity convertRequestToEntity(VentaEstadoRequest in) {
