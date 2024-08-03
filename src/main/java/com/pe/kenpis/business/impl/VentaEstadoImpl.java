@@ -1,6 +1,7 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IVentaEstadoService;
+import com.pe.kenpis.model.api.producto.ProductoDTO;
 import com.pe.kenpis.model.api.venta.estado.VentaEstadoRequest;
 import com.pe.kenpis.model.api.venta.estado.VentaEstadoResponse;
 import com.pe.kenpis.model.api.venta.estado.VentasEstadoDTO;
@@ -14,10 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -61,7 +59,7 @@ public class VentaEstadoImpl implements IVentaEstadoService {
 
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.REGISTRADO)) {
       res.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
-      res.setVenEstadoFechaRegistrado(DateUtil.fechaStringToDate(DateUtil.fechaActual()));
+      res.setVenEstadoFechaRegistrado(currentDate);
     }
 
     if (request.getVenEstado().equalsIgnoreCase(Constantes.VENTA_ESTADO.PAGADO)) {
@@ -107,23 +105,52 @@ public class VentaEstadoImpl implements IVentaEstadoService {
     }
   }
 
-  @Override
-  public List<VentasEstadoDTO> SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(String estado) {
-    List<Map<String, Object>> result = ventaEstadoRepository.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(estado);
-    return result.stream().map(this::convertMapToDTO).collect(Collectors.toList());
-  }
-
   public Map<String, Object> getCountPedidosXEstado() {
     return repository.SP_COUNT_PEDIDOS_X_ESTADO();
   }
 
-  private VentasEstadoDTO convertMapToDTO(Map<String, Object> map) {
-    String proTipo = (String) map.get("proTipo");
-    Integer venDetCantidad = (Integer) map.get("venDetCantidad");
-    String clienteNombre = (String) map.get("clienteNombre");
-    Integer venEstadoId = (Integer) map.get("venEstadoId");
+  @Override
+  public List<VentasEstadoDTO> SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(String estado) {
+    List<Map<String, Object>> result = ventaEstadoRepository.SP_LISTA_VENTAS_POR_ESTADO_POR_DIA(estado);
+    return convertToGroupedDTO(result);
+  }
 
-    return new VentasEstadoDTO(proTipo, venDetCantidad, clienteNombre, venEstadoId);
+  public List<VentasEstadoDTO> convertToGroupedDTO(List<Map<String, Object>> results) {
+    Map<Integer, Map<String, Object>> ventasGrupo = new HashMap<>();
+    Map<Integer, List<ProductoDTO>> productosGrupo = new HashMap<>();
+
+    for (Map<String, Object> map : results) {
+      Integer ventaId = (Integer) map.get("ventaId");
+      String clienteNombre = (String) map.get("clienteNombre");
+      Integer venEstadoId = (Integer) map.get("venEstadoId");
+
+      if (!ventasGrupo.containsKey(ventaId)) {
+        Map<String, Object> ventaData = new HashMap<>();
+        ventaData.put("clienteNombre", clienteNombre);
+        ventaData.put("venEstadoId", venEstadoId);
+        ventasGrupo.put(ventaId, ventaData);
+        productosGrupo.put(ventaId, new ArrayList<>());
+      }
+
+      ProductoDTO producto = new ProductoDTO(
+          (String) map.get("proCategoria"),
+          (Integer) map.get("venDetCantidad")
+      );
+      productosGrupo.get(ventaId).add(producto);
+    }
+
+    List<VentasEstadoDTO> datos = new ArrayList<>();
+    for (Map.Entry<Integer, Map<String, Object>> entry : ventasGrupo.entrySet()) {
+      Integer ventaId = entry.getKey();
+      Map<String, Object> ventaData = entry.getValue();
+      String clienteNombre = (String) ventaData.get("clienteNombre");
+      Integer venEstadoId = (Integer) ventaData.get("venEstadoId");
+
+      List<ProductoDTO> productos = productosGrupo.get(ventaId);
+      datos.add(new VentasEstadoDTO(clienteNombre, venEstadoId, productos));
+    }
+
+    return datos;
   }
 
   private VentaEstadoEntity convertRequestToEntity(VentaEstadoRequest in) {

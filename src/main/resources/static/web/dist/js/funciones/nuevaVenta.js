@@ -5,63 +5,47 @@ $(document).ready(function () {
     actualizarTotal();
 
     $('#ventaModal').on('show.bs.modal', function () {
-        // Obtener categorías y llenar el selector
         $.ajax({
             url: '/kenpis/producto/categorias',
             method: 'GET',
             success: function (categorias) {
-                var bebidaSelect = $('#tipoBebida');
-                var chorizoSelect = $('#tipoChorizo');
-
-                bebidaSelect.empty().append('<option value="">-- Seleccione --</option>');
-                chorizoSelect.empty().append('<option value="">-- Seleccione --</option>');
-
+                var categoriaSelect = $('#categoria');
+                categoriaSelect.empty().append('<option value="">-- Seleccione --</option>');
                 categorias.forEach(function (categoria) {
-                    if (categoria !== 'Bebida') {
-                        chorizoSelect.append('<option value="' + categoria + '">' + categoria + '</option>');
-                    } else {
-                        bebidaSelect.append('<option value="' + categoria + '">' + categoria + '</option>');
-                    }
+                    categoriaSelect.append('<option value="' + categoria.proId + '">' + categoria.proCategoria + '</option>');
                 });
+            },
+            error: function (xhr, status, error) {
+                console.error('Error al obtener categorías:', error);
             }
         });
     });
-
-    // Cuando cambia la categoría de bebida
-    $('#tipoBebida').change(function () {
-        cargarProductos($(this).val());
-    });
-
     // Cuando cambia la categoría de chorizo
-    $('#tipoChorizo').change(function () {
-        cargarProductos($(this).val());
+    $('#categoria').change(function () {
+        var categoriaId = $(this).val();
+        cargarProductos(categoriaId);
     });
+
 
     function cargarProductos(categoria) {
         $.ajax({
             url: '/kenpis/producto/find-all-by-type/' + categoria,
             method: 'GET',
-            success: function (productos) {
-                var productoSelect = (categoria === 'Bebida') ? $('#bebida') : $('#chorizo');
-                productoSelect.empty().append('<option value="">-- Seleccione --</option>');
-                productos.forEach(function (producto) {
-                    productoSelect.append('<option value="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' + producto.proTipo + '</option>');
+            success: function (subCategoria) {
+                var subCategoriaSelect = $('#subCategoria');
+                subCategoriaSelect.empty().append('<option value="">-- Seleccione --</option>');
+                subCategoria.forEach(function (producto) {
+                    subCategoriaSelect.append('<option value="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' + producto.proCategoria + '</option>');
                 });
             }
         });
     }
 
-    // Cuando cambia la categoría de chorizo
-    $('#chorizo').change(function () {
+    $('#subCategoria').change(function () {
         var precio = $(this).find('option:selected').data('precio');
-        $('#precioChorizo').val(precio);
+        $('#precioProducto').val(precio);
     });
 
-    // Cuando cambia la categoría de chorizo
-    $('#bebida').change(function () {
-        var precio = $(this).find('option:selected').data('precio');
-        $('#precioBebida').val(precio);
-    });
 
     function actualizarTotal() {
         totalPagar = 0;
@@ -76,53 +60,36 @@ $(document).ready(function () {
 
     // Guardar el pedido
     $('#guardarPedido').click(function () {
-      //  alert("Dentro de guardar pedido");
-        detallesVenta = [];
 
-        var chorizo = $('.categoria-chorizo-select').find('option:selected').text();
-        var choridoId = $('#chorizo').val();
-        var precioChorizo = $('.categoria-chorizo-select').find('option:selected').data('precio');
-        var cantidadChorizos = $('#cantidadChorizos').val();
-        //alert("Detalle Chorizos :: " + chorizo + " - " + cantidadChorizos + " - " + precioChorizo);
-        if (cantidadChorizos > 0) {
-            var subtotalChorizo = cantidadChorizos * precioChorizo;
+        var subCategoria = $('.subCategoria-select').find('option:selected').text();
+        var subCategoriaId = $('#subCategoria').val();
+        var precio = $('.subCategoria-select').find('option:selected').data('precio');
+        var cantidad = $('#cantidad').val();
+        //alert("Detalle categoria :: " + subCategoria + " - " + cantidad + " - " + precio);
+        if (cantidad > 0) {
+            var subtotal = cantidad * precio;
             detallesVenta.push({
-                productoId: choridoId,
-                proTipo: chorizo,
-                venDetCantidad: cantidadChorizos,
-                venDetSubtotal: subtotalChorizo.toFixed(2),
-                venDetPrecio: precioChorizo.toFixed(2)
+                productoId: subCategoriaId,
+                proCategoria: subCategoria,
+                venDetCantidad: cantidad,
+                venDetSubtotal: subtotal.toFixed(2),
+                venDetPrecio: precio.toFixed(2)
             });
         }
-
-        var bebida = $('.categoria-bebida-select').find('option:selected').text();
-        var precioBebida = $('.categoria-bebida-select').find('option:selected').data('precio');
-        var bebidaId = $('#bebida').val();
-        var cantidadBebidas = $('#cantidadBebidas').val();
-        //alert("Detalle Bebidas :: " + bebida + " - " + cantidadBebidas + " - " + precioBebida);
-        if (cantidadBebidas > 0) {
-            var subtotalBebida = cantidadBebidas * precioBebida;
-            detallesVenta.push({
-                productoId: bebidaId,
-                proTipo: bebida,
-                venDetCantidad: cantidadBebidas,
-                venDetSubtotal: subtotalBebida.toFixed(2),
-                venDetPrecio: precioBebida.toFixed(2)
-            });
-        }
+        $('#ventasBody').empty();
 
         var detallesHtml = detallesVenta.map(function (detalle) {
+
             return '<tr>' +
                 '<td>' + detalle.productoId + '</td>' +
-                '<td>' + detalle.proTipo + '</td>' +
+                '<td>' + detalle.proCategoria + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
                 '<td>S/ ' + detalle.venDetPrecio + '</td>' +
                 '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
                 '</tr>';
         }).join('');
-        //alert(detallesHtml);
 
-        $('#ventasBody')    .append(detallesHtml);
+        $('#ventasBody').append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
         verificarTabla();
@@ -146,6 +113,8 @@ $(document).ready(function () {
         var clienteId = $('#clienteId').val();
         var tipoPago = $('#venTipoPago').val();
 
+        console.log("detalles de la venta " + detallesVenta);
+
         $.ajax({
             url: '/kenpis/venta/create',
             method: 'POST',
@@ -159,6 +128,7 @@ $(document).ready(function () {
                 venTipoPago: tipoPago
             }),
             success: function (response) {
+                console.log(response);
                 alert('Pedido guardado correctamente.');
                 $('#cliTelefono').val("");
                 $('#cliNombre').val("");
@@ -168,8 +138,7 @@ $(document).ready(function () {
                 // Limpiar el formulario y las tablas
                 $('#ventaForm')[0].reset();
                 $('#ventasBody').empty();
-                $('#chorizos-container').empty();
-                $('#bebidas-container').empty();
+                $('#productos-container').empty();
                 totalPagar = 0;
                 $('#totalPagar').text('S/ 0.00');
                 detallesVenta = [];
@@ -239,7 +208,7 @@ $(document).ready(function () {
                         $('#cliNombre').val('');
                         $('#cliNombre').prop('disabled', false);
                         $('#cliTelefonoNoRegistrado').val(telefono);
-                        $('#clienteModal').modal('show'); // Mostrar el modal
+                        $('#clienteModal').modal('show');
                     }
                 },
                 error: function () {

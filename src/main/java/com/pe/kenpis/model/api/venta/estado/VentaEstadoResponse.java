@@ -22,7 +22,7 @@ public class VentaEstadoResponse {
 
 
 
-  private String proTipo;
+  private String proCategoria;
   private Integer venDetCantidad;
   private String clienteNombre;
 

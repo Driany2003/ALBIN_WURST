@@ -20,9 +20,6 @@ public class VentaDetalleResponse {
   private Integer productoId;
   private float venDetPrecio;
 
-  public VentaDetalleResponse(Integer productoId, Integer venDetCantidad, float venDetPrecio, float venDetSubtotal) {
-  }
-
   public VentaDetalleResponse(ProductoResponse productoResponse, Integer venDetId, Integer venDetCantidad, float venDetSubtotal, Integer ventaId) {
   }
 

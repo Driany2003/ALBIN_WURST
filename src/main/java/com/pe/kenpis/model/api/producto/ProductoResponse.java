@@ -10,9 +10,11 @@ import lombok.*;
 public class ProductoResponse {
 
   private Integer proId;
-  private String proTipo;
-  private float proPrecio;
+  private Float proPrecio;
   private String proCategoria;
   private Boolean proIsActive;
+  private String proDescripcion;
+  private Integer padreId;
+  private Integer empId;
 
 }

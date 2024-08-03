@@ -14,16 +14,22 @@ public class ProductoEntity {
   @Column(name = "pro_id")
   private Integer proId;
 
-  @Column(name = "pro_tipo")
-  private String proTipo;
-
-  @Column(name = "pro_precio")
-  private float proPrecio;
-
   @Column(name = "pro_categoria")
   private String proCategoria;
 
+  @Column(name = "pro_precio")
+  private Float proPrecio;
+
+  @Column(name = "pro_descripcion")
+  private String proDescripcion;
+
   @Column(name = "pro_is_active")
   private Boolean proIsActive;
+
+  @Column(name = "padre_id")
+  private Integer padreId;
+
+  @Column(name = "emp_id")
+  private Integer empId;
 
 }

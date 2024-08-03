@@ -65,17 +65,18 @@ public class ProductoImpl implements IProductoService {
     }
   }
 
-  public List<ProductoResponse> findAllByProCategoria(String dato) {
-    if (dato == null || dato.isEmpty()) {
-      throw new IllegalArgumentException("El tipo no puede ser nulo o vacío");
-    }
-    List<ProductoEntity> productos = repository.findAllByProCategoria(dato);
-    return productos.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
+  public List<ProductoResponse> getProductosByCategoriaId(int categoriaId) {
+    List<ProductoEntity> productos = repository.findProductosByCategoriaId(categoriaId);
+    return productos.stream()
+        .map(this::convertEntityToResponse)
+        .collect(Collectors.toList());
   }
 
-  @Override
-  public List<String> findAllCategories() {
-    return repository.findDistinctCategories();
+  public List<ProductoResponse> getAllCategorias() {
+    List<ProductoEntity> categorias = repository.findAllCategorias();
+    return categorias.stream()
+        .map(this::convertEntityToResponse)
+        .collect(Collectors.toList());
   }
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {

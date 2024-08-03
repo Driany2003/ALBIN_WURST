@@ -4,6 +4,7 @@ import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.business.impl.ProductoImpl;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
+import com.pe.kenpis.util.funciones.FxComunes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,17 +20,18 @@ import java.util.List;
 public class WProductoController {
 
   @Autowired
-  ProductoImpl service;
+  private IProductoService service;
 
   @GetMapping("/categorias")
-  public ResponseEntity<List<String>> getCategories() {
-    List<String> categories = service.findAllCategories();
+  public ResponseEntity<List<ProductoResponse>> getAllCategories() {
+    List<ProductoResponse> categories = service.getAllCategorias();
     return ResponseEntity.ok(categories);
   }
 
   @GetMapping("/find-all-by-type/{categoria}")
-  public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable String categoria) {
-    List<ProductoResponse> productos = service.findAllByProCategoria(categoria);
+  public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable int categoria) {
+    List<ProductoResponse> productos = service.getProductosByCategoriaId(categoria);
+    FxComunes.printJson("RESPONSE :: CATEGORIAS " , productos);
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
 }

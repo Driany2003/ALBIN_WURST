@@ -138,54 +138,27 @@
                         <div class="modal-body">
                             <form id="ventaForm">
                                 <div class="form-body">
-                                    <!-- Chorizos -->
-                                    <div id="chorizos-container">
+                                    <div id="productos-container">
                                         <div class="form-row d-flex flex-column flex-md-row">
                                             <div class="form-group col-12 col-md-3">
-                                                <label for="tipoChorizo" class="control-label col-form-label">¿Cómo desea su chorizo?</label>
-                                                <select id="tipoChorizo" class="form-control form-control-sm tipo-chorizo-select">
+                                                <label for="categoria" class="control-label col-form-label">¿Cómo desea su chorizo?</label>
+                                                <select id="categoria" class="form-control form-control-sm tipo-categoria-select">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-12 col-md-3">
-                                                <label for="chorizo" class="control-label col-form-label">Sabor</label>
-                                                <select id="chorizo" class="form-control form-control-sm categoria-chorizo-select">
+                                                <label for="subCategoria" class="control-label col-form-label">Sabor</label>
+                                                <select id="subCategoria" class="form-control form-control-sm subCategoria-select">
                                                     <option value="">-- Seleccione --</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-12 col-md-3">
-                                                <label for="precioChorizo" class="control-label col-form-label">Precio</label>
-                                                <input id="precioChorizo" type="number" class="form-control form-control-sm precio-chorizo" min="1" disabled>
+                                                <label for="precioProducto" class="control-label col-form-label">Precio</label>
+                                                <input id="precioProducto" type="number" class="form-control form-control-sm precio" min="1" disabled>
                                             </div>
                                             <div class="form-group col-12 col-md-3">
-                                                <label for="cantidadChorizos" class="control-label col-form-label">Cantidad</label>
-                                                <input id="cantidadChorizos" type="number" class="form-control form-control-sm cantidad-chorizo" placeholder="Cantidad" min="1">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Bebidas -->
-                                    <div id="bebidas-container" class="mt-3">
-                                        <div class="form-row d-flex flex-column flex-md-row">
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="tipoBebida" class="control-label col-form-label">¿Qué desea tomar?</label>
-                                                <select id="tipoBebida" class="form-control form-control-sm tipo-bebida-select" data-placeholder="Elige tu bebida">
-                                                    <option value="">-- Seleccione --</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="bebida" class="control-label col-form-label">Bebida</label>
-                                                <select id="bebida" class="form-control form-control-sm categoria-bebida-select" data-placeholder="Elige el sabor">
-                                                    <option value="">-- Seleccione --</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="precioBebida" class="control-label col-form-label">Precio</label>
-                                                <input id="precioBebida" type="number" class="form-control form-control-sm precio-bebida" min="1" readonly>
-                                            </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="cantidadBebidas" class="control-label col-form-label">Cantidad</label>
-                                                <input id="cantidadBebidas" type="number" class="form-control form-control-sm cantidad-bebida" placeholder="Cantidad" min="1">
+                                                <label for="cantidad" class="control-label col-form-label">Cantidad</label>
+                                                <input id="cantidad" type="number" class="form-control form-control-sm cantidad" placeholder="Cantidad" min="1">
                                             </div>
                                         </div>
                                     </div>

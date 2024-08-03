@@ -57,7 +57,7 @@ public class VentaImpl implements IVentaService {
 
     VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
     nuevaVenta.setVenFecha(new Date());
-    // Guardar la nueva venta para obtener su ID
+
     VentaEntity ventaGuardada = ventaRepository.save(nuevaVenta);
     FxComunes.printJson("VentaEntity", ventaGuardada);
 
@@ -72,6 +72,8 @@ public class VentaImpl implements IVentaService {
       detallesVentas.add(nuevoDetalle);
     }
     detalleVentaRepository.saveAll(detallesVentas);
+
+    FxComunes.printJson("VentaDetalleEntity", detallesVentas);
 
     VentaEstadoEntity estadoInicial = new VentaEstadoEntity();
     estadoInicial.setVentaId(ventaGuardada.getVenId());

@@ -124,17 +124,15 @@
                             <div class="card">
                                 <div class="card-body p-3">
                                     <div id="REGISTRADO" class="task-list">
-                                        <c:forEach var="item" items="${REGISTRADO}">
-                                            <div class="card mb-2" data-venEstadoId="${item.venEstadoId}">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-7">
-                                                            <p class="font-18 font-bold m-b-5 text-truncate">${item.clienteNombre}</p>
-                                                            <p class="font-10 font-bold m-b-5 text-truncate">${item.proTipo}</p>
-                                                        </div>
-                                                        <div class="col-5">
-                                                            <h1 class="font-light text-right mb-0" >${item.venDetCantidad}</h1>
-                                                        </div>
+                                        <c:forEach var="entry" items="${REGISTRADO}">
+                                            <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
+                                                <div class="card-body p-3">
+                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
+                                                    <div class="mt-2">
+                                                        <c:forEach var="producto" items="${entry.productos}">
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,21 +141,20 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-lg-3">
                             <div class="card">
                                 <div class="card-body p-3">
                                     <div id="PAGADO" class="task-list">
-                                        <c:forEach var="item" items="${PAGADO}">
-                                            <div class="card mb-2" data-venEstadoId="${item.venEstadoId}">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-7">
-                                                            <p class="font-18 font-bold m-b-5 text-truncate">${item.clienteNombre}</p>
-                                                            <p class="font-10 font-bold m-b-5 text-truncate">${item.proTipo}</p>
-                                                        </div>
-                                                        <div class="col-5">
-                                                            <h1 class="font-light text-right mb-0">${item.venDetCantidad}</h1>
-                                                        </div>
+                                        <c:forEach var="entry" items="${PAGADO}">
+                                            <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
+                                                <div class="card-body p-3">
+                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
+                                                    <div class="mt-2">
+                                                        <c:forEach var="producto" items="${entry.productos}">
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,17 +167,15 @@
                             <div class="card">
                                 <div class="card-body p-3">
                                     <div id="EN_PROCESO" class="task-list">
-                                        <c:forEach var="item" items="${EN_PROCESO}">
-                                            <div class="card mb-2" data-venEstadoId="${item.venEstadoId}">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-7">
-                                                            <p class="font-18 font-bold m-b-5 text-truncate">${item.clienteNombre}</p>
-                                                            <p class="font-10 font-bold m-b-5 text-truncate">${item.proTipo}</p>
-                                                        </div>
-                                                        <div class="col-5">
-                                                            <h1 class="font-light text-right mb-0">${item.venDetCantidad}</h1>
-                                                        </div>
+                                        <c:forEach var="entry" items="${EN_PROCESO}">
+                                            <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
+                                                <div class="card-body p-3">
+                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
+                                                    <div class="mt-2">
+                                                        <c:forEach var="producto" items="${entry.productos}">
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
@@ -193,16 +188,15 @@
                             <div class="card">
                                 <div class="card-body p-3">
                                     <div id="ATENDIDO" class="task-list">
-                                        <c:forEach var="item" items="${ATENDIDO}">
-                                            <div class="card mb-2" data-venEstadoId="${item.venEstadoId}">
-                                                <div class="card-body">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-7">
-                                                            <p class="font-18 font-bold m-b-5 text-truncate">${item.clienteNombre}</p>
-                                                            <p class="font-10 font-bold m-b-5 text-truncate">${item.proTipo}</p></div>
-                                                        <div class="col-5">
-                                                            <h1 class="font-light text-right mb-0">${item.venDetCantidad}</h1>
-                                                        </div>
+                                        <c:forEach var="entry" items="${ATENDIDO}">
+                                            <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
+                                                <div class="card-body p-3">
+                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
+                                                    <div class="mt-2">
+                                                        <c:forEach var="producto" items="${entry.productos}">
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                        </c:forEach>
                                                     </div>
                                                 </div>
                                             </div>
@@ -245,6 +239,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 
     <script src="/static/web/dist/js/funciones/dashboard.js"></script>
