@@ -209,6 +209,29 @@ $(document).ready(function () {
         var clienteId = $('#clienteId').val();
         var tipoPago = $('#venTipoPago').val();
 
+        // Función para mostrar el modal de validación
+        function showValidationModal(message) {
+            $('#validationModalBody').text(message);
+            $('#validationModal').modal('show');
+        }
+
+        if (!clienteId) {
+            showValidationModal('Por favor, seleccione un cliente.');
+            return;
+        }
+        if (!tipoPago) {
+            showValidationModal('Por favor, seleccione un tipo de pago.');
+            return;
+        }
+        if (totalPagar <= 0) {
+            showValidationModal('El total a pagar debe ser mayor a 0.');
+            return;
+        }
+        var confirmacion = confirm('¿Está seguro de que desea guardar este pedido?');
+        if (!confirmacion) {
+            return;
+        }
+
         $.ajax({
             url: '/kenpis/venta/create',
             method: 'POST',
