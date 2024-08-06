@@ -14,10 +14,6 @@ import java.util.List;
 @Service
 public class VentaDetalleImpl implements IVentaDetalleService {
 
-  @Autowired
-  private VentaDetalleRepository ventaDetalleRepository;
-
-
   private VentaDetalleResponse convertDetallesVentasEntityToResponse(VentaDetalleEntity in) {
     VentaDetalleResponse out = new VentaDetalleResponse();
     BeanUtils.copyProperties(in, out);

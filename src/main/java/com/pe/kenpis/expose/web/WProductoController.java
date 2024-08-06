@@ -3,6 +3,7 @@ package com.pe.kenpis.expose.web;
 import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.business.impl.ProductoImpl;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.util.funciones.FxComunes;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,4 +35,10 @@ public class WProductoController {
     FxComunes.printJson("RESPONSE :: CATEGORIAS " , productos);
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
+  @GetMapping("/find-by-id/{id}")
+  public ResponseEntity<ProductoResponse> findById(@PathVariable Integer id) {
+    ProductoResponse dato = service.findById(id);
+    return ResponseEntity.ok(dato);
+  }
+
 }

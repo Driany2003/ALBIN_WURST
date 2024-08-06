@@ -2,51 +2,141 @@ $(document).ready(function () {
     let totalPagar;
     let detallesVenta = [];
     let clienteId = null;
+    let categoriaActual = null;
     actualizarTotal();
 
-    $('#ventaModal').on('show.bs.modal', function () {
+    $(document).on('click', '.select-categoria', function (e) {
+        e.preventDefault();
+        var categoriaId = $(this).closest('.card').data('id');
+        categoriaActual = categoriaId;
+        cargarSubCategoria(categoriaId);
+    });
+    function cargarCategorias() {
         $.ajax({
             url: '/kenpis/producto/categorias',
             method: 'GET',
             success: function (categorias) {
-                var categoriaSelect = $('#categoria');
-                categoriaSelect.empty().append('<option value="">-- Seleccione --</option>');
+                var contenedor = $('#detalle-container');
+                contenedor.empty();
                 categorias.forEach(function (categoria) {
-                    categoriaSelect.append('<option value="' + categoria.proId + '">' + categoria.proCategoria + '</option>');
+                    var cardHtml = '<div   class="card m-2" style="width: 18rem;" data-id="' + categoria.proId + '">' +
+                        '<div class="card-body">' +
+                        '<h5 class="card-title">' + categoria.proCategoria + '</h5>' +
+                        '<p class="card-text">' + categoria.proDescripcion + '</p>' +
+                        '<a href="#" class="btn btn-primary select-categoria">Seleccionar</a>' +
+                        '</div></div>';
+                    contenedor.append(cardHtml);
                 });
+                $('#guardarPedido').hide();
+                $('#volverCategorias').hide();
+                $('#volverSubCategorias').hide();
             },
             error: function (xhr, status, error) {
                 console.error('Error al obtener categorías:', error);
             }
         });
-    });
-    // Cuando cambia la categoría de chorizo
-    $('#categoria').change(function () {
-        var categoriaId = $(this).val();
-        cargarProductos(categoriaId);
+    }
+
+    $(document).on('click', '.select-subcategoria', function (e) {
+        e.preventDefault();
+        var subCategoriaId = $(this).closest('.card').data('id');
+        cargarDetalleProducto(subCategoriaId);
     });
 
-
-    function cargarProductos(categoria) {
+    function cargarSubCategoria(categoria) {
         $.ajax({
             url: '/kenpis/producto/find-all-by-type/' + categoria,
             method: 'GET',
-            success: function (subCategoria) {
-                var subCategoriaSelect = $('#subCategoria');
-                subCategoriaSelect.empty().append('<option value="">-- Seleccione --</option>');
-                subCategoria.forEach(function (producto) {
-                    subCategoriaSelect.append('<option value="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' + producto.proCategoria + '</option>');
+            success: function (subCategorias) {
+                var contenedor = $('#detalle-container');
+                contenedor.empty();
+                subCategorias.forEach(function (producto) {
+                    var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                        '<div class="card-body">' +
+                        '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
+                        '<p class="card-text">' + producto.proDescripcion + '</p>' +
+                        '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
+                        '<a href="#" class="btn btn-primary select-subcategoria">Seleccionar</a>' +
+                        '</div></div>';
+                    contenedor.append(cardHtml);
                 });
+                $('#volverCategorias').show();
+                $('#volverSubCategorias').hide();
+                $('#guardarPedido').hide();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error al obtener subcategorías:', error);
             }
         });
     }
 
-    $('#subCategoria').change(function () {
-        var precio = $(this).find('option:selected').data('precio');
+    $(document).on('click', '.select-subcategoria', function (e) {
+        e.preventDefault();
+        var subCategoriaId = $(this).closest('.card').data('id');
+        var precio = $(this).closest('.card').data('precio');
+        $('#subCategoria').val(subCategoriaId);
         $('#precioProducto').val(precio);
     });
 
+    function cargarDetalleProducto(productoId) {
 
+        $.ajax({
+            url: '/kenpis/producto/find-by-id/' + productoId,
+            method: 'GET',
+            success: function (producto) {
+                var contenedorDet = $('#detalle-container');
+                contenedorDet.empty();
+                var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                    '<div class="card-body">' +
+                    '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
+                    '<p class="card-text-descripcion">' + producto.proDescripcion + '</p>' +
+                    '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
+                    '</div>' +
+                    '<div class="quantity-container">' +
+                    '<button class="quantity-button minus" type="button">-</button>' +
+                    '<span class="quantity-display">1</span> ' +
+                    ' <button class="quantity-button plus" type="button">+</button>' +
+                    '</div>' +
+                    '</div>';
+                contenedorDet.append(cardHtml);
+                $('#volverSubCategorias').show();
+                $('#volverCategorias').hide();
+                $('#guardarPedido').show();
+
+            },
+            error: function (xhr, status, error) {
+                console.error('Error al obtener subcategorías:', error);
+            }
+        });
+    }
+
+    //redireccionar botones VOLVER
+    $('#ventaModal').on('show.bs.modal', function () {
+        cargarCategorias();
+    });
+
+    $('#volverCategorias').click(function () {
+        cargarCategorias();
+    });
+
+    $('#volverSubCategorias').click(function () {
+        cargarSubCategoria(categoriaActual);
+    });
+
+    //FUNCIONES PARA LOS CONTADORES
+    $('#detalle-container').on('click', '.quantity-button.plus', function () {
+        var quantityDisplay = $(this).siblings('.quantity-display');
+        var currentQuantity = parseInt(quantityDisplay.text());
+        quantityDisplay.text(currentQuantity + 1);
+    });
+
+    $('#detalle-container').on('click', '.quantity-button.minus', function () {
+        var quantityDisplay = $(this).siblings('.quantity-display');
+        var currentQuantity = parseInt(quantityDisplay.text());
+        if (currentQuantity > 1) {
+            quantityDisplay.text(currentQuantity - 1);
+        }
+    });
     function actualizarTotal() {
         totalPagar = 0;
         $('#ventasBody tr').each(function () {
@@ -58,37 +148,32 @@ $(document).ready(function () {
         $('#totalPagar').text('S/' + totalPagar.toFixed(2));
     }
 
-    // Guardar el pedido
     $('#guardarPedido').click(function () {
-
-        var subCategoria = $('.subCategoria-select').find('option:selected').text();
-        var subCategoriaId = $('#subCategoria').val();
-        var precio = $('.subCategoria-select').find('option:selected').data('precio');
-        var cantidad = $('#cantidad').val();
-        //alert("Detalle categoria :: " + subCategoria + " - " + cantidad + " - " + precio);
+        var productoId = $('.card[data-id]').data('id');
+        var producto = $('.card[data-id]').find('.card-text-descripcion').text();
+        var precio = $('.card[data-id]').data('precio');
+        var cantidad = parseInt($('.quantity-display').text());
         if (cantidad > 0) {
             var subtotal = cantidad * precio;
             detallesVenta.push({
-                productoId: subCategoriaId,
-                proCategoria: subCategoria,
+                productoId: productoId,
+                proDescripcion: producto,
                 venDetCantidad: cantidad,
                 venDetSubtotal: subtotal.toFixed(2),
                 venDetPrecio: precio.toFixed(2)
             });
         }
         $('#ventasBody').empty();
-
         var detallesHtml = detallesVenta.map(function (detalle) {
-
             return '<tr>' +
                 '<td>' + detalle.productoId + '</td>' +
-                '<td>' + detalle.proCategoria + '</td>' +
+                '<td>' + detalle.proDescripcion + '</td>' +
                 '<td>' + detalle.venDetCantidad + '</td>' +
                 '<td>S/ ' + detalle.venDetPrecio + '</td>' +
                 '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
+                '<td><button class="btn btn-danger btn-sm eliminar-detalle">Eliminar</button></td>' +
                 '</tr>';
         }).join('');
-
         $('#ventasBody').append(detallesHtml);
         actualizarTotal();
         $('#ventaForm')[0].reset();
@@ -96,8 +181,20 @@ $(document).ready(function () {
     });
 
 
-    $('#pagarButton').prop('disabled', true);
+    //PARA PODER ELIMINAR UN ELEMENTO DE LA TABLA
+    $('#ventasBody').on('click', '.eliminar-detalle', function () {
+        var row = $(this).closest('tr');
+        var productoId = row.find('td').eq(0).text();
+        detallesVenta = detallesVenta.filter(function (detalle) {
+            return detalle.productoId != productoId;
+        });
+        row.remove();
+        actualizarTotal();
+        verificarTabla();
+    });
 
+
+    $('#pagarButton').prop('disabled', true);
     function verificarTabla() {
         if ($('#ventasBody tr').length > 0) {
             $('#pagarButton').prop('disabled', false);
@@ -106,14 +203,11 @@ $(document).ready(function () {
         }
     }
 
-    // Procesar el pago
     $('#pagarButton').click(function () {
         var empresaId = $('#empresaId').val();
         var usuarioId = $('#usuarioId').val();
         var clienteId = $('#clienteId').val();
         var tipoPago = $('#venTipoPago').val();
-
-        console.log("detalles de la venta " + detallesVenta);
 
         $.ajax({
             url: '/kenpis/venta/create',
@@ -135,7 +229,6 @@ $(document).ready(function () {
                 $('#clienteId').val("");
                 $('#venTipoPago').val("");
                 $('#ventaModal').modal('hide');
-                // Limpiar el formulario y las tablas
                 $('#ventaForm')[0].reset();
                 $('#ventasBody').empty();
                 $('#productos-container').empty();
@@ -151,14 +244,12 @@ $(document).ready(function () {
         });
     });
 
-
     $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
         var correo = $('#cliCorreoPopap').val();
 
         if (nombre && telefono) {
-
             $.ajax({
                 url: '/kenpis/cliente/create',
                 method: 'POST',
@@ -168,7 +259,6 @@ $(document).ready(function () {
                     cliTelefono: telefono,
                     cliNotificacion: true,
                     cliCorreo: correo
-
                 }),
                 success: function (response) {
                     clienteId = response.cliId;
@@ -180,7 +270,6 @@ $(document).ready(function () {
                     $('#cliNombre').prop('disabled', true);
                     $('#cliNombre').val(nombre);
                     $('#registrarCliente').hide();
-
                 },
                 error: function () {
                     alert('Error al registrar el cliente. Intente nuevamente.');

@@ -130,7 +130,7 @@
                                                     <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
                                                     <div class="mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
                                                             <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
                                                         </c:forEach>
                                                     </div>
@@ -152,7 +152,7 @@
                                                     <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
                                                     <div class="mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
                                                             <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
                                                         </c:forEach>
                                                     </div>
@@ -173,7 +173,7 @@
                                                     <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
                                                     <div class="mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
                                                             <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
                                                         </c:forEach>
                                                     </div>
@@ -194,7 +194,7 @@
                                                     <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
                                                     <div class="mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proCategoria}</p>
+                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
                                                             <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
                                                         </c:forEach>
                                                     </div>

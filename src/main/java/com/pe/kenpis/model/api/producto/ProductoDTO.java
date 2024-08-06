@@ -8,11 +8,11 @@ import lombok.*;
 @NoArgsConstructor
 public class ProductoDTO extends ProductoResponse {
 
-  private String proCategoria;
+  private String proDescripcion;
   private Integer venDetCantidad;
 
-  public ProductoDTO(String proCategoria, Integer venDetCantidad) {
-    this.proCategoria = proCategoria;
+  public ProductoDTO(String proDescripcion, Integer venDetCantidad) {
+    this.proDescripcion = proDescripcion;
     this.venDetCantidad = venDetCantidad;
   }
 }

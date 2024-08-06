@@ -133,7 +133,7 @@ public class VentaEstadoImpl implements IVentaEstadoService {
       }
 
       ProductoDTO producto = new ProductoDTO(
-          (String) map.get("proCategoria"),
+          (String) map.get("proDescripcion"),
           (Integer) map.get("venDetCantidad")
       );
       productosGrupo.get(ventaId).add(producto);

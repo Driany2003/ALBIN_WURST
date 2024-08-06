@@ -78,6 +78,7 @@
                                     <option value="PLIN">PLIN</option>
                                 </select>
                             </div>
+
                         </div>
                     </div>
                     <div class="card-header">
@@ -102,6 +103,7 @@
                                     <th scope="col">CANTIDAD</th>
                                     <th scope="col">PRECIO</th>
                                     <th scope="col">TOTAL</th>
+                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody id="ventasBody">
@@ -138,41 +140,22 @@
                         <div class="modal-body">
                             <form id="ventaForm">
                                 <div class="form-body">
-                                    <div id="productos-container">
-                                        <div class="form-row d-flex flex-column flex-md-row">
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="categoria" class="control-label col-form-label">¿Cómo desea su chorizo?</label>
-                                                <select id="categoria" class="form-control form-control-sm tipo-categoria-select">
-                                                    <option value="">-- Seleccione --</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="subCategoria" class="control-label col-form-label">Sabor</label>
-                                                <select id="subCategoria" class="form-control form-control-sm subCategoria-select">
-                                                    <option value="">-- Seleccione --</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="precioProducto" class="control-label col-form-label">Precio</label>
-                                                <input id="precioProducto" type="number" class="form-control form-control-sm precio" min="1" disabled>
-                                            </div>
-                                            <div class="form-group col-12 col-md-3">
-                                                <label for="cantidad" class="control-label col-form-label">Cantidad</label>
-                                                <input id="cantidad" type="number" class="form-control form-control-sm cantidad" placeholder="Cantidad" min="1">
-                                            </div>
+                                    <div id="productos-container" class="container-fluid">
+                                        <div id="detalle-container"  class="d-flex flex-wrap">
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions text-center p-3">
+                                    <button  type="button"  id="volverSubCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
+                                    <button  type="button" id="volverCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
                                     <button type="button" id="guardarPedido" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Guardar</button>
-                                    <button type="button" class="btn btn-dark btn-sm" data-dismiss="modal">Cancelar</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-
 
 
             <!-- Modal -->
@@ -208,7 +191,6 @@
             </div>
 
 
-
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
@@ -220,6 +202,36 @@
         <!-- ============================================================== -->
         <!-- All Jquery -->
         <!-- ============================================================== -->
+
+        <style>
+
+            .quantity-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+                margin: 10px 0;
+            }
+
+            .quantity-button {
+                background-color: #007bff;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                width: 30px;
+                height: 30px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .quantity-display {
+                font-size: 1.5rem;
+                width: 40px;
+                text-align: center;
+            }
+
+        </style>
+
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
