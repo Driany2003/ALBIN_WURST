@@ -209,26 +209,19 @@ $(document).ready(function () {
         var clienteId = $('#clienteId').val();
         var tipoPago = $('#venTipoPago').val();
 
-        // Función para mostrar el modal de validación
-        function showValidationModal(message) {
-            $('#validationModalBody').text(message);
-            $('#validationModal').modal('show');
-        }
-
         if (!clienteId) {
-            showValidationModal('Por favor, seleccione un cliente.');
+            toastr.error('Por favor, seleccione un cliente.');
             return;
         }
         if (!tipoPago) {
-            showValidationModal('Por favor, seleccione un tipo de pago.');
+            toastr.error('Por favor, seleccione un tipo de pago.');
             return;
         }
         if (totalPagar <= 0) {
-            showValidationModal('El total a pagar debe ser mayor a 0.');
+            toastr.error('El total a pagar debe ser mayor a 0.');
             return;
         }
-        var confirmacion = confirm('¿Está seguro de que desea guardar este pedido?');
-        if (!confirmacion) {
+        if (!confirm('¿Está seguro de que desea guardar este pedido?')) {
             return;
         }
 
@@ -245,8 +238,7 @@ $(document).ready(function () {
                 venTipoPago: tipoPago
             }),
             success: function (response) {
-                console.log(response);
-                alert('Pedido guardado correctamente.');
+                toastr.success('Pedido guardado correctamente.');
                 $('#cliTelefono').val("");
                 $('#cliNombre').val("");
                 $('#clienteId').val("");
@@ -261,7 +253,7 @@ $(document).ready(function () {
                 verificarTabla();
             },
             error: function () {
-                alert('Error al guardar el pedido. Intente nuevamente.');
+                toastr.error('Error al guardar el pedido. Intente nuevamente.');
                 $('#pagarButton').prop('disabled', false);
             }
         });
@@ -295,11 +287,11 @@ $(document).ready(function () {
                     $('#registrarCliente').hide();
                 },
                 error: function () {
-                    alert('Error al registrar el cliente. Intente nuevamente.');
+                    toastr.error('Error al registrar el cliente. Intente nuevamente.');
                 }
             });
         } else {
-            alert('Por favor, ingrese el nombre y el teléfono.');
+            toastr.error('Por favor, ingrese el nombre y el teléfono.');
         }
     });
 
@@ -324,11 +316,11 @@ $(document).ready(function () {
                     }
                 },
                 error: function () {
-                    alert('Error al buscar el cliente. Intente nuevamente.');
+                    toastr.error('Error al buscar el cliente. Intente nuevamente.');
                 }
             });
         } else {
-            alert('Ingrese un número de teléfono válido.');
+            toastr.error('Ingrese un número de teléfono válido.');
         }
     });
 });

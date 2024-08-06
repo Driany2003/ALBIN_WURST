@@ -117,29 +117,6 @@
 
 
 
-
-                <!-- Modal de Validación -->
-                <div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validationModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="validationModalLabel">Validación</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body" id="validationModalBody">
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
                 <!-- ============================================================== -->
                 <!-- SEGUIMIENTO -->
                 <!-- ============================================================== -->
@@ -262,6 +239,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
