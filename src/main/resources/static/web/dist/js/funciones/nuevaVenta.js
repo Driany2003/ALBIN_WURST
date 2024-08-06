@@ -5,12 +5,18 @@ $(document).ready(function () {
     let categoriaActual = null;
     actualizarTotal();
 
-    $(document).on('click', '.select-categoria', function (e) {
+    $(document).on('click', '.card', function (e) {
         e.preventDefault();
-        var categoriaId = $(this).closest('.card').data('id');
-        categoriaActual = categoriaId;
-        cargarSubCategoria(categoriaId);
+        var categoriaId = $(this).data('id');
+        if ($(this).hasClass('categoria-card')) {
+            categoriaActual = categoriaId;
+            cargarSubCategoria(categoriaId);
+        } else if ($(this).hasClass('subcategoria-card')) {
+            var subCategoriaId = categoriaId;
+            cargarDetalleProducto(subCategoriaId);
+        }
     });
+
     function cargarCategorias() {
         $.ajax({
             url: '/kenpis/producto/categorias',
@@ -19,11 +25,11 @@ $(document).ready(function () {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();
                 categorias.forEach(function (categoria) {
-                    var cardHtml = '<div   class="card m-2" style="width: 18rem;" data-id="' + categoria.proId + '">' +
+                    var cardHtml = '<div class="card categoria-card m-2" style="width: 18rem;" data-id="' + categoria.proId + '">' +
+                        '<img alt="Producto" height="50px" width="50px" class="card-img-top" alt="No se pudo mostrar la imagen" src="data:image/jpeg;base64,' + categoria.proImagen + '"/>' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + categoria.proCategoria + '</h5>' +
                         '<p class="card-text">' + categoria.proDescripcion + '</p>' +
-                        '<a href="#" class="btn btn-primary select-categoria">Seleccionar</a>' +
                         '</div></div>';
                     contenedor.append(cardHtml);
                 });
@@ -37,12 +43,6 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on('click', '.select-subcategoria', function (e) {
-        e.preventDefault();
-        var subCategoriaId = $(this).closest('.card').data('id');
-        cargarDetalleProducto(subCategoriaId);
-    });
-
     function cargarSubCategoria(categoria) {
         $.ajax({
             url: '/kenpis/producto/find-all-by-type/' + categoria,
@@ -51,12 +51,12 @@ $(document).ready(function () {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();
                 subCategorias.forEach(function (producto) {
-                    var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                    var cardHtml = '<div class="card subcategoria-card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                        '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="data:image/jpeg;base64,' + producto.proImagen + '"/>' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                         '<p class="card-text">' + producto.proDescripcion + '</p>' +
                         '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
-                        '<a href="#" class="btn btn-primary select-subcategoria">Seleccionar</a>' +
                         '</div></div>';
                     contenedor.append(cardHtml);
                 });
@@ -70,16 +70,7 @@ $(document).ready(function () {
         });
     }
 
-    $(document).on('click', '.select-subcategoria', function (e) {
-        e.preventDefault();
-        var subCategoriaId = $(this).closest('.card').data('id');
-        var precio = $(this).closest('.card').data('precio');
-        $('#subCategoria').val(subCategoriaId);
-        $('#precioProducto').val(precio);
-    });
-
     function cargarDetalleProducto(productoId) {
-
         $.ajax({
             url: '/kenpis/producto/find-by-id/' + productoId,
             method: 'GET',
@@ -87,6 +78,7 @@ $(document).ready(function () {
                 var contenedorDet = $('#detalle-container');
                 contenedorDet.empty();
                 var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                    '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="data:image/jpeg;base64,' + producto.proImagen + '"/>' +
                     '<div class="card-body">' +
                     '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                     '<p class="card-text-descripcion">' + producto.proDescripcion + '</p>' +
@@ -102,26 +94,12 @@ $(document).ready(function () {
                 $('#volverSubCategorias').show();
                 $('#volverCategorias').hide();
                 $('#guardarPedido').show();
-
             },
             error: function (xhr, status, error) {
                 console.error('Error al obtener subcategorías:', error);
             }
         });
     }
-
-    //redireccionar botones VOLVER
-    $('#ventaModal').on('show.bs.modal', function () {
-        cargarCategorias();
-    });
-
-    $('#volverCategorias').click(function () {
-        cargarCategorias();
-    });
-
-    $('#volverSubCategorias').click(function () {
-        cargarSubCategoria(categoriaActual);
-    });
 
     //FUNCIONES PARA LOS CONTADORES
     $('#detalle-container').on('click', '.quantity-button.plus', function () {
@@ -137,6 +115,20 @@ $(document).ready(function () {
             quantityDisplay.text(currentQuantity - 1);
         }
     });
+
+    //redireccionar botones VOLVER
+    $('#ventaModal').on('show.bs.modal', function () {
+        cargarCategorias();
+    });
+
+    $('#volverCategorias').click(function () {
+        cargarCategorias();
+    });
+
+    $('#volverSubCategorias').click(function () {
+        cargarSubCategoria(categoriaActual);
+    });
+
     function actualizarTotal() {
         totalPagar = 0;
         $('#ventasBody tr').each(function () {
@@ -178,8 +170,10 @@ $(document).ready(function () {
         actualizarTotal();
         $('#ventaForm')[0].reset();
         verificarTabla();
-    });
 
+        $('#ventaModal').modal('hide');
+        $('.modal-backdrop').remove();
+    });
 
     //PARA PODER ELIMINAR UN ELEMENTO DE LA TABLA
     $('#ventasBody').on('click', '.eliminar-detalle', function () {
@@ -192,9 +186,8 @@ $(document).ready(function () {
         actualizarTotal();
         verificarTabla();
     });
-
-
     $('#pagarButton').prop('disabled', true);
+
     function verificarTabla() {
         if ($('#ventasBody tr').length > 0) {
             $('#pagarButton').prop('disabled', false);
@@ -241,6 +234,7 @@ $(document).ready(function () {
                 toastr.success('Pedido guardado correctamente.');
                 $('#cliTelefono').val("");
                 $('#cliNombre').val("");
+                $('#alias').val("");
                 $('#clienteId').val("");
                 $('#venTipoPago').val("");
                 $('#ventaModal').modal('hide');
@@ -261,6 +255,7 @@ $(document).ready(function () {
 
     $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
+        var alias = $('#cliAliasPopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
         var correo = $('#cliCorreoPopap').val();
 
@@ -271,6 +266,7 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 data: JSON.stringify({
                     cliNombre: nombre,
+                    alias: alias,
                     cliTelefono: telefono,
                     cliNotificacion: true,
                     cliCorreo: correo
@@ -279,11 +275,13 @@ $(document).ready(function () {
                     clienteId = response.cliId;
                     $('#clienteId').val(clienteId);
                     $('#cliNombrePopap').val('');
+                    $('#cliAliasPopap').val('');
                     $('#cliTelefonoNoRegistrado').val('');
                     $('#cliCorreoPopap').val('correo@correo.com');
                     $('#clienteModal').modal('hide');
                     $('#cliNombre').prop('disabled', true);
                     $('#cliNombre').val(nombre);
+                    $('#alias').val(alias);
                     $('#registrarCliente').hide();
                 },
                 error: function () {
@@ -304,6 +302,7 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.cliId != null) {
                         $('#cliNombre').val(response.cliNombre);
+                        $('#alias').val(response.alias);
                         $('#clienteId').val(response.cliId);
                         $('#cliNombre').prop('disabled', true);
                         $('#registrarCliente').hide();
@@ -324,8 +323,3 @@ $(document).ready(function () {
         }
     });
 });
-
-
-
-
-

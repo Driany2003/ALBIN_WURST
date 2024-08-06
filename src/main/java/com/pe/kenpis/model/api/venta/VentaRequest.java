@@ -19,6 +19,7 @@ public class VentaRequest {
   private float venTotal;
   private Integer empresaId;
   private Integer clienteId;
+  private String alias;
   private String venTipoPago;
   private Integer usuarioId;
 

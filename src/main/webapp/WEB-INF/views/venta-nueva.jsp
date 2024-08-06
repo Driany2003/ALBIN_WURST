@@ -63,9 +63,15 @@
                             <div class="form-group col-md-1 text-md-right align-middle">
                                 <label for="cliNombre" class="control-label col-form-label">Nombre</label>
                             </div>
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-1">
                                 <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
                                 <input id="clienteId" type="hidden"/>
+                            </div>
+                            <div class="form-group col-md-1 text-md-right align-middle">
+                                <label for="alias" class="control-label col-form-label">Alias</label>
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input id="alias" type="text" class="form-control form-control-sm">
                             </div>
                             <div class="form-group col-md-2 text-md-right align-middle">
                                 <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
@@ -141,14 +147,14 @@
                             <form id="ventaForm">
                                 <div class="form-body">
                                     <div id="productos-container" class="container-fluid">
-                                        <div id="detalle-container"  class="d-flex flex-wrap">
+                                        <div id="detalle-container" class="d-flex flex-wrap">
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-actions text-center p-3">
-                                    <button  type="button"  id="volverSubCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
-                                    <button  type="button" id="volverCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
+                                    <button type="button" id="volverSubCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
+                                    <button type="button" id="volverCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
                                     <button type="button" id="guardarPedido" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Guardar</button>
                                 </div>
                             </form>
@@ -156,7 +162,6 @@
                     </div>
                 </div>
             </div>
-
 
             <!-- Modal -->
             <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">

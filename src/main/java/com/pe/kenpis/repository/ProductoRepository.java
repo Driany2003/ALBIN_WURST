@@ -13,16 +13,15 @@ public interface ProductoRepository extends JpaRepository<ProductoEntity,Integer
   List<ProductoEntity> findAllCategorias();
 
   @Query(value = "WITH ProductosRecursivos AS (" +
-      "    SELECT pro_id, pro_categoria, pro_precio, pro_descripcion, pro_is_active, padre_id, emp_id, 1 AS nivel" +
+      "    SELECT pro_id, pro_categoria, pro_precio, pro_descripcion, pro_imagen, pro_imagen_longitud, pro_is_active, padre_id, emp_id, 1 AS nivel" +
       "    FROM T_PRODUCTO" +
       "    WHERE pro_id = :categoriaId" +
       "    UNION ALL" +
-      "    SELECT p.pro_id, p.pro_categoria, p.pro_precio, p.pro_descripcion, p.pro_is_active, p.padre_id, p.emp_id, pr.nivel + 1" +
+      "    SELECT p.pro_id, p.pro_categoria, p.pro_precio, p.pro_descripcion, p.pro_imagen, p.pro_imagen_longitud,p.pro_is_active, p.padre_id, p.emp_id, pr.nivel + 1" +
       "    FROM T_PRODUCTO p" +
       "    INNER JOIN ProductosRecursivos pr ON p.padre_id = pr.pro_id" +
       ")" +
       "SELECT * FROM ProductosRecursivos WHERE padre_id = :categoriaId", nativeQuery = true)
   List<ProductoEntity> findProductosByCategoriaId(@Param("categoriaId") int categoriaId);
-
 
 }
