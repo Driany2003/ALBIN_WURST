@@ -32,4 +32,10 @@ public class ProductoEntity {
   @Column(name = "emp_id")
   private Integer empId;
 
+  @Column(name = "pro_imagen")
+  private String proImagen;
+
+  @Column(name = "pro_imagen_longitud")
+  private String proImagenLongitud;
+
 }

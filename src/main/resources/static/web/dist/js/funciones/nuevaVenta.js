@@ -23,6 +23,7 @@ $(document).ready(function () {
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + categoria.proCategoria + '</h5>' +
                         '<p class="card-text">' + categoria.proDescripcion + '</p>' +
+                        '<img alt="Producto" class="img-responsive" src="data:image/jepg;base64,'+categoria.proImagen+'"/>'+
                         '<a href="#" class="btn btn-primary select-categoria">Seleccionar</a>' +
                         '</div></div>';
                     contenedor.append(cardHtml);
@@ -55,6 +56,7 @@ $(document).ready(function () {
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                         '<p class="card-text">' + producto.proDescripcion + '</p>' +
+                        '<img alt="Producto" class="img-responsive" src="data:image/jepg;base64,'+producto.proImagen+'"/>'+
                         '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
                         '<a href="#" class="btn btn-primary select-subcategoria">Seleccionar</a>' +
                         '</div></div>';
@@ -90,6 +92,7 @@ $(document).ready(function () {
                     '<div class="card-body">' +
                     '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                     '<p class="card-text-descripcion">' + producto.proDescripcion + '</p>' +
+                    '<img alt="Producto" class="img-responsive" src="data:image/jepg;base64,'+producto.proImagen+'"/>'+
                     '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
                     '</div>' +
                     '<div class="quantity-container">' +

@@ -2,6 +2,8 @@ package com.pe.kenpis.model.api.producto;
 
 import lombok.*;
 
+import javax.persistence.Column;
+
 @Getter
 @Setter
 @ToString
@@ -16,5 +18,7 @@ public class ProductoResponse {
   private String proDescripcion;
   private Integer padreId;
   private Integer empId;
+  private String proImagen;
+  private String proImagenLongitud;
 
 }

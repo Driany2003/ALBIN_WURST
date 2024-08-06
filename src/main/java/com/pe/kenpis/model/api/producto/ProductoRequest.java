@@ -16,5 +16,7 @@ public class ProductoRequest {
   private String proDescripcion;
   private Integer padreId;
   private Integer empId;
+  private String proImagen;
+  private String proImagenLongitud;
 
 }

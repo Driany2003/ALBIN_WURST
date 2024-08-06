@@ -6,8 +6,12 @@ import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.repository.ProductoRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
+import com.pe.kenpis.util.funciones.Java8Base64Image;
+import com.pe.kenpis.util.variables.Constantes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.Charsets;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +25,7 @@ import java.util.stream.Collectors;
 public class ProductoImpl implements IProductoService {
 
   private final ProductoRepository repository;
+  private String imageOutFoto = Constantes.RUTAS.BASE;
 
   @Override
   public List<ProductoResponse> findAll() {
@@ -81,18 +86,51 @@ public class ProductoImpl implements IProductoService {
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {
     ProductoEntity out = new ProductoEntity();
+    imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
+    if (in.getProImagen()
+        .length() > 0) {
+      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen()
+          .getBytes(Charsets.ISO_8859_1)), imageOutFoto);
+      out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
+      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
+    } else {
+      out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
+      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
+    }
     BeanUtils.copyProperties(in, out);
     return out;
   }
 
   private ProductoResponse convertEntityToResponse(ProductoEntity in) {
     ProductoResponse out = new ProductoResponse();
+    imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
+    if (in.getProImagen()
+        .length() > 0) {
+      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen()
+          .getBytes(Charsets.ISO_8859_1)), imageOutFoto);
+      out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
+      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
+    } else {
+      out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
+      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
+    }
     BeanUtils.copyProperties(in, out);
     return out;
   }
 
   private ProductoRequest convertResponseToRequest(ProductoResponse in) {
     ProductoRequest out = new ProductoRequest();
+    imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
+    if (in.getProImagen()
+        .length() > 0) {
+      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen()
+          .getBytes(Charsets.ISO_8859_1)), imageOutFoto);
+      out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
+      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
+    } else {
+      out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
+      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
+    }
     BeanUtils.copyProperties(in, out);
     return out;
   }

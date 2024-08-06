@@ -92,6 +92,15 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="form-row">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content">
+                                    <div class="ibox-content border-left-right">
+                                        <img alt="Foto" class="img-responsive" src="data:image/jepg;base64,${imagen_foto}"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card-body p-2">
                         <div class="table-responsive">
