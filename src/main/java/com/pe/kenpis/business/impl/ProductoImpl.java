@@ -97,6 +97,7 @@ public class ProductoImpl implements IProductoService {
       out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
     }
+    Java8Base64Image.eliminaArchivo(imageOutFoto);
     BeanUtils.copyProperties(in, out);
     return out;
   }
@@ -114,6 +115,7 @@ public class ProductoImpl implements IProductoService {
       out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
     }
+    Java8Base64Image.eliminaArchivo(imageOutFoto);
     BeanUtils.copyProperties(in, out);
     return out;
   }
@@ -131,6 +133,7 @@ public class ProductoImpl implements IProductoService {
       out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
     }
+    Java8Base64Image.eliminaArchivo(imageOutFoto);
     BeanUtils.copyProperties(in, out);
     return out;
   }
