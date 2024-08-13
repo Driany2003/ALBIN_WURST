@@ -4,6 +4,7 @@ $(document).ready(function () {
     let clienteId = null;
     let categoriaActual = null;
     actualizarTotal();
+    ocultarCampoAlias();
 
     $(document).on('click', '.card', function (e) {
         e.preventDefault();
@@ -16,6 +17,22 @@ $(document).ready(function () {
             cargarDetalleProducto(subCategoriaId);
         }
     });
+    function mostrarCampoAlias() {
+        $('#alias-label').show();
+        $('#alias-field').show();
+    }
+    function ocultarCampoAlias() {
+        $('#alias-label').hide();
+        $('#alias-field').hide();
+    }
+    function actualizarCampoAlias() {
+        let telefono = $('#cliTelefono').val();
+        if (telefono === '000000000') {
+            mostrarCampoAlias();
+        } else {
+            ocultarCampoAlias();
+        }
+    }
 
     function cargarCategorias() {
         $.ajax({
@@ -187,7 +204,6 @@ $(document).ready(function () {
         verificarTabla();
     });
     $('#pagarButton').prop('disabled', true);
-
     function verificarTabla() {
         if ($('#ventasBody tr').length > 0) {
             $('#pagarButton').prop('disabled', false);
@@ -201,6 +217,7 @@ $(document).ready(function () {
         var usuarioId = $('#usuarioId').val();
         var clienteId = $('#clienteId').val();
         var tipoPago = $('#venTipoPago').val();
+        var telefono = $('#cliTelefono').val();
 
         if (!clienteId) {
             toastr.error('Por favor, seleccione un cliente.');
@@ -218,6 +235,10 @@ $(document).ready(function () {
             return;
         }
 
+        if (telefono === '000000000') {
+            var alias = $('#alias').val();
+        }
+
         $.ajax({
             url: '/kenpis/venta/create',
             method: 'POST',
@@ -226,6 +247,7 @@ $(document).ready(function () {
                 empresaId: empresaId,
                 usuarioId: usuarioId,
                 clienteId: clienteId,
+                alias: alias,
                 detallesVentas: detallesVenta,
                 venTotal: totalPagar,
                 venTipoPago: tipoPago
@@ -266,7 +288,6 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 data: JSON.stringify({
                     cliNombre: nombre,
-                    alias: alias,
                     cliTelefono: telefono,
                     cliNotificacion: true,
                     cliCorreo: correo
@@ -275,13 +296,11 @@ $(document).ready(function () {
                     clienteId = response.cliId;
                     $('#clienteId').val(clienteId);
                     $('#cliNombrePopap').val('');
-                    $('#cliAliasPopap').val('');
                     $('#cliTelefonoNoRegistrado').val('');
                     $('#cliCorreoPopap').val('correo@correo.com');
                     $('#clienteModal').modal('hide');
                     $('#cliNombre').prop('disabled', true);
                     $('#cliNombre').val(nombre);
-                    $('#alias').val(alias);
                     $('#registrarCliente').hide();
                 },
                 error: function () {
@@ -295,6 +314,7 @@ $(document).ready(function () {
 
     $('#buscarCliente').click(function () {
         var telefono = $('#cliTelefono').val();
+        actualizarCampoAlias();
         if (telefono.length === 9) {
             $.ajax({
                 url: '/kenpis/cliente/find-by-telefono/' + telefono,
@@ -302,7 +322,6 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.cliId != null) {
                         $('#cliNombre').val(response.cliNombre);
-                        $('#alias').val(response.alias);
                         $('#clienteId').val(response.cliId);
                         $('#cliNombre').prop('disabled', true);
                         $('#registrarCliente').hide();

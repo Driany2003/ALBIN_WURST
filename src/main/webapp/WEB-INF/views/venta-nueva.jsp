@@ -67,12 +67,13 @@
                                 <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
                                 <input id="clienteId" type="hidden"/>
                             </div>
-                            <div class="form-group col-md-1 text-md-right align-middle">
+                            <div class="form-group col-md-1 text-md-right align-middle" id="alias-label">
                                 <label for="alias" class="control-label col-form-label">Alias</label>
                             </div>
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-md-1" id="alias-field" style="display: none;">
                                 <input id="alias" type="text" class="form-control form-control-sm">
                             </div>
+
                             <div class="form-group col-md-2 text-md-right align-middle">
                                 <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
                             </div>
