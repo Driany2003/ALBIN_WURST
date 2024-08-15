@@ -18,7 +18,7 @@ public class ProductoEntity {
   private String proCategoria;
 
   @Column(name = "pro_precio")
-  private Float proPrecio;
+  private Double proPrecio;
 
   @Column(name = "pro_descripcion")
   private String proDescripcion;

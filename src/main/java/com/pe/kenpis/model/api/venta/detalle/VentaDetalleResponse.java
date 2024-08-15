@@ -19,6 +19,7 @@ public class VentaDetalleResponse {
   private Integer ventaId;
   private Integer productoId;
   private float venDetPrecio;
+  private String venDetObservaciones;
 
   public VentaDetalleResponse(ProductoResponse productoResponse, Integer venDetId, Integer venDetCantidad, float venDetSubtotal, Integer ventaId) {
   }

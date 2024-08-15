@@ -53,7 +53,7 @@
                 <div class="card-body p-1">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class="card registrado-superior-card">
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-7">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class=" card pagado-superior-card">
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-7">
@@ -83,7 +83,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class=" card en-proceso-superior-card">
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-7">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <div class="card">
+                            <div class=" card atendido-card-superior">
                                 <div class="card-body">
                                     <div class="row align-items-center">
                                         <div class="col-7">
@@ -115,8 +115,6 @@
                     </div>
                 </div>
 
-
-
                 <!-- ============================================================== -->
                 <!-- SEGUIMIENTO -->
                 <!-- ============================================================== -->
@@ -124,17 +122,33 @@
                 <div class="card-body p-1">
                     <div class="row" id="CARD_SELECTOR">
                         <div class="col-lg-3">
-                            <div class="card">
-                                <div class="card-body p-3">
+                            <div class="card-registrado">
+                                <div class="card-body p-3 ">
                                     <div id="REGISTRADO" class="task-list">
                                         <c:forEach var="entry" items="${REGISTRADO}">
                                             <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
                                                 <div class="card-body p-3">
-                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
-                                                    <div class="mt-2">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h5 class="card-title mb-2">
+                                                                <i class="fas fa-user"> </i> ${entry.clienteNombre}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="text-right" style="font-size: 12px;">
+                                                            <p class="mb-0"><strong>Total: S/ ${entry.venTotal}</strong></p>
+                                                            <p class="mb-0" style="font-size: 13px;">(${entry.venTipoPago})</p>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="productos-section mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
-                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                            <div class="producto-item">
+                                                                <p class="mb-0">
+                                                                        ${producto.proDescripcion}
+                                                                </p>
+                                                                <p><strong>${producto.venDetCantidad} x S/${producto.proPrecio}</strong></p>
+                                                            </div>
+                                                            <hr>
                                                         </c:forEach>
                                                     </div>
                                                 </div>
@@ -146,17 +160,33 @@
                         </div>
 
                         <div class="col-lg-3">
-                            <div class="card">
+                            <div class="card-pagado">
                                 <div class="card-body p-3">
                                     <div id="PAGADO" class="task-list">
                                         <c:forEach var="entry" items="${PAGADO}">
                                             <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
                                                 <div class="card-body p-3">
-                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
-                                                    <div class="mt-2">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h5 class="card-title mb-2">
+                                                                <i class="fas fa-user"> </i> ${entry.clienteNombre}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="text-right" style="font-size: 12px;">
+                                                            <p class="mb-0"><strong>Total: S/ ${entry.venTotal}</strong></p>
+                                                            <p class="mb-0" style="font-size: 13px;">(${entry.venTipoPago})</p>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="productos-section mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
-                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                            <div class="producto-item">
+                                                                <p class="mb-0">
+                                                                        ${producto.proDescripcion}
+                                                                </p>
+                                                                <p><strong>${producto.venDetCantidad} x S/${producto.proPrecio}</strong></p>
+                                                            </div>
+                                                            <hr>
                                                         </c:forEach>
                                                     </div>
                                                 </div>
@@ -167,17 +197,33 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="card">
+                            <div class="en-proceso-card">
                                 <div class="card-body p-3">
                                     <div id="EN_PROCESO" class="task-list">
                                         <c:forEach var="entry" items="${EN_PROCESO}">
-                                            <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
+                                            <div class="card mb-2 shadow-sm " data-venEstadoId="${entry.venEstadoId}">
                                                 <div class="card-body p-3">
-                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
-                                                    <div class="mt-2">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h5 class="card-title mb-2">
+                                                                <i class="fas fa-user"> </i> ${entry.clienteNombre}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="text-right" style="font-size: 12px;">
+                                                            <p class="mb-0"><strong>Total: S/ ${entry.venTotal}</strong></p>
+                                                            <p class="mb-0" style="font-size: 13px;">(${entry.venTipoPago})</p>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="productos-section mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
-                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                            <div class="producto-item">
+                                                                <p class="mb-0">
+                                                                        ${producto.proDescripcion}
+                                                                </p>
+                                                                <p><strong>${producto.venDetCantidad} x S/${producto.proPrecio}</strong></p>
+                                                            </div>
+                                                            <hr>
                                                         </c:forEach>
                                                     </div>
                                                 </div>
@@ -188,17 +234,33 @@
                             </div>
                         </div>
                         <div class="col-lg-3">
-                            <div class="card">
+                            <div class="atendido-card">
                                 <div class="card-body p-3">
-                                    <div id="ATENDIDO" class="task-list">
+                                    <div id="ATENDIDO" class="task-list ">
                                         <c:forEach var="entry" items="${ATENDIDO}">
                                             <div class="card mb-2 shadow-sm" data-venEstadoId="${entry.venEstadoId}">
                                                 <div class="card-body p-3">
-                                                    <h5 class="card-title mb-1">${entry.clienteNombre}</h5>
-                                                    <div class="mt-2">
+                                                    <div class="d-flex justify-content-between align-items-start">
+                                                        <div>
+                                                            <h5 class="card-title mb-2">
+                                                                <i class="fas fa-user"> </i> ${entry.clienteNombre}
+                                                            </h5>
+                                                        </div>
+                                                        <div class="text-right" style="font-size: 12px;">
+                                                            <p class="mb-0"><strong>Total: S/ ${entry.venTotal}</strong></p>
+                                                            <p class="mb-0" style="font-size: 13px;">(${entry.venTipoPago})</p>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="productos-section mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <p class="mb-0"><strong>Producto:</strong> ${producto.proDescripcion}</p>
-                                                            <p><strong>Cantidad:</strong> ${producto.venDetCantidad}</p>
+                                                            <div class="producto-item">
+                                                                <p class="mb-0">
+                                                                        ${producto.proDescripcion}
+                                                                </p>
+                                                                <p><strong>${producto.venDetCantidad} x S/${producto.proPrecio}</strong></p>
+                                                            </div>
+                                                            <hr>
                                                         </c:forEach>
                                                     </div>
                                                 </div>
@@ -214,6 +276,84 @@
         </div>
     </div>
     <style>
+
+        .card {
+            border: none;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .registrado-superior-card .card-body {
+            background-color: #add8e6;
+        }
+
+        .pagado-superior-card .card-body {
+            background-color: #ffb6c1;
+        }
+
+        .en-proceso-superior-card .card-body {
+            background-color: #ffa07a;
+        }
+
+        .atendido-card-superior .card-body {
+            background-color: #90ee90;
+
+        }
+
+        .atendido-card {
+            border: 2px solid #90ee90;
+        }
+
+        .en-proceso-card {
+            border: 2px solid #ffa07a;
+        }
+
+        .card-pagado {
+            border: 2px solid #ffb6c1;
+        }
+
+        .card-registrado {
+            border: 2px solid #add8e6;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .productos-section {
+            padding: 0;
+            list-style: none;
+        }
+
+        .producto-item {
+            margin-bottom: 10px;
+        }
+
+        .total-section {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .total-section p {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        hr {
+            margin: 10px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+
         .card-text {
             font-size: 14px;
         }
@@ -222,6 +362,7 @@
             max-height: 300px;
             overflow-y: auto;
         }
+
     </style>
 
     <!-- This page plugin CSS -->

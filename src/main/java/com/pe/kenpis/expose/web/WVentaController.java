@@ -25,7 +25,6 @@ public class WVentaController {
 
   @PostMapping("/create")
   public ResponseEntity<VentaResponse> create(@RequestBody VentaRequest ventaRequest) throws Exception {
-    FxComunes.printJson("VentaRequest", ventaRequest.getDetallesVentas());
     VentaResponse ventaResponse = service.create(ventaRequest);
     return new ResponseEntity<>(ventaResponse, HttpStatus.CREATED);
   }

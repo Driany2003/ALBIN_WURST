@@ -12,7 +12,7 @@ import javax.persistence.Column;
 public class ProductoResponse {
 
   private Integer proId;
-  private Float proPrecio;
+  private Double proPrecio;
   private String proCategoria;
   private Boolean proIsActive;
   private String proDescripcion;

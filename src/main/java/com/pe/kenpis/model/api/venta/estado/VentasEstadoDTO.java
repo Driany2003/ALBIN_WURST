@@ -13,11 +13,15 @@ public class VentasEstadoDTO {
 
   private String clienteNombre;
   private Integer venEstadoId;
+  private Double venTotal;
+  private String venTipoPago;
   private List<ProductoDTO> productos;
 
-  public VentasEstadoDTO(String clienteNombre, Integer venEstadoId, List<ProductoDTO> productos) {
+  public VentasEstadoDTO(String clienteNombre, Integer venEstadoId, Double venTotal , String venTipoPago, List<ProductoDTO> productos) {
     this.clienteNombre = clienteNombre;
     this.venEstadoId = venEstadoId;
+    this.venTotal = venTotal;
+    this.venTipoPago = venTipoPago;
     this.productos = productos;
   }
 
