@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class ProductoImpl implements IProductoService {
 
   private final ProductoRepository repository;
-  private String imageOutFoto = Constantes.RUTAS.BASE;
+  private String imageOutFoto = Constantes.RUTAS.UNIDAD;
 
   @Override
   public List<ProductoResponse> findAll() {
@@ -137,5 +137,7 @@ public class ProductoImpl implements IProductoService {
     BeanUtils.copyProperties(in, out);
     return out;
   }
+
+
 
 }
