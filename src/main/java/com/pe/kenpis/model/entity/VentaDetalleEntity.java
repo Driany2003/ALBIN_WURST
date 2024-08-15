@@ -29,4 +29,7 @@ public class VentaDetalleEntity {
   @Column(name = "ven_det_precio")
   private float venDetPrecio;
 
+  @Column(name = "ven_det_observaciones")
+  private String venDetObservaciones;
+
 }

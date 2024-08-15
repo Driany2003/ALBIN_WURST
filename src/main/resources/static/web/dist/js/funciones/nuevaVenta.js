@@ -168,8 +168,8 @@ $(document).ready(function () {
                 productoId: productoId,
                 proDescripcion: producto,
                 venDetCantidad: cantidad,
-                venDetSubtotal: subtotal.toFixed(2),
-                venDetPrecio: precio.toFixed(2)
+                venDetPrecio: precio.toFixed(2),
+                venDetSubtotal: subtotal.toFixed(2)
             });
         }
         $('#ventasBody').empty();
@@ -247,7 +247,7 @@ $(document).ready(function () {
                 empresaId: empresaId,
                 usuarioId: usuarioId,
                 clienteId: clienteId,
-                alias: alias,
+                venAlias: alias,
                 detallesVentas: detallesVenta,
                 venTotal: totalPagar,
                 venTipoPago: tipoPago
@@ -277,7 +277,6 @@ $(document).ready(function () {
 
     $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
-        var alias = $('#cliAliasPopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
         var correo = $('#cliCorreoPopap').val();
 

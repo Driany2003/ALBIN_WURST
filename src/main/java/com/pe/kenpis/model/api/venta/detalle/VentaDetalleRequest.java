@@ -17,5 +17,6 @@ public class VentaDetalleRequest {
   private Integer ventaId;
   private Integer productoId;
   private float venDetPrecio;
+  private String venDetObservaciones;
 
 }
