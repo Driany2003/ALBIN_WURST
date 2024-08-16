@@ -2,6 +2,9 @@ package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.business.impl.ProductoImpl;
+import com.pe.kenpis.model.api.cliente.ClienteRequest;
+import com.pe.kenpis.model.api.cliente.ClienteResponse;
+import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
@@ -10,9 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,13 +33,36 @@ public class WProductoController {
   @GetMapping("/find-all-by-type/{categoria}")
   public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable int categoria) {
     List<ProductoResponse> productos = service.getProductosByCategoriaId(categoria);
-    FxComunes.printJson("RESPONSE :: CATEGORIAS " , productos);
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
   @GetMapping("/find-by-id/{id}")
   public ResponseEntity<ProductoResponse> findById(@PathVariable Integer id) {
     ProductoResponse dato = service.findById(id);
     return ResponseEntity.ok(dato);
+  }
+
+  @GetMapping("/find-all")
+  public ResponseEntity<List<ProductoResponse>> findAll() {
+    List<ProductoResponse> productos = service.findAll();
+    return new ResponseEntity<>(productos, HttpStatus.OK);
+  }
+
+  @PostMapping("/create")
+  public ResponseEntity<ProductoResponse> create(@RequestBody ProductoRequest request) {
+    ProductoResponse response = service.create(request);
+    return new ResponseEntity<>(response, HttpStatus.CREATED);
+  }
+
+  @PostMapping("/update")
+  public ResponseEntity<ProductoResponse> update(@RequestBody ProductoRequest request) {
+    ProductoResponse response = service.update(request);
+    return new ResponseEntity<>(response, HttpStatus.OK);
+  }
+
+  @GetMapping("/delete/{id}")
+  public ResponseEntity<ProductoResponse> delete(@PathVariable Integer id) {
+    ProductoResponse response = service.delete(id);
+    return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
 }
