@@ -47,18 +47,9 @@
                 <div class="container-fluid">
                     <br>
                     <div class="d-flex justify-content-end mb-3">
-                        <button class="btn btn-outline-primary mr-2">Ingresar Producto</button>
-                        <!--
-                        <div class="dropdown">
-                            <button class="btn btn-custom dropdown-toggle" type="button" id="createProductMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Crear Producto
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="createProductMenuButton">
-                                <a class="item-Producto">Product</a>
-                            </div>
-                        </div>
-                        -->
+                        <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#createProductModal">Ingresar Producto</button>
                     </div>
+
 
                     <div class="card-body p-2">
                         <div class="d-flex justify-content-end mb-2">
@@ -71,7 +62,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="card-body p-2">
                             <div class="table-responsive">
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
@@ -90,6 +80,58 @@
                                 </table>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- MODAL PARA PODER CREAR UN PRODCUCTO -->
+        <div class="modal fade" id="createProductModal" tabindex="-1" role="dialog" aria-labelledby="createProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="createProductModalLabel">Agregar Producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <form id="createProductForm">
+                            <div class="form-group">
+                                <label for="productoNombre">Nombre del Producto</label>
+                                <input type="text" class="form-control" id="productoNombre" placeholder="Ingresar Nombre del Producto" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="cantidad">Cantidad</label>
+                                    <input type="number" class="form-control" id="cantidad" placeholder="Ingresar Cantidad" required>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="sku">Precio</label>
+                                    <input type="number" class="form-control" id="sku" placeholder="Ingresar Precio"required>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="categoria">Categoría</label>
+                                    <select class="form-control" id="categoria">
+                                        <option value="" disabled selected>Seleccionar Una Categoria</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripcion del Producto</label>
+                                <textarea class="form-control" id="descripcion" rows="3" placeholder="Ingresar la Descripcion del Producto"></textarea>
+                            </div>
+                            <div class="form-group text-center">
+                                <label for="productoImagen" class="btn btn-outline-secondary">Agregar Imagen</label>
+                                <input type="file" id="productoImagen" style="display: none;">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -148,28 +190,61 @@
             .table {
                 background-color: white;
             }
-            .quantity-container {
+
+            .modal-header {
+                border-bottom: none;
+            }
+
+            .modal-title {
+                font-weight: bold;
+            }
+
+            .form-group label {
+                font-weight: bold;
+            }
+
+            #productImage {
+                margin-top: 10px;
+            }
+
+            .modal-footer {
+                border-top: none;
+            }
+
+            /* Estilo para los campos de entrada del modal */
+            /* From Uiverse.io by aunis1616 */
+            .coolinput {
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-                margin: 10px 0;
+                flex-direction: column;
+                width: fit-content;
+                position: static;
+                max-width: 240px;
             }
-            .quantity-button {
-                background-color: #007bff;
-                border: none;
-                color: white;
-                font-size: 1.5rem;
-                width: 30px;
-                height: 30px;
+
+            .coolinput label.text {
+                font-size: 0.75rem;
+                color: #000000;
+                font-weight: 700;
+                position: relative;
+                top: 0.5rem;
+                margin: 0 0 0 7px;
+                padding: 0 3px;
+                background: #e8e8e8;
+                width: fit-content;
+            }
+
+            .coolinput input[type="text"].input {
+                padding: 11px 10px;
+                font-size: 0.75rem;
+                border: 2px #000000 solid;
                 border-radius: 5px;
-                cursor: pointer;
+                background: #e8e8e8;
             }
-            .quantity-display {
-                font-size: 1.5rem;
-                width: 40px;
-                text-align: center;
+
+            .coolinput input[type="text"].input:focus {
+                outline: none;
             }
+
 
         </style>
 
@@ -180,6 +255,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
         <!--  modal: PRODUCTOS -->
         <script src="/static/web/dist/js/funciones/producto.js"></script>

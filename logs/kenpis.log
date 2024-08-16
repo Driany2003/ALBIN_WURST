@@ -999,3 +999,1048 @@
 [INFO ] [15-08-2024 20:42:39] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [15-08-2024 20:42:39] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [15-08-2024 20:42:39] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 21:16:33] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 14024 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 21:16:33] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 21:16:33] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 21:16:33] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 21:16:33] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 21:16:33] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 85 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 21:16:34] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 21:16:34] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 21:16:34] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 21:16:34] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 21:16:34] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 21:16:34] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 21:16:34] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1574 ms
+[INFO ] [15-08-2024 21:16:35] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 21:16:35] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 21:16:35] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 21:16:35] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 21:16:35] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 21:16:35] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 21:16:36] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 21:16:36] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 21:16:37] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 21:16:37] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14bffaf1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c685c18, org.springframework.security.web.context.SecurityContextPersistenceFilter@37510209, org.springframework.security.web.header.HeaderWriterFilter@3e649162, org.springframework.security.web.authentication.logout.LogoutFilter@317d1351, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28b5e7c9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1776a29a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47ce5fb6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@491afc23, org.springframework.security.web.session.SessionManagementFilter@7b7d5dd0, org.springframework.security.web.access.ExceptionTranslationFilter@20d21302, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c4d275a]
+[INFO ] [15-08-2024 21:16:37] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 21:16:37] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 21:16:37] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 21:16:37] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 21:16:37] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.15 seconds (JVM running for 5.663)
+[INFO ] [15-08-2024 21:16:41] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 21:16:41] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 21:16:41] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[DEBUG] [15-08-2024 21:16:48] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [15-08-2024 21:16:48] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [15-08-2024 21:16:48] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"REGISTRADO":2,"EN_PROCESO":0,"ATENDIDO":0,"PAGADO":0}
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - REGISTRADO[{"clienteNombre":"Gio","venEstadoId":20,"venTotal":36.0,"venTipoPago":"YAPE","productos":[{"proId":null,"proPrecio":2.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Café","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3},{"proId":null,"proPrecio":10.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Chorizo Finas Hierbas A la tabla","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3}]},{"clienteNombre":"Juan","venEstadoId":21,"venTotal":6.0,"venTipoPago":"EFECTIVO","productos":[{"proId":null,"proPrecio":2.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Gaseosa","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3}]}]
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [15-08-2024 21:16:48] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [15-08-2024 21:16:48] [WLoginController               :: 90  ] - REGISTRADO Data: [VentasEstadoDTO(clienteNombre=Gio, venEstadoId=20, venTotal=36.0, venTipoPago=YAPE, productos=[ProductoDTO(proDescripcion=Café, venDetCantidad=3, proPrecio=2.0), ProductoDTO(proDescripcion=Chorizo Finas Hierbas A la tabla, venDetCantidad=3, proPrecio=10.0)]), VentasEstadoDTO(clienteNombre=Juan, venEstadoId=21, venTotal=6.0, venTipoPago=EFECTIVO, productos=[ProductoDTO(proDescripcion=Gaseosa, venDetCantidad=3, proPrecio=2.0)])]
+[INFO ] [15-08-2024 21:17:12] [WVentaEstadoController         :: 23  ] - Datos recibidos del frontend: VentaEstadoRequest(venEstadoId=20, ventaId=null, venEstado=PAGADO, venEstadoFechaRegistrado=null, venEstadoFechaPagado=null, venEstadoFechaEnProceso=null, venEstadoFechaAtendido=null, venEstadoFechaDescartado=null)
+[INFO ] [15-08-2024 21:17:12] [FxComunes                      :: 67  ] - ventaEstadoRequest{"venEstadoId":20,"ventaId":null,"venEstado":"PAGADO","venEstadoFechaRegistrado":null,"venEstadoFechaPagado":null,"venEstadoFechaEnProceso":null,"venEstadoFechaAtendido":null,"venEstadoFechaDescartado":null}
+[INFO ] [15-08-2024 21:17:12] [FxComunes                      :: 67  ] - RES{"venEstadoId":20,"ventaId":40,"venEstado":"REGISTRADO","venEstadoFechaRegistrado":1723746820957,"venEstadoFechaPagado":1723746818917,"venEstadoFechaEnProceso":1723746347373,"venEstadoFechaAtendido":1723746397687,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:12] [FxComunes                      :: 67  ] - ventaEstadoResponse{"venEstadoId":20,"ventaId":40,"venEstado":"PAGADO","venEstadoFechaRegistrado":1723746820957,"venEstadoFechaPagado":1723774632383,"venEstadoFechaEnProceso":1723746347373,"venEstadoFechaAtendido":1723746397687,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:19] [WVentaEstadoController         :: 23  ] - Datos recibidos del frontend: VentaEstadoRequest(venEstadoId=20, ventaId=null, venEstado=EN_PROCESO, venEstadoFechaRegistrado=null, venEstadoFechaPagado=null, venEstadoFechaEnProceso=null, venEstadoFechaAtendido=null, venEstadoFechaDescartado=null)
+[INFO ] [15-08-2024 21:17:19] [FxComunes                      :: 67  ] - ventaEstadoRequest{"venEstadoId":20,"ventaId":null,"venEstado":"EN_PROCESO","venEstadoFechaRegistrado":null,"venEstadoFechaPagado":null,"venEstadoFechaEnProceso":null,"venEstadoFechaAtendido":null,"venEstadoFechaDescartado":null}
+[INFO ] [15-08-2024 21:17:19] [FxComunes                      :: 67  ] - RES{"venEstadoId":20,"ventaId":40,"venEstado":"PAGADO","venEstadoFechaRegistrado":1723746820957,"venEstadoFechaPagado":1723774632383,"venEstadoFechaEnProceso":1723746347373,"venEstadoFechaAtendido":1723746397687,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:19] [FxComunes                      :: 67  ] - ventaEstadoResponse{"venEstadoId":20,"ventaId":40,"venEstado":"EN_PROCESO","venEstadoFechaRegistrado":1723746820957,"venEstadoFechaPagado":1723774632383,"venEstadoFechaEnProceso":1723774639970,"venEstadoFechaAtendido":1723746397687,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:25] [WVentaEstadoController         :: 23  ] - Datos recibidos del frontend: VentaEstadoRequest(venEstadoId=20, ventaId=null, venEstado=ATENDIDO, venEstadoFechaRegistrado=null, venEstadoFechaPagado=null, venEstadoFechaEnProceso=null, venEstadoFechaAtendido=null, venEstadoFechaDescartado=null)
+[INFO ] [15-08-2024 21:17:25] [FxComunes                      :: 67  ] - ventaEstadoRequest{"venEstadoId":20,"ventaId":null,"venEstado":"ATENDIDO","venEstadoFechaRegistrado":null,"venEstadoFechaPagado":null,"venEstadoFechaEnProceso":null,"venEstadoFechaAtendido":null,"venEstadoFechaDescartado":null}
+[INFO ] [15-08-2024 21:17:25] [FxComunes                      :: 67  ] - RES{"venEstadoId":20,"ventaId":40,"venEstado":"EN_PROCESO","venEstadoFechaRegistrado":1723746820957,"venEstadoFechaPagado":1723774632383,"venEstadoFechaEnProceso":1723774639970,"venEstadoFechaAtendido":1723746397687,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:25] [FxComunes                      :: 67  ] - ventaEstadoResponse{"venEstadoId":20,"ventaId":40,"venEstado":"ATENDIDO","venEstadoFechaRegistrado":1723746820957,"venEstadoFechaPagado":1723774632383,"venEstadoFechaEnProceso":1723774639970,"venEstadoFechaAtendido":1723774645080,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:29] [WVentaEstadoController         :: 23  ] - Datos recibidos del frontend: VentaEstadoRequest(venEstadoId=21, ventaId=null, venEstado=ATENDIDO, venEstadoFechaRegistrado=null, venEstadoFechaPagado=null, venEstadoFechaEnProceso=null, venEstadoFechaAtendido=null, venEstadoFechaDescartado=null)
+[INFO ] [15-08-2024 21:17:29] [FxComunes                      :: 67  ] - ventaEstadoRequest{"venEstadoId":21,"ventaId":null,"venEstado":"ATENDIDO","venEstadoFechaRegistrado":null,"venEstadoFechaPagado":null,"venEstadoFechaEnProceso":null,"venEstadoFechaAtendido":null,"venEstadoFechaDescartado":null}
+[INFO ] [15-08-2024 21:17:29] [FxComunes                      :: 67  ] - RES{"venEstadoId":21,"ventaId":41,"venEstado":"REGISTRADO","venEstadoFechaRegistrado":1723746400270,"venEstadoFechaPagado":1723746394580,"venEstadoFechaEnProceso":1723746395373,"venEstadoFechaAtendido":1723746353503,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[INFO ] [15-08-2024 21:17:29] [FxComunes                      :: 67  ] - ventaEstadoResponse{"venEstadoId":21,"ventaId":41,"venEstado":"ATENDIDO","venEstadoFechaRegistrado":1723746400270,"venEstadoFechaPagado":1723746394580,"venEstadoFechaEnProceso":1723746395373,"venEstadoFechaAtendido":1723774649522,"venEstadoFechaDescartado":null,"proCategoria":null,"venDetCantidad":null,"clienteNombre":null}
+[WARN ] [15-08-2024 21:45:22] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m16s909ms61µs700ns).
+[INFO ] [15-08-2024 22:09:26] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:09:26] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:09:26] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:09:39] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 16892 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:09:39] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:09:39] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:09:39] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:09:40] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:09:40] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 113 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:09:41] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:09:41] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:09:41] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:09:41] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:09:42] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:09:42] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:09:42] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 2169 ms
+[INFO ] [15-08-2024 22:09:42] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:09:42] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:09:42] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:09:42] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:09:43] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:09:43] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:09:44] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:09:44] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:09:44] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:09:45] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c89a906, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a130162, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f2209f, org.springframework.security.web.header.HeaderWriterFilter@478e085c, org.springframework.security.web.authentication.logout.LogoutFilter@4d4e621e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@176cbcd3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56decea1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@50ef8b4f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@121e818d, org.springframework.security.web.session.SessionManagementFilter@45a53038, org.springframework.security.web.access.ExceptionTranslationFilter@619e157d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66d334cd]
+[INFO ] [15-08-2024 22:09:45] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:09:45] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:09:45] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:09:45] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:09:45] [KenpisApplication              :: 61  ] - Started KenpisApplication in 6.346 seconds (JVM running for 7.285)
+[INFO ] [15-08-2024 22:09:47] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:09:47] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:09:47] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [15-08-2024 22:09:49] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:09:49] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:09:49] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:09:49] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:09:49] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:09:49] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:09:49] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:09:49] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:09:49] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:10:49] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:10:49] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:10:49] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:10:49] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:10:49] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:10:49] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:10:49] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:10:49] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:10:49] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:10:54] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:10:54] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:10:54] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:11:01] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 10220 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:11:01] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:11:01] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:11:01] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:11:01] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:11:01] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 58 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:11:02] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:11:02] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:11:02] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:11:02] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:11:02] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:11:02] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:11:02] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1187 ms
+[INFO ] [15-08-2024 22:11:02] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:11:02] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:11:02] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:11:02] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:11:03] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:11:03] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:11:04] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:11:04] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:11:04] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:11:04] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@241a3c10, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a29db2e, org.springframework.security.web.context.SecurityContextPersistenceFilter@a7d029, org.springframework.security.web.header.HeaderWriterFilter@444de3cb, org.springframework.security.web.authentication.logout.LogoutFilter@59d64920, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@579bdb35, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59fb5c4c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ab1aaad, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55c8b8f2, org.springframework.security.web.session.SessionManagementFilter@35be6375, org.springframework.security.web.access.ExceptionTranslationFilter@7114fbcd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@18e2a312]
+[INFO ] [15-08-2024 22:11:04] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:11:05] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:11:05] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:11:05] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:11:05] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.5 seconds (JVM running for 4.952)
+[INFO ] [15-08-2024 22:11:05] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:11:05] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:11:05] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [15-08-2024 22:11:05] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:11:05] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:11:05] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:11:05] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:11:05] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:11:05] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:11:05] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:11:05] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:11:05] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:12:09] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:12:09] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:12:09] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:12:16] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 24856 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:12:16] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:12:16] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:12:16] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:12:17] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:12:17] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 57 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:12:17] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:12:17] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:12:17] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:12:17] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:12:18] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:12:18] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:12:18] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1233 ms
+[INFO ] [15-08-2024 22:12:18] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:12:18] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:12:18] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:12:18] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:12:19] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:12:19] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:12:20] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:12:20] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:12:20] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:12:20] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bef375a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6512afc5, org.springframework.security.web.context.SecurityContextPersistenceFilter@36ac13c, org.springframework.security.web.header.HeaderWriterFilter@74af243e, org.springframework.security.web.authentication.logout.LogoutFilter@3ae6c5b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38124e2b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72a8e820, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@626c29b2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@314ee299, org.springframework.security.web.session.SessionManagementFilter@b525b2, org.springframework.security.web.access.ExceptionTranslationFilter@79c26c14, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13f869bd]
+[INFO ] [15-08-2024 22:12:20] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:12:21] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:12:21] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:12:21] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:12:21] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.918 seconds (JVM running for 5.384)
+[INFO ] [15-08-2024 22:12:21] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:12:21] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:12:21] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [15-08-2024 22:12:22] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:12:22] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:12:22] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:12:22] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:12:22] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:12:22] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:12:22] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:12:22] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:12:22] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:13] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:16:13] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:16:13] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:16:23] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 14348 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:16:23] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:16:23] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:16:23] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:16:24] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:16:24] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 94 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:16:25] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:16:25] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:16:25] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:16:25] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:16:25] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:16:25] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:16:25] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 2389 ms
+[INFO ] [15-08-2024 22:16:26] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:16:26] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:16:26] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:16:26] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:16:27] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:16:27] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:16:28] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:16:28] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:16:29] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:16:29] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@37a401f9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41c05eab, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b24cc54, org.springframework.security.web.header.HeaderWriterFilter@e3adf9, org.springframework.security.web.authentication.logout.LogoutFilter@552a2629, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@34f07d27, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f690e33, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@84ff07b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@97446b2, org.springframework.security.web.session.SessionManagementFilter@1dfcec02, org.springframework.security.web.access.ExceptionTranslationFilter@477cf592, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ffa9fe2]
+[INFO ] [15-08-2024 22:16:29] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:16:30] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:16:30] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:16:30] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:16:30] [KenpisApplication              :: 61  ] - Started KenpisApplication in 7.179 seconds (JVM running for 7.723)
+[INFO ] [15-08-2024 22:16:31] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:16:31] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:16:31] [DispatcherServlet              :: 547 ] - Completed initialization in 0 ms
+[INFO ] [15-08-2024 22:16:32] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:33] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:33] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:33] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:16:50] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:50] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:50] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:50] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:16:56] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:16:56] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:16:56] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[WARN ] [15-08-2024 22:17:00] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [174] milliseconds.
+[DEBUG] [15-08-2024 22:17:02] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [15-08-2024 22:17:02] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [15-08-2024 22:17:02] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [15-08-2024 22:17:02] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [15-08-2024 22:17:02] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [15-08-2024 22:17:02] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [15-08-2024 22:17:02] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":0,"PAGADO":0,"ATENDIDO":2}
+[INFO ] [15-08-2024 22:17:03] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [15-08-2024 22:17:03] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [15-08-2024 22:17:03] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [15-08-2024 22:17:03] [FxComunes                      :: 67  ] - ATENDIDO[{"clienteNombre":"Gio","venEstadoId":20,"venTotal":36.0,"venTipoPago":"YAPE","productos":[{"proId":null,"proPrecio":2.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Café","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3},{"proId":null,"proPrecio":10.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Chorizo Finas Hierbas A la tabla","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3}]},{"clienteNombre":"Juan","venEstadoId":21,"venTotal":6.0,"venTipoPago":"EFECTIVO","productos":[{"proId":null,"proPrecio":2.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Gaseosa","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3}]}]
+[INFO ] [15-08-2024 22:17:03] [WLoginController               :: 90  ] - REGISTRADO Data: []
+[INFO ] [15-08-2024 22:17:06] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:17:06] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:17:06] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:17:06] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:20:04] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:20:04] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:20:04] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:20:16] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 7036 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:20:16] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:20:16] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:20:16] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:20:16] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:20:16] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 61 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:20:17] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:20:17] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:20:17] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:20:17] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:20:17] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:20:17] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:20:17] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1242 ms
+[INFO ] [15-08-2024 22:20:17] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:20:18] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:20:18] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:20:18] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:20:18] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:20:18] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:20:19] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:20:19] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:20:20] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:20:20] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@e1a1cdf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ef5fce7, org.springframework.security.web.context.SecurityContextPersistenceFilter@66422ee, org.springframework.security.web.header.HeaderWriterFilter@44b6ce, org.springframework.security.web.authentication.logout.LogoutFilter@1489bf76, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@31d09f58, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@43d4b737, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d6d3e59, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20f5e684, org.springframework.security.web.session.SessionManagementFilter@729e1718, org.springframework.security.web.access.ExceptionTranslationFilter@665ae0f0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@561da6dd]
+[INFO ] [15-08-2024 22:20:20] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:20:20] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:20:20] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:20:20] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:20:20] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.716 seconds (JVM running for 5.19)
+[INFO ] [15-08-2024 22:20:27] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:20:27] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:20:27] [DispatcherServlet              :: 547 ] - Completed initialization in 0 ms
+[INFO ] [15-08-2024 22:20:28] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:29] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:29] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:29] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:20:34] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:20:34] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:34] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:34] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:34] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:34] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:34] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:34] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:34] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:34] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:20:35] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:20:35] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:20:35] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:24:32] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:24:32] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:24:32] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:24:32] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:26:36] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:26:36] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:36] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:36] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:36] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:36] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:36] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:36] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:36] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:36] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:26:37] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:26:37] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:26:37] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:32:50] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:32:50] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:32:50] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:32:58] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 27512 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:32:58] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:32:58] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:32:58] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:32:59] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:32:59] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 79 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:33:00] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:33:00] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:33:00] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:33:00] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:33:00] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:33:00] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:33:00] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1491 ms
+[INFO ] [15-08-2024 22:33:00] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:33:00] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:33:00] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:33:00] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:33:01] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:33:01] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:33:02] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:33:02] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:33:02] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:33:02] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@48aa7700, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54c00344, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b99d564, org.springframework.security.web.header.HeaderWriterFilter@431797be, org.springframework.security.web.authentication.logout.LogoutFilter@6fc499c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5b8ab7dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6dcde76a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d10cec8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27ba4d56, org.springframework.security.web.session.SessionManagementFilter@5b6d475b, org.springframework.security.web.access.ExceptionTranslationFilter@5951e50c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4b82228e]
+[INFO ] [15-08-2024 22:33:02] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:33:03] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:33:03] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:33:03] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:33:03] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.724 seconds (JVM running for 5.211)
+[INFO ] [15-08-2024 22:33:59] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:33:59] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:33:59] [DispatcherServlet              :: 547 ] - Completed initialization in 2 ms
+[INFO ] [15-08-2024 22:34:00] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:34:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:34:00] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:34:00] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:35:38] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:35:38] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:35:38] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [15-08-2024 22:35:45] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 17860 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [15-08-2024 22:35:45] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [15-08-2024 22:35:45] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [15-08-2024 22:35:45] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [15-08-2024 22:35:45] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [15-08-2024 22:35:45] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 58 ms. Found 9 JPA repository interfaces.
+[INFO ] [15-08-2024 22:35:46] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [15-08-2024 22:35:46] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:35:46] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [15-08-2024 22:35:46] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [15-08-2024 22:35:46] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [15-08-2024 22:35:46] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [15-08-2024 22:35:46] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1229 ms
+[INFO ] [15-08-2024 22:35:46] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [15-08-2024 22:35:46] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [15-08-2024 22:35:46] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [15-08-2024 22:35:46] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [15-08-2024 22:35:46] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [15-08-2024 22:35:46] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [15-08-2024 22:35:47] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [15-08-2024 22:35:47] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [15-08-2024 22:35:47] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [15-08-2024 22:35:47] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2528778b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@57c27a5d, org.springframework.security.web.context.SecurityContextPersistenceFilter@132912f0, org.springframework.security.web.header.HeaderWriterFilter@7224ec08, org.springframework.security.web.authentication.logout.LogoutFilter@7cb13d61, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c89a906, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9815d16, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d1bdc80, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31369bc1, org.springframework.security.web.session.SessionManagementFilter@6d3af469, org.springframework.security.web.access.ExceptionTranslationFilter@478e085c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30ef84a0]
+[INFO ] [15-08-2024 22:35:48] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [15-08-2024 22:35:48] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [15-08-2024 22:35:48] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [15-08-2024 22:35:48] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [15-08-2024 22:35:48] [KenpisApplication              :: 61  ] - Started KenpisApplication in 3.589 seconds (JVM running for 3.985)
+[INFO ] [15-08-2024 22:35:59] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:35:59] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [15-08-2024 22:35:59] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [15-08-2024 22:36:00] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:36:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[INFO ] [15-08-2024 22:36:00] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:00] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:00] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[ERROR] [15-08-2024 22:36:00] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:01] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:01] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:01] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[WARN ] [15-08-2024 22:36:09] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [184] milliseconds.
+[DEBUG] [15-08-2024 22:36:10] [UsuarioImpl                    :: 90  ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [15-08-2024 22:36:10] [UsuarioImpl                    :: 74  ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [15-08-2024 22:36:10] [EmpresaImpl                    :: 33  ] - Implements :: findById :: 1
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMIN","usuId":2,"authIsActive":true}
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1}
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"972514160","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1721797200000,"empFechaContratoFin":1721797200000,"empFechaCreacion":1721875636000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true}
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":0,"EN_PROCESO":0,"REGISTRADO":0,"PAGADO":0,"ATENDIDO":2}
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [15-08-2024 22:36:10] [FxComunes                      :: 67  ] - ATENDIDO[{"clienteNombre":"Gio","venEstadoId":20,"venTotal":36.0,"venTipoPago":"YAPE","productos":[{"proId":null,"proPrecio":2.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Café","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3},{"proId":null,"proPrecio":10.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Chorizo Finas Hierbas A la tabla","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3}]},{"clienteNombre":"Juan","venEstadoId":21,"venTotal":6.0,"venTipoPago":"EFECTIVO","productos":[{"proId":null,"proPrecio":2.0,"proCategoria":null,"proIsActive":null,"proDescripcion":"Gaseosa","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null,"venDetCantidad":3}]}]
+[INFO ] [15-08-2024 22:36:10] [WLoginController               :: 90  ] - REGISTRADO Data: []
+[INFO ] [15-08-2024 22:36:14] [ProductoImpl                   :: 32  ] - Implements :: findAll
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \14_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \14_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \15_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \15_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \16_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \16_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \1_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \1_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \2_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \2_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \3_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \3_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \4_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \4_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \5_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \5_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \6_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \6_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \7_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \7_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \8_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \8_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \9_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \9_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \10_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \10_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \11_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \11_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 73  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (Acceso denegado)
+[INFO ] [15-08-2024 22:36:14] [Java8Base64Image               :: 59  ] - Image not foundjava.io.FileNotFoundException: \13_foto.jpg (El sistema no puede encontrar el archivo especificado)
+[ERROR] [15-08-2024 22:36:14] [Java8Base64Image               :: 88  ] - El fichero \13_foto.jpg no existe
+[INFO ] [15-08-2024 22:36:14] [Http11Processor                :: 175 ] - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Request header is too large
+	at org.apache.coyote.http11.Http11InputBuffer.fill(Http11InputBuffer.java:770)
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:442)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:263)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:835)
+[INFO ] [15-08-2024 22:37:52] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [15-08-2024 22:37:52] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [15-08-2024 22:37:52] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
