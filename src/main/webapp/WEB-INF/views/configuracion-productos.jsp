@@ -67,10 +67,8 @@
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">Imagen</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Precio</th>
-                                        <th scope="col">Disponible</th>
                                         <th scope="col">Estado</th>
                                         <th scope="col">Accion</th>
                                     </tr>
@@ -84,8 +82,6 @@
                 </div>
             </div>
         </div>
-
-
         <!-- MODAL PARA PODER CREAR UN PRODCUCTO -->
         <div class="modal fade" id="createProductModal" tabindex="-1" role="dialog" aria-labelledby="createProductModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
@@ -100,36 +96,32 @@
                     <div class="modal-body">
                         <form id="createProductForm">
                             <div class="form-group">
-                                <label for="productoNombre">Nombre del Producto</label>
-                                <input type="text" class="form-control" id="productoNombre" placeholder="Ingresar Nombre del Producto" required>
+                                <label for="nombreProducto">Nombre del Producto</label>
+                                <input type="text" class="form-control" id="nombreProducto" placeholder="Ingresar Nombre del Producto" required>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="cantidad">Cantidad</label>
-                                    <input type="number" class="form-control" id="cantidad" placeholder="Ingresar Cantidad" required>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="sku">Precio</label>
-                                    <input type="number" class="form-control" id="sku" placeholder="Ingresar Precio"required>
-                                </div>
                                 <div class="form-group col-md-5">
+                                    <label for="precioProducto">Precio</label>
+                                    <input type="number" class="form-control" id="precioProducto" placeholder="Ingresar Precio" required>
+                                </div>
+                                <div class="form-group col-md-7">
                                     <label for="categoria">Categoría</label>
-                                    <select class="form-control" id="categoria">
+                                    <select class="form-control" id="categoria" required>
                                         <option value="" disabled selected>Seleccionar Una Categoria</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="descripcion">Descripcion del Producto</label>
-                                <textarea class="form-control" id="descripcion" rows="3" placeholder="Ingresar la Descripcion del Producto"></textarea>
+                                <label for="descripcionProducto">Descripcion del Producto</label>
+                                <textarea class="form-control" id="descripcionProducto" rows="3" placeholder="Ingresar la Descripcion del Producto" required></textarea>
                             </div>
                             <div class="form-group text-center">
-                                <label for="productoImagen" class="btn btn-outline-secondary">Agregar Imagen</label>
-                                <input type="file" id="productoImagen" style="display: none;">
+                                <label for="imagenProducto" class="btn btn-outline-secondary">Agregar Imagen</label>
+                                <input type="file" id="imagenProducto" style="display: none;">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                                <button type="submit" class="btn btn-primary" id="registrarProducto">Agregar Producto</button>
                             </div>
                         </form>
                     </div>

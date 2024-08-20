@@ -18,7 +18,7 @@ public class ProductoResponse {
   private String proDescripcion;
   private Integer padreId;
   private Integer empId;
-  private String proImagen;
+  private String proImage;
   private String proImagenLongitud;
 
 }

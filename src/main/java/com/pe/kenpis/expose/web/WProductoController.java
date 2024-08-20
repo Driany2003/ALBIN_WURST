@@ -59,7 +59,7 @@ public class WProductoController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
-  @GetMapping("/delete/{id}")
+  @DeleteMapping("/delete/{id}")
   public ResponseEntity<ProductoResponse> delete(@PathVariable Integer id) {
     ProductoResponse response = service.delete(id);
     return new ResponseEntity<>(response, HttpStatus.OK);

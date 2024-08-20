@@ -57,6 +57,7 @@ public class ProductoImpl implements IProductoService {
     }
   }
 
+  /* PARA PODER MODIFCAR EL ESTADO DE UN PRODUCTO, SI FUNCIONA
   @Override
   public ProductoResponse delete(Integer id) {
     log.debug("Implements :: delete :: ID -> {}", id);
@@ -69,7 +70,20 @@ public class ProductoImpl implements IProductoService {
       return new ProductoResponse();
     }
   }
+*/
 
+  @Override
+  public ProductoResponse delete(Integer id) {
+    log.debug("Implements :: delete :: ID -> {}", id);
+    Optional<ProductoEntity> productoEliminar = repository.findById(id);
+    if (productoEliminar.isPresent()) {
+      repository.deleteById(id);
+      ProductoEntity deletedEntity = productoEliminar.get();
+      return convertEntityToResponse(deletedEntity);
+    } else {
+      return new ProductoResponse();
+    }
+  }
   public List<ProductoResponse> getProductosByCategoriaId(int categoriaId) {
     List<ProductoEntity> productos = repository.findProductosByCategoriaId(categoriaId);
     return productos.stream()

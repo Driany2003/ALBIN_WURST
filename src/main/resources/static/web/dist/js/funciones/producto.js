@@ -2,6 +2,7 @@ $(document).ready(function () {
     listarCategoria();
     cargarProductos();
 
+    //lista las categorias para el registro de productos
     function listarCategoria() {
         $.ajax({
             url: '/kenpis/producto/categorias',
@@ -31,22 +32,22 @@ $(document).ready(function () {
                 response.forEach(producto => {
                     productoBody.append(`
                     <tr>
-                        <td><img src="${producto.proImagen}" alt="${producto.proDescripcion}" width="50"></td>
-                        <td>${producto.proDescripcion}</td>
-                        <td>${producto.proPrecio}</td>
-                        <td>${producto.ProIsActive ? 'Sí' : 'No'}</td>
-                        <td>${producto.estado}</td>
-                        <td>
-                            <button class="btn btn-sm btn-info" onclick="viewProducto(${producto.proId})">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                             <button class="btn btn-sm btn-warning" onclick="editProducto(${producto.proId})">
+                        <td><img src="data:image/jpeg;base64,${producto.proImagen}" alt="${producto.proDescripcion}" width="50"> ${producto.proDescripcion}</td>
+                        <td> S/. ${producto.proPrecio.toFixed(2)}</td>
+                       <td>
+                            <label class="switch">
+                                <input type="checkbox" class="estado-checkbox" data-id="1" ${producto.proIsActive ? 'checked' : ''}>
+                                <span class="slider"></span>
+                            </label>
+                       </td>
+                       <td>
+                             <button class="btn btn-sm btn-warning" onclick="editarProducto(${producto.proId})">
                                 <i class="fas fa-pencil-alt"></i>
                              </button>
-                            <button class="btn btn-sm btn-danger" onclick="deleteProducto(${producto.proId})">
+                            <button class="btn btn-sm btn-danger" onclick="eliminarProducto(${producto.proId})">
                                 <i class="fas fa-trash"></i>
                             </button>
-                        </td>
+                       </td>
                     </tr>
                 `);
                 });
@@ -56,4 +57,61 @@ $(document).ready(function () {
             }
         });
     }
+
+
+    //Regsitrar Producto
+    $('#registrarProducto').click(function () {
+        var nombreProducto = $('#nombreProducto').val();
+        var precioProducto = $('#precioProducto').val();
+        var categoriaProducto = $('#categoria').val();
+        var descripcionProducto = $('#descripcionProducto').val();
+        var imagenProducto = $('#imagenProducto').val();
+        $.ajax({
+            url: '/kenpis/producto/create',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                proCategoria: nombreProducto,
+                proPrecio: precioProducto,
+                padreId: categoriaProducto,
+                proDescripcion: descripcionProducto,
+                proImagen: imagenProducto,
+                proIsActive: true,
+                empId: 1
+            }),
+            success: function (response) {
+                $('#nombreProducto').val('');
+                $('#precioProducto').val('');
+                $('#categoria').val('');
+                $('#descripcionProducto').val('');
+                $('#imagenProducto').val('');
+                toastr.success('Producto registrado correctamente.');
+                cargarProductos();
+            },
+            error: function () {
+                toastr.error('Error al registrar el producto. Intente nuevamente.');
+            }
+        });
+    });
+
 });
+
+//Elimina Producto
+function eliminarProducto(id) {
+
+    if (confirm('¿Está seguro de que desea eliminar este producto?')) {
+        $.ajax({
+            url: '/kenpis/producto/delete/' + id,
+            method: 'DELETE',
+            success: function (response) {
+                toastr.success('Producto eliminado correctamente.');
+                $('#product-row-' + id).remove();
+            },
+            error: function () {
+                toastr.error('Error al eliminar el producto. Intente nuevamente.');
+            }
+        });
+    }
+}
+
+//Editar producto
