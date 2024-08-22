@@ -43,7 +43,7 @@ $(document).ready(function () {
                 contenedor.empty();
                 categorias.forEach(function (categoria) {
                     var cardHtml = '<div class="card categoria-card m-2" style="width: 18rem;" data-id="' + categoria.proId + '">' +
-                        '<img alt="Producto" height="50px" width="50px" class="card-img-top" alt="No se pudo mostrar la imagen" src="data:image/jpeg;base64,' + categoria.proImagen + '"/>' +
+                        '<img alt="Producto" height="50" width="50" class="card-img-top" alt="No se pudo mostrar la imagen" src="data:image/jpeg;base64,' + categoria.proImagen + '"/>' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + categoria.proCategoria + '</h5>' +
                         '<p class="card-text">' + categoria.proDescripcion + '</p>' +

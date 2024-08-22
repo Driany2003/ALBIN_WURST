@@ -43,7 +43,7 @@ public class ProductoImpl implements IProductoService {
   public ProductoResponse create(ProductoRequest request) {
     log.debug("Implements :: create :: Inicio");
     request.setProIsActive(true);
-    FxComunes.printJson("ProductoRequest",request);
+    FxComunes.printJson("ProductoRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
@@ -53,6 +53,26 @@ public class ProductoImpl implements IProductoService {
     if (res.getProId() == null) {
       return new ProductoResponse();
     } else {
+      request.setPadreId(res.getPadreId());
+      request.setEmpId(res.getEmpId());
+      request.setProIsActive(res.getProIsActive());
+      request.setProImagenLongitud(res.getProImagenLongitud());
+      return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+    }
+  }
+
+  public ProductoResponse updateStatus(ProductoRequest request) {
+    ProductoResponse res = repository.findById(request.getProId()).map(this::convertEntityToResponse).orElse(new ProductoResponse());
+    if (res.getProId() == null) {
+      return new ProductoResponse();
+    } else {
+      request.setProCategoria(res.getProCategoria());
+      request.setProPrecio(res.getProPrecio());
+      request.setProDescripcion(res.getProDescripcion());
+      request.setPadreId(res.getPadreId());
+      request.setEmpId(res.getEmpId());
+      request.setProImagen(res.getProImagen());
+      request.setProImagenLongitud(res.getProImagenLongitud());
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }
   }
@@ -60,11 +80,11 @@ public class ProductoImpl implements IProductoService {
   @Override
   public ProductoResponse delete(Integer id) {
     log.debug("Implements :: delete :: ID -> {}", id);
-    ProductoResponse res = repository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoResponse());
-    res.setProIsActive(false);
-    Optional<ProductoEntity> ent = repository.findById(res.getProId());
-    if (ent.isPresent()) {
-      return convertEntityToResponse(repository.save(convertRequestToEntity(convertResponseToRequest(res))));
+    Optional<ProductoEntity> productoEliminar = repository.findById(id);
+    if (productoEliminar.isPresent()) {
+      repository.deleteById(id);
+      ProductoEntity deletedEntity = productoEliminar.get();
+      return convertEntityToResponse(deletedEntity);
     } else {
       return new ProductoResponse();
     }
@@ -72,25 +92,19 @@ public class ProductoImpl implements IProductoService {
 
   public List<ProductoResponse> getProductosByCategoriaId(int categoriaId) {
     List<ProductoEntity> productos = repository.findProductosByCategoriaId(categoriaId);
-    return productos.stream()
-        .map(this::convertEntityToResponse)
-        .collect(Collectors.toList());
+    return productos.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
   public List<ProductoResponse> getAllCategorias() {
     List<ProductoEntity> categorias = repository.findAllCategorias();
-    return categorias.stream()
-        .map(this::convertEntityToResponse)
-        .collect(Collectors.toList());
+    return categorias.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {
     ProductoEntity out = new ProductoEntity();
     imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (in.getProImagen()
-        .length() > 0) {
-      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen()
-          .getBytes(Charsets.ISO_8859_1)), imageOutFoto);
+    if (in.getProImagen().length() > 0) {
+      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
       out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
     } else {
@@ -105,10 +119,8 @@ public class ProductoImpl implements IProductoService {
   private ProductoResponse convertEntityToResponse(ProductoEntity in) {
     ProductoResponse out = new ProductoResponse();
     imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (in.getProImagen()
-        .length() > 0) {
-      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen()
-          .getBytes(Charsets.ISO_8859_1)), imageOutFoto);
+    if (in.getProImagen().length() > 0) {
+      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
       out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
     } else {
@@ -123,10 +135,8 @@ public class ProductoImpl implements IProductoService {
   private ProductoRequest convertResponseToRequest(ProductoResponse in) {
     ProductoRequest out = new ProductoRequest();
     imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (in.getProImagen()
-        .length() > 0) {
-      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen()
-          .getBytes(Charsets.ISO_8859_1)), imageOutFoto);
+    if (in.getProImagen().length() > 0) {
+      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
       out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
     } else {
