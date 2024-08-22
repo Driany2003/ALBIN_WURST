@@ -36,7 +36,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 align-self-center">
-                    <h4 class="page-title">EMPRESA <span class="label label-rounded label-info">Listado</span></h4>
+                    <h4 class="page-title">EMPRESA <span class="label label-rounded label-info">${empresaSession.empNombreComercial}</span></h4>
                 </div>
             </div>
         </div>
@@ -178,7 +178,7 @@
         margin-left: auto;
         margin-right: auto;
         max-width: 1200px;
-        top: 30px;
+        top: 10px;
     }
 
     .form-neon .form-group {
