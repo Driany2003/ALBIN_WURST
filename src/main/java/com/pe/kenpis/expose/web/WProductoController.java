@@ -1,13 +1,8 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IProductoService;
-import com.pe.kenpis.business.impl.ProductoImpl;
-import com.pe.kenpis.model.api.cliente.ClienteRequest;
-import com.pe.kenpis.model.api.cliente.ClienteResponse;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
-import com.pe.kenpis.model.api.usuario.UsuarioResponse;
-import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.util.funciones.FxComunes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -53,9 +48,16 @@ public class WProductoController {
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
-  @PostMapping("/update")
+  @PutMapping ("/update")
   public ResponseEntity<ProductoResponse> update(@RequestBody ProductoRequest request) {
+    FxComunes.printJson( "fff" , request);
     ProductoResponse response = service.update(request);
+    return new ResponseEntity<>(response, HttpStatus.OK);
+  }
+
+  @PutMapping("/update/status")
+  public ResponseEntity<ProductoResponse> updateStatus(@RequestBody ProductoRequest request) {
+    ProductoResponse response = service.updateStatus(request);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 

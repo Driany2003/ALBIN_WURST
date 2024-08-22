@@ -128,6 +128,45 @@
                 </div>
             </div>
         </div>
+        <!-- Modal de editar producto -->
+        <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editarProductoForm">
+                            <div class="form-group">
+                                <label for="editNombreProducto">Nombre</label>
+                                <input type="text" class="form-control" id="editNombreProducto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPrecioProducto">Precio</label>
+                                <input type="number" class="form-control" id="editPrecioProducto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editCategoria">Categoría</label>
+                                <select class="form-control" id="editCategoria" required></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="editDescripcionProducto">Descripción</label>
+                                <textarea class="form-control" id="editDescripcionProducto" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="editImagenProducto">Imagen (URL)</label>
+                                <input type="text" class="form-control" id="editImagenProducto">
+                            </div>
+                            <input type="hidden" id="editProductId">
+                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <style>
             .switch {

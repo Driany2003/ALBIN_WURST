@@ -24,7 +24,7 @@ public interface ProductoRepository extends JpaRepository<ProductoEntity,Integer
       "    FROM T_PRODUCTO p" +
       "    INNER JOIN ProductosRecursivos pr ON p.padre_id = pr.pro_id" +
       ")" +
-      "SELECT * FROM ProductosRecursivos WHERE padre_id = :categoriaId", nativeQuery = true)
+      "SELECT * FROM ProductosRecursivos WHERE padre_id = :categoriaId AND pro_is_active = 1 ", nativeQuery = true)
   List<ProductoEntity> findProductosByCategoriaId(@Param("categoriaId") int categoriaId);
 
 }
