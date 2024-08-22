@@ -83,23 +83,79 @@ $(document).ready(function () {
         });
     }
 
+    var isJpg = function (name) {
+        return name.match(/jpg$/i)
+    };
+    var isJpeg = function (name) {
+        return name.match(/jpeg$/i)
+    };
+
+    var isPng = function (name) {
+        return name.match(/png$/i)
+    };
+
     // Registrar Producto
-    $('#registrarProducto').click(function () {
+    $('#registrarProducto').click(function (event) {
+        //stop submit the form, we will post it manually.
+        event.preventDefault();
+        var file = $('#imagenProducto');
+        var imgContainer = $('#imgContainer');
+        var filename = $.trim(file.val());
+
+        alert(filename);
+
+        if (!(isJpg(filename) || isJpeg(filename) || isPng(filename))) {
+            alert('Please browse a JPG/PNG file to upload ...');
+            return;
+        }
+
+        var img_base64 = "";
+        var img_contenttype = "";
+        form_data = new FormData(); // added
+        image = $('#imagenProducto').prop('files')[0]; // modified
+        form_data.append('file', image); // added
+        console.log(image);
+
+        $.ajax({
+            type: "POST",
+            url: '/kenpis/producto/echofile',
+            data: form_data,
+            enctype: 'multipart/form-data',
+            processData: false,
+            contentType: false
+        }).done(function (data) {
+            //imgContainer.html('');
+            //var img = '<img src="data:' + data.contenttype + ';base64,' + data.base64 + '"/>';
+            //imgContainer.append(img);
+            img_base64 = data.base64;
+            img_contenttype = data.contenttype;
+            crearProducto(img_base64, img_contenttype);
+        }).fail(function (jqXHR, textStatus) {
+            //alert(jqXHR.responseText);
+            alert('File upload failed ...');
+        });
+    });
+
+    function crearProducto(img_base64, img_contenttype) {
+        //alert("IMAGE --> " + img_base64 + " - " + img_contenttype);
         var nombreProducto = $('#nombreProducto').val();
         var precioProducto = $('#precioProducto').val();
         var categoriaProducto = $('#categoria').val();
         var descripcionProducto = $('#descripcionProducto').val();
-        var imagenProducto = $('#imagenProducto').val();
         $.ajax({
             url: '/kenpis/producto/create',
             method: 'POST',
             contentType: 'application/json',
+            processData: false,  // Important!
+            //contentType: false,
+            cache: false,
             data: JSON.stringify({
                 proCategoria: nombreProducto,
                 proPrecio: precioProducto,
                 padreId: categoriaProducto,
                 proDescripcion: descripcionProducto,
-                proImagen: imagenProducto,
+                proImagen: img_base64,
+                proImagenLongitud: img_contenttype,
                 proIsActive: true,
                 empId: 1
             }),
@@ -116,10 +172,11 @@ $(document).ready(function () {
                 toastr.error('Error al registrar el producto. Intente nuevamente.');
             }
         });
-    });
+    }
 
     //Funcion para editar un Producto
     function editarProducto(proId) {
+        var imgContainer = $('#editImgContainer');
         $.ajax({
             url: `/kenpis/producto/find-by-id/${proId}`,
             method: 'GET',
@@ -131,6 +188,9 @@ $(document).ready(function () {
                 $('#editDescripcionProducto').val(producto.proDescripcion);
                 $('#editImagenProducto').val(producto.proImagen);
                 $('#editProductModal').modal('show');
+                imgContainer.html('');
+                var img = '<img src="data:' + producto.proImagenLongitud + ';base64,' + producto.proImagen + '" height="40%" width="50%"/>';
+                imgContainer.append(img);
             },
             error: function () {
                 toastr.error('Error al obtener los detalles del producto.');
