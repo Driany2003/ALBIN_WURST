@@ -33,35 +33,29 @@
             <div class="card mt-1">
                 <div class="card-header">
                     <div class="form-row">
-                        <div class="col-md-9">
-                            <h1 class="card-title">${empresaSession.empNombreComercial}</h1>
-                            <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
+                        <div class="col-md-2">
+                            <div class="d-flex justify-content-end mb-2">
+                                <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#createProductModal">Ingresar Producto</button>
+                                <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
+                                <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                            </div>
                         </div>
-                        <div class="form-group col-md-3 text-md-right">
-                            <label class="font-10">${empresaSession.empDocumentoTipo} : ${empresaSession.empDocumentoNumero}</label><br>
-                            <label class="font-10">Vendedor: ${usuSessionNombre}</label>
-                            <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                        <div class="col-md-10">
+                            <div class="d-flex justify-content-end mb-2">
+                                <div class="input-group" style="width: 300px;">
+                                    <input type="text" class="form-control" id="tableFilter" placeholder="Filtra Productos...">
+                                    <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid">
-                    <br>
-                    <div class="d-flex justify-content-end mb-3">
-                        <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#createProductModal">Ingresar Producto</button>
-                    </div>
-
-
                     <div class="card-body p-2">
-                        <div class="d-flex justify-content-end mb-2">
-                            <div class="input-group" style="width: 300px;">
-                                <input type="text" class="form-control" id="tableFilter" placeholder="Filtra Productos...">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-search"></i>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="card-body p-2">
                             <div class="table-responsive">
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
@@ -94,7 +88,7 @@
                     </div>
 
                     <div class="modal-body">
-                        <form id="createProductForm">
+                        <form id="createProductForm" role="form" method="post" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="nombreProducto">Nombre del Producto</label>
                                 <input type="text" class="form-control" id="nombreProducto" placeholder="Ingresar Nombre del Producto" required>
@@ -156,9 +150,12 @@
                                 <label for="editDescripcionProducto">Descripción</label>
                                 <textarea class="form-control" id="editDescripcionProducto" rows="3"></textarea>
                             </div>
+                            <div id="editImgContainer">
+                            </div>
+                            <br>
                             <div class="form-group">
-                                <label for="editImagenProducto">Imagen (URL)</label>
-                                <input type="text" class="form-control" id="editImagenProducto">
+                                <label for="editImagenProductoNuevo" class="btn btn-outline-secondary">Editar Imagen</label>
+                                <input type="file" id="editImagenProductoNuevo" style="display: none;">
                             </div>
                             <input type="hidden" id="editProductId">
                             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
