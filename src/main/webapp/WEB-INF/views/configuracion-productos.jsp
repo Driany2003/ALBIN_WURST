@@ -29,6 +29,13 @@
     <!-- ============================================================== -->
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 align-self-center">
+                    <h4 class="page-title">PRODUCTOS <span class="label label-rounded label-info">Listado</span></h4>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid">
             <div class="card mt-1">
                 <div class="card-header">
