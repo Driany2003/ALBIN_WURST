@@ -96,10 +96,8 @@ $(document).ready(function () {
 
     // Registrar Producto
     $('#registrarProducto').click(function (event) {
-        //stop submit the form, we will post it manually.
         event.preventDefault();
         var file = $('#imagenProducto');
-        var imgContainer = $('#imgContainer');
         var filename = $.trim(file.val());
 
         alert(filename);

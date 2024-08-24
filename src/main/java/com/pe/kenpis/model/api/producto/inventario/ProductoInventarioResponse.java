@@ -16,5 +16,11 @@ public class ProductoInventarioResponse {
   private Integer proInvStockInicial;
   private Integer proInvStockVentas;
   private Date proInvFechaCreacion;
+  //
+  private Double proPrecio;
+  private String proDescripcion;
+  private Integer empId;
+  private String proImagen;
+  private Boolean proIsActive;
 
 }

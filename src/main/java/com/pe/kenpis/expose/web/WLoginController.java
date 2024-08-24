@@ -87,8 +87,6 @@ public class WLoginController {
     FxComunes.printJson(Constantes.VENTA_ESTADO.PAGADO, pagado);
     FxComunes.printJson(Constantes.VENTA_ESTADO.ATENDIDO, atendido);
 
-    log.info("REGISTRADO Data: " + registrado);
-
     return "dashboard";
   }
 

@@ -11,7 +11,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -25,8 +27,24 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   @Override
   public List<ProductoInventarioResponse> findAll() {
     log.info("Implements :: findAll");
-    return repository.findAll().stream().map(this::convertEntityToResponse).collect(Collectors.toList());
+    return repository.findProductsWithInventory().stream()
+        .map(this::convertMapToResponse)
+        .collect(Collectors.toList());
   }
+
+  private ProductoInventarioResponse convertMapToResponse(Map<String, Object> map) {
+    ProductoInventarioResponse response = new ProductoInventarioResponse();
+    response.setProPrecio((Double) map.get("proPrecio"));
+    response.setProDescripcion((String) map.get("proDescripcion"));
+    response.setEmpId((Integer) map.get("empId"));
+    response.setProImagen((String) map.get("proImagen"));
+    response.setProIsActive((Boolean) map.get("proIsActive"));
+    response.setProInvStockInicial((Integer) map.get("proInvStockInicial"));
+    response.setProInvStockVentas((Integer) map.get("proInvStockVentas"));
+    response.setProInvFechaCreacion((Date) map.get("proInvFechaCreacion"));
+    return response;
+  }
+
 
   @Override
   public ProductoInventarioResponse findById(Integer id) {

@@ -4,6 +4,8 @@ import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.entity.ProductoEntity;
+import com.pe.kenpis.model.entity.ProductoInventarioEntity;
+import com.pe.kenpis.repository.ProductoInventarioRepository;
 import com.pe.kenpis.repository.ProductoRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.funciones.Java8Base64Image;
@@ -15,6 +17,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -25,6 +28,7 @@ import java.util.stream.Collectors;
 public class ProductoImpl implements IProductoService {
 
   private final ProductoRepository repository;
+  private final ProductoInventarioRepository inventarioRepository;
   private String imageOutFoto = Constantes.RUTAS.UNIDAD;
 
   @Override
@@ -42,10 +46,24 @@ public class ProductoImpl implements IProductoService {
   @Override
   public ProductoResponse create(ProductoRequest request) {
     log.debug("Implements :: create :: Inicio");
-    request.setProIsActive(true);
-    FxComunes.printJson("ProductoRequest", request);
-    return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+
+    ProductoEntity producto = convertRequestToEntity(request);
+    producto.setProIsActive(true);
+
+    // Guardar el producto
+    ProductoEntity savedProducto = repository.save(producto);
+
+    ProductoInventarioEntity inventario = new ProductoInventarioEntity();
+    inventario.setProductoId(savedProducto.getProId());
+    inventario.setProInvStockInicial(0);
+    inventario.setProInvStockVentas(0);
+    inventario.setProInvFechaCreacion(new Date());
+
+    inventarioRepository.save(inventario);
+
+    return convertEntityToResponse(savedProducto);
   }
+
 
   @Override
   public ProductoResponse update(ProductoRequest request) {
