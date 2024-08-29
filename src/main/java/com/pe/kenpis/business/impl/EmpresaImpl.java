@@ -3,14 +3,20 @@ package com.pe.kenpis.business.impl;
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.producto.ProductoRequest;
+import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.entity.EmpresaEntity;
+import com.pe.kenpis.model.entity.ProductoEntity;
+import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.EmpresaRepository;
+import com.pe.kenpis.repository.UsuarioRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -21,6 +27,7 @@ import java.util.stream.Collectors;
 public class EmpresaImpl implements IEmpresaService {
 
   private final EmpresaRepository repository;
+  private final UsuarioRepository usuarioRepository;
 
   @Override
   public List<EmpresaResponse> findAll() {
@@ -35,10 +42,27 @@ public class EmpresaImpl implements IEmpresaService {
   }
 
   @Override
+  public EmpresaResponse obtenerEmpresaPorUsuario(Integer usuarioId) {
+    log.info("Implements :: obtenerEmpresaPorUsuario :: {}", usuarioId);
+    Optional<UsuarioEntity> usuarioOpt = usuarioRepository.findById(usuarioId);
+
+    if (usuarioOpt.isPresent()) {
+      UsuarioEntity usuario = usuarioOpt.get();
+      Integer empresaId = usuario.getEmpresaId();
+
+      Optional<EmpresaEntity> empresaOpt = repository.findById(empresaId);
+      return empresaOpt.map(this::convertEntityToResponse).orElse(new EmpresaResponse());
+    } else {
+      return new EmpresaResponse();
+    }
+  }
+
+  @Override
   public EmpresaResponse create(EmpresaRequest request) {
     log.debug("Implements :: create :: Inicio");
     request.setEmpIsActive(true);
-    FxComunes.printJson("EmpresaRequest",request);
+    request.setEmpFechaCreacion(new Date());
+    FxComunes.printJson("EmpresaRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
@@ -49,6 +73,48 @@ public class EmpresaImpl implements IEmpresaService {
     if (res.getEmpId() == null) {
       return new EmpresaResponse();
     } else {
+      request.setEmpIsActive(res.getEmpIsActive());
+      return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+    }
+  }
+
+  public EmpresaResponse updatePropietario(EmpresaRequest request) {
+    EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
+    if (res.getEmpId() == null) {
+      return new EmpresaResponse();
+    } else {
+      request.setEmpFechaContratoFin(res.getEmpFechaContratoFin());
+      request.setEmpFechaContratoInicio(res.getEmpFechaContratoInicio());
+      request.setEmpFechaCreacion(res.getEmpFechaCreacion());
+      request.setEmpResponsable(res.getEmpResponsable());
+      request.setEmpQrPlin(res.getEmpQrPlin());
+      request.setEmpQrYape(res.getEmpQrYape());
+      request.setEmpQrPagos(res.getEmpQrPagos());
+
+      return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+    }
+  }
+
+  public EmpresaResponse updateStatus(EmpresaRequest request) {
+    EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
+    if (res.getEmpId() == null) {
+      return new EmpresaResponse();
+    } else {
+      request.setEmpDocumentoTipo(res.getEmpDocumentoTipo());
+      request.setEmpDocumentoNumero(res.getEmpDocumentoNumero());
+      request.setEmpEmail(res.getEmpEmail());
+      request.setEmpFechaContratoFin(res.getEmpFechaContratoFin());
+      request.setEmpFechaContratoInicio(res.getEmpFechaContratoInicio());
+      request.setEmpFechaCreacion(res.getEmpFechaCreacion());
+      request.setEmpImageLogo(res.getEmpImageLogo());
+      request.setEmpNombreComercial(res.getEmpNombreComercial());
+      request.setEmpRazonSocial(res.getEmpRazonSocial());
+      request.setEmpTelefono(res.getEmpTelefono());
+      request.setEmpResponsable(res.getEmpResponsable());
+      request.setEmpQrPlin(res.getEmpQrPlin());
+      request.setEmpQrYape(res.getEmpQrYape());
+      request.setEmpQrPagos(res.getEmpQrPagos());
+
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }
   }
@@ -56,11 +122,11 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public EmpresaResponse delete(Integer id) {
     log.debug("Implements :: delete :: ID -> {}", id);
-    EmpresaResponse res = repository.findById(id).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
-    res.setEmpIsActive(false);
-    Optional<EmpresaEntity> ent = repository.findById(res.getEmpId());
-    if (ent.isPresent()) {
-      return convertEntityToResponse(repository.save(convertRequestToEntity(convertResponseToRequest(res))));
+    Optional<EmpresaEntity> empresaEliminar = repository.findById(id);
+    if (empresaEliminar.isPresent()) {
+      repository.deleteById(id);
+      EmpresaEntity deletedEntity = empresaEliminar.get();
+      return convertEntityToResponse(deletedEntity);
     } else {
       return new EmpresaResponse();
     }

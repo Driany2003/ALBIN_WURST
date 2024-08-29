@@ -247,7 +247,6 @@
             }
 
             /* Estilo para los campos de entrada del modal */
-            /* From Uiverse.io by aunis1616 */
             .coolinput {
                 display: flex;
                 flex-direction: column;

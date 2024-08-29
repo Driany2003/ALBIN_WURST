@@ -95,6 +95,32 @@
                     <div class="modal-body">
                         <form class="form-neon FormularioAjax" action="#" method="POST" data-form="save" autocomplete="off">
                             <input type="hidden" name="modulo_usuario" value="registrar">
+                            <input type="hidden" name="empresa_id" id="empresa_id" value="${empresaSession.empId}"/>
+                            <c:choose>
+                                <c:when test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                                    <fieldset>
+                                        <legend><i class="fas fa-building"></i> &nbsp; Empresa</legend>
+                                        <br>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-12 col-md-6">
+                                                    <div class="form-group bmd-form-group is-filled">
+                                                        <label for="usuario_empresa" class="bmd-label-floating">Seleccione la empresa</label>
+                                                        <select class="form-control" name="usuario_empresa_reg" id="usuario_empresa">
+                                                            <c:forEach items="${empresasList}" var="empresa">
+                                                                <option value="${empresa.id}">${empresa.nombre}</option>
+                                                            </c:forEach>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </c:when>
+                                <c:otherwise>
+                                    <input type="hidden" name="usuario_empresa_reg" value="${empresaSession.empId}"/>
+                                </c:otherwise>
+                            </c:choose>
                             <fieldset>
                                 <legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
                                 <br>
@@ -113,7 +139,8 @@
                                         <div class="col-12 col-md-4">
                                             <div class="form-group bmd-form-group">
                                                 <label for="usuario_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                <input type="number" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="usuario_numero_documento_reg" id="usuario_numero_documento" maxlength="8">
+                                                <input type="number" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="usuario_numero_documento_reg" id="usuario_numero_documento"
+                                                       maxlength="8">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-4">

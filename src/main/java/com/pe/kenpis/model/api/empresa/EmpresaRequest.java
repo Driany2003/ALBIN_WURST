@@ -27,5 +27,6 @@ public class EmpresaRequest {
   private Long empQrPlin;
   private Long empQrPagos;
   private Boolean empIsActive;
+  private String empEmail;
 
 }

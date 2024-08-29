@@ -12,7 +12,7 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
-                <c:if test="${sessionScope.usuSessionNivel == 'ADMIN'}">
+                <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'  || sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>
                         <span class="hide-menu">VENTA</span>
@@ -31,7 +31,7 @@
                     </li>
                 </c:if>
 
-                <c:if test="${sessionScope.usuSessionNivel == 'ADMIN'}">
+                <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'  || sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>
                         <span class="hide-menu">CONFIGURACION</span>
@@ -64,15 +64,6 @@
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/cliente" aria-expanded="false">
                             <i class="mdi mdi-human-greeting"></i>
                             <span class="hide-menu">Cliente</span>
-                        </a>
-                    </li>
-                </c:if>
-
-                <c:if test="${sessionScope.usuSessionNivel == 'USUARIO'}">
-                    <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva/usuario" aria-expanded="false">
-                            <i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Registrarme</span>
                         </a>
                     </li>
                 </c:if>

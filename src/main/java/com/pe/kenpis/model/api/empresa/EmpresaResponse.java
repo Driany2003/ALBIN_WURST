@@ -26,5 +26,6 @@ public class EmpresaResponse {
   private Long empQrPlin;
   private Long empQrPagos;
   private Boolean empIsActive;
+  private String empEmail;
 
 }

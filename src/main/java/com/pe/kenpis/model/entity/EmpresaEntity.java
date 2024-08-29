@@ -58,4 +58,7 @@ public class EmpresaEntity {
   @Column(name = "emp_is_active")
   private Boolean empIsActive;
 
+  @Column(name = "emp_email")
+  private String empEmail;
+
 }
