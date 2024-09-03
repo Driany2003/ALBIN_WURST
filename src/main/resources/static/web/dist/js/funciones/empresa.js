@@ -4,8 +4,6 @@ $(document).ready(function () {
     function cargarEmpresas() {
         var usuarioId = $('#usuarioId').val();
 
-        console.log("id" + usuarioId);
-
         $.ajax({
             url: '/kenpis/empresas/cargar-empresas',
             type: 'POST',
@@ -193,8 +191,6 @@ $(document).ready(function () {
 
     //EDITAR LA EMPRESA DE UN USUARIO CON ROL DE PROPIETARIO
     var formularioModificado = false;
-
-    // Función para habilitar el botón de actualización cuando se detecten cambios
     $('#empresaForm input, #empresaForm select').on('input change', function () {
         formularioModificado = true;
         $('#botonActualizar').prop('disabled', false);

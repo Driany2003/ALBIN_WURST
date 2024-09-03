@@ -15,5 +15,8 @@ public class UsuarioResponse {
   private String usuApeMaterno;
   private String usuTelefono;
   private Integer empresaId;
+  private char usuGenero;
+  private String usuNumeroDocumento;
+  private String usuTipoDocumento;
 
 }

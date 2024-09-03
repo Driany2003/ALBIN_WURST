@@ -29,5 +29,14 @@ public class UsuarioEntity {
   @Column(name = "empresa_id")
   private Integer empresaId;
 
+  @Column(name = "usu_tipo_documento")
+  private String usuTipoDocumento;
+
+  @Column(name = "usu_numero_documento")
+  private String usuNumeroDocumento;
+
+  @Column(name = "usu_genero")
+  private char usuGenero;
+
 
 }

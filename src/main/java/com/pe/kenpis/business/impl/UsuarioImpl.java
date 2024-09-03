@@ -1,11 +1,15 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IUsuarioService;
+import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.usuario.UsuarioDTO;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
+import com.pe.kenpis.model.entity.EmpresaEntity;
 import com.pe.kenpis.model.entity.UsuarioAuthorityEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
+import com.pe.kenpis.repository.EmpresaRepository;
 import com.pe.kenpis.repository.UsuarioAuthorityRepository;
 import com.pe.kenpis.repository.UsuarioRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
@@ -25,12 +29,59 @@ public class UsuarioImpl implements IUsuarioService {
 
   private final UsuarioRepository repository;
 
+  private final EmpresaRepository empresaRepository;
+
   private final UsuarioAuthorityRepository usuarioAuthorityRepository;
 
   @Override
   public List<UsuarioResponse> findAll() {
     log.info("Implements :: findAll");
     return repository.findAll().stream().map(this::convertEntityToResponse).collect(Collectors.toList());
+  }
+
+  @Override
+  public List<UsuarioDTO> findAllDto() {
+    log.info("Implements :: findAllDto");
+    return repository.findAll().stream().map(this::convertToDTO).collect(Collectors.toList());
+  }
+
+  public List<UsuarioDTO> findUsuariosByEmpresaId(Integer empresaId) {
+    List<UsuarioEntity> usuarios = repository.findByEmpresaId(empresaId);
+    return usuarios.stream().map(this::convertToDTO).collect(Collectors.toList());
+  }
+
+  private UsuarioDTO convertToDTO(UsuarioEntity usuario) {
+    UsuarioDTO usuarioDTO = new UsuarioDTO();
+    usuarioDTO.setUsuId(usuario.getUsuId());
+    usuarioDTO.setUsuNombre(usuario.getUsuNombre());
+    usuarioDTO.setUsuApePaterno(usuario.getUsuApePaterno());
+    usuarioDTO.setUsuApeMaterno(usuario.getUsuApeMaterno());
+    usuarioDTO.setUsuTelefono(usuario.getUsuTelefono());
+    usuarioDTO.setUsuNumeroDocumento(usuario.getUsuNumeroDocumento());
+    usuarioDTO.setUsuTipoDocumento(usuario.getUsuTipoDocumento());
+    usuarioDTO.setUsuGenero(usuario.getUsuGenero());
+
+    Integer empresaId = usuario.getEmpresaId();
+    log.info("Cargando empresa para el usuario con empresaId: {}", empresaId);
+
+    EmpresaEntity empresa = empresaRepository.findById(usuario.getEmpresaId()).orElse(null);
+    if (empresa != null) {
+      usuarioDTO.setEmpresaNombre(empresa.getEmpNombreComercial());
+    } else {
+      usuarioDTO.setEmpresaNombre("Empresa desconocida");
+      log.info("No se encontró empresa para el usuario con empresaId: {}", empresaId);
+
+    }
+    Optional<UsuarioAuthorityEntity> authority = usuarioAuthorityRepository.findByUsuarioId(usuario.getUsuId());
+    if (authority.isPresent()) {
+      usuarioDTO.setAuthRoles(authority.get().getAuthRoles());
+      usuarioDTO.setAuthUsername(authority.get().getAuthUsername());
+    } else {
+      usuarioDTO.setAuthRoles("ROL_DESCONOCIDO");
+      log.info("No se encontró autoridad para el usuario con usuId: {}", usuario.getUsuId());
+    }
+
+    return usuarioDTO;
   }
 
   @Override
@@ -42,7 +93,7 @@ public class UsuarioImpl implements IUsuarioService {
   @Override
   public UsuarioResponse create(UsuarioRequest request) {
     log.debug("Implements :: create :: Inicio");
-    FxComunes.printJson("UsuarioRequest",request);
+    FxComunes.printJson("UsuarioRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 

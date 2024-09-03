@@ -46,7 +46,7 @@ public class WEmpresaController {
 
   @PostMapping("/create")
   public ResponseEntity<EmpresaResponse> create(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("que trae" , request);
+    FxComunes.printJson("que trae", request);
     log.info("Controller :: create");
     EmpresaResponse empresa = service.create(request);
 
@@ -60,18 +60,17 @@ public class WEmpresaController {
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
-
-    @PutMapping("/update/status")
-    public ResponseEntity<EmpresaResponse> updateStatus(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("que trae",request);
-      log.info("Controller :: updateStatus");
-      EmpresaResponse empresa = service.updateStatus(request);
-      return new ResponseEntity<>(empresa, HttpStatus.OK);
-    }
+  @PutMapping("/update/status")
+  public ResponseEntity<EmpresaResponse> updateStatus(@RequestBody EmpresaRequest request) {
+    FxComunes.printJson("que trae", request);
+    log.info("Controller :: updateStatus");
+    EmpresaResponse empresa = service.updateStatus(request);
+    return new ResponseEntity<>(empresa, HttpStatus.OK);
+  }
 
   @PutMapping("/update-propietario")
   public ResponseEntity<EmpresaResponse> updatePropietario(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("que trae",request);
+    FxComunes.printJson("que trae", request);
     log.info("Controller :: updateStatus");
     EmpresaResponse empresa = service.updateStatus(request);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
@@ -101,7 +100,7 @@ public class WEmpresaController {
       response.put("data", empresaResponse);
       session.setAttribute("empresaSession", empresaResponse);
     }
-    return new ResponseEntity<>(response,HttpStatus.OK);
+    return new ResponseEntity<>(response, HttpStatus.OK);
   }
 }
 

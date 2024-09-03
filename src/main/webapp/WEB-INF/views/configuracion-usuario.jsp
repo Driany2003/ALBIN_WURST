@@ -66,11 +66,11 @@
                                     <tr>
                                         <th scope="col">#</th>
                                         <th scope="col">DOCUMENTO</th>
-                                        <th scope="col">CARGO</th>
                                         <th scope="col">NOMBRE</th>
+                                        <th scope="col">CARGO</th>
                                         <th scope="col">USUARIO</th>
-                                        <th scope="col">ACTUALIZAR</th>
-                                        <th scope="col">ELIMINAR</th>
+                                        <th scope="col">EMPRESA</th>
+                                        <th scope="col">ACCION</th>
                                     </tr>
                                     </thead>
                                     <tbody id="productoBody">
@@ -267,6 +267,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+<script src="/static/web/dist/js/funciones/usuario.js"></script>
 <%@ include file="includes/footer.jspf" %>
 <%@ include file="includes/all-jquery.jspf" %>
 

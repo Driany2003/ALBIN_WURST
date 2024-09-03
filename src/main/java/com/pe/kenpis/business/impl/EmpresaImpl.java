@@ -67,7 +67,7 @@ public class EmpresaImpl implements IEmpresaService {
   }
 
   @Override
-  public EmpresaResponse update(EmpresaRequest request) {//request.getUsuId()
+  public EmpresaResponse update(EmpresaRequest request) {
     EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
     //request.setUsuClave(passwordEncoder.encode(request.getUsuClave()));
     if (res.getEmpId() == null) {

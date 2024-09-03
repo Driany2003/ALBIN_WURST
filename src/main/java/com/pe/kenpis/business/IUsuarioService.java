@@ -1,5 +1,6 @@
 package com.pe.kenpis.business;
 
+import com.pe.kenpis.model.api.usuario.UsuarioDTO;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
@@ -9,6 +10,10 @@ import java.util.List;
 public interface IUsuarioService {
 
   List<UsuarioResponse> findAll();
+
+  List<UsuarioDTO> findAllDto();
+
+  List<UsuarioDTO> findUsuariosByEmpresaId(Integer empresaId);
 
   UsuarioResponse findById(Integer id);
 

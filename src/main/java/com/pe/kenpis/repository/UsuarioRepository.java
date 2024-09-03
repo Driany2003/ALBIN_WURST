@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
@@ -13,5 +14,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer>
   Optional<UsuarioEntity> findByAuthUsername(@Param("authUsername") String authUsername);
 
   UsuarioEntity findByUsuTelefono(String celular);
+
+  List<UsuarioEntity> findByEmpresaId(Integer empresaId);
 
 }
