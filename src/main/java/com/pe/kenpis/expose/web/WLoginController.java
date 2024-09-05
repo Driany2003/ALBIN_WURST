@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -55,6 +56,9 @@ public class WLoginController {
     model.put("usuSession", usuarioResponse);
 
     EmpresaResponse empresaResponse = empresaService.findById(usuarioResponse.getEmpresaId());
+    log.info("Usuario logueado: {}", usuarioLogueado);
+    log.info("Estado de la empresa (activo/inactivo): {}", empresaResponse.getEmpIsActive());
+
 
     request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
     request.getSession().setAttribute("usuSessionNombre", nombre);
@@ -66,7 +70,6 @@ public class WLoginController {
     FxComunes.printJson("UsuarioAuthorityResponse", usuarioAuthorityResponse);
     FxComunes.printJson("UsuarioResponse", usuarioResponse);
     FxComunes.printJson("EmpresaSession", empresaResponse);
-
     //MUESTRA LA CANTIDAD DE PEDIDOSESTADOS EN EL DASHBOARD
     Map<String, Object> pedidosEstado = ventaEstadoService.getCountPedidosXEstado();
     model.put("pedidosEstado", pedidosEstado);
@@ -94,6 +97,5 @@ public class WLoginController {
   public String logout(HttpServletRequest request, HttpServletResponse response) {
     return "redirect:/login";
   }
-
 
 }

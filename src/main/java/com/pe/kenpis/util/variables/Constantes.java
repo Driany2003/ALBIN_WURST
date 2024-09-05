@@ -55,13 +55,9 @@ public class Constantes {
   }
 
   public interface NIVELES_USUARIO {
-    String ADMIN = "ADMIN";
-    String MORTAL = "MORTAL";
-    String SUPERVISOR = "SUPERVISOR";
+    String ADMINISTRADOR = "ADMINISTRADOR";
+    String PROPIETARIO = "PROPIETARIO";
     String VENDEDOR = "VENDEDOR";
-    String MARKETING = "MARKETING";
-    String REGISTRADOR = "REGISTRADOR";
-    String SOPORTE = "SOPORTE";
   }
 
   public interface VENTA_ESTADO {

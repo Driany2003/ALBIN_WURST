@@ -2,8 +2,6 @@ package com.pe.kenpis.model.api.producto;
 
 import lombok.*;
 
-import javax.persistence.Column;
-
 @Getter
 @Setter
 @ToString

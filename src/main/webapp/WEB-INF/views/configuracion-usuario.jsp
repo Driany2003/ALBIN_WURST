@@ -41,6 +41,7 @@
                                 <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#crearUsuarioModal">Ingresar Usuario</button>
                                 <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                                 <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                                <input type="hidden" id="usuarioNivel" value="${sessionScope.usuSessionNivel}" />
                             </div>
                         </div>
                         <div class="col-md-10">
@@ -65,7 +66,7 @@
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">DOCUMENTO</th>
+                                        <th scope="col">TIPO/N° DOCUMENTO</th>
                                         <th scope="col">NOMBRE</th>
                                         <th scope="col">CARGO</th>
                                         <th scope="col">USUARIO</th>
@@ -73,7 +74,7 @@
                                         <th scope="col">ACCION</th>
                                     </tr>
                                     </thead>
-                                    <tbody id="productoBody">
+                                    <tbody id="usuariosBody">
                                     </tbody>
                                 </table>
                             </div>
@@ -96,34 +97,32 @@
                         <form class="form-neon FormularioAjax" action="#" method="POST" data-form="save" autocomplete="off">
                             <input type="hidden" name="modulo_usuario" value="registrar">
                             <input type="hidden" name="empresa_id" id="empresa_id" value="${empresaSession.empId}"/>
-                            <c:choose>
-                                <c:when test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+
+                            <div class="container">
+                                <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
                                     <fieldset>
                                         <legend><i class="fas fa-building"></i> &nbsp; Empresa</legend>
-                                        <br>
                                         <div class="container-fluid">
                                             <div class="row">
                                                 <div class="col-12 col-md-6">
                                                     <div class="form-group bmd-form-group is-filled">
                                                         <label for="usuario_empresa" class="bmd-label-floating">Seleccione la empresa</label>
                                                         <select class="form-control" name="usuario_empresa_reg" id="usuario_empresa">
-                                                            <c:forEach items="${empresasList}" var="empresa">
-                                                                <option value="${empresa.id}">${empresa.nombre}</option>
-                                                            </c:forEach>
+
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </fieldset>
-                                </c:when>
-                                <c:otherwise>
+                                </c:if>
+                                <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'}">
                                     <input type="hidden" name="usuario_empresa_reg" value="${empresaSession.empId}"/>
-                                </c:otherwise>
-                            </c:choose>
+                                </c:if>
+                            </div>
+
                             <fieldset>
                                 <legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
-                                <br>
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-12 col-md-4">
@@ -175,9 +174,8 @@
                                     </div>
                                 </div>
                             </fieldset>
-
                             <!-- Género -->
-                            <br><br><br>
+                            <br><br>
                             <fieldset>
                                 <div class="container-fluid">
                                     <div class="row">
@@ -202,7 +200,7 @@
                                 </div>
                             </fieldset>
                             <!-- Información de la cuenta -->
-                            <br><br><br>
+                            <br><br>
                             <fieldset>
                                 <legend><i class="fas fa-user-lock"></i> &nbsp; Información de la cuenta</legend>
                                 <div class="container-fluid">
@@ -243,12 +241,8 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <!-- Enviar formulario -->
-                            <br><br><br>
                             <p class="text-center" style="margin-top: 40px;">
-                                <button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp; LIMPIAR</button>
-                                &nbsp; &nbsp;
-                                <button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp; GUARDAR</button>
+                                <button type="submit" class="btn btn-raised btn-info btn-sm" id="registrarUsuario"><i class="far fa-save"></i> &nbsp; GUARDAR</button>
                             </p>
                         </form>
                     </div>

@@ -1,6 +1,7 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IProductoService;
+import com.pe.kenpis.model.api.producto.ProductoListDTO;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
@@ -67,6 +68,13 @@ public class WProductoController {
     List<ProductoResponse> productos = service.findAll();
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
+
+  @GetMapping("/find-all-is-active")
+  public ResponseEntity<List<ProductoListDTO>> findActiveProductosWithActiveEmpresa() {
+    List<ProductoListDTO> productos = service.findActiveProductosWithActiveEmpresa();
+    return new ResponseEntity<>(productos, HttpStatus.OK);
+  }
+
 
   @PostMapping("/create")
   public ResponseEntity<ProductoResponse> create(@RequestBody ProductoRequest request) {

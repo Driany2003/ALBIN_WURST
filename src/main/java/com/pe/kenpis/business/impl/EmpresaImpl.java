@@ -1,12 +1,10 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IEmpresaService;
+import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
-import com.pe.kenpis.model.api.producto.ProductoRequest;
-import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.entity.EmpresaEntity;
-import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.EmpresaRepository;
 import com.pe.kenpis.repository.UsuarioRepository;
@@ -18,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -33,6 +32,12 @@ public class EmpresaImpl implements IEmpresaService {
   public List<EmpresaResponse> findAll() {
     log.info("Implements :: findAll");
     return repository.findAll().stream().map(this::convertEntityToResponse).collect(Collectors.toList());
+  }
+
+  @Override
+  public List<EmpresaDTO> findAllByStatus() {
+    List<Map<String, Object>> results = repository.findAllByEmpIsActive();
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empRazonSocial"))).collect(Collectors.toList());
   }
 
   @Override

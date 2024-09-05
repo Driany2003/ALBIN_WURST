@@ -6,12 +6,13 @@ import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IUsuarioService {
 
   List<UsuarioResponse> findAll();
 
-  List<UsuarioDTO> findAllDto();
+  List<UsuarioDTO> findAllUsers();
 
   List<UsuarioDTO> findUsuariosByEmpresaId(Integer empresaId);
 

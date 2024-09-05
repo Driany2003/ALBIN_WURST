@@ -87,20 +87,20 @@ public class WEmpresaController {
   public ResponseEntity<Map<String, Object>> loadEmpresasByRole(@RequestBody UsuarioResponse usuarioResponse, HttpSession session) {
     log.info("Controller :: loadEmpresasByRole :: {}", usuarioResponse.getUsuId());
     Map<String, Object> response = new HashMap<>();
-    UsuarioAuthorityResponse usuarioAuthorityResponse = usuarioService.findUsuarioAuthorityByUsuId(usuarioResponse.getUsuId());
+    String usuSessionNivel = (String) session.getAttribute("usuSessionNivel");
 
-    if (usuarioAuthorityResponse.getAuthRoles().contains("ADMINISTRADOR")) {
+    if (usuSessionNivel.equalsIgnoreCase("ADMINISTRADOR")) {
       List<EmpresaResponse> listaEmpresa = service.findAll();
       response.put("status", "success");
       response.put("data", listaEmpresa);
       session.setAttribute("listaEmpresa", listaEmpresa);
-    } else if (usuarioAuthorityResponse.getAuthRoles().contains("PROPIETARIO")) {
+    } else if (usuSessionNivel.equalsIgnoreCase("PROPIETARIO")) {
       EmpresaResponse empresaResponse = service.obtenerEmpresaPorUsuario(usuarioResponse.getUsuId());
       response.put("status", "success");
       response.put("data", empresaResponse);
       session.setAttribute("empresaSession", empresaResponse);
     }
-    return new ResponseEntity<>(response, HttpStatus.OK);
+    return new ResponseEntity<>(response,HttpStatus.OK);
   }
 }
 

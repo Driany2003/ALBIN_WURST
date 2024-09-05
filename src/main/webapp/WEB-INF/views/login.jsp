@@ -73,6 +73,28 @@
                     </form>
                 </div>
             </div>
+
+            <!-- MODAL EMERGENTE PARA USUARIO QUE PERTENECEN A EMPRESA INACTIVA-->
+
+
+            <div class="modal fade" id="empresaInactivaModal" tabindex="-1" role="dialog" aria-labelledby="empresaInactivaModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="empresaInactivaModalLabel">Error</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p th:text="${mensajeError}"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--
             <div id="recoverform">
                 <div class="logo">
@@ -115,10 +137,12 @@
     <!-- ============================================================== -->
 </div>
 <!-- ============================================================== -->
-<!-- All Required js -->
-<!-- ============================================================== -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="/static/web/assets/libs/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap tether Core JavaScript -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <script src="/static/web/assets/libs/popper.js/dist/umd/popper.min.js"></script>
 <script src="/static/web/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- ============================================================== -->
@@ -133,6 +157,12 @@
     $('#to-recover').on("click", function () {
         $("#loginform").slideUp();
         $("#recoverform").fadeIn();
+    });
+        $(document).ready(function () {
+        var empresaInactiva = /*[[${empresaInactiva}]]*/ false;
+        if (empresaInactiva) {
+        $('#empresaInactivaModal').modal('show');
+    }
     });
 </script>
 </body>

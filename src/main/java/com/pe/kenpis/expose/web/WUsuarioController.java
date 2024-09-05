@@ -1,11 +1,16 @@
 package com.pe.kenpis.expose.web;
 
+import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
+import com.pe.kenpis.model.api.empresa.EmpresaDTO;
+import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioDTO;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
+import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.util.funciones.FxComunes;
+import com.pe.kenpis.util.variables.Constantes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,13 +23,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/kenpis/usuario")
 @Slf4j
 public class WUsuarioController {
 
   @Autowired
   private IUsuarioService service;
+
+  @Autowired
+  private IEmpresaService serviceEmpresa;
 
   @GetMapping("/find-by-phone/{phone}")
   public ResponseEntity<UsuarioResponse> findByPhone(@PathVariable String phone) {
@@ -49,14 +57,22 @@ public class WUsuarioController {
   public ResponseEntity<Map<String, Object>> loadEmpresasByRole(@RequestBody UsuarioDTO usuarioDTO, HttpSession session) {
     log.info("Controller :: loadEmpresasByRole :: {}", usuarioDTO.getUsuId());
     Map<String, Object> response = new HashMap<>();
-    UsuarioAuthorityResponse usuarioAuthorityResponse = service.findUsuarioAuthorityByUsuId(usuarioDTO.getUsuId());
-    if (usuarioAuthorityResponse.getAuthRoles().contains("ADMINISTRADOR")) {
-      List<UsuarioDTO> listaUsuarios = service.findAllDto();
+
+    String usuSessionNivel = (String) session.getAttribute("usuSessionNivel");
+    log.info(usuSessionNivel);
+
+    if (usuSessionNivel.equalsIgnoreCase(Constantes.NIVELES_USUARIO.ADMINISTRADOR)) {
+      List<UsuarioDTO> listaUsuarios = service.findAllUsers();
       response.put("status", "success");
       response.put("data", listaUsuarios);
       session.setAttribute("listaUsuarios", listaUsuarios);
       FxComunes.printJson("QUE LLEGA DE ADMINISTRADOR", listaUsuarios);
-    } else if (usuarioAuthorityResponse.getAuthRoles().contains("PROPIETARIO")) {
+      //LISTAR
+      List<EmpresaDTO> listaEmpresa = serviceEmpresa.findAllByStatus();
+      response.put("empresasList", listaEmpresa);
+      FxComunes.printJson("Trae empresa admin ", listaEmpresa);
+
+    } else if (usuSessionNivel.equalsIgnoreCase(Constantes.NIVELES_USUARIO.PROPIETARIO)) {
       List<UsuarioDTO> listaUsuarios = service.findUsuariosByEmpresaId(usuarioDTO.getUsuId());
       response.put("status", "success");
       response.put("data", listaUsuarios);

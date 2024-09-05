@@ -1,8 +1,10 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IProductoService;
+import com.pe.kenpis.model.api.producto.ProductoListDTO;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.api.usuario.UsuarioDTO;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.ProductoInventarioEntity;
 import com.pe.kenpis.repository.ProductoInventarioRepository;
@@ -19,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -35,6 +38,16 @@ public class ProductoImpl implements IProductoService {
   public List<ProductoResponse> findAll() {
     log.info("Implements :: findAll");
     return repository.findAll().stream().map(this::convertEntityToResponse).collect(Collectors.toList());
+  }
+
+  @Override
+  public List<ProductoListDTO> findActiveProductosWithActiveEmpresa() {
+    log.info("Implements :: findActiveProductosWithActiveEmpresa");
+    return repository.findActiveProductosWithActiveEmpresa().stream().map(this::convertToProductoDTO).collect(Collectors.toList());
+  }
+
+  private ProductoListDTO convertToProductoDTO(Map<String, Object> map) {
+    return new ProductoListDTO((String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecio"));
   }
 
   @Override
@@ -63,7 +76,6 @@ public class ProductoImpl implements IProductoService {
 
     return convertEntityToResponse(savedProducto);
   }
-
 
   @Override
   public ProductoResponse update(ProductoRequest request) {
@@ -165,7 +177,5 @@ public class ProductoImpl implements IProductoService {
     BeanUtils.copyProperties(in, out);
     return out;
   }
-
-
 
 }

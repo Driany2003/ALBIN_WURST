@@ -37,7 +37,7 @@ $(document).ready(function () {
     function cargarProductos() {
         $.ajax({
             type: 'GET',
-            url: '/kenpis/producto/find-all',
+            url: '/kenpis/producto/find-all-is-active',
             contentType: 'application/json',
             success: function (response) {
                 const productoBody = $('#productoBody');

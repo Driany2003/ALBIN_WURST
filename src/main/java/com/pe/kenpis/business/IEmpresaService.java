@@ -1,15 +1,17 @@
 package com.pe.kenpis.business;
 
+import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
-import com.pe.kenpis.model.api.producto.ProductoRequest;
-import com.pe.kenpis.model.api.producto.ProductoResponse;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IEmpresaService {
 
   List<EmpresaResponse> findAll();
+
+  List<EmpresaDTO> findAllByStatus();
 
   EmpresaResponse findById(Integer id);
 
