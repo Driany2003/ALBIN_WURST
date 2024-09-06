@@ -68,11 +68,13 @@ $(document).ready(function () {
                 $('.eliminarProducto').click(function (event) {
                     event.preventDefault();
                     var proId = $(this).data('id');
+                    console.log("ID DEL PRODUCTO A ELEIMINAR SELECCIONADO",proId);
                     eliminarProducto(proId);
                 });
                 $('.editarProducto').click(function (event) {
                     event.preventDefault();
                     var proId = $(this).data('id');
+                    console.log("ID  DEL PRODUCTO SELECCIONADO",proId);
                     editarProducto(proId);
                 });
 

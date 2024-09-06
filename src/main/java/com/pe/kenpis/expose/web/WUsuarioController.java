@@ -5,6 +5,7 @@ import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioDTO;
+import com.pe.kenpis.model.api.usuario.UsuarioDTORequest;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
@@ -41,8 +42,9 @@ public class WUsuarioController {
   }
 
   @PostMapping("/create")
-  public ResponseEntity<UsuarioResponse> create(@RequestBody UsuarioRequest request) {
-    UsuarioResponse response = service.create(request);
+  public ResponseEntity<?> create(@RequestBody UsuarioDTORequest request) {
+    FxComunes.printJson("QUE TRAE DE REGISTRAR ", request);
+    UsuarioDTO response = service.create(request);
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 

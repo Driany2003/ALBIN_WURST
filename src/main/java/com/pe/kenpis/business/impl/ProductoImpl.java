@@ -47,7 +47,7 @@ public class ProductoImpl implements IProductoService {
   }
 
   private ProductoListDTO convertToProductoDTO(Map<String, Object> map) {
-    return new ProductoListDTO((String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecio"));
+    return new ProductoListDTO((Integer) map.get("proId"),(String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecio"));
   }
 
   @Override

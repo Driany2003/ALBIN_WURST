@@ -1,8 +1,8 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IUsuarioService;
-import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.usuario.UsuarioDTO;
+import com.pe.kenpis.model.api.usuario.UsuarioDTORequest;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
@@ -14,6 +14,7 @@ import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class UsuarioImpl implements IUsuarioService {
 
   private final UsuarioRepository repository;
   private final UsuarioAuthorityRepository usuarioAuthorityRepository;
+  private final PasswordEncoder passwordEncoder;
 
   @Override
   public List<UsuarioResponse> findAll() {
@@ -45,9 +47,9 @@ public class UsuarioImpl implements IUsuarioService {
   }
 
   @Override
-  public List<UsuarioDTO> findUsuariosByEmpresaId(Integer empresaId) {
-    log.info("Implements :: findUsuariosByEmpresaId :: empresaId: {}", empresaId);
-    List<Map<String, Object>> results = repository.findUsuariosByEmpresaId(empresaId);
+  public List<UsuarioDTO> findUsuariosByEmpresaId(Integer usuId) {
+    log.info("Implements :: findUsuariosByEmpresaId :: empresaId: {}", usuId);
+    List<Map<String, Object>> results = repository.findUsuariosBySesionEmpresaId(usuId);
     log.info(" --------------- {}", results.toString());
     FxComunes.printJson("objeto result", results);
     return results.stream().map(this::convertToUsuarioDTObyEmpresaId).collect(Collectors.toList());
@@ -58,8 +60,9 @@ public class UsuarioImpl implements IUsuarioService {
   }
 
   private UsuarioDTO convertToUsuarioDTObyEmpresaId(Map<String, Object> map) {
-    return new UsuarioDTO((Integer) map.get("usuId"), (Integer) map.get("impId"), (String) map.get("usuNombre"), (String) map.get("usuApePaterno"), (String) map.get("usuApeMaterno"), (String) map.get("usuTelefono"), (String) map.get("usuNumeroDocumento"), (String) map.get("usuTipoDocumento"), (char) map.get("usuGenero"), (String) map.get("empNombreComercial"), (String) map.get("authRoles"), (String) map.get("authUsername"));
+    return new UsuarioDTO((Integer) map.get("usuId"), (Integer) map.get("empresaId"), (String) map.get("usuNombre"), (String) map.get("usuApePaterno"), (String) map.get("usuApeMaterno"), (String) map.get("usuTelefono"), (String) map.get("usuNumeroDocumento"), (String) map.get("usuTipoDocumento"), (char) map.get("usuGenero"), (String) map.get("empNombreComercial"), (String) map.get("authRoles"), (String) map.get("authUsername"));
   }
+
 
   @Override
   public UsuarioResponse findById(Integer id) {
@@ -68,18 +71,23 @@ public class UsuarioImpl implements IUsuarioService {
   }
 
   @Override
-  public UsuarioResponse create(UsuarioRequest request) {
+  public UsuarioDTO create(UsuarioDTORequest request) {
     log.debug("Implements :: create :: Inicio");
 
-    UsuarioEntity usuarioCreado = convertRequestToEntity(request);
+    UsuarioEntity usuarioCreado = convertRequestDTOToEntity(request);
+    usuarioCreado.setEmpresaId(request.getImpId());
     UsuarioEntity saveUsuario = repository.save(usuarioCreado);
 
-    UsuarioAuthorityEntity usuarioAuthorityEntity = new UsuarioAuthorityEntity();
-    usuarioAuthorityEntity.setAuthIsActive(true);
-    usuarioAuthorityEntity.setUsuId(saveUsuario.getUsuId());
+    UsuarioAuthorityEntity usuarioAuthority = new UsuarioAuthorityEntity();
+    usuarioAuthority.setUsuId(saveUsuario.getUsuId());
+    usuarioAuthority.setAuthIsActive(true);
+    usuarioAuthority.setAuthUsername(request.getAuthUsername());
+    usuarioAuthority.setAuthRoles(request.getAuthRoles());
+    usuarioAuthority.setAuthPassword(passwordEncoder.encode(request.getAuthPassword()));
+    usuarioAuthorityRepository.save(usuarioAuthority);
 
     FxComunes.printJson("UsuarioCreadoRequest", request);
-    return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+    return convertEntityToDTOResponse(saveUsuario);
   }
 
   @Override
@@ -130,6 +138,12 @@ public class UsuarioImpl implements IUsuarioService {
     return repository.findByAuthUsername(usuUsername).map(this::convertEntityToResponse).orElse(new UsuarioResponse());
   }
 
+  private UsuarioEntity convertRequestDTOToEntity(UsuarioDTORequest in) {
+    UsuarioEntity out = new UsuarioEntity();
+    BeanUtils.copyProperties(in, out);
+    return out;
+  }
+
   private UsuarioEntity convertRequestToEntity(UsuarioRequest in) {
     UsuarioEntity out = new UsuarioEntity();
     BeanUtils.copyProperties(in, out);
@@ -138,6 +152,12 @@ public class UsuarioImpl implements IUsuarioService {
 
   private UsuarioResponse convertEntityToResponse(UsuarioEntity in) {
     UsuarioResponse out = new UsuarioResponse();
+    BeanUtils.copyProperties(in, out);
+    return out;
+  }
+
+  private UsuarioDTO convertEntityToDTOResponse(UsuarioEntity in) {
+    UsuarioDTO out = new UsuarioDTO();
     BeanUtils.copyProperties(in, out);
     return out;
   }

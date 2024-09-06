@@ -22,9 +22,17 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer>
   @Query(value = "SELECT u.usu_id AS usuId, u.usu_nombre AS usuNombre, u.usu_ape_paterno AS usuApePaterno, u.usu_ape_materno AS usuApeMaterno, u.usu_telefono AS usuTelefono, " + "u.usu_numero_documento AS usuNumeroDocumento, u.usu_tipo_documento AS usuTipoDocumento, u.usu_genero AS usuGenero, e.emp_nombre_comercial AS empNombreComercial, " + "a.auth_roles AS authRoles, a.auth_username AS authUsername" + " FROM T_USUARIO u " + "INNER JOIN T_EMPRESA e ON u.empresa_id = e.emp_id " + "INNER JOIN T_USUARIO_AUTHORITY a ON u.usu_id = a.usu_id" + " WHERE e.emp_is_active = 1", nativeQuery = true)
   List<Map<String, Object>> findAllUsers();
 
-  @Query(value = "SELECT u.usu_id AS usuId, u.usu_nombre AS usuNombre, u.usu_ape_paterno AS usuApePaterno, " + "u.usu_ape_materno AS usuApeMaterno , u.usu_telefono AS usuTelefono, u.usu_numero_documento AS usuNumeroDocumento, " + "u.usu_tipo_documento AS usuTipoDocumento, u.usu_genero AS usuGenero, e.emp_nombre_comercial AS empNombreComercial, " + "a.auth_roles AS authRoles, a.auth_username AS authUsername" + // Añadir estos campos
-      " FROM T_USUARIO u " + "INNER JOIN T_EMPRESA e ON e.emp_id = u.empresa_id " + "INNER JOIN T_USUARIO_AUTHORITY a ON a.usu_id = u.usu_id " + "WHERE e.emp_id = :empresaId", nativeQuery = true)
-  List<Map<String, Object>> findUsuariosByEmpresaId(@Param("empresaId") Integer empresaId);
+  @Query(value = "SELECT u.usu_id AS usuId, u.usu_nombre AS usuNombre, u.usu_ape_paterno AS usuApePaterno, "
+      + "u.usu_ape_materno AS usuApeMaterno, u.usu_telefono AS usuTelefono, u.usu_numero_documento AS usuNumeroDocumento, "
+      + "u.usu_tipo_documento AS usuTipoDocumento, u.usu_genero AS usuGenero, e.emp_nombre_comercial AS empNombreComercial, "
+      + "a.auth_roles AS authRoles, a.auth_username AS authUsername "
+      + "FROM T_USUARIO u "
+      + "INNER JOIN T_EMPRESA e ON e.emp_id = u.empresa_id "
+      + "INNER JOIN T_USUARIO_AUTHORITY a ON a.usu_id = u.usu_id "
+      + "WHERE u.empresa_id = (SELECT empresa_id FROM T_USUARIO WHERE usu_id = :usuId)",
+      nativeQuery = true)
+  List<Map<String, Object>> findUsuariosBySesionEmpresaId(@Param("usuId") Integer usuId);
+
 
 
 }

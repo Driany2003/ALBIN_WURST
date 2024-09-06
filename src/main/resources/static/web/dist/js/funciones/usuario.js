@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var usuarioId = $("#usuarioId").val();
     var usuarioNivel = $("#usuarioNivel").val();
+    var usuarioEmpresaId = $("#empresaId").val();
 
     if (!usuarioId) {
         alert("No se ha definido el ID del usuario.");
@@ -27,7 +28,12 @@ $(document).ready(function () {
                             '<td>' + (usuario.authUsername || '') + '</td>' +
                             '<td>' + (usuario.empNombreComercial || '') + '</td>' +
                             '<td>' +
-                            '<button class="btn btn-primary btn-sm">Acción</button>' +
+                            '<button type="button" data-id="' + (usuario.usuId || '') + '" class="btn btn-sm btn-warning editarUsuario" data-toggle="tooltip" data-placement="top" title="Editar Usuario">' +
+                            '<i class="fas fa-pencil-alt"></i>' +
+                            '</button>' +
+                            '<button type="button" data-id="' + (usuario.usuId || '') + '" class="btn btn-sm btn-danger eliminarUsuario" data-toggle="tooltip" data-placement="top" title="Eliminar Usuario">' +
+                            '<i class="fas fa-trash"></i>' +
+                            '</button>' +
                             '</td>' +
                             '</tr>';
                     });
@@ -49,7 +55,6 @@ $(document).ready(function () {
                 }
             },
             error: function (error) {
-                console.error("Error al cargar los usuarios:", error);
                 alert("Ocurrió un error al cargar los usuarios.");
             }
         });
@@ -57,9 +62,22 @@ $(document).ready(function () {
 
 
     // para poder registrar un usuario desde Administrador
-
-    $('#registrarUsuario').click(function (event) {
-        event.preventDefault();
+    $('#registrarUsuario').on('click', function () {
+        var empresaId = (usuarioNivel === "ADMINISTRADOR") ? $('#usuario_empresa').val() : usuarioEmpresaId;
+        var generoSeleccionado = $('input[name="usuario_genero"]:checked').val();
+        var usuarioData = {
+            impId: empresaId,
+            usuNombre: $('#usuario_nombre').val(),
+            usuApePaterno: $('#usuario_apellido_paterno').val(),
+            usuApeMaterno: $('#usuario_apellido_materno').val(),
+            usuTelefono: $('#usuario_telefono').val(),
+            usuGenero: generoSeleccionado,
+            usuNumeroDocumento: $('#usuario_numero_documento').val(),
+            usuTipoDocumento: $('#usuario_tipo_documento').val(),
+            authRoles: $('#usuario_cargo').val(),
+            authUsername: $('#username_usuario').val(),
+            authPassword: $('#usuario_clave_1').val(),
+        };
 
         $.ajax({
             url: '/kenpis/usuario/create',
@@ -69,7 +87,6 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.status === "success") {
                     alert("Usuario creado exitosamente.");
-
                     $('#createUserForm')[0].reset();
                 } else {
                     alert("Error: " + response.message);

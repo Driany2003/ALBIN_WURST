@@ -1,6 +1,7 @@
 package com.pe.kenpis.business;
 
 import com.pe.kenpis.model.api.usuario.UsuarioDTO;
+import com.pe.kenpis.model.api.usuario.UsuarioDTORequest;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
@@ -14,11 +15,11 @@ public interface IUsuarioService {
 
   List<UsuarioDTO> findAllUsers();
 
-  List<UsuarioDTO> findUsuariosByEmpresaId(Integer empresaId);
+  List<UsuarioDTO> findUsuariosByEmpresaId(Integer usuId);
 
   UsuarioResponse findById(Integer id);
 
-  UsuarioResponse create(UsuarioRequest request);
+  UsuarioDTO create(UsuarioDTORequest request);
 
   UsuarioResponse update(UsuarioRequest request);
 

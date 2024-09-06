@@ -124,8 +124,8 @@ $(document).ready(function () {
                 $('#editempTelefono').val(empresa.empTelefono);
                 $('#editempEmail').val(empresa.empEmail);
                 $('#editempNombreComercial').val(empresa.empNombreComercial);
-                $('#editempFechaContratoInicio').val(empresa.empFechaContratoInicio);
-                $('#editempFechaContratoFin').val(empresa.empFechaContratoFin);
+                $('#editempFechaContratoInicio').data(empresa.empFechaContratoInicio);
+                $('#editempFechaContratoFin').data(empresa.empFechaContratoFin);
                 /*
                                 $('#editImgContainer').html('');
                                 if (empresa.empImageLogo) {

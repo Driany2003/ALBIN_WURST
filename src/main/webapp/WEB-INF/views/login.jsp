@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html dir="ltr" lang="en">
 <%@ include file="includes/header.jspf" %>
 <body>
@@ -37,7 +38,7 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                             </div>
                             <!--<input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password">-->
-                            <input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password" value="Lima1234.." >
+                            <input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password" value="Lima1234..">
                         </div>
                         <!--
                         <div class="form-group row">
@@ -76,18 +77,17 @@
 
             <!-- MODAL EMERGENTE PARA USUARIO QUE PERTENECEN A EMPRESA INACTIVA-->
 
-
-            <div class="modal fade" id="empresaInactivaModal" tabindex="-1" role="dialog" aria-labelledby="empresaInactivaModalLabel" aria-hidden="true">
+            <div class="modal fade" id="empresaInactivaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="empresaInactivaModalLabel">Error</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Error</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <p th:text="${mensajeError}"></p>
+                            ${mensajeError}
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -95,6 +95,7 @@
                     </div>
                 </div>
             </div>
+
             <!--
             <div id="recoverform">
                 <div class="logo">
@@ -137,6 +138,7 @@
     <!-- ============================================================== -->
 </div>
 <!-- ============================================================== -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -158,11 +160,15 @@
         $("#loginform").slideUp();
         $("#recoverform").fadeIn();
     });
-        $(document).ready(function () {
-        var empresaInactiva = /*[[${empresaInactiva}]]*/ false;
-        if (empresaInactiva) {
-        $('#empresaInactivaModal').modal('show');
-    }
+    $(document).ready(function () {
+        var mensajeError = "${mensajeError}";
+        console.log("Mensaje de error:", mensajeError);
+        if (mensajeError) {
+            $('#empresaInactivaModal').modal('show');
+            setTimeout(function () {
+                $('#empresaInactivaModal').modal('hide');
+            }, 10000);  // 10 segundos
+        }
     });
 </script>
 </body>

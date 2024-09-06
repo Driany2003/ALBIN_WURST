@@ -59,6 +59,10 @@ public class WLoginController {
     log.info("Usuario logueado: {}", usuarioLogueado);
     log.info("Estado de la empresa (activo/inactivo): {}", empresaResponse.getEmpIsActive());
 
+    if (!empresaResponse.getEmpIsActive()) {
+      request.getSession().setAttribute("errorMessage", "La empresa a la que pertenece está inactiva");
+      return "redirect:/logout";
+    }
 
     request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
     request.getSession().setAttribute("usuSessionNombre", nombre);
@@ -94,8 +98,15 @@ public class WLoginController {
   }
 
   @RequestMapping(value = {"/logout"}, method = RequestMethod.GET)
-  public String logout(HttpServletRequest request, HttpServletResponse response) {
-    return "redirect:/login";
+  public String logout(ModelMap model, HttpServletRequest request, HttpServletResponse response) {
+    String errorMessage = (String) request.getSession().getAttribute("errorMessage");
+    if (errorMessage != null) {
+      model.put("mensajeError", errorMessage);
+      log.info("Mensaje de error: {}", errorMessage);
+    }
+
+    request.getSession().invalidate();
+    return "login";
   }
 
 }

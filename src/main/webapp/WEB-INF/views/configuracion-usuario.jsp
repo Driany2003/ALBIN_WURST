@@ -41,7 +41,7 @@
                                 <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#crearUsuarioModal">Ingresar Usuario</button>
                                 <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                                 <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
-                                <input type="hidden" id="usuarioNivel" value="${sessionScope.usuSessionNivel}" />
+                                <input type="hidden" id="usuarioNivel" value="${sessionScope.usuSessionNivel}"/>
                             </div>
                         </div>
                         <div class="col-md-10">
@@ -116,11 +116,7 @@
                                         </div>
                                     </fieldset>
                                 </c:if>
-                                <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'}">
-                                    <input type="hidden" name="usuario_empresa_reg" value="${empresaSession.empId}"/>
-                                </c:if>
                             </div>
-
                             <fieldset>
                                 <legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
                                 <div class="container-fluid">
@@ -145,27 +141,28 @@
                                         <div class="col-12 col-md-4">
                                             <div class="form-group bmd-form-group is-filled">
                                                 <label for="usuario_cargo" class="bmd-label-floating">Cargo &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                <select class="form-control" name="usuario_cargo_reg" id="usuario_cargo">
-                                                    <option value="" selected="">Seleccione una opción</option>
-                                                    <option value="Administrador">1 - Administrador</option>
-                                                    <option value="Cajero">2 - Cajero</option>
-                                                    <option value="Cocina">3 - Cocinero</option>
-                                                </select>
+                                                <input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="usuario_cargo" id="usuario_cargo" maxlength="20" oninput="this.value = this.value.toUpperCase();">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4">
+                                        <div class="col-12 col-md-3">
                                             <div class="form-group bmd-form-group">
                                                 <label for="usuario_nombre" class="bmd-label-floating">Nombres &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
                                                 <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="usuario_nombre_reg" id="usuario_nombre" maxlength="35">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4">
+                                        <div class="col-12 col-md-3">
                                             <div class="form-group bmd-form-group">
-                                                <label for="usuario_apellido" class="bmd-label-floating">Apellidos &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="usuario_apellido_reg" id="usuario_apellido" maxlength="35">
+                                                <label for="usuario_apellido_paterno" class="bmd-label-floating">Apellido Paterno &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                                <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="usuario_apellido_paterno" id="usuario_apellido_paterno" maxlength="35">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4">
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group bmd-form-group">
+                                                <label for="usuario_apellido_materno" class="bmd-label-floating">Apellido Materno&nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                                <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="usuario_apellido_materno" id="usuario_apellido_materno" maxlength="35">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-3">
                                             <div class="form-group bmd-form-group">
                                                 <label for="usuario_telefono" class="bmd-label-floating">Teléfono</label>
                                                 <input type="number" pattern="[0-9()+]{8,20}" class="form-control" name="usuario_telefono_reg" id="usuario_telefono" maxlength="9">
@@ -184,13 +181,13 @@
                                             <div class="form-group bmd-form-group is-filled">
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="usuario_genero_reg" value="Masculino" checked=""><span class="bmd-radio"></span>
+                                                        <input type="radio" name="usuario_genero" value="M" checked=""><span class="bmd-radio"></span>
                                                         <i class="fas fa-male fa-fw"></i> &nbsp; Masculino
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label>
-                                                        <input type="radio" name="usuario_genero_reg" value="Femenino"><span class="bmd-radio"></span>
+                                                        <input type="radio" name="usuario_genero" value="F"><span class="bmd-radio"></span>
                                                         <i class="fas fa-female fa-fw"></i> &nbsp; Femenino
                                                     </label>
                                                 </div>
@@ -207,14 +204,8 @@
                                     <div class="row">
                                         <div class="col-12 col-md-6">
                                             <div class="form-group bmd-form-group">
-                                                <label for="usuario_usuario" class="bmd-label-floating">Nombre de usuario &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                <input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="usuario_usuario_reg" id="usuario_usuario" maxlength="25">
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <div class="form-group bmd-form-group">
-                                                <label for="usuario_email" class="bmd-label-floating">Email</label>
-                                                <input type="email" class="form-control" name="usuario_email_reg" id="usuario_email" maxlength="50">
+                                                <label for="username_usuario" class="bmd-label-floating">Nombre de usuario &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                                <input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="username_usuario_reg" id="username_usuario" maxlength="25">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6">
@@ -233,8 +224,8 @@
                                             <div class="form-group bmd-form-group is-filled">
                                                 <label for="usuario_estado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
                                                 <select class="form-control" name="usuario_estado_reg" id="usuario_estado">
-                                                    <option value="Activa" selected="">1 - Activa</option>
-                                                    <option value="Deshabilitada">2 - Deshabilitada</option>
+                                                    <option value="1" selected="">1 - Activa</option>
+                                                    <option value="0">2 - Deshabilitada</option>
                                                 </select>
                                             </div>
                                         </div>

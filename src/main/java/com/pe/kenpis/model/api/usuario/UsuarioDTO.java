@@ -6,11 +6,10 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class UsuarioDTO {
 
   private Integer usuId;
-  private Integer impId;
+  private Integer empresaId;
   private String usuNombre;
   private String usuApePaterno;
   private String usuApeMaterno;
@@ -21,7 +20,8 @@ public class UsuarioDTO {
   private char usuGenero;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
-
+  private String authPassword;
+  //convertToUsuarioDTO
   public UsuarioDTO(Integer usuId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
     this.usuId = usuId;
     this.usuNombre = usuNombre;
@@ -36,9 +36,10 @@ public class UsuarioDTO {
     this.authUsername = authUsername;
   }
 
-  public UsuarioDTO(Integer usuId, Integer impId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
+//convertToUsuarioDTObyEmpresaId
+  public UsuarioDTO(Integer usuId, Integer empresaId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
     this.usuId = usuId;
-    this.impId = impId;
+    this.empresaId = empresaId;
     this.usuNombre = usuNombre;
     this.usuApePaterno = usuApePaterno;
     this.usuApeMaterno = usuApeMaterno;
