@@ -18,6 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
+logs/
 *.log
 
 ### NetBeans ###
@@ -32,5 +33,3 @@ build/
 
 ### VS Code ###
 .vscode/
-!/logs/kenpis.log
-!/**logs/**/kenpis.log
