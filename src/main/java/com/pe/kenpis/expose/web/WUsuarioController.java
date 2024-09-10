@@ -8,15 +8,12 @@ import com.pe.kenpis.model.api.usuario.UsuarioDTO;
 import com.pe.kenpis.model.api.usuario.UsuarioDTORequest;
 import com.pe.kenpis.model.api.usuario.UsuarioRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
-import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
-import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -89,17 +86,31 @@ public class WUsuarioController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
-  @GetMapping("/find-by-id/{id}")
-  public ResponseEntity<UsuarioResponse> findById(@PathVariable Integer id) {
-    log.info("Controller :: findById :: {}", id);
-    UsuarioResponse response = service.findById(id);
-    return ResponseEntity.ok(response);
+  @GetMapping("/find-by-id/{usuId}")
+  public ResponseEntity<?> findById(@PathVariable Integer usuId, HttpSession session) {
+    UsuarioDTO usuario = service.findById(usuId);
+    String usuSessionNivel = (String) session.getAttribute("usuSessionNivel");
+    if (usuario != null) {
+      Map<String, Object> response = new HashMap<>();
+      response.put("usuario", usuario);
+      FxComunes.printJson("LO QUE TRAE DE USUARIO ", usuario);
+      if (usuSessionNivel.equalsIgnoreCase(Constantes.NIVELES_USUARIO.ADMINISTRADOR)) {
+        List<EmpresaDTO> empresasList = serviceEmpresa.findAllByStatus();
+        response.put("empresasList", empresasList);
+        FxComunes.printJson("LO QUE TRAE EMPRESA ", empresasList);
+      }
+      return ResponseEntity.ok(response);
+    } else {
+      return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+    }
   }
 
+
+
   @PutMapping("/update")
-  public ResponseEntity<UsuarioResponse> update(@RequestBody UsuarioRequest request) {
+  public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTORequest request) {
     log.info("Controller :: update");
-    UsuarioResponse response = service.update(request);
+    UsuarioDTO response = service.update(request);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 

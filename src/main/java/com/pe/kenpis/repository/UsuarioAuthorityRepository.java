@@ -16,4 +16,5 @@ public interface UsuarioAuthorityRepository extends JpaRepository<UsuarioAuthori
 
   @Query("SELECT u FROM UsuarioAuthorityEntity u WHERE u.usuId = :usuId")
   Optional<UsuarioAuthorityEntity> findByUsuarioId(@Param("usuId") Integer usuId);
+  
 }

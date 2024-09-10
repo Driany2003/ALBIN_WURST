@@ -141,7 +141,8 @@
                                         <div class="col-12 col-md-4">
                                             <div class="form-group bmd-form-group is-filled">
                                                 <label for="usuario_cargo" class="bmd-label-floating">Cargo &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                <input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="usuario_cargo" id="usuario_cargo" maxlength="20" oninput="this.value = this.value.toUpperCase();">
+                                                <input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="usuario_cargo" id="usuario_cargo" maxlength="20"
+                                                       oninput="this.value = this.value.toUpperCase();">
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-3">
@@ -238,6 +239,164 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL PARA EDITAR USUARIO -->
+<div class="modal fade" id="editUsuarioModal" tabindex="-1" aria-labelledby="editarUsuarioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarUsuarioModalLabel">Editar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editarUsuarioForm">
+                    <input type="hidden" name="empresa_id" id="edit_empresa_id" value="${empresaSession.empId}"/>
+                    <div class="container">
+                        <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                            <fieldset>
+                                <legend><i class="fas fa-building"></i> &nbsp; Editar Empresa</legend>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6">
+                                            <div class="form-group bmd-form-group is-filled">
+                                                <label for="edit_usuario_empresa" class="bmd-label-floating">Seleccione la empresa</label>
+                                                <select class="form-control" name="edit_usuario_empresa" id="edit_usuario_empresa">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </c:if>
+                    </div>
+                    <fieldset>
+                        <legend><i class="far fa-address-card"></i> &nbsp; Editar Información personal</legend>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <label for="edit_usuario_tipo_documento" class="bmd-label-floating">Tipo de documento &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <select class="form-control" name="edit_usuario_tipo_documento" id="edit_usuario_tipo_documento">
+                                            <option value="" selected="">Seleccione una opción</option>
+                                            <option value="DNI">DNI</option>
+                                            <option value="Cedula">Cedula</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="number" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="edit_usuario_numero_documento" id="edit_usuario_numero_documento"
+                                               maxlength="8">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <label for="edit_usuario_cargo" class="bmd-label-floating">Cargo &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control" name="edit_usuario_cargo" id="edit_usuario_cargo" maxlength="20"
+                                               oninput="this.value = this.value.toUpperCase();">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_nombre" class="bmd-label-floating">Nombres &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="edit_usuario_nombre" id="edit_usuario_nombre" maxlength="35">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_apellido_paterno" class="bmd-label-floating">Apellido Paterno &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="edit_usuario_apellido_paterno" id="edit_usuario_apellido_paterno" maxlength="35">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_apellido_materno" class="bmd-label-floating">Apellido Materno&nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control" name="edit_usuario_apellido_materno" id="edit_usuario_apellido_materno" maxlength="35">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-3">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_telefono" class="bmd-label-floating">Teléfono</label>
+                                        <input type="number" pattern="[0-9()+]{8,20}" class="form-control" name="edit_usuario_telefono" id="edit_usuario_telefono" maxlength="9">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Género -->
+                    <br><br>
+                    <fieldset>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <legend><i class="fas fa-user-friends"></i> &nbsp; Editar Género</legend>
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="edit_usuario_genero" value="M" checked=""><span class="bmd-radio"></span>
+                                                <i class="fas fa-male fa-fw"></i> &nbsp; Masculino
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="edit_usuario_genero" value="F"><span class="bmd-radio"></span>
+                                                <i class="fas fa-female fa-fw"></i> &nbsp; Femenino
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!-- Información de la cuenta -->
+                    <br><br>
+                    <fieldset>
+                        <legend><i class="fas fa-user-lock"></i> &nbsp; Editar Información de la cuenta</legend>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_username_usuario" class="bmd-label-floating">Nombre de usuario &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="edit_username_usuario" id="edit_username_usuario" maxlength="25">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_clave_1" class="bmd-label-floating">Contraseña &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="password" class="form-control" name="edit_usuario_clave_1" id="edit_usuario_clave_1" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group bmd-form-group">
+                                        <label for="edit_usuario_clave_2" class="bmd-label-floating">Repetir contraseña &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <input type="password" class="form-control" name="edit_usuario_clave_2" id="edit_usuario_clave_2" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <label for="edit_usuario_estado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                        <select class="form-control" name="edit_usuario_estado" id="edit_usuario_estado">
+                                            <option value="1" selected="">1 - Activa</option>
+                                            <option value="0">2 - Deshabilitada</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <p class="text-center" style="margin-top: 40px;">
+                        <button type="submit" class="btn btn-raised btn-info btn-sm" id="editarUsuario"><i class="far fa-save"></i> &nbsp; Actualizar</button>
+                    </p>
+                </form>
             </div>
         </div>
     </div>

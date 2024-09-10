@@ -1,17 +1,16 @@
 package com.pe.kenpis.model.api.usuario;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class UsuarioDTORequest {
+@AllArgsConstructor
+public class UsuarioDTORequest  {
 
-  private Integer impId;
+  private Integer empId;
+  private Integer usuId;
   private String usuNombre;
   private String usuApePaterno;
   private String usuApeMaterno;

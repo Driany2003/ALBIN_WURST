@@ -17,11 +17,11 @@ public interface IUsuarioService {
 
   List<UsuarioDTO> findUsuariosByEmpresaId(Integer usuId);
 
-  UsuarioResponse findById(Integer id);
+  UsuarioDTO findById(Integer id);
 
   UsuarioDTO create(UsuarioDTORequest request);
 
-  UsuarioResponse update(UsuarioRequest request);
+  UsuarioDTO update(UsuarioDTORequest request);
 
   UsuarioResponse delete(Integer id);
 
