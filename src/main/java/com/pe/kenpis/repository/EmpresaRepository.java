@@ -16,7 +16,7 @@ import java.util.Optional;
 @Repository
 public interface EmpresaRepository extends JpaRepository<EmpresaEntity, Integer> {
 
-  @Query(value = "SELECT e.emp_id as empId, e.emp_razon_social as empRazonSocial FROM T_EMPRESA e WHERE e.emp_is_active = 1", nativeQuery = true)
+  @Query(value = "SELECT e.emp_id as empId, e.emp_nombre_comercial as empNombreComercial FROM T_EMPRESA e WHERE e.emp_is_active = 1", nativeQuery = true)
   List<Map<String, Object>> findAllByEmpIsActive();
 
 }

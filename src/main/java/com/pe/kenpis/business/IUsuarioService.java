@@ -1,11 +1,9 @@
 package com.pe.kenpis.business;
 
-import com.pe.kenpis.model.api.usuario.UsuarioDTO;
-import com.pe.kenpis.model.api.usuario.UsuarioDTORequest;
-import com.pe.kenpis.model.api.usuario.UsuarioRequest;
-import com.pe.kenpis.model.api.usuario.UsuarioResponse;
+import com.pe.kenpis.model.api.usuario.*;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -19,9 +17,9 @@ public interface IUsuarioService {
 
   UsuarioDTO findById(Integer id);
 
-  UsuarioDTO create(UsuarioDTORequest request);
+  UsuarioDTO create(UsuarioRequest request);
 
-  UsuarioDTO update(UsuarioDTORequest request);
+  UsuarioDTO update(UsuarioDTORequest request , HttpSession session);
 
   UsuarioResponse delete(Integer id);
 

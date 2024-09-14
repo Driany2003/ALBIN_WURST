@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var usuarioEmpresaId = $("#empresaId").val();
+    var usuarioEmpresaId = $("#empresaIdModal").val();
     var usuarioNivel = $("#usuarioNivel").val();
     cargarUsuarios();
 
@@ -16,50 +16,45 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 data: JSON.stringify({usuId: usuarioId}),
                 success: function (response) {
-                    if (response.status === "success") {
-                        const usuarios = response.data;
-                        let tableBody = '';
+                    const usuarios = response.data;
+                    let tableBody = '';
 
-                        usuarios.forEach(function (usuario, index) {
-                            tableBody += '<tr>' +
-                                '<th scope="row">' + (index + 1) + '</th>' +
-                                '<td>' + (usuario.usuTipoDocumento || '') + ' - ' + (usuario.usuNumeroDocumento || '') + '</td>' +
-                                '<td>' + (usuario.usuNombre || '') + ' ' + (usuario.usuApePaterno || '') + ' ' + (usuario.usuApeMaterno || '') + '</td>' +
-                                '<td>' + (usuario.authRoles || '') + '</td>' +
-                                '<td>' + (usuario.authUsername || '') + '</td>' +
-                                '<td>' + (usuario.empNombreComercial || '') + '</td>' +
-                                '<td>' +
-                                '<button type="button" data-id="' + (usuario.usuId || '') + '" class="btn btn-sm btn-warning editarUsuario" data-toggle="tooltip" data-placement="top" title="Editar Usuario">' +
-                                '<i class="fas fa-pencil-alt"></i>' +
-                                '</button>' +
-                                '<button type="button" data-id="' + (usuario.usuId || '') + '" class="btn btn-sm btn-danger eliminarUsuario" data-toggle="tooltip" data-placement="top" title="Eliminar Usuario">' +
-                                '<i class="fas fa-trash"></i>' +
-                                '</button>' +
-                                '</td>' +
-                                '</tr>';
+                    usuarios.forEach(function (usuario, index) {
+                        tableBody += '<tr>' +
+                            '<th scope="row">' + (index + 1) + '</th>' +
+                            '<td>' + (usuario.usuTipoDocumento || '') + ' - ' + (usuario.usuNumeroDocumento || '') + '</td>' +
+                            '<td>' + (usuario.usuNombre || '') + ' ' + (usuario.usuApePaterno || '') + ' ' + (usuario.usuApeMaterno || '') + '</td>' +
+                            '<td>' + (usuario.authRoles || '') + '</td>' +
+                            '<td>' + (usuario.authUsername || '') + '</td>' +
+                            '<td>' + (usuario.empNombreComercial || '') + '</td>' +
+                            '<td>' +
+                            '<button type="button" data-id="' + (usuario.usuId || '') + '" class="btn btn-sm btn-warning editarUsuario" data-toggle="tooltip" data-placement="top" title="Editar Usuario">' +
+                            '<i class="fas fa-pencil-alt"></i>' +
+                            '</button>' +
+                            '<button type="button" data-id="' + (usuario.usuId || '') + '" class="btn btn-sm btn-danger eliminarUsuario" data-toggle="tooltip" data-placement="top" title="Eliminar Usuario">' +
+                            '<i class="fas fa-trash"></i>' +
+                            '</button>' +
+                            '</td>' +
+                            '</tr>';
 
-                        });
+                    });
 
-                        $('#usuariosBody').html(tableBody);
+                    $('#usuariosBody').html(tableBody);
 
-                        $('.eliminarUsuario').click(function (event) {
-                            event.preventDefault();
-                            var usuId = $(this).data('id');
-                            console.log("ID DEL USUARIO A ELIMINAR SELECCIONADO", usuId);
-                            eliminarUsuario(usuId);
-                        });
-                        $('.editarUsuario').click(function (event) {
-                            event.preventDefault();
-                            var usuId = $(this).data('id');
-                            console.log("ID DEL USUARIO SELECCIONADO", usuId);
-                            editarUsuario(usuId);
-                        });
-                        if (usuarioNivel === "ADMINISTRADOR" && response.empresasList) {
-                            listarEmpresasAdmin(response.empresasList, 'usuario_empresa');
-                        }
-
-                    } else {
-                        alert(response.message);
+                    $('.eliminarUsuario').click(function (event) {
+                        event.preventDefault();
+                        var usuId = $(this).data('id');
+                        console.log("ID DEL USUARIO A ELIMINAR SELECCIONADO", usuId);
+                        eliminarUsuario(usuId);
+                    });
+                    $('.editarUsuario').click(function (event) {
+                        event.preventDefault();
+                        var usuId = $(this).data('id');
+                        console.log("ID DEL USUARIO SELECCIONADO", usuId);
+                        editarUsuario(usuId);
+                    });
+                    if (usuarioNivel === "ADMINISTRADOR" && response.empresasList) {
+                        listarEmpresasAdmin(response.empresasList, 'usuario_empresa');
                     }
                 },
                 error: function (error) {
@@ -73,7 +68,7 @@ $(document).ready(function () {
     function listarEmpresasAdmin(empresas, selectElementId) {
         let options = '';
         empresas.forEach(function (empresa) {
-            options += '<option value="' + empresa.empId + '">' + empresa.empRazonSocial + '</option>';
+            options += '<option value="' + empresa.empId + '">' + empresa.empNombreComercial + '</option>';
         });
         $('#' + selectElementId).html(options);
     }
@@ -84,7 +79,7 @@ $(document).ready(function () {
         var empresaId = (usuarioNivel === "ADMINISTRADOR") ? $('#usuario_empresa').val() : usuarioEmpresaId;
         var generoSeleccionado = $('input[name="usuario_genero"]:checked').val();
         var usuarioData = {
-            impId: empresaId,
+            empresaId: empresaId,
             usuNombre: $('#usuario_nombre').val(),
             usuApePaterno: $('#usuario_apellido_paterno').val(),
             usuApeMaterno: $('#usuario_apellido_materno').val(),
@@ -103,12 +98,9 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify(usuarioData),
             success: function (response) {
-                if (response.status === "success") {
-                    alert("Usuario creado exitosamente.");
-                    $('#createUserForm')[0].reset();
-                } else {
-                    alert("Error: " + response.message);
-                }
+                alert("Usuario creado exitosamente.");
+                $('#crearUsuarioModal').modal('hide');
+                cargarUsuarios();
             },
             error: function (error) {
                 console.error("Error al crear el usuario:", error);
@@ -123,15 +115,11 @@ $(document).ready(function () {
         $.ajax({
             url: `/kenpis/usuario/find-by-id/${usuId}`,
             method: 'GET',
-            success: function (usuario) {
+            success: function (response) {
+                let usuario = response.usuario;
                 console.log("Datos del usuario recuperados:", usuario);
-                if (!usuario) {
-                    toastr.error('No se encontraron datos del usuario.');
-                    return;
-                }
-                // Cargar los campos con los datos del usuario recuperado
+
                 $("#usuarioId").val(usuario.usuId);
-                $("#empresaId").val(usuario.empId);
                 $('#edit_usuario_nombre').val(usuario.usuNombre);
                 $('#edit_usuario_apellido_paterno').val(usuario.usuApePaterno);
                 $('#edit_usuario_apellido_materno').val(usuario.usuApeMaterno);
@@ -143,12 +131,12 @@ $(document).ready(function () {
                 $('#edit_username_usuario').val(usuario.authUsername);
                 $('#edit_usuario_clave_1').val(usuario.authPassword || '');
 
-                if (usuarioNivel === "ADMINISTRADOR" && usuario.empresasList) {
-                    listarEmpresasAdmin(usuario.empresasList, 'edit_usuario_empresa');
-                    $('#edit_usuario_empresa').val(usuario.empId);
-                } else {
-                    $('#edit_usuario_empresa').empty();
-                }
+                if (usuarioNivel === "ADMINISTRADOR" && response.empresasList) {
+                    listarEmpresasAdmin(response.empresasList, 'edit_usuario_empresa');
+                    $('#edit_usuario_empresa').val(usuario.empresaId);
+                } else if (usuarioNivel === "PROPIETARIO")
+                    $('#edit_usuario_empresa').val(usuario.empresaId);
+
 
                 $('#editUsuarioModal').modal('show');
             },
@@ -159,13 +147,11 @@ $(document).ready(function () {
     }
 
 
-
     $('#editarUsuarioForm').submit(function (event) {
         event.preventDefault();
-        console.log("Form submitted!");
         var usuarioData = {
             usuId: $('#usuarioId').val(),
-            empId: $('#edit_empresa_id').val(),
+            empresaId: $('#edit_usuario_empresa').val(),
             usuNombre: $('#edit_usuario_nombre').val(),
             usuApePaterno: $('#edit_usuario_apellido_paterno').val(),
             usuApeMaterno: $('#edit_usuario_apellido_materno').val(),
@@ -194,6 +180,7 @@ $(document).ready(function () {
             }
         });
     });
+
     function eliminarUsuario(usuId) {
         if (confirm('¿Estás seguro de que deseas eliminar este usuario?')) {
             $.ajax({

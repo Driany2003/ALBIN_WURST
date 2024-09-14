@@ -9,7 +9,7 @@ import lombok.*;
 public class UsuarioDTO {
 
   private Integer usuId;
-  private Integer empId;
+  private Integer empresaId;
   private String usuNombre;
   private String usuApePaterno;
   private String usuApeMaterno;
@@ -39,7 +39,7 @@ public class UsuarioDTO {
 //convertToUsuarioDTObyEmpresaId
   public UsuarioDTO(Integer usuId, Integer empresaId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
     this.usuId = usuId;
-    this.empId = empresaId;
+    this.empresaId = empresaId;
     this.usuNombre = usuNombre;
     this.usuApePaterno = usuApePaterno;
     this.usuApeMaterno = usuApeMaterno;

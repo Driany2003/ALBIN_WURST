@@ -9,13 +9,12 @@ import lombok.*;
 @AllArgsConstructor
 public class UsuarioDTORequest  {
 
-  private Integer empId;
   private Integer usuId;
+  private Integer empresaId;
   private String usuNombre;
   private String usuApePaterno;
   private String usuApeMaterno;
   private String usuTelefono;
-  private String empNombreComercial;
   private String authRoles;
   private String authUsername;
   private char usuGenero;

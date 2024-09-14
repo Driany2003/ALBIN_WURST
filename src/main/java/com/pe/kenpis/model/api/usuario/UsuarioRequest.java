@@ -8,15 +8,17 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioRequest {
-
-  private Integer usuId;
+//recibe lo que trae de registrar
+  private Integer empresaId;
   private String usuNombre;
   private String usuApePaterno;
   private String usuApeMaterno;
   private String usuTelefono;
-  private Integer empresaId;
+  private String authRoles;
+  private String authUsername;
   private char usuGenero;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
+  private String authPassword;
 
 }

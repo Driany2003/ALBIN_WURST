@@ -3,11 +3,8 @@ package com.pe.kenpis.expose.web;
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
-import com.pe.kenpis.model.api.empresa.EmpresaResponse;
-import com.pe.kenpis.model.api.usuario.UsuarioDTO;
-import com.pe.kenpis.model.api.usuario.UsuarioDTORequest;
-import com.pe.kenpis.model.api.usuario.UsuarioRequest;
-import com.pe.kenpis.model.api.usuario.UsuarioResponse;
+import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.api.usuario.*;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;
 import lombok.extern.slf4j.Slf4j;
@@ -39,7 +36,7 @@ public class WUsuarioController {
   }
 
   @PostMapping("/create")
-  public ResponseEntity<?> create(@RequestBody UsuarioDTORequest request) {
+  public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioRequest request) {
     FxComunes.printJson("QUE TRAE DE REGISTRAR ", request);
     UsuarioDTO response = service.create(request);
     return new ResponseEntity<>(response, HttpStatus.CREATED);
@@ -62,7 +59,6 @@ public class WUsuarioController {
 
     if (usuSessionNivel.equalsIgnoreCase(Constantes.NIVELES_USUARIO.ADMINISTRADOR)) {
       List<UsuarioDTO> listaUsuarios = service.findAllUsers();
-      response.put("status", "success");
       response.put("data", listaUsuarios);
       session.setAttribute("listaUsuarios", listaUsuarios);
       FxComunes.printJson("QUE LLEGA DE ADMINISTRADOR", listaUsuarios);
@@ -73,7 +69,6 @@ public class WUsuarioController {
 
     } else if (usuSessionNivel.equalsIgnoreCase(Constantes.NIVELES_USUARIO.PROPIETARIO)) {
       List<UsuarioDTO> listaUsuarios = service.findUsuariosByEmpresaId(usuarioDTO.getUsuId());
-      response.put("status", "success");
       response.put("data", listaUsuarios);
       session.setAttribute("listaUsuarios", listaUsuarios);
       FxComunes.printJson("QUE LLEGA DE PROPIETARIO", listaUsuarios);
@@ -105,12 +100,11 @@ public class WUsuarioController {
     }
   }
 
-
-
   @PutMapping("/update")
-  public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTORequest request) {
+  public ResponseEntity<UsuarioDTO> update(@RequestBody UsuarioDTORequest request, HttpSession session) {
     log.info("Controller :: update");
-    UsuarioDTO response = service.update(request);
+    FxComunes.printJson("lo que trae al editar ", request);
+    UsuarioDTO response = service.update(request, session);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 

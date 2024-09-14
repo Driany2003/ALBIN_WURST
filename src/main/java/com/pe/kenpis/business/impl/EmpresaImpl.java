@@ -37,7 +37,7 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public List<EmpresaDTO> findAllByStatus() {
     List<Map<String, Object>> results = repository.findAllByEmpIsActive();
-    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empRazonSocial"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
 
   @Override

@@ -9,7 +9,7 @@ import lombok.*;
 public class EmpresaDTO {
 
   private Integer empId;
-  private String empRazonSocial;
+  private String empNombreComercial;
 
 
 }

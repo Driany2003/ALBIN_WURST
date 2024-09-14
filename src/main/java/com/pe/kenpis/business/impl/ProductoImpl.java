@@ -133,7 +133,7 @@ public class ProductoImpl implements IProductoService {
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {
     ProductoEntity out = new ProductoEntity();
     imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (in.getProImagen().length() > 0) {
+    if (!in.getProImagen().isEmpty()) {
       Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
       out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
@@ -149,7 +149,7 @@ public class ProductoImpl implements IProductoService {
   private ProductoResponse convertEntityToResponse(ProductoEntity in) {
     ProductoResponse out = new ProductoResponse();
     imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (in.getProImagen().length() > 0) {
+    if (!in.getProImagen().isEmpty()) {
       Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
       out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
@@ -165,7 +165,7 @@ public class ProductoImpl implements IProductoService {
   private ProductoRequest convertResponseToRequest(ProductoResponse in) {
     ProductoRequest out = new ProductoRequest();
     imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (in.getProImagen().length() > 0) {
+    if (!in.getProImagen().isEmpty()) {
       Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
       out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
       out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));

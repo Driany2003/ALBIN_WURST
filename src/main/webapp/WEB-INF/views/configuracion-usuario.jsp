@@ -85,6 +85,7 @@
         </div>
         <!-- MODAL PARA REGISTRAR USUARIO -->
         <div class="modal fade" id="crearUsuarioModal" tabindex="-1" aria-labelledby="crearUsuarioModalLabel" aria-hidden="true">
+            <input id="empresaIdModal" type="hidden" value="${empresaSession.empId}"/>
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -277,6 +278,7 @@
                             </fieldset>
                         </c:if>
                     </div>
+
                     <fieldset>
                         <legend><i class="far fa-address-card"></i> &nbsp; Editar Información personal</legend>
                         <div class="container-fluid">
