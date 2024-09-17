@@ -17,8 +17,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -125,12 +127,22 @@ public class ProductoImpl implements IProductoService {
     return productos.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
-  public List<ProductoListDTO> getAllCategorias() {
-   return  repository.findAllCategorias().stream().map(this::convertToListCategoriaDTO).collect(Collectors.toList());
+  //LISTAR EN EL COMBO DE PRODUCTO "LISTAR CATEGORIAS EN EL COMBO DE REGISTRAR"
+  public List<ProductoListDTO> getAllCategorias(Integer empId) {
+    return repository.findAllCategorias(empId).stream().map(this::convertToListCategoriaDTO).collect(Collectors.toList());
   }
 
   private ProductoListDTO convertToListCategoriaDTO(Map<String, Object> map) {
     return new ProductoListDTO((Integer) map.get("proId"), (Integer) map.get("empId"), (String) map.get("proCategoria"));
+  }
+
+  //ES LISTAR LA CATEGORIA POR EMPRESA EN NUEVA VENTA
+  public List<ProductoListDTO> getCategoriasbyEmpresa(Integer empId) {
+    return repository.findAllCategoriaByEmpresa(empId).stream().map(this::convertToCategoriabyEmpresaDTO).collect(Collectors.toList());
+  }
+
+  private ProductoListDTO convertToCategoriabyEmpresaDTO(Map<String, Object> map) {
+    return new ProductoListDTO((Integer) map.get("proId"), (Integer) map.get("empId"), (String) map.get("proCategoria"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecio"));
   }
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    var empresaId = $("#empresaId").val();
+    console.log ("hola", empresaId);
     listarCategoria();
     cargarProductos();
 
@@ -7,6 +9,7 @@ $(document).ready(function () {
         $.ajax({
             url: '/kenpis/producto/categorias',
             method: 'GET',
+            data: {empId: empresaId},
             success: function (data) {
                 var seleccionarCategoria = $('#categoria');
                 var editCategoria = $('#editCategoria');
@@ -137,38 +140,25 @@ $(document).ready(function () {
     });
 
     function crearProducto(img_base64, img_contenttype) {
-        //alert("IMAGE --> " + img_base64 + " - " + img_contenttype);
-        var nombreProducto = $('#nombreProducto').val();
-        var precioProducto = $('#precioProducto').val();
-        var categoriaProducto = $('#categoria').val();
-        var descripcionProducto = $('#descripcionProducto').val();
+
+        var productoData = {
+            proCategoria: $('#nombreProducto').val(),
+            proPrecio: $('#precioProducto').val(),
+            padreId: $('#categoria').val(),
+            proDescripcion: $('#descripcionProducto').val(),
+            proImagen: img_base64,
+            proImagenLongitud: img_contenttype,
+            empId: empresaId
+        }
         $.ajax({
             url: '/kenpis/producto/create',
             method: 'POST',
             contentType: 'application/json',
-            processData: false,  // Important!
-            //contentType: false,
-            cache: false,
-            data: JSON.stringify({
-                proCategoria: nombreProducto,
-                proPrecio: precioProducto,
-                padreId: categoriaProducto,
-                proDescripcion: descripcionProducto,
-                proImagen: img_base64,
-                proImagenLongitud: img_contenttype,
-                proIsActive: true,
-                empId: 1
-            }),
+            data: JSON.stringify(productoData),
             success: function (response) {
-                $('#nombreProducto').val('');
-                $('#precioProducto').val('');
-                $('#categoria').val('');
-                $('#descripcionProducto').val('');
-                $('#imagenProducto').val('');
                 toastr.success('Producto registrado correctamente.');
-                cargarProductos();
                 $('#createProductModal').modal('hide');
-
+                cargarProductos();
             },
             error: function () {
                 toastr.error('Error al registrar el producto. Intente nuevamente.');

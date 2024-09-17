@@ -13,8 +13,11 @@ import java.util.Map;
 @Repository
 public interface ProductoRepository extends JpaRepository<ProductoEntity, Integer> {
 
-  @Query("SELECT p.proId AS proId,p.empId AS empId ,p.proCategoria AS proCategoria FROM ProductoEntity p WHERE p.padreId = 0")
-  List<Map<String,Object>> findAllCategorias();
+  @Query(value = "SELECT p.pro_id AS proId, p.emp_id AS empId, p.pro_categoria AS proCategoria " + "FROM T_PRODUCTO p " + "INNER JOIN T_EMPRESA e ON e.emp_id = p.emp_id " + "WHERE p.padre_id = 0 AND p.emp_id = :empId", nativeQuery = true)
+  List<Map<String, Object>> findAllCategorias(@Param("empId") Integer empId);
+
+  @Query(value = "SELECT p.pro_id AS proId, " + "p.emp_id AS empId, " + "p.pro_categoria AS proCategoria, " + "p.pro_descripcion AS proDescripcion, " + "p.pro_imagen AS proImagen " + "FROM T_PRODUCTO p " + "INNER JOIN T_EMPRESA e ON e.emp_id = p.emp_id " + "WHERE p.padre_id = 0 " + "AND p.emp_id = :empId", nativeQuery = true)
+  List<Map<String, Object>> findAllCategoriaByEmpresa(@Param("empId") Integer empId);
 
   @Query(value = "SELECT " + "productoen0_.pro_id AS proId," + "productoen0_.pro_descripcion AS proDescripcion, " + "productoen0_.pro_imagen AS proImagen, " + "productoen0_.pro_is_active AS proIsActive, " + "productoen0_.pro_precio AS proPrecio " + "FROM T_PRODUCTO productoen0_ " + "INNER JOIN T_EMPRESA e ON productoen0_.emp_id = e.emp_id " + "WHERE productoen0_.padre_id <> 0 " + "AND productoen0_.pro_is_active = 1 " + "AND e.emp_is_active = 1", nativeQuery = true)
   List<Map<String, Object>> findActiveProductosWithActiveEmpresa();

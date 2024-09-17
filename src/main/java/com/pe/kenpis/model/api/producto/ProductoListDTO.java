@@ -30,4 +30,14 @@ public class ProductoListDTO {
     this.empId = empId;
     this.proCategoria = proCategoria;
   }
+
+  public ProductoListDTO(Integer proId, Integer empId,String proDescripcion ,String proCategoria,String proImagen, Boolean proIsActive, Double proPrecio) {
+    this.proId = proId;
+    this.empId = empId;
+    this.proCategoria = proCategoria;
+    this.proDescripcion = proDescripcion;
+    this.proImagen = proImagen;
+    this.proIsActive = proIsActive;
+    this.proPrecio = proPrecio;
+  }
 }

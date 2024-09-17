@@ -93,12 +93,12 @@ public class WEmpresaController {
       List<EmpresaResponse> listaEmpresa = service.findAll();
       response.put("status", "success");
       response.put("data", listaEmpresa);
-      session.setAttribute("listaEmpresa", listaEmpresa);
+      session.setAttribute("empresasAdministrador", listaEmpresa);
     } else if (usuSessionNivel.equalsIgnoreCase("PROPIETARIO")) {
       EmpresaResponse empresaResponse = service.obtenerEmpresaPorUsuario(usuarioResponse.getUsuId());
       response.put("status", "success");
       response.put("data", empresaResponse);
-      session.setAttribute("empresaSession", empresaResponse);
+      session.setAttribute("propietarioEmpresa", empresaResponse);
     }
     return new ResponseEntity<>(response,HttpStatus.OK);
   }

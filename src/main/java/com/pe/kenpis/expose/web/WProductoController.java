@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
@@ -30,8 +31,14 @@ public class WProductoController {
   private IProductoService service;
 
   @GetMapping("/categorias")
-  public ResponseEntity<List<ProductoListDTO>> getAllCategories() {
-    List<ProductoListDTO> categorias = service.getAllCategorias();
+  public ResponseEntity<List<ProductoListDTO>> getAllCategories(@RequestParam("empId") Integer empId) {
+    List<ProductoListDTO> categorias = service.getAllCategorias(empId);
+    return new ResponseEntity<>(categorias, HttpStatus.OK);
+  }
+
+  @GetMapping("/nuevaVenta-categorias")
+  public ResponseEntity<List<ProductoListDTO>> getCategoriasbyEmpresa(@RequestParam("empId") Integer empId) {
+    List<ProductoListDTO> categorias = service.getCategoriasbyEmpresa(empId);
     return new ResponseEntity<>(categorias, HttpStatus.OK);
   }
 

@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    var empresaId = $('#empresaId').val();
+
+
     let totalPagar;
     let detallesVenta = [];
     let clienteId = null;
@@ -36,8 +39,9 @@ $(document).ready(function () {
 
     function cargarCategorias() {
         $.ajax({
-            url: '/kenpis/producto/categorias',
+            url: '/kenpis/producto/nuevaVenta-categorias',
             method: 'GET',
+            data: { empId: empresaId },
             success: function (categorias) {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();

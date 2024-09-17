@@ -5,6 +5,7 @@ import com.pe.kenpis.model.api.producto.ProductoListDTO;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -26,6 +27,8 @@ public interface IProductoService {
 
   List<ProductoResponse> getProductosByCategoriaId(int categoriaId);
 
-  List<ProductoListDTO> getAllCategorias();
+  List<ProductoListDTO> getAllCategorias(Integer empId);
+
+  List<ProductoListDTO> getCategoriasbyEmpresa(Integer empId);
 
 }
