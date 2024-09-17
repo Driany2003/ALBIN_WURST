@@ -121,7 +121,6 @@ public class UsuarioImpl implements IUsuarioService {
 
     authorityEntity.setAuthUsername(request.getAuthUsername());
     authorityEntity.setAuthRoles(request.getAuthRoles());
-    authorityEntity.setAuthPassword(request.getAuthPassword());
     usuarioAuthorityRepository.save(authorityEntity);
 
     return convertEntityToDTOResponse(usuarioActualizado);

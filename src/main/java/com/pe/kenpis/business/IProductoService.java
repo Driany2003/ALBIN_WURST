@@ -26,6 +26,6 @@ public interface IProductoService {
 
   List<ProductoResponse> getProductosByCategoriaId(int categoriaId);
 
-  List<ProductoResponse> getAllCategorias();
+  List<ProductoListDTO> getAllCategorias();
 
 }

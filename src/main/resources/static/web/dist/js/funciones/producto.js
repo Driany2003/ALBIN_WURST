@@ -167,6 +167,8 @@ $(document).ready(function () {
                 $('#imagenProducto').val('');
                 toastr.success('Producto registrado correctamente.');
                 cargarProductos();
+                $('#createProductModal').modal('hide');
+
             },
             error: function () {
                 toastr.error('Error al registrar el producto. Intente nuevamente.');

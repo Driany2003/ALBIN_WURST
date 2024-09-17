@@ -30,9 +30,9 @@ public class WProductoController {
   private IProductoService service;
 
   @GetMapping("/categorias")
-  public ResponseEntity<List<ProductoResponse>> getAllCategories() {
-    List<ProductoResponse> categories = service.getAllCategorias();
-    return ResponseEntity.ok(categories);
+  public ResponseEntity<List<ProductoListDTO>> getAllCategories() {
+    List<ProductoListDTO> categorias = service.getAllCategorias();
+    return new ResponseEntity<>(categorias, HttpStatus.OK);
   }
 
   @RequestMapping(value = "/echofile", method = RequestMethod.POST, produces = {"application/json"})
