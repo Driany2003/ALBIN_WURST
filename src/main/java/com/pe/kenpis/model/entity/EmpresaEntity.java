@@ -61,4 +61,8 @@ public class EmpresaEntity {
   @Column(name = "emp_email")
   private String empEmail;
 
+  @Column(name = "emp_padre_id")
+  private Integer empPadreId;
+
+
 }

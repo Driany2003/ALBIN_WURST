@@ -28,5 +28,6 @@ public class EmpresaRequest {
   private Long empQrPagos;
   private Boolean empIsActive;
   private String empEmail;
+  private Integer empPadreId;
 
 }

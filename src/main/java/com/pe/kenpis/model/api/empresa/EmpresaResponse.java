@@ -27,5 +27,6 @@ public class EmpresaResponse {
   private Long empQrPagos;
   private Boolean empIsActive;
   private String empEmail;
+  private Integer empPadreId;
 
 }
