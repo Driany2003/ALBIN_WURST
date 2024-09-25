@@ -30,8 +30,8 @@ public class CajaEntity {
   @Column(name = "caja_usuario_cierre")
   private String cajaUsuarioCierre;
 
-  @Column(name = "emp_id")
-  private Integer empId;
+  @Column(name = "emp_padre_id")
+  private Integer empPadreId;
 
   @Column(name = "caja_estado")
   private Boolean cajaEstado;

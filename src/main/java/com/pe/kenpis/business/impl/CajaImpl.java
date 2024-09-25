@@ -76,7 +76,7 @@ public class CajaImpl implements ICajaService {
 
   @Override
   public CajaResponse abrirCaja(CajaRequest cajaRequest) {
-    Optional<EmpresaEntity> empresa = Optional.ofNullable(empresaRepository.findById(cajaRequest.getEmpId()).orElseThrow(() -> new IllegalArgumentException("Empresa no encontrada.")));
+    Optional<EmpresaEntity> empresa = Optional.ofNullable(empresaRepository.findById(cajaRequest.getEmpPadreId()).orElseThrow(() -> new IllegalArgumentException("Empresa no encontrada.")));
     if (empresa.isPresent()) {
       cajaRequest.setCajaEstado(true);
       cajaRequest.setCajaFechaApertura(LocalDateTime.now());

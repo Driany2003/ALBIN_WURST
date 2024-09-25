@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class CajaRequest {
 
   private Integer cajaId;
-  private Integer empId;
+  private Integer empPadreId;
   private LocalDateTime cajaFechaApertura;
   private LocalDateTime cajaFechaCierre;
   private float cajaMontoInicial;
