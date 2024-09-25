@@ -105,6 +105,7 @@ public class CajaImpl implements ICajaService {
     CajaEntity out = new CajaEntity();
     BeanUtils.copyProperties(in, out);
     return out;
+
   }
 
   private CajaResponse convertEntityToResponse(CajaEntity in) {
