@@ -5,6 +5,7 @@ import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
 import com.pe.kenpis.model.entity.EmpresaEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.EmpresaRepository;
@@ -34,9 +35,10 @@ public class EmpresaImpl implements IEmpresaService {
   public List<EmpresaDTO> findAllActiveEmpresaById() {
     log.info("Implements :: findAll");
     List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
-    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"),(String) result.get("empImagenLogo"),(String) result.get("empNombreComercial"),(Date) result.get("empFechaContratoInicio"),(Date) result.get("empFechaContratoFin"),(String) result.get("empTelefono"),(Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
-//lista empresas activas solo para los combos
+
+  //lista empresas activas solo para los combos
   @Override
   public List<EmpresaDTO> findAllByStatus() {
     List<Map<String, Object>> results = repository.findAllByEmpIsActive();
@@ -47,13 +49,13 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId) {
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaId(empId);
-    return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"),(String) result.get("empNombreComercial"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
 
   @Override
   public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaIdList(empId);
-    return results.stream().map(result -> new EmpresaDTO((String) result.get("empImagenLogo"),(Integer) result.get("empId"),(String) result.get("empNombreComercial"),(Date) result.get("empFechaContratoInicio"),(Date) result.get("empFechaContratoFin"),(String) result.get("empTelefono"),(Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((String) result.get("empImagenLogo"), (Integer) result.get("empId"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
 
   @Override
@@ -86,6 +88,38 @@ public class EmpresaImpl implements IEmpresaService {
     request.setEmpPadreId(0);
     FxComunes.printJson("EmpresaRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+  }
+
+  @Override
+  public EmpresaResponse createSucursal(SucursalRequest request) {
+    log.debug("Implements :: createSucursal :: Inicio");
+
+    EmpresaEntity empresaPadre = repository.findById(request.getEmpPadreId()).orElseThrow(() -> new IllegalArgumentException("No se encontró la empresa padre con ID: " + request.getEmpPadreId()));
+
+    EmpresaEntity nuevaSucursal = new EmpresaEntity();
+
+    nuevaSucursal.setEmpDocumentoTipo(empresaPadre.getEmpDocumentoTipo());
+    nuevaSucursal.setEmpDocumentoNumero(empresaPadre.getEmpDocumentoNumero());
+    nuevaSucursal.setEmpRazonSocial(empresaPadre.getEmpRazonSocial());
+    nuevaSucursal.setEmpResponsable(empresaPadre.getEmpResponsable());
+    nuevaSucursal.setEmpImageLogo(empresaPadre.getEmpImageLogo());
+    nuevaSucursal.setEmpFechaContratoInicio(empresaPadre.getEmpFechaContratoInicio());
+    nuevaSucursal.setEmpFechaContratoFin(empresaPadre.getEmpFechaContratoFin());
+    nuevaSucursal.setEmpEmail(empresaPadre.getEmpEmail());
+    nuevaSucursal.setEmpQrYape(empresaPadre.getEmpQrYape());
+    nuevaSucursal.setEmpQrPlin(empresaPadre.getEmpQrPlin());
+    nuevaSucursal.setEmpQrPagos(empresaPadre.getEmpQrPagos());
+    //aca estan los datos del request
+    nuevaSucursal.setEmpPadreId(request.getEmpPadreId());
+    nuevaSucursal.setEmpTelefono(request.getEmpTelefono());
+    nuevaSucursal.setEmpNombreComercial(request.getEmpNombreComercial());
+
+    nuevaSucursal.setEmpIsActive(true);
+    nuevaSucursal.setEmpFechaCreacion(new Date());
+
+    FxComunes.printJson("SucursalRequest", request);
+
+    return convertEntityToResponse(repository.save(nuevaSucursal));
   }
 
   @Override
@@ -154,7 +188,15 @@ public class EmpresaImpl implements IEmpresaService {
     }
   }
 
+  //Request empresa
   private EmpresaEntity convertRequestToEntity(EmpresaRequest in) {
+    EmpresaEntity out = new EmpresaEntity();
+    BeanUtils.copyProperties(in, out);
+    return out;
+  }
+
+  //Request sucursal
+  private EmpresaEntity convertRequestToEntity(SucursalRequest in) {
     EmpresaEntity out = new EmpresaEntity();
     BeanUtils.copyProperties(in, out);
     return out;

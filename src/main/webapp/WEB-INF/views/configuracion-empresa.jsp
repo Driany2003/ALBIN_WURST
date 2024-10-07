@@ -498,7 +498,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" id="btnAgregarSucursal" style="display: none;" onclick="agregarSucursal()">Agregar Sucursal</button>
+                <button id="btnAgregarSucursal" data-emp-id="{{empId}}" class="btn btn-primary">Agregar Sucursal</button>
             </div>
         </div>
     </div>
@@ -509,7 +509,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="sucursalModalLabel"></h5>
+                <h5 class="modal-title" id="sucursalModalLabel">Nueva sucursal</h5>
 
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -522,7 +522,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="sucTelefono" class="form-label">Número Telefónico</label>
-                        <input type="text" class="form-control" id="sucTelefono" placeholder="Número de teléfono" required>
+                        <input type="number" class="form-control" id="sucTelefono" placeholder="Número de teléfono" required>
                     </div>
                 </form>
             </div>

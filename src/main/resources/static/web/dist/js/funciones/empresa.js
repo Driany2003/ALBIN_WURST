@@ -1,4 +1,5 @@
 $(document).ready(function () {
+        let sucursalId;
         cargarEmpresas();
 
         function cargarEmpresas() {
@@ -61,8 +62,8 @@ $(document).ready(function () {
                             });
 
                             $('.mostrarSucursales').off('click').on('click', function () {
-                                var empId = $(this).data('id');
-                                cargarSucursales(empId);
+                                var sucursalId = $(this).data('id');
+                                cargarSucursales(sucursalId);
                             });
                         }
                     } else {
@@ -77,6 +78,8 @@ $(document).ready(function () {
 
 
         function cargarSucursales(empId) {
+            //para guardar el id de la empresa en el boton
+            $('#btnAgregarSucursal').data('emp-id', empId);
 
             var empresaNombreComercial = $('#empresa-row-' + empId + ' td span').text();
             $('#sucursalesModalLabel').text('Sucursales de ' + empresaNombreComercial);
@@ -242,28 +245,26 @@ $(document).ready(function () {
         /* REGISTRAR Y EDITAR PARA UNA SUCURSAL */
 
         $('#btnAgregarSucursal').on('click', function () {
-            var empId = $('#empresaId').val();
-            var empresaNombreComercial = $('#empresa-row-' + empId + ' td span').text();
-            $('#sucursalModalLabel').text('Nueva sucursal para ' + empresaNombreComercial);
-
             $('#sucursalModal').modal('show');
         });
+
         $('#guardarSucursal').on('click', function () {
+            var empId = $('#btnAgregarSucursal').data('emp-id');
             var sucursalData = {
                 empNombreComercial: $('#sucNombre').val(),
-                sucTelefono: $('#sucTelefono').val(),
-                empId: $('#empId').val()
+                empTelefono: $('#sucTelefono').val(),
+                empPadreId: parseInt(empId)
             };
 
             $.ajax({
-                url: '/kenpis/sucursales/create',
+                url: '/kenpis/empresas/sucursales-create',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(sucursalData),
                 success: function (response) {
                     $('#sucursalModal').modal('hide');
                     toastr.success('Sucursal registrada con éxito.');
-                    cargarSucursales();
+                    cargarSucursales(empId);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error al guardar la sucursal:', error);

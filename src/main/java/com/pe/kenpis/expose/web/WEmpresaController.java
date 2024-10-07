@@ -5,6 +5,7 @@ import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
@@ -44,12 +45,21 @@ public class WEmpresaController {
 
   @PostMapping("/create")
   public ResponseEntity<EmpresaResponse> create(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("que trae", request);
+    FxComunes.printJson("create Empresa", request);
     log.info("Controller :: create");
     EmpresaResponse empresa = service.create(request);
 
     return new ResponseEntity<>(empresa, HttpStatus.CREATED);
   }
+
+  @PostMapping("/sucursales-create")
+  public ResponseEntity<EmpresaResponse> create(@RequestBody SucursalRequest request) {
+    FxComunes.printJson("create Sucursal", request);
+    log.info("Controller :: createSucursal");
+    EmpresaResponse sucursal = service.createSucursal(request);
+    return new ResponseEntity<>(sucursal, HttpStatus.CREATED);
+  }
+
 
   @PutMapping("/update")
   public ResponseEntity<EmpresaResponse> update(@RequestBody EmpresaRequest request) {
