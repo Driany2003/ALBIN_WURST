@@ -3,7 +3,6 @@ package com.pe.kenpis.expose.web;
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
-import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.api.usuario.*;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;

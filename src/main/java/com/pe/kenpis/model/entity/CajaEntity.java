@@ -36,5 +36,7 @@ public class CajaEntity {
   @Column(name = "caja_estado")
   private Boolean cajaEstado;
 
+  @Column(name = "caja_asignada")
+  private String cajaAsignada;
 
 }

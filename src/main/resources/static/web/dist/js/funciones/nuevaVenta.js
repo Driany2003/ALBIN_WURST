@@ -9,6 +9,9 @@ $(document).ready(function () {
     actualizarTotal();
     ocultarCampoAlias();
 
+    $('#aperturarCajaModal').on('show.bs.modal', function () {
+    });
+
     $(document).on('click', '.card', function (e) {
         e.preventDefault();
         var categoriaId = $(this).data('id');

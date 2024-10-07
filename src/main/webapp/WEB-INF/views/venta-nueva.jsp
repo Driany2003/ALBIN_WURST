@@ -47,6 +47,8 @@
                         <div class="form-group col-md-3 text-md-right">
                             <label class="font-10">${empresaSession.empDocumentoTipo} : ${empresaSession.empDocumentoNumero}</label><br>
                             <label class="font-10">Vendedor: ${usuSessionNombre}</label>
+                            <br>
+                            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#aperturarCajaModal">Aperturar Caja</button>
                             <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
                         </div>
                     </div>
@@ -202,19 +204,44 @@
                     </div>
                 </div>
             </div>
-
-
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-
-            <!-- ============================================================== -->
-            <!-- End Page wrapper  -->
-            <!-- ============================================================== -->
         </div>
-        <!-- ============================================================== -->
-        <!-- All Jquery -->
-        <!-- ============================================================== -->
+
+        <!-- MODAL PARA APERTURAR CAJA -->
+        <div class="modal fade" id="aperturarCajaModal" tabindex="-1" role="dialog" aria-labelledby="aperturarCajaModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="aperturarCajaModalLabel">Aperturar Rapida de Caja</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="aperturarCajaForm">
+                            <div class="form-group bmd-form-group is-filled">
+                                <label for="sucursalNom" class="bmd-label-floating">Seleccione una Sucursal</label>
+                                <select class="form-control" name="sucursalNom_reg" id="sucursalNom" required>
+                                    <option value="">-- Elegir una Sucursal --</option>
+                                    <c:forEach var="sucursal" items="${listaDeSucursales}">
+                                        <option value="${sucursal.empId}">${sucursal.empNombreComercial}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="montoInicial">Monto Inicial</label>
+                                <input type="number" class="form-control" id="montoInicial" required placeholder="Ingresar un Monto Inicial">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                <button type="submit" class="btn btn-primary">Registrar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <style>
 
@@ -253,7 +280,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
-        <!-- PARA MODAL -->
         <!--  modal: NUEVA VENTA -->
         <script src="/static/web/dist/js/funciones/nuevaVenta.js"></script>
         <%@ include file="includes/all-jquery.jspf" %>

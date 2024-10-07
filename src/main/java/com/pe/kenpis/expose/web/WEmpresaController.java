@@ -2,6 +2,7 @@ package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
+import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
@@ -27,13 +28,10 @@ public class WEmpresaController {
   @Autowired
   private IEmpresaService service;
 
-  @Autowired
-  private IUsuarioService usuarioService;
-
   @GetMapping("/find-all")
-  public ResponseEntity<List<EmpresaResponse>> findAll() {
+  public ResponseEntity<List<EmpresaDTO>> findAll() {
     log.info("Controller :: findAll");
-    List<EmpresaResponse> empresas = service.findAll();
+    List<EmpresaDTO> empresas = service.findAllActiveEmpresaById();
     return new ResponseEntity<>(empresas, HttpStatus.OK);
   }
 
@@ -90,7 +88,8 @@ public class WEmpresaController {
     String usuSessionNivel = (String) session.getAttribute("usuSessionNivel");
 
     if (usuSessionNivel.equalsIgnoreCase("ADMINISTRADOR")) {
-      List<EmpresaResponse> listaEmpresa = service.findAll();
+      List<EmpresaDTO> listaEmpresa = service.findAllActiveEmpresaById();
+      FxComunes.printJson("que trae de emppresa",listaEmpresa);
       response.put("status", "success");
       response.put("data", listaEmpresa);
       session.setAttribute("empresasAdministrador", listaEmpresa);
@@ -100,7 +99,19 @@ public class WEmpresaController {
       response.put("data", empresaResponse);
       session.setAttribute("propietarioEmpresa", empresaResponse);
     }
-    return new ResponseEntity<>(response,HttpStatus.OK);
+    return new ResponseEntity<>(response, HttpStatus.OK);
   }
+
+  @GetMapping("/find-sucursales/{empId}")
+  public ResponseEntity<Map<String, Object>> findSucursalesByEmpresa(@PathVariable Integer empId) {
+    log.info("Controller :: findSucursalesByEmpresa :: empresaId={}", empId);
+    List<EmpresaDTO> sucursales = service.findSucursalByEmpresa(empId);
+    Map<String, Object> response = new HashMap<>();
+    response.put("status", "success");
+    response.put("data", sucursales);
+    FxComunes.printJson("trae sucursales",sucursales);
+    return new ResponseEntity<>(response, HttpStatus.OK);
+  }
+
 }
 

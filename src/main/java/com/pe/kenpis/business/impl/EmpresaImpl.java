@@ -4,6 +4,7 @@ import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
 import com.pe.kenpis.model.entity.EmpresaEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.EmpresaRepository;
@@ -28,16 +29,31 @@ public class EmpresaImpl implements IEmpresaService {
   private final EmpresaRepository repository;
   private final UsuarioRepository usuarioRepository;
 
+  //lista empresas activas solo para mostrar en el modulo de empresas
   @Override
-  public List<EmpresaResponse> findAll() {
+  public List<EmpresaDTO> findAllActiveEmpresaById() {
     log.info("Implements :: findAll");
-    return repository.findAll().stream().map(this::convertEntityToResponse).collect(Collectors.toList());
+    List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"),(String) result.get("empImagenLogo"),(String) result.get("empNombreComercial"),(Date) result.get("empFechaContratoInicio"),(Date) result.get("empFechaContratoFin"),(String) result.get("empTelefono"),(Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
-
+//lista empresas activas solo para los combos
   @Override
   public List<EmpresaDTO> findAllByStatus() {
     List<Map<String, Object>> results = repository.findAllByEmpIsActive();
     return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
+  }
+
+  //empresa en sesion datos para exponer cuando un usuario inicia sesion, lista de sucursales,
+  @Override
+  public List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId) {
+    List<Map<String, Object>> results = repository.findSucursalesByEmpresaId(empId);
+    return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"),(String) result.get("empNombreComercial"))).collect(Collectors.toList());
+  }
+
+  @Override
+  public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
+    List<Map<String, Object>> results = repository.findSucursalesByEmpresaIdList(empId);
+    return results.stream().map(result -> new EmpresaDTO((String) result.get("empImagenLogo"),(Integer) result.get("empId"),(String) result.get("empNombreComercial"),(Date) result.get("empFechaContratoInicio"),(Date) result.get("empFechaContratoFin"),(String) result.get("empTelefono"),(Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
 
   @Override
@@ -67,6 +83,7 @@ public class EmpresaImpl implements IEmpresaService {
     log.debug("Implements :: create :: Inicio");
     request.setEmpIsActive(true);
     request.setEmpFechaCreacion(new Date());
+    request.setEmpPadreId(0);
     FxComunes.printJson("EmpresaRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
@@ -74,7 +91,6 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public EmpresaResponse update(EmpresaRequest request) {
     EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
-    //request.setUsuClave(passwordEncoder.encode(request.getUsuClave()));
     if (res.getEmpId() == null) {
       return new EmpresaResponse();
     } else {
@@ -119,6 +135,7 @@ public class EmpresaImpl implements IEmpresaService {
       request.setEmpQrPlin(res.getEmpQrPlin());
       request.setEmpQrYape(res.getEmpQrYape());
       request.setEmpQrPagos(res.getEmpQrPagos());
+      request.setEmpPadreId(res.getEmpPadreId());
 
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }

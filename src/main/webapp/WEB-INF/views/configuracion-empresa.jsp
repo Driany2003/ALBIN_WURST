@@ -337,14 +337,13 @@
                                     <table id="empresaTable" class="table table-sm table-bordered table-striped">
                                         <thead class="thead-dark">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">LOGO</th>
-                                            <th scope="col">RAZON SOCIAL</th>
+                                            <th scope="col">NOMBRE COMERCIAL</th>
                                             <th scope="col">FECHA DE CONTRATO INICIO</th>
                                             <th scope="col">FECHA DE CONTRATO FIN</th>
                                             <th scope="col">TELEFONO</th>
                                             <th scope="col">ESTADO</th>
                                             <th scope="col">ACCIONES</th>
+
                                         </tr>
                                         </thead>
                                         <tbody id="empresaBody">
@@ -468,6 +467,74 @@
         </div>
     </div>
 </div>
+
+<!-- Modal de Sucursales -->
+<div class="modal fade" id="sucursalesModal" tabindex="-1" aria-labelledby="sucursalesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sucursalesModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Nombre Comercial</th>
+                        <th>Teléfono</th>
+                        <th>Estado</th>
+                        <th>Inicio Contrato</th>
+                        <th>Fin Contrato</th>
+                        <th>Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody id="sucursalesBody">
+                    </tbody>
+                </table>
+                <div id="mensajeSinSucursales" class="text-center" style="display: none;">
+                    <p>No hay ninguna sucursal registrada para esta empresa.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btnAgregarSucursal" style="display: none;" onclick="agregarSucursal()">Agregar Sucursal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE REGISTRO PARA UNA SUCURSAL -->
+<div class="modal fade" id="sucursalModal" tabindex="-1" aria-labelledby="sucursalModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sucursalModalLabel"></h5>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="sucursalFormulario">
+                    <div class="mb-3">
+                        <label for="sucNombre" class="form-label">Nombre Comercial</label>
+                        <input type="text" class="form-control" id="sucNombre" placeholder="Nombre de la sucursal" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sucTelefono" class="form-label">Número Telefónico</label>
+                        <input type="text" class="form-control" id="sucTelefono" placeholder="Número de teléfono" required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="guardarSucursal">Guardar Sucursal</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <style>
     .table {

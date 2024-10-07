@@ -1,22 +1,16 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IUsuarioService;
-import com.pe.kenpis.model.api.empresa.EmpresaDTO;
-import com.pe.kenpis.model.api.empresa.EmpresaRequest;
-import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.usuario.*;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
-import com.pe.kenpis.model.entity.EmpresaEntity;
 import com.pe.kenpis.model.entity.UsuarioAuthorityEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
-import com.pe.kenpis.repository.EmpresaRepository;
 import com.pe.kenpis.repository.UsuarioAuthorityRepository;
 import com.pe.kenpis.repository.UsuarioRepository;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lombok.var;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

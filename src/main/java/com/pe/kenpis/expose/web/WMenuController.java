@@ -7,7 +7,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value = "/kenpis/menu")
 public class WMenuController {
-
+  @RequestMapping(value = {"/venta/caja"}, method = RequestMethod.GET)
+  public String menuAperturaCierre() {
+    return "configuracion-caja";
+  }
   @RequestMapping(value = {"/venta/nueva"}, method = RequestMethod.GET)
   public String menuVentaNueva() {
     return "venta-nueva";

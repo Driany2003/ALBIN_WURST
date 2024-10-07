@@ -17,12 +17,7 @@ public interface ICajaService {
 
   CajaResponse delete(Integer id);
 
-  CajaResponse abrirCaja(CajaRequest cajaRequest);
+ CajaResponse abrirCaja(CajaRequest cajaRequest);
 
-  void cerrarCaja(CajaRequest cajaRequest);
-
-  boolean verificarCajaAbierta(Integer empId);
-
-  CajaResponse obtenerCajaAbierta(Integer empId);
 
 }

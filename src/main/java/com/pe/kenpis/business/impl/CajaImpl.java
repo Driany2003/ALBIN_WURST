@@ -86,20 +86,6 @@ public class CajaImpl implements ICajaService {
     return convertEntityToResponse(repository.save(convertRequestToEntity(cajaRequest)));
   }
 
-  @Override
-  public void cerrarCaja(CajaRequest cajaRequest) {
-
-  }
-
-  @Override
-  public boolean verificarCajaAbierta(Integer empId) {
-    return false;
-  }
-
-  @Override
-  public CajaResponse obtenerCajaAbierta(Integer empId) {
-    return null;
-  }
 
   private CajaEntity convertRequestToEntity(CajaRequest in) {
     CajaEntity out = new CajaEntity();

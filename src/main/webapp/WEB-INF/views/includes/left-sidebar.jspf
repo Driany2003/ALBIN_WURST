@@ -24,8 +24,8 @@
                         <span class="hide-menu">Ventas</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva" aria-expanded="false">
-                            <i class="mdi mdi-cart-plus"></i>
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/caja" aria-expanded="false">
+                            <i class="mdi mdi-cash-multiple"></i>
                             <span class="hide-menu">Apertura/Cierre</span>
                         </a>
                     </li>
