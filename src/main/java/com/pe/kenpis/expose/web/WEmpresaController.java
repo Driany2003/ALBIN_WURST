@@ -1,13 +1,14 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IEmpresaService;
-import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOResponse;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOrequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalResponse;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
-import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,17 +61,26 @@ public class WEmpresaController {
     return new ResponseEntity<>(sucursal, HttpStatus.CREATED);
   }
 
-
+  //actualizar empresa
   @PutMapping("/update")
   public ResponseEntity<EmpresaResponse> update(@RequestBody EmpresaRequest request) {
-    log.info("Controller :: update");
+    log.info("Controller :: empresa update");
     EmpresaResponse empresa = service.update(request);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
+  //actualizar sucursal
+  @PutMapping("/sucursal-update")
+  public ResponseEntity<SucursalDTOResponse> updateSucursal(@RequestBody SucursalDTOrequest request) {
+    FxComunes.printJson("lo que trae JS para editar sucursal", request);
+    log.info("Controller :: sucursal update");
+    SucursalDTOResponse sucursal = service.updateSucursal(request);
+    return new ResponseEntity<>(sucursal, HttpStatus.OK);
+  }
+
   @PutMapping("/update/status")
   public ResponseEntity<EmpresaResponse> updateStatus(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("que trae", request);
+    FxComunes.printJson("update", request);
     log.info("Controller :: updateStatus");
     EmpresaResponse empresa = service.updateStatus(request);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
@@ -99,7 +109,7 @@ public class WEmpresaController {
 
     if (usuSessionNivel.equalsIgnoreCase("ADMINISTRADOR")) {
       List<EmpresaDTO> listaEmpresa = service.findAllActiveEmpresaById();
-      FxComunes.printJson("que trae de emppresa",listaEmpresa);
+      FxComunes.printJson("que trae de emppresa", listaEmpresa);
       response.put("status", "success");
       response.put("data", listaEmpresa);
       session.setAttribute("empresasAdministrador", listaEmpresa);
@@ -119,7 +129,7 @@ public class WEmpresaController {
     Map<String, Object> response = new HashMap<>();
     response.put("status", "success");
     response.put("data", sucursales);
-    FxComunes.printJson("trae sucursales",sucursales);
+    FxComunes.printJson("trae sucursales", sucursales);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 

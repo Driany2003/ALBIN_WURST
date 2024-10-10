@@ -6,20 +6,18 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public class SucursalRequest {
-  //lo estoy usando para poder registrar y para actualizar
-  private Integer empPadreId;
+public class SucursalDTOResponse {
   private String empNombreComercial;
   private String empTelefono;
   private Integer empId;
   private String empResponsable;
 
-  public SucursalRequest(Integer sucursalId, String empNombreComercial, String empTelefono, String empResponsable) {
-    this.empId = sucursalId;
+  public SucursalDTOResponse(String empNombreComercial, String empTelefono, String empResponsable, Integer empId) {
     this.empNombreComercial = empNombreComercial;
     this.empTelefono = empTelefono;
     this.empResponsable = empResponsable;
+    this.empId = empId;
   }
+
 
 }

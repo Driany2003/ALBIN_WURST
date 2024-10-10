@@ -535,6 +535,59 @@
     </div>
 </div>
 
+<!-- MODAL PARA PODER EDITAR UNA SUCURSAL -->
+
+<div class="modal fade" id="editsucursalModal" tabindex="-1" role="dialog" aria-labelledby="editsucursalModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editsucursalModalLabel"><i class="fas fa-building"></i> Editar Sucursal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editFormularioSucursal">
+                    <input id="editSucursalId" type="hidden"/>
+                    <fieldset>
+                        <legend><i class="fas fa-pencil-alt"></i> Información de Sucursal</legend>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="editSucursalNombreComercial">Nombre Comercial:</label>
+                                        <input type="text" class="form-control" id="editSucursalNombreComercial" name="editempNombreComercial" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="editSucursalTelefono">Teléfono:</label>
+                                        <input type="tel" class="form-control" id="editSucursalTelefono" name="editempTelefono" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="editSucursalResponsable">Seleccionar Responsable:</label>
+                                        <select class="form-control" id="editSucursalResponsable" name="editempResponsable" required>
+                                            <option value="" disabled selected>Seleccione un Responsable</option>
+                                            <option value="responsable1">Responsable 1</option>
+                                            <option value="responsable2">Responsable 2</option>
+                                            <option value="responsable3">Responsable 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <style>
     .table {

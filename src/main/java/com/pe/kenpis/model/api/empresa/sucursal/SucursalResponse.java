@@ -2,20 +2,22 @@ package com.pe.kenpis.model.api.empresa.sucursal;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SucursalRequest {
-  //lo estoy usando para poder registrar y para actualizar
-  private Integer empPadreId;
+public class SucursalResponse {
+
+  private Integer empId;
   private String empNombreComercial;
   private String empTelefono;
-  private Integer empId;
+  private Integer empPadreId;
   private String empResponsable;
 
-  public SucursalRequest(Integer sucursalId, String empNombreComercial, String empTelefono, String empResponsable) {
+  public SucursalResponse(Integer sucursalId, String empNombreComercial, String empTelefono, String empResponsable) {
     this.empId = sucursalId;
     this.empNombreComercial = empNombreComercial;
     this.empTelefono = empTelefono;

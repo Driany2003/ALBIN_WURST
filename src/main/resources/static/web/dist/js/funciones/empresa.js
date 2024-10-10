@@ -1,5 +1,4 @@
 $(document).ready(function () {
-        let sucursalId;
         cargarEmpresas();
 
         function cargarEmpresas() {
@@ -78,7 +77,6 @@ $(document).ready(function () {
 
 
         function cargarSucursales(empId) {
-            //para guardar el id de la empresa en el boton
             $('#btnAgregarSucursal').data('emp-id', empId);
 
             var empresaNombreComercial = $('#empresa-row-' + empId + ' td span').text();
@@ -98,7 +96,8 @@ $(document).ready(function () {
                                     '<tr>' +
                                     '<td>' +
                                     '<img src="' + (sucursal.empImageLogo || 'path_to_default_logo.png') + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
-                                    '<span>' + sucursal.empNombreComercial + '</span>' +
+                                    '<span style="font-weight: bold;">' + sucursal.empNombreComercial + '</span><br>' +
+                                    '<span style="color: #888; font-size: 0.9em;">Responsable: ' + sucursal.empResponsable + '</span>' +
                                     '</td>' +
                                     '<td>' + (sucursal.empTelefono || 'N/A') + '</td>' +
                                     '<td>' +
@@ -269,6 +268,53 @@ $(document).ready(function () {
                 error: function (xhr, status, error) {
                     console.error('Error al guardar la sucursal:', error);
                     toastr.error('Hubo un error al guardar la sucursal. Intenta de nuevo.');
+                }
+            });
+        });
+
+        ////////////////////////////////////////////////////////////////////////////////////////
+
+
+        function editarSucursal(sucursalId) {
+            $.ajax({
+                url: `/kenpis/empresas/find-by-id/${sucursalId}`,
+                method: 'GET',
+                success: function (sucursal) {
+                    $('#editSucursalId').val(sucursal.empId);
+                    $('#editSucursalNombreComercial').val(sucursal.empNombreComercial);
+                    $('#editSucursalTelefono').val(sucursal.empTelefono);
+                    $('#editSucursalResponsable').val(sucursal.empResponsable);
+
+                    $('#editsucursalModal').modal('show');
+                },
+                error: function () {
+                    toastr.error('Error al obtener los detalles de la sucursal.');
+                }
+            });
+        }
+
+        $('#editFormularioSucursal').submit(function (event) {
+            event.preventDefault();
+            var sucursalData = {
+                empId:  $('#editSucursalId').val(),
+                empNombreComercial: $('#editSucursalNombreComercial').val(),
+                empTelefono: $('#editSucursalTelefono').val(),
+                empResponsable: $('#editSucursalResponsable').val(),
+            };
+
+            $.ajax({
+                url: `/kenpis/empresas/sucursal-update`,
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(sucursalData),
+                success: function () {
+                    cargarSucursales(sucursalData.empId);
+                    $('#editsucursalModal').modal('hide');
+                    $('#sucursalesModal').modal('hide');
+                    toastr.success('Sucursal actualizada correctamente.');
+                },
+                error: function () {
+                    toastr.error('Error al actualizar la sucursal. Intente nuevamente.');
                 }
             });
         });

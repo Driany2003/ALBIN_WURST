@@ -19,7 +19,6 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer>
 
   UsuarioEntity findByUsuTelefono(String celular);
 
-
   @Query(value = "SELECT u.usu_id AS usuId, u.usu_nombre AS usuNombre, u.usu_ape_paterno AS usuApePaterno, "
       + "u.usu_ape_materno AS usuApeMaterno, u.usu_telefono AS usuTelefono, u.usu_numero_documento AS usuNumeroDocumento, "
       + "u.usu_tipo_documento AS usuTipoDocumento, u.usu_genero AS usuGenero, e.emp_nombre_comercial AS empNombreComercial, e.emp_id AS empresaId, "

@@ -4,8 +4,10 @@ import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOResponse;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOrequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
-import com.pe.kenpis.repository.EmpresaRepository;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalResponse;
 
 import java.util.List;
 
@@ -29,6 +31,8 @@ public interface IEmpresaService {
   EmpresaResponse createSucursal(SucursalRequest request);
 
   EmpresaResponse update(EmpresaRequest request);
+
+  SucursalDTOResponse updateSucursal(SucursalDTOrequest request);
 
   EmpresaResponse updatePropietario(EmpresaRequest request);
 

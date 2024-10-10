@@ -5,7 +5,10 @@ import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
 import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOResponse;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOrequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
+import com.pe.kenpis.model.api.empresa.sucursal.SucursalResponse;
 import com.pe.kenpis.model.entity.EmpresaEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.EmpresaRepository;
@@ -52,10 +55,11 @@ public class EmpresaImpl implements IEmpresaService {
     return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
 
+  //lista de sucursales para la vista de empresa
   @Override
   public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaIdList(empId);
-    return results.stream().map(result -> new EmpresaDTO((String) result.get("empImagenLogo"), (Integer) result.get("empId"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((String) result.get("empImagenLogo"), (String) result.get("empResponsable"), (Integer) result.get("empId"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
 
   @Override
@@ -79,6 +83,8 @@ public class EmpresaImpl implements IEmpresaService {
       return new EmpresaResponse();
     }
   }
+
+  /* METODOS PARA REGISTRAR */
 
   @Override
   public EmpresaResponse create(EmpresaRequest request) {
@@ -121,6 +127,31 @@ public class EmpresaImpl implements IEmpresaService {
 
     return convertEntityToResponse(repository.save(nuevaSucursal));
   }
+
+
+  /* METODOS PARA ACTUALIZAR */
+
+  @Override
+  public SucursalDTOResponse updateSucursal(SucursalDTOrequest request) {
+    Optional<EmpresaEntity> optionalSucursal = repository.findById(request.getEmpId());
+
+    if (!optionalSucursal.isPresent()) {
+      throw new RuntimeException("Sucursal no encontrada");
+    }
+
+    EmpresaEntity entidadActualizar = optionalSucursal.get();
+      entidadActualizar.setEmpNombreComercial(request.getEmpNombreComercial());
+      entidadActualizar.setEmpTelefono(request.getEmpTelefono());
+      entidadActualizar.setEmpResponsable(request.getEmpResponsable());
+
+
+    // Guardar la entidad actualizada
+    EmpresaEntity guardada = repository.save(entidadActualizar);
+
+    // Retorna la respuesta convertida
+    return convertEntityToResponseSucursalDTO(guardada);
+  }
+
 
   @Override
   public EmpresaResponse update(EmpresaRequest request) {
@@ -175,6 +206,8 @@ public class EmpresaImpl implements IEmpresaService {
     }
   }
 
+  /* METODOS PARA ELIMINAR */
+
   @Override
   public EmpresaResponse delete(Integer id) {
     log.debug("Implements :: delete :: ID -> {}", id);
@@ -196,8 +229,21 @@ public class EmpresaImpl implements IEmpresaService {
   }
 
   //Request sucursal
-  private EmpresaEntity convertRequestToEntity(SucursalRequest in) {
+  private EmpresaEntity convertRequestToEntity(SucursalDTOrequest in) {
     EmpresaEntity out = new EmpresaEntity();
+    BeanUtils.copyProperties(in, out);
+    return out;
+  }
+
+  //Response sucursal
+  private SucursalResponse convertEntityToResponseSucursal(EmpresaEntity in) {
+    SucursalResponse out = new SucursalResponse();
+    BeanUtils.copyProperties(in, out);
+    return out;
+  }
+
+  private SucursalDTOResponse convertEntityToResponseSucursalDTO(EmpresaEntity in) {
+    SucursalDTOResponse out = new SucursalDTOResponse();
     BeanUtils.copyProperties(in, out);
     return out;
   }
