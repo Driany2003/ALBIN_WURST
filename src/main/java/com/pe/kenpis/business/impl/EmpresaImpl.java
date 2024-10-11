@@ -38,8 +38,18 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public List<EmpresaDTO> findAllActiveEmpresaById() {
     log.info("Implements :: findAll");
+
     List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
-    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+
+    return results.stream().map(result -> {
+      Integer empresaId = (Integer) result.get("empId");
+      List<ResponsablesDTO> responsables = usuarioImpl.obtenerUsuariosPorEmpresa(empresaId);
+
+      String nombresResponsables = responsables.stream().map(responsable -> responsable.getUsuNombre() + " " + responsable.getUsuApePaterno()).collect(Collectors.joining(", "));
+
+      // Retornar el DTO de empresa con los nombres de los responsables
+      return new EmpresaDTO(empresaId, nombresResponsables, (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
+    }).collect(Collectors.toList());
   }
 
   //lista empresas activas solo para los combos
@@ -59,21 +69,8 @@ public class EmpresaImpl implements IEmpresaService {
   //lista de sucursales para la vista de empresa
   @Override
   public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
-
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaIdList(empId);
-
-    List<ResponsablesDTO> responsablesList = usuarioImpl.obtenerUsuariosPorEmpresa(empId);
-
-    Map<Integer, String> responsablesMap = responsablesList.stream().collect(Collectors.toMap(ResponsablesDTO::getUsuId, responsable -> responsable.getUsuNombre() + " " + responsable.getUsuApePaterno()));
-
-    return results.stream().map(result -> {
-      String empResponsableIds = (String) result.get("empResponsable");
-      List<String> responsableNombres = Arrays.stream(empResponsableIds.split(",")).map(Integer::parseInt).map(responsablesMap::get).filter(Objects::nonNull).collect(Collectors.toList());
-
-      String responsables = String.join(", ", responsableNombres);
-
-      return new EmpresaDTO(responsables, (Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
-    }).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
 
   @Override

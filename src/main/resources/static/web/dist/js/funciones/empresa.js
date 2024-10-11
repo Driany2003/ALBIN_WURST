@@ -21,6 +21,9 @@ $(document).ready(function () {
                                     '<img src="' + (empresa.empImageLogo || 'path_to_default_logo.png') + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
                                     '<span>' + empresa.empNombreComercial + '</span>' +
                                     '</td>' +
+                                    '<td>' +
+                                    '<span class="text-primary">' + (empresa.empResponsable || 'Sin responsable') + '</span>' +
+                                    '</td>' +
                                     '<td>' + formatDate(empresa.empFechaContratoInicio) + '</td>' +
                                     '<td>' + formatDate(empresa.empFechaContratoFin) + '</td>' +
                                     '<td>' + (empresa.empTelefono || '') + '</td>' +
@@ -77,7 +80,7 @@ $(document).ready(function () {
 
 
         function cargarSucursales(empId) {
-            $('#btnAgregarSucursal').data('emp-id',empId);
+            $('#btnAgregarSucursal').data('emp-id', empId);
 
             var empresaNombreComercial = $('#empresa-row-' + empId + ' td span').text();
             $('#sucursalesModalLabel').text('Sucursales de ' + empresaNombreComercial);
@@ -96,9 +99,6 @@ $(document).ready(function () {
                                     '<tr>' +
                                     '<td>' +
                                     '<span style="font-weight: bold;">' + sucursal.empNombreComercial + '</span><br>' +
-                                    '</td>' +
-                                    '<td>' +
-                                    '<span class="text-primary">' + (sucursal.empResponsable || 'Sin responsable') + '</span>' +
                                     '</td>' +
                                     '<td>' + (sucursal.empTelefono || 'N/A') + '</td>' +
                                     '<td>' +
@@ -243,35 +243,6 @@ $(document).ready(function () {
 
         //////////////////////////////////////////////////////////////7
 
-        $('#sucursalModal').on('show.bs.modal', function () {
-            var empId = $('#btnAgregarSucursal').data('emp-id');
-
-            $.ajax({
-                url: '/kenpis/usuario/cargar-responsables/' + empId,
-                method: 'GET',
-                success: function (responsables) {
-                    var responsablesContainer = $('#responsablesContainer');
-                    responsablesContainer.empty();
-
-                    // Crear checkboxes dinámicamente
-                    responsables.forEach(function (responsable) {
-                        var checkboxHtml = `
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="responsable_${responsable.usuId}" value="${responsable.usuId}">
-                        <label class="form-check-label" for="responsable_${responsable.usuId}">
-                            ${responsable.usuNombre} ${responsable.usuApePaterno}
-                        </label>
-                    </div>
-                `;
-                        responsablesContainer.append(checkboxHtml);
-                    });
-                },
-                error: function () {
-                    console.error('Error al cargar responsables');
-                }
-            });
-        });
-
 
         /* REGISTRAR Y EDITAR PARA UNA SUCURSAL */
 
@@ -285,15 +256,8 @@ $(document).ready(function () {
                 empNombreComercial: $('#sucNombre').val(),
                 empTelefono: $('#sucTelefono').val(),
                 empPadreId: parseInt(empId),
-                empResponsable: []
 
             };
-
-            $('#responsablesContainer input:checked').each(function () {
-                sucursalData.empResponsable.push($(this).val());
-            });
-
-            sucursalData.empResponsable = sucursalData.empResponsable.join(",");
 
 
             $.ajax({
@@ -324,7 +288,6 @@ $(document).ready(function () {
                     $('#editSucursalId').val(sucursal.empId);
                     $('#editSucursalNombreComercial').val(sucursal.empNombreComercial);
                     $('#editSucursalTelefono').val(sucursal.empTelefono);
-                    cargarResponsables(sucursal.empPadreId, sucursal.empResponsable)
 
                     $('#editsucursalModal').modal('show');
                 },
@@ -334,46 +297,14 @@ $(document).ready(function () {
             });
         }
 
-    function cargarResponsables(empId,responsables) {
-        const responsablesContainer = $('#editResponsablesContainer');
-        responsablesContainer.empty();
-
-        const responsablesArray = responsables.split(',').map(r => r.trim());
-            console.log("los id o nombres" + responsablesArray);
-            console.log("los id de la empresa" + empId);
-        $.ajax({
-            url: '/kenpis/usuario/cargar-responsables/' + empId,
-            method: 'GET',
-            success: function(allResponsables) {
-                allResponsables.forEach(responsable => {
-                    const checked = responsablesArray.includes(responsable.usuId.toString()) ? 'checked' : '';
-                    responsablesContainer.append(`
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="${responsable.usuId}" ${checked}>
-                        <label class="form-check-label">${responsable.usuNombre} ${responsable.usuApePaterno}</label>
-                    </div>
-                `);
-                });
-            },
-            error: function() {
-                toastr.error('Error al cargar los responsables.');
-            }
-        });
-    }
 
         $('#editFormularioSucursal').submit(function (event) {
             event.preventDefault();
-            const responsablesSeleccionados = [];
-
-            $('#editResponsablesContainer input:checked').each(function () {
-                responsablesSeleccionados.push($(this).val());
-            });
 
             var sucursalData = {
                 empId: $('#editSucursalId').val(),
                 empNombreComercial: $('#editSucursalNombreComercial').val(),
                 empTelefono: $('#editSucursalTelefono').val(),
-                empResponsable: responsablesSeleccionados.join(',')
             };
 
             $.ajax({
