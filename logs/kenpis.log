@@ -8156,6 +8156,7 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:835)
+<<<<<<< Updated upstream
 [DEBUG] [10-10-2024 04:02:21] [UsuarioImpl                    :: 165 ] - Implements :: findByUsuUsername :: JHAN.MORENO
 [DEBUG] [10-10-2024 04:02:21] [UsuarioImpl                    :: 149 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
 [INFO ] [10-10-2024 04:02:21] [EmpresaImpl                    :: 67  ] - Implements :: findById :: 1
@@ -8210,3 +8211,134 @@ java.lang.NullPointerException: null
 [INFO ] [10-10-2024 04:03:06] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
 [INFO ] [10-10-2024 04:03:06] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
 [INFO ] [10-10-2024 04:03:06] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+=======
+[DEBUG] [07-10-2024 15:28:17] [UsuarioImpl                    :: 165 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [07-10-2024 15:28:17] [UsuarioImpl                    :: 149 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [07-10-2024 15:28:17] [EmpresaImpl                    :: 63  ] - Implements :: findById :: 1
+[INFO ] [07-10-2024 15:28:17] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [07-10-2024 15:28:17] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [07-10-2024 15:28:18] [WLoginController               :: 70  ] - listaDeSucursales : [EmpresaResponseDTO(empId=6, empNombreComercial=Albin Wurst Sucursal 1), EmpresaResponseDTO(empId=7, empNombreComercial=Albin Wurst Sucursal 2)]
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - listaDeSucursales QUE ESTA LLEGANDO[{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1"},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2"}]
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMINISTRADOR","usuId":2,"authIsActive":true}
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"970180035","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI"}
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"9725141609","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1728104400000,"empFechaContratoFin":1728104400000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [07-10-2024 15:28:18] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [07-10-2024 15:28:20] [WEmpresaController             :: 96  ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [07-10-2024 15:28:20] [EmpresaImpl                    :: 36  ] - Implements :: findAll
+[INFO ] [07-10-2024 15:28:20] [FxComunes                      :: 67  ] - que trae de emppresa[{"empId":1,"empNombreComercial":"Albin Wurst Lima","empIsActive":true,"empFechaContratoFin":1728104400000,"empFechaContratoInicio":1728104400000,"empTelefono":"9725141609","empImagenLogo":null},{"empId":4,"empNombreComercial":"Innovaciones Tech","empIsActive":true,"empFechaContratoFin":1728104400000,"empFechaContratoInicio":1728104400000,"empTelefono":"970180035","empImagenLogo":null}]
+[WARN ] [07-10-2024 15:28:21] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/path_to_default_logo.png
+[INFO ] [07-10-2024 15:28:22] [WEmpresaController             :: 117 ] - Controller :: findSucursalesByEmpresa :: empresaId=1
+[INFO ] [07-10-2024 15:28:22] [FxComunes                      :: 67  ] - trae sucursales[{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1","empIsActive":true,"empFechaContratoFin":1727931600000,"empFechaContratoInicio":1727931600000,"empTelefono":"987654322","empImagenLogo":null},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2","empIsActive":true,"empFechaContratoFin":1727931600000,"empFechaContratoInicio":1727931600000,"empTelefono":"438589239","empImagenLogo":null}]
+[WARN ] [07-10-2024 15:28:22] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/path_to_default_logo.png
+[INFO ] [07-10-2024 15:28:27] [FxComunes                      :: 67  ] - create Sucursal{"empPadreId":1,"empNombreComercial":"sashacvbfg","empTelefono":"970180035"}
+[INFO ] [07-10-2024 15:28:27] [WEmpresaController             :: 58  ] - Controller :: createSucursal
+[DEBUG] [07-10-2024 15:28:27] [EmpresaImpl                    :: 95  ] - Implements :: createSucursal :: Inicio
+[INFO ] [07-10-2024 15:28:27] [FxComunes                      :: 67  ] - SucursalRequest{"empPadreId":1,"empNombreComercial":"sashacvbfg","empTelefono":"970180035"}
+[INFO ] [07-10-2024 15:28:27] [WEmpresaController             :: 117 ] - Controller :: findSucursalesByEmpresa :: empresaId=1
+[INFO ] [07-10-2024 15:28:27] [FxComunes                      :: 67  ] - trae sucursales[{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1","empIsActive":true,"empFechaContratoFin":1727931600000,"empFechaContratoInicio":1727931600000,"empTelefono":"987654322","empImagenLogo":null},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2","empIsActive":true,"empFechaContratoFin":1727931600000,"empFechaContratoInicio":1727931600000,"empTelefono":"438589239","empImagenLogo":null},{"empId":24,"empNombreComercial":"sashacvbfg","empIsActive":true,"empFechaContratoFin":1728104400000,"empFechaContratoInicio":1728104400000,"empTelefono":"970180035","empImagenLogo":null}]
+[WARN ] [07-10-2024 15:28:27] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/path_to_default_logo.png
+[INFO ] [07-10-2024 15:28:33] [WEmpresaController             :: 117 ] - Controller :: findSucursalesByEmpresa :: empresaId=4
+[INFO ] [07-10-2024 15:28:33] [FxComunes                      :: 67  ] - trae sucursales[]
+[INFO ] [07-10-2024 15:28:36] [FxComunes                      :: 67  ] - create Sucursal{"empPadreId":4,"empNombreComercial":"sashacvbfg","empTelefono":"970180035"}
+[INFO ] [07-10-2024 15:28:36] [WEmpresaController             :: 58  ] - Controller :: createSucursal
+[DEBUG] [07-10-2024 15:28:36] [EmpresaImpl                    :: 95  ] - Implements :: createSucursal :: Inicio
+[INFO ] [07-10-2024 15:28:37] [FxComunes                      :: 67  ] - SucursalRequest{"empPadreId":4,"empNombreComercial":"sashacvbfg","empTelefono":"970180035"}
+[INFO ] [07-10-2024 15:28:37] [WEmpresaController             :: 117 ] - Controller :: findSucursalesByEmpresa :: empresaId=4
+[INFO ] [07-10-2024 15:28:37] [FxComunes                      :: 67  ] - trae sucursales[{"empId":25,"empNombreComercial":"sashacvbfg","empIsActive":true,"empFechaContratoFin":1728104400000,"empFechaContratoInicio":1728104400000,"empTelefono":"970180035","empImagenLogo":null}]
+[WARN ] [07-10-2024 15:28:37] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/path_to_default_logo.png
+[INFO ] [07-10-2024 15:28:52] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [07-10-2024 15:28:52] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [07-10-2024 15:28:52] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [07-10-2024 23:26:52] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 6980 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [07-10-2024 23:26:52] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [07-10-2024 23:26:52] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [07-10-2024 23:26:52] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [07-10-2024 23:26:53] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [07-10-2024 23:26:53] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 60 ms. Found 10 JPA repository interfaces.
+[INFO ] [07-10-2024 23:26:54] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [07-10-2024 23:26:54] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [07-10-2024 23:26:54] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [07-10-2024 23:26:54] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [07-10-2024 23:26:54] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [07-10-2024 23:26:54] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [07-10-2024 23:26:54] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1358 ms
+[INFO ] [07-10-2024 23:26:54] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [07-10-2024 23:26:54] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [07-10-2024 23:26:54] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [07-10-2024 23:26:54] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [07-10-2024 23:26:55] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [07-10-2024 23:26:55] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [07-10-2024 23:26:55] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [07-10-2024 23:26:55] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] [07-10-2024 23:26:56] [JpaBaseConfiguration$JpaWebConfiguration :: 223 ] - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] [07-10-2024 23:26:56] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f0c7e55, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@424e4fea, org.springframework.security.web.context.SecurityContextPersistenceFilter@5813afa6, org.springframework.security.web.header.HeaderWriterFilter@31c18ddc, org.springframework.security.web.authentication.logout.LogoutFilter@3df56919, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28f17d8f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7bc56e1a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@69eba926, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@446a5a8c, org.springframework.security.web.session.SessionManagementFilter@5560526d, org.springframework.security.web.access.ExceptionTranslationFilter@31ea4378, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@384e408b]
+[INFO ] [07-10-2024 23:26:56] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [07-10-2024 23:26:56] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [07-10-2024 23:26:56] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [07-10-2024 23:26:56] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [07-10-2024 23:26:57] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.456 seconds (JVM running for 5.15)
+[INFO ] [07-10-2024 23:27:03] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [07-10-2024 23:27:03] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [07-10-2024 23:27:03] [DispatcherServlet              :: 547 ] - Completed initialization in 3 ms
+[DEBUG] [07-10-2024 23:27:08] [UsuarioImpl                    :: 165 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [07-10-2024 23:27:08] [UsuarioImpl                    :: 149 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [07-10-2024 23:27:09] [EmpresaImpl                    :: 63  ] - Implements :: findById :: 1
+[INFO ] [07-10-2024 23:27:09] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [07-10-2024 23:27:09] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [07-10-2024 23:27:09] [WLoginController               :: 70  ] - listaDeSucursales : [EmpresaResponseDTO(empId=6, empNombreComercial=Albin Wurst Sucursal 1), EmpresaResponseDTO(empId=7, empNombreComercial=Albin Wurst Sucursal 2)]
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - listaDeSucursales QUE ESTA LLEGANDO[{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1"},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2"}]
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMINISTRADOR","usuId":2,"authIsActive":true}
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"970180035","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI"}
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"9725141609","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1728104400000,"empFechaContratoFin":1728104400000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [07-10-2024 23:27:09] [FxComunes                      :: 67  ] - ATENDIDO[]
+[DEBUG] [07-10-2024 23:27:39] [Java8Base64Image               :: 83  ] - El fichero \3_foto.jpg ha sido borrado satisfactoriamente
+[DEBUG] [07-10-2024 23:27:39] [Java8Base64Image               :: 83  ] - El fichero \4_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [07-10-2024 23:27:41] [ProductoImpl                   :: 57  ] - Implements :: findById :: 3
+[DEBUG] [07-10-2024 23:27:41] [Java8Base64Image               :: 83  ] - El fichero \3_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [07-10-2024 23:28:03] [WUsuarioController             :: 53  ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [07-10-2024 23:28:03] [WUsuarioController             :: 57  ] - ADMINISTRADOR
+[INFO ] [07-10-2024 23:28:03] [UsuarioImpl                    :: 41  ] - Implements :: findAllDto
+[INFO ] [07-10-2024 23:28:03] [UsuarioImpl                    :: 43  ] -  --------------- [org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@685f595b, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@270e60d0, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@1bdc0774]
+[INFO ] [07-10-2024 23:28:03] [FxComunes                      :: 67  ] - objeto result[{"usuNombre":"GIOMAR","authUsername":"GIOMAR","usuId":1,"usuGenero":"M","usuApeMaterno":"SULLCA","usuApePaterno":"ORTEGA","empNombreComercial":"Albin Wurst Lima","usuTelefono":"970180035","usuNumeroDocumento":"72440370","authRoles":"PROPIETARIO","usuTipoDocumento":"DNI"},{"usuApeMaterno":"GARCIA","usuGenero":"M","usuId":2,"authUsername":"JHAN.MORENO","usuNombre":"JHAN","empNombreComercial":"Albin Wurst Lima","usuApePaterno":"MORENO","usuTelefono":"970180035","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authRoles":"ADMINISTRADOR"},{"usuId":4,"usuApeMaterno":"JULCA","usuNumeroDocumento":"87654321","usuTelefono":"999999990","authRoles":"VENDEDOR","usuGenero":"M","empNombreComercial":"Innovaciones Tech","authUsername":"JUAN","usuNombre":"JUAN","usuApePaterno":"PEREZ","usuTipoDocumento":"DNI"}]
+[INFO ] [07-10-2024 23:28:03] [FxComunes                      :: 67  ] - QUE LLEGA DE ADMINISTRADOR[{"usuId":1,"empresaId":null,"usuNombre":"GIOMAR","usuApePaterno":"ORTEGA","usuApeMaterno":"SULLCA","usuTelefono":"970180035","empNombreComercial":"Albin Wurst Lima","authRoles":"PROPIETARIO","authUsername":"GIOMAR","usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null},{"usuId":2,"empresaId":null,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"970180035","empNombreComercial":"Albin Wurst Lima","authRoles":"ADMINISTRADOR","authUsername":"JHAN.MORENO","usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null},{"usuId":4,"empresaId":null,"usuNombre":"JUAN","usuApePaterno":"PEREZ","usuApeMaterno":"JULCA","usuTelefono":"999999990","empNombreComercial":"Innovaciones Tech","authRoles":"VENDEDOR","authUsername":"JUAN","usuGenero":"M","usuNumeroDocumento":"87654321","usuTipoDocumento":"DNI","authPassword":null}]
+[INFO ] [07-10-2024 23:28:03] [FxComunes                      :: 67  ] - Trae empresa admin [{"empId":1,"empNombreComercial":"Albin Wurst Lima","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null},{"empId":4,"empNombreComercial":"Innovaciones Tech","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null},{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null}]
+[INFO ] [07-10-2024 23:28:08] [UsuarioImpl                    :: 67  ] - Implements :: findById :: 2
+[INFO ] [07-10-2024 23:28:09] [FxComunes                      :: 67  ] - LO QUE TRAE DE USUARIO {"usuId":2,"empresaId":1,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"970180035","empNombreComercial":"Albin Wurst Lima","authRoles":"ADMINISTRADOR","authUsername":"JHAN.MORENO","usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null}
+[INFO ] [07-10-2024 23:28:09] [FxComunes                      :: 67  ] - LO QUE TRAE EMPRESA [{"empId":1,"empNombreComercial":"Albin Wurst Lima","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null},{"empId":4,"empNombreComercial":"Innovaciones Tech","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null},{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2","empIsActive":null,"empFechaContratoFin":null,"empFechaContratoInicio":null,"empTelefono":null,"empImagenLogo":null}]
+[INFO ] [07-10-2024 23:28:15] [WEmpresaController             :: 96  ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [07-10-2024 23:28:15] [EmpresaImpl                    :: 36  ] - Implements :: findAll
+[INFO ] [07-10-2024 23:28:15] [FxComunes                      :: 67  ] - que trae de emppresa[{"empId":1,"empNombreComercial":"Albin Wurst Lima","empIsActive":true,"empFechaContratoFin":1728104400000,"empFechaContratoInicio":1728104400000,"empTelefono":"9725141609","empImagenLogo":null},{"empId":4,"empNombreComercial":"Innovaciones Tech","empIsActive":true,"empFechaContratoFin":1728104400000,"empFechaContratoInicio":1728104400000,"empTelefono":"970180035","empImagenLogo":null}]
+[WARN ] [07-10-2024 23:28:15] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/path_to_default_logo.png
+[INFO ] [07-10-2024 23:28:20] [WEmpresaController             :: 41  ] - Controller :: findById :: 1
+[INFO ] [07-10-2024 23:28:20] [EmpresaImpl                    :: 63  ] - Implements :: findById :: 1
+[INFO ] [07-10-2024 23:28:25] [ProductoImpl                   :: 47  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [07-10-2024 23:28:30] [ProductoImpl                   :: 57  ] - Implements :: findById :: 1
+[DEBUG] [07-10-2024 23:28:30] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [07-10-2024 23:28:38] [ProductoInventarioImpl         :: 29  ] - Implements :: findAll
+[DEBUG] [07-10-2024 23:28:43] [UsuarioImpl                    :: 165 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [07-10-2024 23:28:43] [UsuarioImpl                    :: 149 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [07-10-2024 23:28:43] [EmpresaImpl                    :: 63  ] - Implements :: findById :: 1
+[INFO ] [07-10-2024 23:28:43] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [07-10-2024 23:28:43] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [07-10-2024 23:28:43] [WLoginController               :: 70  ] - listaDeSucursales : [EmpresaResponseDTO(empId=6, empNombreComercial=Albin Wurst Sucursal 1), EmpresaResponseDTO(empId=7, empNombreComercial=Albin Wurst Sucursal 2)]
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - listaDeSucursales QUE ESTA LLEGANDO[{"empId":6,"empNombreComercial":"Albin Wurst Sucursal 1"},{"empId":7,"empNombreComercial":"Albin Wurst Sucursal 2"}]
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse{"authId":2,"authUsername":"JHAN.MORENO","authPassword":"$2a$10$TRELxEIP2KAHqD8rNfAvT.bUlV33MYwVGOP28pokRAd6gQ0F9GqXe","authRoles":"ADMINISTRADOR","usuId":2,"authIsActive":true}
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"970180035","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI"}
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"10441167321","empRazonSocial":"Jhan Pierre Moreno Garcia","empResponsable":"Jhan Moreno","empTelefono":"9725141609","empImageLogo":null,"empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1728104400000,"empFechaContratoFin":1728104400000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [07-10-2024 23:28:43] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [07-10-2024 23:29:02] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [07-10-2024 23:29:02] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [07-10-2024 23:29:02] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+>>>>>>> Stashed changes
