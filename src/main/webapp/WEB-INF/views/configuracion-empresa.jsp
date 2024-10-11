@@ -483,10 +483,9 @@
                     <thead>
                     <tr>
                         <th>Nombre Comercial</th>
+                        <th>Responsable</th>
                         <th>Teléfono</th>
                         <th>Estado</th>
-                        <th>Inicio Contrato</th>
-                        <th>Fin Contrato</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -523,6 +522,12 @@
                     <div class="mb-3">
                         <label for="sucTelefono" class="form-label">Número Telefónico</label>
                         <input type="number" class="form-control" id="sucTelefono" placeholder="Número de teléfono" required>
+                    </div>
+                    <div class="mb-3">
+                        <h6 class="text">Seleccionar Responsables</h6>
+                        <div class="border p-3 rounded" id="responsablesContainer" style="max-height: 200px; overflow-y: auto;">
+                            <!-- Aquí se cargarán los checkboxes dinámicamente -->
+                        </div>
                     </div>
                 </form>
             </div>
@@ -566,14 +571,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="editSucursalResponsable">Seleccionar Responsable:</label>
-                                        <select class="form-control" id="editSucursalResponsable" name="editempResponsable" required>
-                                            <option value="" disabled selected>Seleccione un Responsable</option>
-                                            <option value="responsable1">Responsable 1</option>
-                                            <option value="responsable2">Responsable 2</option>
-                                            <option value="responsable3">Responsable 3</option>
-                                        </select>
+                                    <div class="mb-3">
+                                        <h6 class="text">Seleccionar Responsables</h6>
+                                        <div class="border p-3 rounded" id="editResponsablesContainer" style="max-height: 200px; overflow-y: auto;">
+                                        </div>
                                     </div>
                                 </div>
                             </div>

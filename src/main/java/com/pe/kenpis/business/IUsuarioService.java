@@ -15,6 +15,8 @@ public interface IUsuarioService {
 
   List<UsuarioDTO> findUsuariosByEmpresaId(Integer usuId);
 
+  List<ResponsablesDTO> obtenerUsuariosPorEmpresa(Integer empId);
+
   UsuarioDTO findById(Integer id);
 
   UsuarioDTO create(UsuarioRequest request);

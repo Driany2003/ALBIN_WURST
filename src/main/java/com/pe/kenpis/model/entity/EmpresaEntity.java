@@ -1,6 +1,7 @@
 package com.pe.kenpis.model.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;

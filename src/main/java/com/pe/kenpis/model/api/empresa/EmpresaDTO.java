@@ -24,13 +24,10 @@ public class EmpresaDTO {
   }
 
   //para poder listar las sucursales cuando demos click a una empresa.
-  public EmpresaDTO(String empImagenLogo, String empResponsable,Integer empId, String empNombreComercial, Date empFechaContratoInicio, Date empFechaContratoFin, String empTelefono, Boolean empIsActive) {
-    this.empImagenLogo = empImagenLogo;
+  public EmpresaDTO( String empResponsable,Integer empId, String empNombreComercial, String empTelefono, Boolean empIsActive) {
     this.empResponsable = empResponsable;
     this.empId = empId;
     this.empNombreComercial = empNombreComercial;
-    this.empFechaContratoInicio = empFechaContratoInicio;
-    this.empFechaContratoFin = empFechaContratoFin;
     this.empTelefono = empTelefono;
     this.empIsActive = empIsActive;
 

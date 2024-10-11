@@ -1,6 +1,7 @@
 package com.pe.kenpis.repository;
 
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.usuario.ResponsablesDTO;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -46,5 +47,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer>
   List<Map<String, Object>> findUsuariosBySesionEmpresaId(@Param("usuId") Integer usuId);
 
 
+  @Query(value = "SELECT u.usu_id, u.usu_nombre, u.usu_ape_paterno FROM T_USUARIO u WHERE u.empresa_id = :empId", nativeQuery = true)
+  List<Object[]> findByEmpresaId(@Param("empId") Integer empId);
 
 }

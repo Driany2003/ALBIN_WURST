@@ -77,7 +77,7 @@ $(document).ready(function () {
 
 
         function cargarSucursales(empId) {
-            $('#btnAgregarSucursal').data('emp-id', empId);
+            $('#btnAgregarSucursal').data('emp-id',empId);
 
             var empresaNombreComercial = $('#empresa-row-' + empId + ' td span').text();
             $('#sucursalesModalLabel').text('Sucursales de ' + empresaNombreComercial);
@@ -95,9 +95,10 @@ $(document).ready(function () {
                                 $('#sucursalesBody').append(
                                     '<tr>' +
                                     '<td>' +
-                                    '<img src="' + (sucursal.empImageLogo || 'path_to_default_logo.png') + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
                                     '<span style="font-weight: bold;">' + sucursal.empNombreComercial + '</span><br>' +
-                                    '<span style="color: #888; font-size: 0.9em;">Responsable: ' + sucursal.empResponsable + '</span>' +
+                                    '</td>' +
+                                    '<td>' +
+                                    '<span class="text-primary">' + (sucursal.empResponsable || 'Sin responsable') + '</span>' +
                                     '</td>' +
                                     '<td>' + (sucursal.empTelefono || 'N/A') + '</td>' +
                                     '<td>' +
@@ -106,8 +107,6 @@ $(document).ready(function () {
                                     '<span class="slider"></span>' +
                                     '</label>' +
                                     '</td>' +
-                                    '<td>' + formatDate(sucursal.empFechaContratoInicio) + '</td>' +
-                                    '<td>' + formatDate(sucursal.empFechaContratoFin) + '</td>' +
                                     '<td>' +
                                     '<button type="button" class="btn btn-sm btn-warning editarSucursal" data-id="' + sucursal.empId + '">' +
                                     '<i class="fas fa-pencil-alt"></i>' +
@@ -144,6 +143,7 @@ $(document).ready(function () {
                 }
             });
         }
+
 
         //para crear una empresa
         $('#guardarEmpresa').on('click', function () {
@@ -241,6 +241,38 @@ $(document).ready(function () {
 
         });
 
+        //////////////////////////////////////////////////////////////7
+
+        $('#sucursalModal').on('show.bs.modal', function () {
+            var empId = $('#btnAgregarSucursal').data('emp-id');
+
+            $.ajax({
+                url: '/kenpis/usuario/cargar-responsables/' + empId,
+                method: 'GET',
+                success: function (responsables) {
+                    var responsablesContainer = $('#responsablesContainer');
+                    responsablesContainer.empty();
+
+                    // Crear checkboxes dinámicamente
+                    responsables.forEach(function (responsable) {
+                        var checkboxHtml = `
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="responsable_${responsable.usuId}" value="${responsable.usuId}">
+                        <label class="form-check-label" for="responsable_${responsable.usuId}">
+                            ${responsable.usuNombre} ${responsable.usuApePaterno}
+                        </label>
+                    </div>
+                `;
+                        responsablesContainer.append(checkboxHtml);
+                    });
+                },
+                error: function () {
+                    console.error('Error al cargar responsables');
+                }
+            });
+        });
+
+
         /* REGISTRAR Y EDITAR PARA UNA SUCURSAL */
 
         $('#btnAgregarSucursal').on('click', function () {
@@ -252,8 +284,17 @@ $(document).ready(function () {
             var sucursalData = {
                 empNombreComercial: $('#sucNombre').val(),
                 empTelefono: $('#sucTelefono').val(),
-                empPadreId: parseInt(empId)
+                empPadreId: parseInt(empId),
+                empResponsable: []
+
             };
+
+            $('#responsablesContainer input:checked').each(function () {
+                sucursalData.empResponsable.push($(this).val());
+            });
+
+            sucursalData.empResponsable = sucursalData.empResponsable.join(",");
+
 
             $.ajax({
                 url: '/kenpis/empresas/sucursales-create',
@@ -283,7 +324,7 @@ $(document).ready(function () {
                     $('#editSucursalId').val(sucursal.empId);
                     $('#editSucursalNombreComercial').val(sucursal.empNombreComercial);
                     $('#editSucursalTelefono').val(sucursal.empTelefono);
-                    $('#editSucursalResponsable').val(sucursal.empResponsable);
+                    cargarResponsables(sucursal.empPadreId, sucursal.empResponsable)
 
                     $('#editsucursalModal').modal('show');
                 },
@@ -293,13 +334,46 @@ $(document).ready(function () {
             });
         }
 
+    function cargarResponsables(empId,responsables) {
+        const responsablesContainer = $('#editResponsablesContainer');
+        responsablesContainer.empty();
+
+        const responsablesArray = responsables.split(',').map(r => r.trim());
+            console.log("los id o nombres" + responsablesArray);
+            console.log("los id de la empresa" + empId);
+        $.ajax({
+            url: '/kenpis/usuario/cargar-responsables/' + empId,
+            method: 'GET',
+            success: function(allResponsables) {
+                allResponsables.forEach(responsable => {
+                    const checked = responsablesArray.includes(responsable.usuId.toString()) ? 'checked' : '';
+                    responsablesContainer.append(`
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="${responsable.usuId}" ${checked}>
+                        <label class="form-check-label">${responsable.usuNombre} ${responsable.usuApePaterno}</label>
+                    </div>
+                `);
+                });
+            },
+            error: function() {
+                toastr.error('Error al cargar los responsables.');
+            }
+        });
+    }
+
         $('#editFormularioSucursal').submit(function (event) {
             event.preventDefault();
+            const responsablesSeleccionados = [];
+
+            $('#editResponsablesContainer input:checked').each(function () {
+                responsablesSeleccionados.push($(this).val());
+            });
+
             var sucursalData = {
-                empId:  $('#editSucursalId').val(),
+                empId: $('#editSucursalId').val(),
                 empNombreComercial: $('#editSucursalNombreComercial').val(),
                 empTelefono: $('#editSucursalTelefono').val(),
-                empResponsable: $('#editSucursalResponsable').val(),
+                empResponsable: responsablesSeleccionados.join(',')
             };
 
             $.ajax({
@@ -319,9 +393,26 @@ $(document).ready(function () {
             });
         });
 
+        function eliminarSucursal(empId) {
+            if (confirm('¿Estás seguro de que deseas eliminar esta sucursal?')) {
+                $.ajax({
+                    url: `/kenpis/empresas/sucrusal-delete/${empId}`,
+                    method: 'DELETE',
+                    success: function () {
+                        toastr.success('Sucursal eliminada correctamente.');
+                        $('#sucursalesModal').modal('hide');
+                        cargarEmpresas();
+                    },
+                    error: function () {
+                        toastr.error('Error al eliminar la empresa. Intente nuevamente.');
+                    }
+                });
+            }
+        }
 
-        /*  FIN DE LOS METODOS DE REGISTRAR Y EDITAR PARA UNA SUCURSAL */
+        /////////////////////////////////////////////////
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //EDITAR LA EMPRESA DE UN USUARIO CON ROL DE PROPIETARIO
         var formularioModificado = false;

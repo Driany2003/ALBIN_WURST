@@ -13,11 +13,5 @@ public class SucursalDTOrequest {
   private Integer empId;
   private String empResponsable;
 
-  public SucursalDTOrequest(String empNombreComercial, String empTelefono, String empResponsable, Integer empId) {
-    this.empNombreComercial = empNombreComercial;
-    this.empTelefono = empTelefono;
-    this.empResponsable = empResponsable;
-    this.empId = empId;
-  }
 
 }

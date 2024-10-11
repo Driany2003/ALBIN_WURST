@@ -1,6 +1,7 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IEmpresaService;
+import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
@@ -8,6 +9,7 @@ import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOResponse;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOrequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalResponse;
+import com.pe.kenpis.model.api.usuario.ResponsablesDTO;
 import com.pe.kenpis.model.api.usuario.UsuarioResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.extern.slf4j.Slf4j;
@@ -94,6 +96,13 @@ public class WEmpresaController {
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
+  @DeleteMapping("/sucrusal-delete/{id}")
+  public ResponseEntity<EmpresaResponse> deleteSucursal(@PathVariable Integer id) {
+    log.info("Controller :: sucursal delete :: {}", id);
+    EmpresaResponse empresa = service.delete(id);
+    return new ResponseEntity<>(empresa, HttpStatus.OK);
+  }
+
   @DeleteMapping("/delete/{id}")
   public ResponseEntity<EmpresaResponse> delete(@PathVariable Integer id) {
     log.info("Controller :: delete :: {}", id);
@@ -126,10 +135,10 @@ public class WEmpresaController {
   public ResponseEntity<Map<String, Object>> findSucursalesByEmpresa(@PathVariable Integer empId) {
     log.info("Controller :: findSucursalesByEmpresa :: empresaId={}", empId);
     List<EmpresaDTO> sucursales = service.findSucursalByEmpresa(empId);
+    FxComunes.printJson("trae sucursales", sucursales);
     Map<String, Object> response = new HashMap<>();
     response.put("status", "success");
     response.put("data", sucursales);
-    FxComunes.printJson("trae sucursales", sucursales);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
