@@ -20,7 +20,7 @@ public interface IEmpresaService {
   List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId);
 
   //este es el servicio para poder listar las sucursales por empresa.
-  List<EmpresaDTO> findSucursalByEmpresa(Integer empresaId);
+  List<EmpresaDTO> findSucursalByEmpresa(Integer empId);
 
   EmpresaResponse findById(Integer id);
 

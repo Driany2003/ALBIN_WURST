@@ -36,6 +36,14 @@ public class UsuarioImpl implements IUsuarioService {
     return repository.findAll().stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
+  public List<ResponsablesDTO> obtenerUsuariosPorEmpresa(Integer empresaId) {
+    List<Object[]> results = repository.findByEmpresaId(empresaId);
+    return results.stream()
+        .map(result -> new ResponsablesDTO((Integer) result[0], (String) result[1], (String) result[2]))
+        .collect(Collectors.toList());
+  }
+
+
   @Override
   public List<UsuarioDTO> findAllUsers() {
     log.info("Implements :: findAllDto");

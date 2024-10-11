@@ -21,6 +21,9 @@ $(document).ready(function () {
                                     '<img src="' + (empresa.empImageLogo || 'path_to_default_logo.png') + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
                                     '<span>' + empresa.empNombreComercial + '</span>' +
                                     '</td>' +
+                                    '<td>' +
+                                    '<span class="text-primary">' + (empresa.empResponsable || 'Sin responsable') + '</span>' +
+                                    '</td>' +
                                     '<td>' + formatDate(empresa.empFechaContratoInicio) + '</td>' +
                                     '<td>' + formatDate(empresa.empFechaContratoFin) + '</td>' +
                                     '<td>' + (empresa.empTelefono || '') + '</td>' +
@@ -95,9 +98,7 @@ $(document).ready(function () {
                                 $('#sucursalesBody').append(
                                     '<tr>' +
                                     '<td>' +
-                                    '<img src="' + (sucursal.empImageLogo || 'path_to_default_logo.png') + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
                                     '<span style="font-weight: bold;">' + sucursal.empNombreComercial + '</span><br>' +
-                                    '<span style="color: #888; font-size: 0.9em;">Responsable: ' + sucursal.empResponsable + '</span>' +
                                     '</td>' +
                                     '<td>' + (sucursal.empTelefono || 'N/A') + '</td>' +
                                     '<td>' +
@@ -106,8 +107,6 @@ $(document).ready(function () {
                                     '<span class="slider"></span>' +
                                     '</label>' +
                                     '</td>' +
-                                    '<td>' + formatDate(sucursal.empFechaContratoInicio) + '</td>' +
-                                    '<td>' + formatDate(sucursal.empFechaContratoFin) + '</td>' +
                                     '<td>' +
                                     '<button type="button" class="btn btn-sm btn-warning editarSucursal" data-id="' + sucursal.empId + '">' +
                                     '<i class="fas fa-pencil-alt"></i>' +
@@ -144,6 +143,7 @@ $(document).ready(function () {
                 }
             });
         }
+
 
         //para crear una empresa
         $('#guardarEmpresa').on('click', function () {
@@ -241,6 +241,9 @@ $(document).ready(function () {
 
         });
 
+        //////////////////////////////////////////////////////////////7
+
+
         /* REGISTRAR Y EDITAR PARA UNA SUCURSAL */
 
         $('#btnAgregarSucursal').on('click', function () {
@@ -252,8 +255,10 @@ $(document).ready(function () {
             var sucursalData = {
                 empNombreComercial: $('#sucNombre').val(),
                 empTelefono: $('#sucTelefono').val(),
-                empPadreId: parseInt(empId)
+                empPadreId: parseInt(empId),
+
             };
+
 
             $.ajax({
                 url: '/kenpis/empresas/sucursales-create',
@@ -283,7 +288,6 @@ $(document).ready(function () {
                     $('#editSucursalId').val(sucursal.empId);
                     $('#editSucursalNombreComercial').val(sucursal.empNombreComercial);
                     $('#editSucursalTelefono').val(sucursal.empTelefono);
-                    $('#editSucursalResponsable').val(sucursal.empResponsable);
 
                     $('#editsucursalModal').modal('show');
                 },
@@ -293,13 +297,14 @@ $(document).ready(function () {
             });
         }
 
+
         $('#editFormularioSucursal').submit(function (event) {
             event.preventDefault();
+
             var sucursalData = {
-                empId:  $('#editSucursalId').val(),
+                empId: $('#editSucursalId').val(),
                 empNombreComercial: $('#editSucursalNombreComercial').val(),
                 empTelefono: $('#editSucursalTelefono').val(),
-                empResponsable: $('#editSucursalResponsable').val(),
             };
 
             $.ajax({
@@ -319,9 +324,26 @@ $(document).ready(function () {
             });
         });
 
+        function eliminarSucursal(empId) {
+            if (confirm('¿Estás seguro de que deseas eliminar esta sucursal?')) {
+                $.ajax({
+                    url: `/kenpis/empresas/sucrusal-delete/${empId}`,
+                    method: 'DELETE',
+                    success: function () {
+                        toastr.success('Sucursal eliminada correctamente.');
+                        $('#sucursalesModal').modal('hide');
+                        cargarEmpresas();
+                    },
+                    error: function () {
+                        toastr.error('Error al eliminar la empresa. Intente nuevamente.');
+                    }
+                });
+            }
+        }
 
-        /*  FIN DE LOS METODOS DE REGISTRAR Y EDITAR PARA UNA SUCURSAL */
+        /////////////////////////////////////////////////
 
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //EDITAR LA EMPRESA DE UN USUARIO CON ROL DE PROPIETARIO
         var formularioModificado = false;

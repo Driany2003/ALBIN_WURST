@@ -114,4 +114,12 @@ public class WUsuarioController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
+
+  //listar combos para empresas seleccionadas
+  @GetMapping("/cargar-responsables/{empId}")
+  public ResponseEntity<List<ResponsablesDTO>> getResponsables(@PathVariable Integer empId) {
+    List<ResponsablesDTO> responsable = service.obtenerUsuariosPorEmpresa(empId);
+    return ResponseEntity.ok(responsable);
+  }
+
 }

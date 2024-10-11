@@ -2,6 +2,8 @@ package com.pe.kenpis.model.api.empresa.sucursal;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @ToString

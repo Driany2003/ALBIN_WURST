@@ -338,6 +338,7 @@
                                         <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">NOMBRE COMERCIAL</th>
+                                            <th scope="col">RESPONSABLES</th>
                                             <th scope="col">FECHA DE CONTRATO INICIO</th>
                                             <th scope="col">FECHA DE CONTRATO FIN</th>
                                             <th scope="col">TELEFONO</th>
@@ -485,8 +486,6 @@
                         <th>Nombre Comercial</th>
                         <th>Teléfono</th>
                         <th>Estado</th>
-                        <th>Inicio Contrato</th>
-                        <th>Fin Contrato</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
@@ -563,17 +562,6 @@
                                     <div class="form-group">
                                         <label for="editSucursalTelefono">Teléfono:</label>
                                         <input type="tel" class="form-control" id="editSucursalTelefono" name="editempTelefono" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <label for="editSucursalResponsable">Seleccionar Responsable:</label>
-                                        <select class="form-control" id="editSucursalResponsable" name="editempResponsable" required>
-                                            <option value="" disabled selected>Seleccione un Responsable</option>
-                                            <option value="responsable1">Responsable 1</option>
-                                            <option value="responsable2">Responsable 2</option>
-                                            <option value="responsable3">Responsable 3</option>
-                                        </select>
                                     </div>
                                 </div>
                             </div>

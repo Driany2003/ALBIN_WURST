@@ -9,6 +9,7 @@ import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOResponse;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOrequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalResponse;
+import com.pe.kenpis.model.api.usuario.ResponsablesDTO;
 import com.pe.kenpis.model.entity.EmpresaEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.EmpresaRepository;
@@ -17,12 +18,10 @@ import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,13 +31,25 @@ public class EmpresaImpl implements IEmpresaService {
 
   private final EmpresaRepository repository;
   private final UsuarioRepository usuarioRepository;
+  @Autowired
+  private UsuarioImpl usuarioImpl;
 
   //lista empresas activas solo para mostrar en el modulo de empresas
   @Override
   public List<EmpresaDTO> findAllActiveEmpresaById() {
     log.info("Implements :: findAll");
+
     List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
-    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+
+    return results.stream().map(result -> {
+      Integer empresaId = (Integer) result.get("empId");
+      List<ResponsablesDTO> responsables = usuarioImpl.obtenerUsuariosPorEmpresa(empresaId);
+
+      String nombresResponsables = responsables.stream().map(responsable -> responsable.getUsuNombre() + " " + responsable.getUsuApePaterno()).collect(Collectors.joining(", "));
+
+      // Retornar el DTO de empresa con los nombres de los responsables
+      return new EmpresaDTO(empresaId, nombresResponsables, (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
+    }).collect(Collectors.toList());
   }
 
   //lista empresas activas solo para los combos
@@ -59,7 +70,7 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaIdList(empId);
-    return results.stream().map(result -> new EmpresaDTO((String) result.get("empImagenLogo"), (String) result.get("empResponsable"), (Integer) result.get("empId"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
 
   @Override
@@ -107,7 +118,6 @@ public class EmpresaImpl implements IEmpresaService {
     nuevaSucursal.setEmpDocumentoTipo(empresaPadre.getEmpDocumentoTipo());
     nuevaSucursal.setEmpDocumentoNumero(empresaPadre.getEmpDocumentoNumero());
     nuevaSucursal.setEmpRazonSocial(empresaPadre.getEmpRazonSocial());
-    nuevaSucursal.setEmpResponsable(empresaPadre.getEmpResponsable());
     nuevaSucursal.setEmpImageLogo(empresaPadre.getEmpImageLogo());
     nuevaSucursal.setEmpFechaContratoInicio(empresaPadre.getEmpFechaContratoInicio());
     nuevaSucursal.setEmpFechaContratoFin(empresaPadre.getEmpFechaContratoFin());
@@ -119,6 +129,7 @@ public class EmpresaImpl implements IEmpresaService {
     nuevaSucursal.setEmpPadreId(request.getEmpPadreId());
     nuevaSucursal.setEmpTelefono(request.getEmpTelefono());
     nuevaSucursal.setEmpNombreComercial(request.getEmpNombreComercial());
+    nuevaSucursal.setEmpResponsable(request.getEmpResponsable());
 
     nuevaSucursal.setEmpIsActive(true);
     nuevaSucursal.setEmpFechaCreacion(new Date());
@@ -133,25 +144,22 @@ public class EmpresaImpl implements IEmpresaService {
 
   @Override
   public SucursalDTOResponse updateSucursal(SucursalDTOrequest request) {
-    Optional<EmpresaEntity> optionalSucursal = repository.findById(request.getEmpId());
+    EmpresaEntity entidadActualizar = repository.findById(request.getEmpId()).orElseThrow(() -> new RuntimeException("Sucursal no encontrada"));
 
-    if (!optionalSucursal.isPresent()) {
-      throw new RuntimeException("Sucursal no encontrada");
+    if (request.getEmpNombreComercial() != null) {
+      entidadActualizar.setEmpNombreComercial(request.getEmpNombreComercial());
+    }
+    if (request.getEmpTelefono() != null) {
+      entidadActualizar.setEmpTelefono(request.getEmpTelefono());
+    }
+    if (request.getEmpResponsable() != null) {
+      entidadActualizar.setEmpResponsable(request.getEmpResponsable());
     }
 
-    EmpresaEntity entidadActualizar = optionalSucursal.get();
-      entidadActualizar.setEmpNombreComercial(request.getEmpNombreComercial());
-      entidadActualizar.setEmpTelefono(request.getEmpTelefono());
-      entidadActualizar.setEmpResponsable(request.getEmpResponsable());
+    EmpresaEntity entidadGuardada = repository.save(entidadActualizar);
 
-
-    // Guardar la entidad actualizada
-    EmpresaEntity guardada = repository.save(entidadActualizar);
-
-    // Retorna la respuesta convertida
-    return convertEntityToResponseSucursalDTO(guardada);
+    return convertEntityToResponseSucursalDTO(entidadGuardada);
   }
-
 
   @Override
   public EmpresaResponse update(EmpresaRequest request) {
