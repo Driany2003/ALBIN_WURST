@@ -54,18 +54,19 @@ public class EmpresaImpl implements IEmpresaService {
 
   //lista empresas activas solo para los combos
   @Override
-  public List<EmpresaDTO> findAllByStatus() {
+  public List<EmpresaResponseDTO> findAllByStatus() {
     List<Map<String, Object>> results = repository.findAllByEmpIsActive();
-    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
 
+  /*
   //empresa en sesion datos para exponer cuando un usuario inicia sesion, lista de sucursales,
   @Override
   public List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId) {
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaId(empId);
     return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
-
+*/
   //lista de sucursales para la vista de empresa
   @Override
   public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {

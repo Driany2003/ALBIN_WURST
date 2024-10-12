@@ -9,6 +9,8 @@ import java.util.Map;
 
 public interface IUsuarioService {
 
+  void actualizarPassword(Integer usuId, String nuevaPassword);
+
   List<UsuarioResponse> findAll();
 
   List<UsuarioDTO> findAllUsers();
@@ -21,7 +23,7 @@ public interface IUsuarioService {
 
   UsuarioDTO create(UsuarioRequest request);
 
-  UsuarioDTO update(UsuarioDTORequest request , HttpSession session);
+  UsuarioDTO update(UsuarioDTORequest request, HttpSession session);
 
   UsuarioResponse delete(Integer id);
 

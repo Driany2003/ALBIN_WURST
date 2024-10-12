@@ -15,9 +15,9 @@ public interface IEmpresaService {
 
   List<EmpresaDTO> findAllActiveEmpresaById();
 
-  List<EmpresaDTO> findAllByStatus();
+  List<EmpresaResponseDTO> findAllByStatus();
 
-  List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId);
+  // List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId);
 
   //este es el servicio para poder listar las sucursales por empresa.
   List<EmpresaDTO> findSucursalByEmpresa(Integer empId);

@@ -17,6 +17,7 @@ public class UsuarioRequest {
   private String authRoles;
   private String authUsername;
   private char usuGenero;
+  private String usuCorreo;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
   private String authPassword;

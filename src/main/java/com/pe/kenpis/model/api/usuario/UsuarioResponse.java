@@ -18,5 +18,6 @@ public class UsuarioResponse {
   private char usuGenero;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
+  private String usuCorreo;
 
 }

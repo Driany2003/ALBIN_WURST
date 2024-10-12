@@ -17,12 +17,14 @@ public class UsuarioDTO {
   private String empNombreComercial;
   private String authRoles;
   private String authUsername;
+  private String usuCorreo;
   private char usuGenero;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
   private String authPassword;
+
   //convertToUsuarioDTO
-  public UsuarioDTO(Integer usuId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
+  public UsuarioDTO(Integer usuId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String usuCorreo, String authRoles, String authUsername) {
     this.usuId = usuId;
     this.usuNombre = usuNombre;
     this.usuApePaterno = usuApePaterno;
@@ -33,14 +35,16 @@ public class UsuarioDTO {
     this.usuGenero = usuGenero;
     this.empNombreComercial = empNombreComercial;
     this.authRoles = authRoles;
+    this.usuCorreo = usuCorreo;
     this.authUsername = authUsername;
   }
 
 //convertToUsuarioDTObyEmpresaId
-  public UsuarioDTO(Integer usuId, Integer empresaId, String usuNombre, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
+  public UsuarioDTO(Integer usuId, Integer empresaId, String usuNombre,String usuCorreo, String usuApePaterno, String usuApeMaterno, String usuTelefono, String usuNumeroDocumento, String usuTipoDocumento, char usuGenero, String empNombreComercial, String authRoles, String authUsername) {
     this.usuId = usuId;
     this.empresaId = empresaId;
     this.usuNombre = usuNombre;
+    this.usuCorreo = usuCorreo;
     this.usuApePaterno = usuApePaterno;
     this.usuApeMaterno = usuApeMaterno;
     this.usuTelefono = usuTelefono;

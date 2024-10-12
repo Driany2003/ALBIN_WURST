@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UsuarioDTORequest  {
-
+//para poder actualizar el usuario
   private Integer usuId;
   private Integer empresaId;
   private String usuNombre;
@@ -17,9 +17,9 @@ public class UsuarioDTORequest  {
   private String usuTelefono;
   private String authRoles;
   private String authUsername;
+  private String usuCorreo;
   private char usuGenero;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
-  private String authPassword;
 
 }

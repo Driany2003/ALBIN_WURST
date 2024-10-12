@@ -22,7 +22,7 @@ public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer>
 
   @Query(value = "SELECT u.usu_id AS usuId, u.usu_nombre AS usuNombre, u.usu_ape_paterno AS usuApePaterno, "
       + "u.usu_ape_materno AS usuApeMaterno, u.usu_telefono AS usuTelefono, u.usu_numero_documento AS usuNumeroDocumento, "
-      + "u.usu_tipo_documento AS usuTipoDocumento, u.usu_genero AS usuGenero, e.emp_nombre_comercial AS empNombreComercial, e.emp_id AS empresaId, "
+      + "u.usu_tipo_documento AS usuTipoDocumento, u.usu_genero AS usuGenero, u.usu_correo AS usuCorreo, e.emp_nombre_comercial AS empNombreComercial, e.emp_id AS empresaId, "
       + "a.auth_roles AS authRoles, a.auth_username AS authUsername "
       + "FROM T_USUARIO u "
       + "INNER JOIN T_EMPRESA e ON e.emp_id = u.empresa_id "
