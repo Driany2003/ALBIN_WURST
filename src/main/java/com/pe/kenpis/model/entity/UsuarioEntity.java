@@ -38,5 +38,8 @@ public class UsuarioEntity {
   @Column(name = "usu_genero")
   private char usuGenero;
 
+  @Column(name = "usu_correo")
+  private String usuCorreo;
+
 
 }

@@ -12,6 +12,7 @@ public class EmpresaResponseDTO {
   private Integer empId;
   private String empNombreComercial;
 
+  //lista las empresas en los combos
   public EmpresaResponseDTO(Integer empId,String empNombreComercial) {
     this.empId = empId;
     this.empNombreComercial = empNombreComercial;

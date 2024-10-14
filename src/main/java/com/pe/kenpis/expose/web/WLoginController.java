@@ -65,9 +65,9 @@ public class WLoginController {
       request.getSession().setAttribute("errorMessage", "La empresa a la que pertenece está inactiva");
       return "redirect:/logout";
     }
-    List<EmpresaResponseDTO> empresaDTO = empresaService.findEmpresaAndSucursalByUsuarioId(empresaResponse.getEmpId());
-    request.getSession().setAttribute("listaDeSucursales", empresaDTO);
-    log.info("listaDeSucursales : {}", empresaDTO);
+    //List<EmpresaResponseDTO> empresaDTO = empresaService.findEmpresaAndSucursalByUsuarioId(empresaResponse.getEmpId());
+    //request.getSession().setAttribute("listaDeSucursales", empresaDTO);
+    //log.info("listaDeSucursales : {}", empresaDTO);
     request.getSession().setAttribute("usuSessionNivel", usuarioAuthorityResponse.getAuthRoles());
     request.getSession().setAttribute("usuSessionNombre", nombre);
     request.getSession().setAttribute("usuSessionId", usuarioResponse.getUsuId());
@@ -75,7 +75,7 @@ public class WLoginController {
     request.getSession().setAttribute("empresaSession", empresaResponse);
 
     // LOGS CONSOLE
-    FxComunes.printJson("listaDeSucursales QUE ESTA LLEGANDO", empresaDTO);
+    //FxComunes.printJson("listaDeSucursales QUE ESTA LLEGANDO", empresaDTO);
     FxComunes.printJson("UsuarioAuthorityResponse", usuarioAuthorityResponse);
     FxComunes.printJson("UsuarioResponse", usuarioResponse);
     FxComunes.printJson("EmpresaSession", empresaResponse);

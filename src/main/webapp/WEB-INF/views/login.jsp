@@ -38,7 +38,7 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                             </div>
                             <!--<input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password">-->
-                            <input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password" value="Lima1234..">
+                            <input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password" value="jhan">
                         </div>
                         <!--
                         <div class="form-group row">

@@ -2,10 +2,12 @@ package com.pe.kenpis.repository;
 
 import com.pe.kenpis.model.entity.UsuarioAuthorityEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Repository
@@ -16,5 +18,11 @@ public interface UsuarioAuthorityRepository extends JpaRepository<UsuarioAuthori
 
   @Query("SELECT u FROM UsuarioAuthorityEntity u WHERE u.usuId = :usuId")
   Optional<UsuarioAuthorityEntity> findByUsuarioId(@Param("usuId") Integer usuId);
-  
+
+  @Modifying
+  @Transactional
+  @Query(value = "UPDATE T_USUARIO_AUTHORITY SET auth_password = :password WHERE usu_id = :usuId", nativeQuery = true)
+  void actualizarPassword(@Param("usuId") Integer usuId, @Param("password") String password);
+
+
 }

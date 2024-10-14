@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -30,6 +31,13 @@ public class UsuarioImpl implements IUsuarioService {
   private final UsuarioAuthorityRepository usuarioAuthorityRepository;
   private final PasswordEncoder passwordEncoder;
 
+  //metodo para actualizar la contraseña
+  @Override
+  public void actualizarPassword(Integer usuId, String nuevaPassword) {
+    String passwordCodificada = passwordEncoder.encode(nuevaPassword);
+    usuarioAuthorityRepository.actualizarPassword(usuId, passwordCodificada);
+  }
+
   @Override
   public List<UsuarioResponse> findAll() {
     log.info("Implements :: findAll");
@@ -38,11 +46,8 @@ public class UsuarioImpl implements IUsuarioService {
 
   public List<ResponsablesDTO> obtenerUsuariosPorEmpresa(Integer empresaId) {
     List<Object[]> results = repository.findByEmpresaId(empresaId);
-    return results.stream()
-        .map(result -> new ResponsablesDTO((Integer) result[0], (String) result[1], (String) result[2]))
-        .collect(Collectors.toList());
+    return results.stream().map(result -> new ResponsablesDTO((Integer) result[0], (String) result[1], (String) result[2])).collect(Collectors.toList());
   }
-
 
   @Override
   public List<UsuarioDTO> findAllUsers() {
@@ -63,29 +68,23 @@ public class UsuarioImpl implements IUsuarioService {
   }
 
   private UsuarioDTO convertToUsuarioDTO(Map<String, Object> map) {
-    return new UsuarioDTO((Integer) map.get("usuId"), (String) map.get("usuNombre"), (String) map.get("usuApePaterno"), (String) map.get("usuApeMaterno"), (String) map.get("usuTelefono"), (String) map.get("usuNumeroDocumento"), (String) map.get("usuTipoDocumento"), (char) map.get("usuGenero"), (String) map.get("empNombreComercial"), (String) map.get("authRoles"), (String) map.get("authUsername"));
+    return new UsuarioDTO((Integer) map.get("usuId"), (String) map.get("usuNombre"), (String) map.get("usuApePaterno"), (String) map.get("usuApeMaterno"), (String) map.get("usuTelefono"), (String) map.get("usuNumeroDocumento"), (String) map.get("usuTipoDocumento"), (char) map.get("usuGenero"), (String) map.get("empNombreComercial"), (String) map.get("usuCorreo"), (String) map.get("authRoles"), (String) map.get("authUsername"));
   }
 
   private UsuarioDTO convertToUsuarioDTObyId(Map<String, Object> map) {
-    return new UsuarioDTO((Integer) map.get("usuId"), (Integer) map.get("empresaId"), (String) map.get("usuNombre"), (String) map.get("usuApePaterno"), (String) map.get("usuApeMaterno"), (String) map.get("usuTelefono"), (String) map.get("usuNumeroDocumento"), (String) map.get("usuTipoDocumento"), (char) map.get("usuGenero"), (String) map.get("empNombreComercial"), (String) map.get("authRoles"), (String) map.get("authUsername"));
+    return new UsuarioDTO((Integer) map.get("usuId"), (Integer) map.get("empresaId"), (String) map.get("usuNombre"), (String) map.get("usuCorreo"), (String) map.get("usuApePaterno"), (String) map.get("usuApeMaterno"), (String) map.get("usuTelefono"), (String) map.get("usuNumeroDocumento"), (String) map.get("usuTipoDocumento"), (char) map.get("usuGenero"), (String) map.get("empNombreComercial"), (String) map.get("authRoles"), (String) map.get("authUsername"));
   }
 
   @Override
-  public UsuarioDTO findById(Integer id) {
-    log.info("Implements :: findById :: " + id);
-    Map<String, Object> results = repository.findByIdDto(id);
-    UsuarioDTO res = convertToUsuarioDTObyId(results);
-    String desencriptarPassword = res.getAuthPassword();
-    if (desencriptarPassword != null) {
-      String decryptedPassword = String.valueOf(passwordEncoder.upgradeEncoding(desencriptarPassword));
-      res.setAuthPassword(decryptedPassword);
-    }
-    return res;
+  public UsuarioDTO findById(Integer usuSessionId) {
+    log.info("Implements :: findById :: " + usuSessionId);
+    Map<String, Object> results = repository.findByIdDto(usuSessionId);
+    return convertToUsuarioDTObyId(results);
   }
 
   @Override
   public UsuarioDTO create(UsuarioRequest request) {
-    log.debug("Implements :: create :: Inicio");
+    log.debug("Implements :: create Usuario");
 
     UsuarioEntity usuarioCreado = convertRequestDTOToEntity(request);
     usuarioCreado.setEmpresaId(request.getEmpresaId());
@@ -98,7 +97,6 @@ public class UsuarioImpl implements IUsuarioService {
     usuarioAuthority.setAuthRoles(request.getAuthRoles());
     usuarioAuthority.setAuthPassword(passwordEncoder.encode(request.getAuthPassword()));
     usuarioAuthorityRepository.save(usuarioAuthority);
-
     FxComunes.printJson("UsuarioCreadoRequest", request);
     return convertEntityToDTOResponse(saveUsuario);
   }
@@ -129,6 +127,26 @@ public class UsuarioImpl implements IUsuarioService {
   }
 
   @Override
+  @Transactional
+  public void actualizarMiPerfil(MiPerfilDTORequest miPerfilDTORequest) {
+    Optional<UsuarioEntity> optionalUsuario = repository.findById(miPerfilDTORequest.getUsuId());
+    if (optionalUsuario.isPresent()) {
+      UsuarioEntity usuario = optionalUsuario.get();
+
+      usuario.setUsuNombre(miPerfilDTORequest.getUsuNombre());
+      usuario.setUsuApePaterno(miPerfilDTORequest.getUsuApePaterno());
+      usuario.setUsuApeMaterno(miPerfilDTORequest.getUsuApeMaterno());
+      usuario.setUsuTelefono(miPerfilDTORequest.getUsuTelefono());
+      usuario.setUsuCorreo(miPerfilDTORequest.getUsuCorreo());
+      usuario.setUsuNumeroDocumento(miPerfilDTORequest.getUsuNumeroDocumento());
+      usuario.setUsuTipoDocumento(miPerfilDTORequest.getUsuTipoDocumento());
+      repository.save(usuario);
+    } else {
+      throw new RuntimeException("Usuario no encontrado");
+    }
+  }
+
+  @Override
   public UsuarioResponse delete(Integer id) {
     log.debug("Implements :: delete :: ID -> {}", id);
     Optional<UsuarioEntity> usuarioEntityOptional = repository.findById(id);
@@ -138,9 +156,9 @@ public class UsuarioImpl implements IUsuarioService {
       if (authorityOptional.isPresent()) {
         UsuarioAuthorityEntity authorityEntity = authorityOptional.get();
         usuarioAuthorityRepository.delete(authorityEntity);
-        log.debug("Autoridad eliminada para el usuario con ID -> {}", usuarioEntity.getUsuId());
+        log.debug(" eliminada para el usuario con ID -> {}", usuarioEntity.getUsuId());
       } else {
-        log.debug("No se encontró autoridad para el usuario con ID -> {}", usuarioEntity.getUsuId());
+        log.debug("No se encontró  para el usuario con ID -> {}", usuarioEntity.getUsuId());
       }
       repository.delete(usuarioEntity);
       log.debug("Usuario eliminado con ID -> {}", id);

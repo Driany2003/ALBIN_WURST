@@ -3,6 +3,7 @@ package com.pe.kenpis.expose.web;
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
+import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
 import com.pe.kenpis.model.api.usuario.*;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;
@@ -10,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -17,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping("/kenpis/usuario")
 @Slf4j
 public class WUsuarioController {
@@ -28,6 +31,25 @@ public class WUsuarioController {
   @Autowired
   private IEmpresaService serviceEmpresa;
 
+
+  //menu desplegable
+  @GetMapping("/mi-perfil")
+  public String mostrarMiPerfil(HttpSession session, Model model) {
+    Integer usuSessionId = (Integer) session.getAttribute("usuSessionId");
+    if (usuSessionId == null) {
+      throw new RuntimeException("No se encontró el ID de usuario en la sesión.");
+    }
+    model.addAttribute("usuario", service.findById(usuSessionId));
+    return "usuario-mi-perfil";
+  }
+  @PutMapping("/actualizar-perfil")
+  public ResponseEntity<String> actualizarPerfil(@RequestBody MiPerfilDTORequest miPerfilDTORequest) {
+    FxComunes.printJson("trae de mi perfil", miPerfilDTORequest);
+    service.actualizarMiPerfil(miPerfilDTORequest);
+    return ResponseEntity.ok("Perfil actualizado correctamente");
+  }
+
+
   @GetMapping("/find-by-phone/{phone}")
   public ResponseEntity<UsuarioResponse> findByPhone(@PathVariable String phone) {
     UsuarioResponse user = service.findByPhone(phone);
@@ -36,7 +58,7 @@ public class WUsuarioController {
 
   @PostMapping("/create")
   public ResponseEntity<UsuarioDTO> create(@RequestBody UsuarioRequest request) {
-    FxComunes.printJson("QUE TRAE DE REGISTRAR ", request);
+    FxComunes.printJson("QUE TRAE DE REGISTRAR USUARIO ", request);
     UsuarioDTO response = service.create(request);
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
@@ -62,7 +84,7 @@ public class WUsuarioController {
       session.setAttribute("listaUsuarios", listaUsuarios);
       FxComunes.printJson("QUE LLEGA DE ADMINISTRADOR", listaUsuarios);
       //LISTAR
-      List<EmpresaDTO> listaEmpresa = serviceEmpresa.findAllByStatus();
+      List<EmpresaResponseDTO> listaEmpresa = serviceEmpresa.findAllByStatus();
       response.put("empresasList", listaEmpresa);
       FxComunes.printJson("Trae empresa admin ", listaEmpresa);
 
@@ -89,7 +111,7 @@ public class WUsuarioController {
       response.put("usuario", usuario);
       FxComunes.printJson("LO QUE TRAE DE USUARIO ", usuario);
       if (usuSessionNivel.equalsIgnoreCase(Constantes.NIVELES_USUARIO.ADMINISTRADOR)) {
-        List<EmpresaDTO> empresasList = serviceEmpresa.findAllByStatus();
+        List<EmpresaResponseDTO> empresasList = serviceEmpresa.findAllByStatus();
         response.put("empresasList", empresasList);
         FxComunes.printJson("LO QUE TRAE EMPRESA ", empresasList);
       }
@@ -114,12 +136,21 @@ public class WUsuarioController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
-
   //listar combos para empresas seleccionadas
   @GetMapping("/cargar-responsables/{empId}")
   public ResponseEntity<List<ResponsablesDTO>> getResponsables(@PathVariable Integer empId) {
     List<ResponsablesDTO> responsable = service.obtenerUsuariosPorEmpresa(empId);
     return ResponseEntity.ok(responsable);
   }
+
+  //actualizar contraseña
+  @PostMapping("/reset-password/{usuId}")
+  public ResponseEntity<?> resetPassword(@PathVariable Integer usuId, @RequestBody Map<String, String> request) {
+    String nuevaPassword = request.get("nuevaPassword");
+    service.actualizarPassword(usuId, nuevaPassword);
+    return ResponseEntity.ok().body("Contraseña actualizada correctamente");
+  }
+
+
 
 }

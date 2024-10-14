@@ -1,24 +1,22 @@
 package com.pe.kenpis.model.api.usuario;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
-public class UsuarioDTORequest  {
-//para poder actualizar el usuario
+public class MiPerfilDTORequest {
   private Integer usuId;
   private Integer empresaId;
   private String usuNombre;
   private String usuApePaterno;
   private String usuApeMaterno;
   private String usuTelefono;
-  private String authRoles;
-  private String authUsername;
   private String usuCorreo;
-  private char usuGenero;
   private String usuNumeroDocumento;
   private String usuTipoDocumento;
 
