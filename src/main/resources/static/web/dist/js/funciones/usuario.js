@@ -265,4 +265,6 @@ $(document).ready(function () {
         $('#nuevaPassword').val('');
         $('#confirmarPassword').val('');
     });
+
+
 });

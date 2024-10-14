@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -30,14 +31,12 @@ public class UsuarioImpl implements IUsuarioService {
   private final UsuarioAuthorityRepository usuarioAuthorityRepository;
   private final PasswordEncoder passwordEncoder;
 
-
   //metodo para actualizar la contraseña
   @Override
   public void actualizarPassword(Integer usuId, String nuevaPassword) {
     String passwordCodificada = passwordEncoder.encode(nuevaPassword);
     usuarioAuthorityRepository.actualizarPassword(usuId, passwordCodificada);
   }
-
 
   @Override
   public List<UsuarioResponse> findAll() {
@@ -77,9 +76,9 @@ public class UsuarioImpl implements IUsuarioService {
   }
 
   @Override
-  public UsuarioDTO findById(Integer usuId) {
-    log.info("Implements :: findById :: " + usuId);
-    Map<String, Object> results = repository.findByIdDto(usuId);
+  public UsuarioDTO findById(Integer usuSessionId) {
+    log.info("Implements :: findById :: " + usuSessionId);
+    Map<String, Object> results = repository.findByIdDto(usuSessionId);
     return convertToUsuarioDTObyId(results);
   }
 
@@ -125,6 +124,26 @@ public class UsuarioImpl implements IUsuarioService {
     usuarioAuthorityRepository.save(authorityEntity);
 
     return convertEntityToDTOResponse(usuarioActualizado);
+  }
+
+  @Override
+  @Transactional
+  public void actualizarMiPerfil(MiPerfilDTORequest miPerfilDTORequest) {
+    Optional<UsuarioEntity> optionalUsuario = repository.findById(miPerfilDTORequest.getUsuId());
+    if (optionalUsuario.isPresent()) {
+      UsuarioEntity usuario = optionalUsuario.get();
+
+      usuario.setUsuNombre(miPerfilDTORequest.getUsuNombre());
+      usuario.setUsuApePaterno(miPerfilDTORequest.getUsuApePaterno());
+      usuario.setUsuApeMaterno(miPerfilDTORequest.getUsuApeMaterno());
+      usuario.setUsuTelefono(miPerfilDTORequest.getUsuTelefono());
+      usuario.setUsuCorreo(miPerfilDTORequest.getUsuCorreo());
+      usuario.setUsuNumeroDocumento(miPerfilDTORequest.getUsuNumeroDocumento());
+      usuario.setUsuTipoDocumento(miPerfilDTORequest.getUsuTipoDocumento());
+      repository.save(usuario);
+    } else {
+      throw new RuntimeException("Usuario no encontrado");
+    }
   }
 
   @Override

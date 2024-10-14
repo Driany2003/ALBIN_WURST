@@ -19,11 +19,13 @@ public interface IUsuarioService {
 
   List<ResponsablesDTO> obtenerUsuariosPorEmpresa(Integer empId);
 
-  UsuarioDTO findById(Integer id);
+  UsuarioDTO findById(Integer usuSessionId);
 
   UsuarioDTO create(UsuarioRequest request);
 
   UsuarioDTO update(UsuarioDTORequest request, HttpSession session);
+
+  void actualizarMiPerfil(MiPerfilDTORequest miPerfilDTORequest);
 
   UsuarioResponse delete(Integer id);
 

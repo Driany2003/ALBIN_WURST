@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -18,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping("/kenpis/usuario")
 @Slf4j
 public class WUsuarioController {
@@ -29,6 +31,23 @@ public class WUsuarioController {
   @Autowired
   private IEmpresaService serviceEmpresa;
 
+
+  //menu desplegable
+  @GetMapping("/mi-perfil")
+  public String mostrarMiPerfil(HttpSession session, Model model) {
+    Integer usuSessionId = (Integer) session.getAttribute("usuSessionId");
+    if (usuSessionId == null) {
+      throw new RuntimeException("No se encontró el ID de usuario en la sesión.");
+    }
+    model.addAttribute("usuario", service.findById(usuSessionId));
+    return "usuario-mi-perfil";
+  }
+  @PutMapping("/actualizar-perfil")
+  public ResponseEntity<String> actualizarPerfil(@RequestBody MiPerfilDTORequest miPerfilDTORequest) {
+    FxComunes.printJson("trae de mi perfil", miPerfilDTORequest);
+    service.actualizarMiPerfil(miPerfilDTORequest);
+    return ResponseEntity.ok("Perfil actualizado correctamente");
+  }
 
 
   @GetMapping("/find-by-phone/{phone}")
@@ -131,5 +150,7 @@ public class WUsuarioController {
     service.actualizarPassword(usuId, nuevaPassword);
     return ResponseEntity.ok().body("Contraseña actualizada correctamente");
   }
+
+
 
 }
