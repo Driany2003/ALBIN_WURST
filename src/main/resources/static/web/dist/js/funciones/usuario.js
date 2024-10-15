@@ -261,6 +261,7 @@ $(document).ready(function () {
         });
     });
     $('#resetPasswordModal').on('hidden.bs.modal', function () {
+        $('#resetClaveForm')[0].reset();
         $('#resetUsuarioId').val('');
         $('#nuevaPassword').val('');
         $('#confirmarPassword').val('');

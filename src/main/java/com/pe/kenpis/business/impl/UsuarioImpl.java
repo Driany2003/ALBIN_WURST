@@ -2,7 +2,9 @@ package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.usuario.*;
+import com.pe.kenpis.model.api.usuario.MiPerfil.MiPerfilDTORequest;
 import com.pe.kenpis.model.api.usuario.authority.UsuarioAuthorityResponse;
+import com.pe.kenpis.model.api.usuario.resetClave.resetClaveRequest;
 import com.pe.kenpis.model.entity.UsuarioAuthorityEntity;
 import com.pe.kenpis.model.entity.UsuarioEntity;
 import com.pe.kenpis.repository.UsuarioAuthorityRepository;
@@ -12,6 +14,7 @@ import com.pe.kenpis.util.variables.Constantes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -126,6 +129,7 @@ public class UsuarioImpl implements IUsuarioService {
     return convertEntityToDTOResponse(usuarioActualizado);
   }
 
+  //Menu desplegable --> MiPerfil
   @Override
   @Transactional
   public void actualizarMiPerfil(MiPerfilDTORequest miPerfilDTORequest) {
@@ -144,6 +148,19 @@ public class UsuarioImpl implements IUsuarioService {
     } else {
       throw new RuntimeException("Usuario no encontrado");
     }
+  }
+
+  //Menu desplegable --> ValidarClave
+  @Override
+  public boolean validarCLave(Integer usuId, String claveActual) {
+    UsuarioEntity usuario = repository.findById(usuId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+
+    Optional<UsuarioAuthorityEntity> authority = usuarioAuthorityRepository.findByUsuarioId(usuario.getUsuId());
+
+    if (authority.isPresent()) {
+      return BCrypt.checkpw(claveActual, authority.get().getAuthPassword());
+    }
+    return false;
   }
 
   @Override

@@ -36,7 +36,6 @@ $(document).ready(function () {
 
 
         const iniciales = obtenerIniciales(nombre, apellido);
-
         ctx.fillText(iniciales, 75, 75);
     }
 
@@ -53,7 +52,7 @@ $(document).ready(function () {
     function validateFields() {
         let isValid = true;
 
-        $('#nombre, #apellidoPaterno, #apellidoMaterno').on('input', function() {
+        $('#nombre, #apellidoPaterno, #apellidoMaterno').on('input', function () {
             $(this).val($(this).val().toUpperCase());
         });
 
@@ -86,6 +85,19 @@ $(document).ready(function () {
 
         return isValid;
     }
+
+    $('#nombre, #apellidoPaterno, #apellidoMaterno').on('input change', function () {
+        const nombre = $('#nombre').val();
+        const apellido = $('#apellidoPaterno').val();
+
+        generarImagenIniciales(nombre, apellido);
+        // Validar campos
+        if (validateFields()) {
+            $('#actualizarPerfil').prop('disabled', false);
+        } else {
+            $('#actualizarPerfil').prop('disabled', true);
+        }
+    });
 
     $('#ActualizarPerfilForm input').on('input change', function () {
 

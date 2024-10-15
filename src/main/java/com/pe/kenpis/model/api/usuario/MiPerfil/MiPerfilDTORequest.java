@@ -1,4 +1,4 @@
-package com.pe.kenpis.model.api.usuario;
+package com.pe.kenpis.model.api.usuario.MiPerfil;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
