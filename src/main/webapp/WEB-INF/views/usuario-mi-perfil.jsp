@@ -41,10 +41,12 @@
                             <h5 class="card-title text-center">Tu número de cliente: <span style="color: #007bff;">904329</span></h5>
                             <div class="col-md-12 text-center image-wrapper">
                                 <canvas id="initialsCanvas" class="rounded-circle" width="300" height="300" style="width: 150px; height: 150px; background-color: #f0f0f0;"></canvas>
+                                <!--
                                 <div id="buttonContainer">
                                     <a href="#" class="btn btn-link text-primary" style="margin: 2px 0;"><i class="fas fa-pencil-alt"></i> Modificar</a>
                                     <a href="#" class="btn btn-link text-danger" style="margin: 2px 0;"><i class="fas fa-trash"></i> Eliminar</a>
                                 </div>
+                                -->
                             </div>
                             <br>
                             <form id="ActualizarPerfilForm">
@@ -124,7 +126,9 @@
         align-items: center;
     }
 </style>
+<!--
 <script>
+
     const imageContainer = document.querySelector('.image-wrapper');
 
     imageContainer.addEventListener('mouseover', function () {
@@ -136,7 +140,7 @@
     })
 
 </script>
-
+-->
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -154,7 +158,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-<script src="/static/web/dist/js/funciones/iniciales-mi-perfil.js"></script>
+<script src="/static/web/dist/js/funciones/mi-perfil.js"></script>
 <%@ include file="includes/all-jquery.jspf" %>
 </body>
 </html>

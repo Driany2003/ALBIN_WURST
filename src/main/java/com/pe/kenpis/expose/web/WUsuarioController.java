@@ -2,9 +2,10 @@ package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IEmpresaService;
 import com.pe.kenpis.business.IUsuarioService;
-import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
 import com.pe.kenpis.model.api.usuario.*;
+import com.pe.kenpis.model.api.usuario.MiPerfil.MiPerfilDTORequest;
+import com.pe.kenpis.model.api.usuario.resetClave.resetClaveRequest;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +33,6 @@ public class WUsuarioController {
   @Autowired
   private IEmpresaService serviceEmpresa;
 
-
   //menu desplegable
   @GetMapping("/mi-perfil")
   public String mostrarMiPerfil(HttpSession session, Model model) {
@@ -42,6 +43,17 @@ public class WUsuarioController {
     model.addAttribute("usuario", service.findById(usuSessionId));
     return "usuario-mi-perfil";
   }
+
+  @GetMapping("/reset-password")
+  public String resetPassword(HttpSession session, Model model) {
+    Integer usuSessionId = (Integer) session.getAttribute("usuSessionId");
+    if (usuSessionId == null) {
+      throw new RuntimeException("No se encontró el ID de usuario en la sesión.");
+    }
+    model.addAttribute("usuario", service.findById(usuSessionId));
+    return "resetClave";
+  }
+
   @PutMapping("/actualizar-perfil")
   public ResponseEntity<String> actualizarPerfil(@RequestBody MiPerfilDTORequest miPerfilDTORequest) {
     FxComunes.printJson("trae de mi perfil", miPerfilDTORequest);
@@ -49,6 +61,23 @@ public class WUsuarioController {
     return ResponseEntity.ok("Perfil actualizado correctamente");
   }
 
+  //Menu desplegable --> resetClave
+  @PostMapping("/validar-clave")
+  public ResponseEntity<?> validarClave(@RequestBody resetClaveRequest request) {
+    boolean esValida = service.validarCLave(request.getUsuId(), request.getClaveActual());
+    FxComunes.printJson("reset password", request );
+    if (esValida) {
+      return ResponseEntity.ok(Collections.singletonMap("valida", true));
+    } else {
+      return ResponseEntity.ok(Collections.singletonMap("valida", false));
+    }
+  }
+
+  @PutMapping("/actualizar-clave")
+  public ResponseEntity<?> actualizarClave(@RequestBody resetClaveRequest request) {
+    service.actualizarPassword(request.getUsuId(), request.getNuevaClave());
+    return ResponseEntity.ok("Clave actualizada correctamente.");
+  }
 
   @GetMapping("/find-by-phone/{phone}")
   public ResponseEntity<UsuarioResponse> findByPhone(@PathVariable String phone) {
@@ -150,7 +179,5 @@ public class WUsuarioController {
     service.actualizarPassword(usuId, nuevaPassword);
     return ResponseEntity.ok().body("Contraseña actualizada correctamente");
   }
-
-
 
 }
