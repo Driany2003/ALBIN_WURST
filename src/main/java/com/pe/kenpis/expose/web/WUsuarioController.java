@@ -44,16 +44,6 @@ public class WUsuarioController {
     return "usuario-mi-perfil";
   }
 
-  @GetMapping("/reset-password")
-  public String resetPassword(HttpSession session, Model model) {
-    Integer usuSessionId = (Integer) session.getAttribute("usuSessionId");
-    if (usuSessionId == null) {
-      throw new RuntimeException("No se encontró el ID de usuario en la sesión.");
-    }
-    model.addAttribute("usuario", service.findById(usuSessionId));
-    return "resetClave";
-  }
-
   @PutMapping("/actualizar-perfil")
   public ResponseEntity<String> actualizarPerfil(@RequestBody MiPerfilDTORequest miPerfilDTORequest) {
     FxComunes.printJson("trae de mi perfil", miPerfilDTORequest);

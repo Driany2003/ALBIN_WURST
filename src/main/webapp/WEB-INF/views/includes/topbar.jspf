@@ -93,9 +93,6 @@
                             </div>
                         </div>
                         <div class="profile-dis scrollable">
-                            <a class="dropdown-item" href="/kenpis/usuario/reset-password?id=${usuSessionId}">
-                                <i class="ti-lock m-r-5 m-l-5"></i> Cambiar clave</a>
-                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id ="miPerfilLink " href="/kenpis/usuario/mi-perfil?id=${usuSessionId}">
                                 <i class="ti-settings m-r-5 m-l-5"></i> Mi Perfil</a>
                             <div class="dropdown-divider"></div>

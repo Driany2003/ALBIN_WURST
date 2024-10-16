@@ -30,100 +30,180 @@
 
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
-        <div class="container mt-4 mb-4">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center">Tu número de cliente: <span style="color: #007bff;">904329</span></h5>
-                            <div class="col-md-12 text-center image-wrapper">
-                                <canvas id="initialsCanvas" class="rounded-circle" width="300" height="300" style="width: 150px; height: 150px; background-color: #f0f0f0;"></canvas>
-                                <!--
-                                <div id="buttonContainer">
-                                    <a href="#" class="btn btn-link text-primary" style="margin: 2px 0;"><i class="fas fa-pencil-alt"></i> Modificar</a>
-                                    <a href="#" class="btn btn-link text-danger" style="margin: 2px 0;"><i class="fas fa-trash"></i> Eliminar</a>
-                                </div>
-                                -->
-                            </div>
-                            <br>
-                            <form id="ActualizarPerfilForm">
-                                <input type="hidden" id="usuId" value=${usuario.usuId}>
+        <div class="container mt-4" style="max-width: 900px;">
+            <div class="container shadow-sm bg-white rounded p-4">
+                <div class="row">
+                    <!-- Sección de imagen de portada y perfil -->
+                    <div class="col-md-12 text-center mb-4">
+                        <div class="d-flex flex-column align-items-center p-3 rounded bg-light">
+                            <canvas id="initialsCanvas" class="rounded-circle shadow" width="300" height="300" style="width: 120px; height: 120px;"></canvas>
+                            <h3 class="font-weight-bold mt-3 text-primary">${usuario.usuNombre} ${usuario.usuApePaterno}</h3>
+                            <p class="text-muted">${usuario.usuCorreo}</p>
+                            <p>Tu número de cliente: <span class="text-primary">904329</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Separador -->
+                <hr class="my-4" style="border-top: 2px solid #007bff;">
+
+                <div class="container rounded bg-white p-4">
+                    <div class="row">
+                        <!-- Navegación en Pestañas -->
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs" id="editarPerfilTabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">
+                                        <i class="fas fa-user mr-2"></i>Información Personal
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="contrasena-tab" data-toggle="tab" href="#contrasena" role="tab" aria-controls="contrasena" aria-selected="false">
+                                        <i class="fas fa-lock mr-2"></i>Cambiar Contraseña
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content mt-4" id="editarPerfilTabsContent">
+                        <!-- Información Personal -->
+                        <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                            <form id="editarPerfilForm" enctype="multipart/form-data">
+                                <input type="hidden" id="usuId" value="${usuario.usuId}">
+                                <input type="hidden" id="empresaId" value="${usuario.empresaId}">
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="nombre">Nombre</label>
-                                        <input type="text" class="form-control" id="nombre" value=${usuario.usuNombre} data-valid="false" style="text-transform: uppercase;">
+                                        <input type="text" class="form-control border-secondary" id="nombre" value="${usuario.usuNombre}" style="text-transform: uppercase;">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="apellidoPaterno">Apellido Paterno</label>
-                                        <input type="text" class="form-control" id="apellidoPaterno" value=${usuario.usuApePaterno} data-valid="false" style="text-transform: uppercase;">
+                                        <input type="text" class="form-control border-secondary" id="apellidoPaterno" value="${usuario.usuApePaterno}" style="text-transform: uppercase;">
                                     </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="apellidoMaterno">Apellido Materno</label>
-                                        <input type="text" class="form-control" id="apellidoMaterno" value=${usuario.usuApeMaterno} data-valid="false" style="text-transform: uppercase;">
+                                        <input type="text" class="form-control border-secondary" id="apellidoMaterno" value="${usuario.usuApeMaterno}" style="text-transform: uppercase;">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="telefono">Teléfono</label>
-                                        <input type="text" class="form-control" id="telefono" value=${usuario.usuTelefono} data-valid="false">
-                                        <div id="telefonoError" style="display:none; color: red;">El número de teléfono debe tener 9 dígitos.</div>
+                                        <input type="text" class="form-control border-secondary" id="telefono" value="${usuario.usuTelefono}">
                                     </div>
                                 </div>
+                                <!-- Agregar línea separadora -->
+                                <hr class="my-4">
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="correoUsuario">Correo Electrónico</label>
-                                        <input type="text" class="form-control" id="correoUsuario" value=${usuario.usuCorreo} data-valid="false">
-                                        <div id="correoError" class="text-danger" style="display: none;">Por favor, ingresa un correo electrónico válido.</div>
+                                        <input type="email" class="form-control border-secondary" id="correoUsuario" value="${usuario.usuCorreo}">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="tipoDocumento">Tipo Documento</label>
-                                        <input type="text" class="form-control" id="tipoDocumento" disabled value=${usuario.usuTipoDocumento} data-valid="true">
+                                        <input type="text" class="form-control border-secondary" id="tipoDocumento" disabled value="${usuario.usuTipoDocumento}">
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="numeroDocumento">Número Documento</label>
-                                        <input type="text" class="form-control" id="numeroDocumento" disabled value=${usuario.usuNumeroDocumento} data-valid="true">
+                                        <input type="text" class="form-control border-secondary" id="numeroDocumento" disabled value="${usuario.usuNumeroDocumento}">
                                     </div>
                                 </div>
-                                <br>
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" id="actualizarPerfil" class="btn btn-primary" disabled>Actualizar perfil</button>
+                                <div class="text-center mt-3">
+                                    <button type="button" id="actualizarPerfil" class="btn btn-primary btn-lg px-4 py-2" disabled>Actualizar perfil</button>
                                 </div>
                             </form>
+                        </div>
 
+                        <!-- Cambiar Contraseña -->
+                        <div class="tab-pane fade" id="contrasena" role="tabpanel" aria-labelledby="contrasena-tab">
+                            <form id="resetClaveForm" class="mx-auto">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="claveActual">Clave Actual</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control border-secondary" id="claveActual" placeholder="Ingrese su clave actual" required>
+                                                <div class="input-group-append">
+                                                    <button id="validarClave" type="button" class="btn btn-outline-secondary" title="Validar Clave">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                    <div class="col-md-6" id="nuevaClaveSection" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="nuevaClave">Nueva Clave</label>
+                                            <div class="input-group">
+                                                <input type="password" class="form-control border-secondary" id="nuevaClave" placeholder="Ingrese su nueva clave" required>
+                                                <div class="input-group-append">
+                                                    <button id="guardarNuevaClave" type="button" class="btn btn-outline-secondary" title="Guardar Nueva Clave">
+                                                        <i class="fas fa-save"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <%@ include file="includes/footer.jspf" %>
     </div>
 </div>
 <style>
-    .image-wrapper {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    body {
+        background-color: #f7f7f7;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    #buttonContainer {
-        display: none;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 5px;
-        border-radius: 5px;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
+    .container {
+        max-width: 1000px;
+    }
+
+    .shadow-sm {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .rounded {
+        border-radius: 15px;
+    }
+
+    .nav-tabs .nav-link {
+        color: #007bff;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-tabs .nav-link.active {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .nav-tabs .nav-link:hover {
+        background-color: #f0f0f0;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .btn-outline-secondary {
+        transition: all 0.2s ease;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #f0f0f0;
     }
 </style>
 <!--
