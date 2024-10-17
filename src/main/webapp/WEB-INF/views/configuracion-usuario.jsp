@@ -64,7 +64,7 @@
                     <div class="card-body p-2">
                         <div class="card-body p-2">
                             <div class="table-responsive">
-                                <table id="productoTable" class="table table-sm table-bordered table-striped">
+                                <table id="usuarioTable" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">#</th>

@@ -286,6 +286,7 @@ $(document).ready(function () {
         var nombre = $('#cliNombrePopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
         var correo = $('#cliCorreoPopap').val();
+        var empresaId = $('#empresaId').val();
 
         if (nombre && telefono) {
             $.ajax({
@@ -296,7 +297,8 @@ $(document).ready(function () {
                     cliNombre: nombre,
                     cliTelefono: telefono,
                     cliNotificacion: true,
-                    cliCorreo: correo
+                    cliCorreo: correo,
+                    empId: empresaId
                 }),
                 success: function (response) {
                     clienteId = response.cliId;

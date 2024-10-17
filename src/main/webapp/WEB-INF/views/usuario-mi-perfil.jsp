@@ -30,17 +30,14 @@
 
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
-        <div class="container mt-4" style="max-width: 900px;">
+        <div class="container mt-4" style="max-width: 700px;"> <!-- Reducido el tamaño -->
             <div class="container shadow-sm bg-white rounded p-4">
-                <div class="row">
-                    <!-- Sección de imagen de portada y perfil -->
-                    <div class="col-md-12 text-center mb-4">
-                        <div class="d-flex flex-column align-items-center p-3 rounded bg-light">
-                            <canvas id="initialsCanvas" class="rounded-circle shadow" width="300" height="300" style="width: 120px; height: 120px;"></canvas>
-                            <h3 class="font-weight-bold mt-3 text-primary">${usuario.usuNombre} ${usuario.usuApePaterno}</h3>
-                            <p class="text-muted">${usuario.usuCorreo}</p>
-                            <p>Tu número de cliente: <span class="text-primary">904329</span></p>
-                        </div>
+                <div class="row align-items-center mb-4">
+                    <canvas id="initialsCanvas" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"></canvas>
+                    <!-- Texto centrado -->
+                    <div class="col text-center" style="margin-left: 10px;">
+                        <h3 class="font-weight-bold mt-3 text-primary">${usuario.usuNombre} ${usuario.usuApePaterno}</h3>
+                        <p class="text-center">Tu número de cliente: <span class="text-primary">904329</span></p>
                     </div>
                 </div>
 
@@ -53,12 +50,12 @@
                         <div class="col-md-12">
                             <ul class="nav nav-tabs" id="editarPerfilTabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">
+                                    <a class="nav-link active"  id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">
                                         <i class="fas fa-user mr-2"></i>Información Personal
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="contrasena-tab" data-toggle="tab" href="#contrasena" role="tab" aria-controls="contrasena" aria-selected="false">
+                                    <a class="nav-link " id="contrasena-tab" data-toggle="tab" href="#contrasena" role="tab" aria-controls="contrasena" aria-selected="false">
                                         <i class="fas fa-lock mr-2"></i>Cambiar Contraseña
                                     </a>
                                 </li>
@@ -176,16 +173,22 @@
     .nav-tabs .nav-link {
         color: #007bff;
         font-weight: 600;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        background-color: #e9ecef; /* Color de fondo por defecto */
+    }
+
+    .nav-tabs .nav-link.inactive {
+        background-color: #d3d3d3; /* Color de fondo inactivo (gris) */
+        color: #000; /* Texto inactivo (negro) */
     }
 
     .nav-tabs .nav-link.active {
-        background-color: #007bff;
-        color: #fff;
+        background-color: #000; /* Color de fondo activo (azul) */
+        color: #fff; /* Texto activo (blanco) */
     }
 
     .nav-tabs .nav-link:hover {
-        background-color: #f0f0f0;
+        background-color: #e9ecef; /* Hover efecto */
     }
 
     .btn-primary {
@@ -205,22 +208,33 @@
     .btn-outline-secondary:hover {
         background-color: #f0f0f0;
     }
+    #contrasena {
+        min-height: 350px; /* Ajusta este valor según tus necesidades */
+    }
+    .nav-tabs {
+        display: flex; /* Asegura que las pestañas se alineen en una fila */
+        flex-wrap: nowrap; /* Evita que se apilen en múltiples filas */
+    }
+
+    .nav-tabs .nav-item {
+        flex: 1;
+    }
+
 </style>
-<!--
+
 <script>
 
-    const imageContainer = document.querySelector('.image-wrapper');
+    $(document).ready(function() {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            // Remover la clase 'active' de todas las pestañas
+            $('.nav-tabs .nav-link').removeClass('active').addClass('inactive');
 
-    imageContainer.addEventListener('mouseover', function () {
-        document.getElementById("buttonContainer").style.display = "flex";
+            // Agregar clase 'active' a la pestaña actualmente activa
+            $(e.target).addClass('inactive').removeClass('active');
+        });
     });
 
-    imageContainer.addEventListener('mouseout', function () {
-        document.getElementById("buttonContainer").style.display = "none";
-    })
-
 </script>
--->
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">

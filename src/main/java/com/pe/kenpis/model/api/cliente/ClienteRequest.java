@@ -18,6 +18,7 @@ public class ClienteRequest {
   private Boolean cliNotificacion;
   private Boolean cliIsActive;
   private Date cliFechaCreacion;
+  private Integer empId;
 
 
 }

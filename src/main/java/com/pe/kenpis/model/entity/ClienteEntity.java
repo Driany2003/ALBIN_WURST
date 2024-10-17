@@ -32,4 +32,7 @@ public class ClienteEntity {
   @Column(name = "cli_fecha_creacion")
   private Date cliFechaCreacion;
 
+  @Column(name = "emp_id")
+  private Integer empId;
+
 }

@@ -267,5 +267,18 @@ $(document).ready(function () {
         $('#confirmarPassword').val('');
     });
 
+    $('#tableFilter').on('keyup', function () {
+        var term = $(this).val().toLowerCase();
+        $('#usuarioTable tbody tr').each(function () {
+            var found = false;
+            $(this).find('td').each(function () {
+                if ($(this).text().toLowerCase().indexOf(term) !== -1) {
+                    found = true;
+                    return false;
+                }
+            });
+            $(this).toggle(found);
+        });
+    });
 
 });
