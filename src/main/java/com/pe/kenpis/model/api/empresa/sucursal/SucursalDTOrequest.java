@@ -12,6 +12,4 @@ public class SucursalDTOrequest {
   private String empTelefono;
   private Integer empId;
   private String empResponsable;
-
-
 }

@@ -31,24 +31,19 @@ public class EmpresaImpl implements IEmpresaService {
 
   private final EmpresaRepository repository;
   private final UsuarioRepository usuarioRepository;
+
   @Autowired
   private UsuarioImpl usuarioImpl;
 
   //lista empresas activas solo para mostrar en el modulo de empresas
   @Override
   public List<EmpresaDTO> findAllActiveEmpresaById() {
-    log.info("Implements :: findAll");
+    log.info("Implements  :: findAll");
 
     List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
 
     return results.stream().map(result -> {
-      Integer empresaId = (Integer) result.get("empId");
-      List<ResponsablesDTO> responsables = usuarioImpl.obtenerUsuariosPorEmpresa(empresaId);
-
-      String nombresResponsables = responsables.stream().map(responsable -> responsable.getUsuNombre() + " " + responsable.getUsuApePaterno()).collect(Collectors.joining(", "));
-
-      // Retornar el DTO de empresa con los nombres de los responsables
-      return new EmpresaDTO(empresaId, nombresResponsables, (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
+      return new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empResponsable"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
     }).collect(Collectors.toList());
   }
 
@@ -130,7 +125,6 @@ public class EmpresaImpl implements IEmpresaService {
     nuevaSucursal.setEmpPadreId(request.getEmpPadreId());
     nuevaSucursal.setEmpTelefono(request.getEmpTelefono());
     nuevaSucursal.setEmpNombreComercial(request.getEmpNombreComercial());
-    nuevaSucursal.setEmpResponsable(request.getEmpResponsable());
 
     nuevaSucursal.setEmpIsActive(true);
     nuevaSucursal.setEmpFechaCreacion(new Date());
@@ -142,7 +136,6 @@ public class EmpresaImpl implements IEmpresaService {
 
 
   /* METODOS PARA ACTUALIZAR */
-
   @Override
   public SucursalDTOResponse updateSucursal(SucursalDTOrequest request) {
     EmpresaEntity entidadActualizar = repository.findById(request.getEmpId()).orElseThrow(() -> new RuntimeException("Sucursal no encontrada"));
@@ -162,13 +155,18 @@ public class EmpresaImpl implements IEmpresaService {
     return convertEntityToResponseSucursalDTO(entidadGuardada);
   }
 
+  //actualizar una empresa
   @Override
   public EmpresaResponse update(EmpresaRequest request) {
     EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
     if (res.getEmpId() == null) {
       return new EmpresaResponse();
     } else {
-      request.setEmpIsActive(res.getEmpIsActive());
+      request.setEmpIsActive(true);
+      request.setEmpPadreId(res.getEmpPadreId());
+      res.setEmpFechaContratoInicio(request.getEmpFechaContratoInicio());
+      res.setEmpFechaContratoFin(request.getEmpFechaContratoFin());
+      request.setEmpFechaCreacion(res.getEmpFechaCreacion());
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }
   }
@@ -190,11 +188,16 @@ public class EmpresaImpl implements IEmpresaService {
     }
   }
 
+  //estado de un empresa - activo,inactivo
   public EmpresaResponse updateStatus(EmpresaRequest request) {
+    // Buscar la empresa por ID y convertirla en una respuesta
     EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
+
+    // Si no se encuentra la empresa, devolver una nueva respuesta vacía
     if (res.getEmpId() == null) {
       return new EmpresaResponse();
     } else {
+      // Actualizar los campos del request con los valores existentes
       request.setEmpDocumentoTipo(res.getEmpDocumentoTipo());
       request.setEmpDocumentoNumero(res.getEmpDocumentoNumero());
       request.setEmpEmail(res.getEmpEmail());
@@ -211,9 +214,21 @@ public class EmpresaImpl implements IEmpresaService {
       request.setEmpQrPagos(res.getEmpQrPagos());
       request.setEmpPadreId(res.getEmpPadreId());
 
-      return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+      // Si la empresa es desactivada, cambiar el estado de las sucursales a 'false'
+      List<Map<String, Object>> sucursales = repository.findSucursalesByEmpresaIdList(res.getEmpId());
+      boolean nuevoEstado = request.getEmpIsActive();
+
+      for (Map<String, Object> sucursalData : sucursales) {
+        Integer sucursalId = (Integer) sucursalData.get("empId");
+        EmpresaEntity sucursal = repository.findById(sucursalId).orElseThrow(() -> new RuntimeException("Sucursal not found"));
+        sucursal.setEmpIsActive(nuevoEstado);
+        repository.save(sucursal);
+      }
     }
+
+    return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
+
 
   /* METODOS PARA ELIMINAR */
 
@@ -228,6 +243,13 @@ public class EmpresaImpl implements IEmpresaService {
     } else {
       return new EmpresaResponse();
     }
+  }
+
+  private EmpresaEntity convertMapToEntity(Map<String, Object> sucursalData) {
+    EmpresaEntity sucursal = new EmpresaEntity();
+    sucursal.setEmpId((Integer) sucursalData.get("empId"));
+    sucursal.setEmpIsActive((Boolean) sucursalData.get("empIsActive"));
+    return sucursal;
   }
 
   //Request empresa
@@ -247,6 +269,12 @@ public class EmpresaImpl implements IEmpresaService {
   //Response sucursal
   private SucursalResponse convertEntityToResponseSucursal(EmpresaEntity in) {
     SucursalResponse out = new SucursalResponse();
+    BeanUtils.copyProperties(in, out);
+    return out;
+  }
+
+  private EmpresaEntity convertEntityToResponseEmpresaDTO(EmpresaDTO in) {
+    EmpresaEntity out = new EmpresaEntity();
     BeanUtils.copyProperties(in, out);
     return out;
   }

@@ -218,11 +218,6 @@ public class UsuarioImpl implements IUsuarioService {
     return out;
   }
 
-  private UsuarioEntity convertRequestToEntity(UsuarioRequest in) {
-    UsuarioEntity out = new UsuarioEntity();
-    BeanUtils.copyProperties(in, out);
-    return out;
-  }
 
   private UsuarioResponse convertEntityToResponse(UsuarioEntity in) {
     UsuarioResponse out = new UsuarioResponse();

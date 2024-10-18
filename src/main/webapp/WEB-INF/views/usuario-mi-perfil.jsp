@@ -30,7 +30,7 @@
 
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
-        <div class="container mt-4" style="max-width: 700px;"> <!-- Reducido el tamaño -->
+        <div class="container mt-4" style="max-width: 900px;"> <!-- Reducido el tamaño -->
             <div class="container shadow-sm bg-white rounded p-4">
                 <div class="row align-items-center mb-4">
                     <canvas id="initialsCanvas" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"></canvas>
@@ -47,7 +47,7 @@
                 <div class="container rounded bg-white p-4">
                     <div class="row">
                         <!-- Navegación en Pestañas -->
-                        <div class="col-md-12">
+                        <div class="col-lg-12">
                             <ul class="nav nav-tabs" id="editarPerfilTabs" role="tablist">
                                 <li class="nav-item">
                                     <a class="nav-link active"  id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">

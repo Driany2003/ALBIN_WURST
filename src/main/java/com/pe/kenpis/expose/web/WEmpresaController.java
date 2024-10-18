@@ -43,11 +43,13 @@ public class WEmpresaController {
   public ResponseEntity<EmpresaResponse> findById(@PathVariable Integer id) {
     log.info("Controller :: findById :: {}", id);
     EmpresaResponse empresa = service.findById(id);
+    FxComunes.printJson("trae para actualizar una empresa", empresa);
     return ResponseEntity.ok(empresa);
   }
 
+  // crear empresa
   @PostMapping("/create")
-  public ResponseEntity<EmpresaResponse> create(@RequestBody EmpresaRequest request) {
+  public ResponseEntity<EmpresaResponse> createEmpresa(@RequestBody EmpresaRequest request) {
     FxComunes.printJson("create Empresa", request);
     log.info("Controller :: create");
     EmpresaResponse empresa = service.create(request);
@@ -55,8 +57,9 @@ public class WEmpresaController {
     return new ResponseEntity<>(empresa, HttpStatus.CREATED);
   }
 
+  // crear sucursal
   @PostMapping("/sucursales-create")
-  public ResponseEntity<EmpresaResponse> create(@RequestBody SucursalRequest request) {
+  public ResponseEntity<EmpresaResponse> createSucursal(@RequestBody SucursalRequest request) {
     FxComunes.printJson("create Sucursal", request);
     log.info("Controller :: createSucursal");
     EmpresaResponse sucursal = service.createSucursal(request);
@@ -65,9 +68,10 @@ public class WEmpresaController {
 
   //actualizar empresa
   @PutMapping("/update")
-  public ResponseEntity<EmpresaResponse> update(@RequestBody EmpresaRequest request) {
+  public ResponseEntity<EmpresaResponse> updateEmpresa(@RequestBody EmpresaRequest request) {
     log.info("Controller :: empresa update");
     EmpresaResponse empresa = service.update(request);
+    FxComunes.printJson("trae para actualizar una empresa", empresa);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
@@ -75,41 +79,47 @@ public class WEmpresaController {
   @PutMapping("/sucursal-update")
   public ResponseEntity<SucursalDTOResponse> updateSucursal(@RequestBody SucursalDTOrequest request) {
     FxComunes.printJson("lo que trae JS para editar sucursal", request);
-    log.info("Controller :: sucursal update");
+    log.info("Controller :: sucursal Update");
     SucursalDTOResponse sucursal = service.updateSucursal(request);
     return new ResponseEntity<>(sucursal, HttpStatus.OK);
   }
 
+  //actualizar estado de empresa
   @PutMapping("/update/status")
-  public ResponseEntity<EmpresaResponse> updateStatus(@RequestBody EmpresaRequest request) {
+  public ResponseEntity<EmpresaResponse> updateStatusEmpresa(@RequestBody EmpresaRequest request) {
     FxComunes.printJson("update", request);
-    log.info("Controller :: updateStatus");
+    log.info("Controller :: update Status");
     EmpresaResponse empresa = service.updateStatus(request);
+
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
+  //actualizar la vista de propietario
   @PutMapping("/update-propietario")
   public ResponseEntity<EmpresaResponse> updatePropietario(@RequestBody EmpresaRequest request) {
     FxComunes.printJson("que trae", request);
-    log.info("Controller :: updateStatus");
+    log.info("Controller :: update Status propietario");
     EmpresaResponse empresa = service.updateStatus(request);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
-  @DeleteMapping("/sucrusal-delete/{id}")
+  //eliminar la sucursal
+  @DeleteMapping("/sucursal-delete/{id}")
   public ResponseEntity<EmpresaResponse> deleteSucursal(@PathVariable Integer id) {
     log.info("Controller :: sucursal delete :: {}", id);
     EmpresaResponse empresa = service.delete(id);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
+  //eliminar la empresa
   @DeleteMapping("/delete/{id}")
-  public ResponseEntity<EmpresaResponse> delete(@PathVariable Integer id) {
+  public ResponseEntity<EmpresaResponse> deleteEmpresa(@PathVariable Integer id) {
     log.info("Controller :: delete :: {}", id);
     EmpresaResponse empresa = service.delete(id);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
+  //carga empresas list o  empresa id de acuerdo al nivel de usuSessionNivel
   @PostMapping("/cargar-empresas")
   public ResponseEntity<Map<String, Object>> loadEmpresasByRole(@RequestBody UsuarioResponse usuarioResponse, HttpSession session) {
     log.info("Controller :: loadEmpresasByRole :: {}", usuarioResponse.getUsuId());
@@ -118,7 +128,7 @@ public class WEmpresaController {
 
     if (usuSessionNivel.equalsIgnoreCase("ADMINISTRADOR")) {
       List<EmpresaDTO> listaEmpresa = service.findAllActiveEmpresaById();
-      FxComunes.printJson("que trae de emppresa", listaEmpresa);
+      FxComunes.printJson("lista de empresa", listaEmpresa);
       response.put("status", "success");
       response.put("data", listaEmpresa);
       session.setAttribute("empresasAdministrador", listaEmpresa);
@@ -131,6 +141,7 @@ public class WEmpresaController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
+  // buscar por empId las sucursales
   @GetMapping("/find-sucursales/{empId}")
   public ResponseEntity<Map<String, Object>> findSucursalesByEmpresa(@PathVariable Integer empId) {
     log.info("Controller :: findSucursalesByEmpresa :: empresaId={}", empId);

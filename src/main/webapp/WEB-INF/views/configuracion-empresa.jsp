@@ -67,7 +67,8 @@
                 </c:if>
                 <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                 <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
-                <!-- Modal -->
+
+                <!-- Modal para Crear Empresa -->
                 <div class="modal fade" id="empresaModal" tabindex="-1" role="dialog" aria-labelledby="empresaModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
@@ -79,118 +80,176 @@
                             </div>
                             <div class="modal-body">
                                 <form id="empresaFormulario" enctype="multipart/form-data">
-                                    <!-- Información Personal -->
-                                    <fieldset>
-                                        <legend><i class="fas fa-user"></i> Información Personal</legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empDocumentoTipo">Tipo de Documento:</label>
-                                                        <select class="form-control" id="empDocumentoTipo" name="empDocumentoTipo" required>
-                                                            <option value="" disabled selected>Seleccione una opción</option>
-                                                            <option value="DNI">DNI</option>
-                                                            <option value="RUC">RUC</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empDocumentoNumero">Número de Documento:</label>
-                                                        <input type="number" class="form-control" id="empDocumentoNumero" name="empDocumentoNumero" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empRazonSocial">Razón Social:</label>
-                                                        <input type="text" class="form-control" id="empRazonSocial" name="empRazonSocial" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empResponsable">Responsable:</label>
-                                                        <input type="text" class="form-control" id="empResponsable" name="empResponsable" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empTelefono">Teléfono:</label>
-                                                        <input type="number" class="form-control" id="empTelefono" name="empTelefono" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empEmail">Email:</label>
-                                                        <input type="email" class="form-control" id="empEmail" name="empEmail" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empNombreComercial">Nombre Comercial:</label>
-                                                        <input type="text" class="form-control" id="empNombreComercial" name="empNombreComercial">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empImageLogo">Imagen del Logo:</label>
-                                                        <input type="file" class="form-control-file" id="empImageLogo" name="empImageLogo" accept="image/*">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                    <!-- Pestañas de Navegación -->
+                                    <ul class="nav nav-tabs" id="empresaTabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="info-personal-tab" data-toggle="tab" href="#info-personal" role="tab" aria-controls="info-personal" aria-selected="true">
+                                                <i class="fas fa-building"></i> Empresa
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="fechas-tab" data-toggle="tab" href="#fechas" role="tab" aria-controls="fechas" aria-selected="false">
+                                                <i class="fas fa-calendar"></i> Contrato
+                                            </a>
+                                        </li>
+                                        <!--
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="codigos-qr-tab" data-toggle="tab" href="#codigos-qr" role="tab" aria-controls="codigos-qr" aria-selected="false">
+                                                <i class="fas fa-qrcode"></i> Metodos de Pago
+                                            </a>
+                                        </li>
+                                        -->
+                                    </ul>
 
-                                    <!-- Fechas -->
-                                    <fieldset>
-                                        <legend><i class="fas fa-calendar"></i> Fechas</legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empFechaContratoInicio">Fecha de Contrato Inicio:</label>
-                                                        <input type="date" class="form-control" id="empFechaContratoInicio" name="empFechaContratoInicio">
+                                    <!-- Contenido de las Pestañas -->
+                                    <div class="tab-content" id="empresaTabsContent">
+                                        <!-- Pestaña 1: Información Personal -->
+                                        <div class="tab-pane fade show active" id="info-personal" role="tabpanel" aria-labelledby="info-personal-tab">
+                                            <br>
+                                            <fieldset>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empDocumentoTipo">Tipo de Documento:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el tipo de documento."></i>
+                                                                </label>
+                                                                <select class="form-control" id="empDocumentoTipo" name="empDocumentoTipo" required>
+                                                                    <option value="" disabled selected>Seleccione una opción</option>
+                                                                    <option value="DNI">DNI</option>
+                                                                    <option value="RUC">RUC</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empDocumentoNumero">Número de Documento:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el numero de documento."></i>
+                                                                </label>
+                                                                <input type="number" class="form-control" id="empDocumentoNumero" name="empDocumentoNumero" placeholder="Ingresar numero de documento" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empRazonSocial">Razón Social:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la razon social."></i>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="empRazonSocial" name="empRazonSocial" placeholder="Ingresar la razon social" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empResponsable">Responsable:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el responsable."></i>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="empResponsable" name="empResponsable" placeholder="Ingresar responsable" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empTelefono">Teléfono:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el telefono."></i>
+                                                                </label>
+                                                                <input type="number" class="form-control" id="empTelefono" name="empTelefono" placeholder="Ingresar telefono required" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empEmail">Email:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el email."></i>
+                                                                </label>
+                                                                <input type="email" class="form-control" id="empEmail" name="empEmail" placeholder="Ingresar email" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empNombreComercial">Nombre Comercial:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el nombre comercial."></i>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="empNombreComercial" name="empNombreComercial" placeholder="Ingresarel nombre comercial" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empImageLogo">Imagen del Logo:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el logo."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="empImageLogo" name="empImageLogo" accept="image/*">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="empFechaContratoFin">Fecha de Contrato Fin:</label>
-                                                        <input type="date" class="form-control" id="empFechaContratoFin" name="empFechaContratoFin">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
 
-                                    <!-- Códigos QR -->
-                                    <fieldset>
-                                        <legend><i class="fas fa-qrcode"></i> Códigos QR</legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="empQrYape">Código QR Yape:</label>
-                                                        <input type="file" class="form-control-file" id="empQrYape" name="empQrYape" accept="image/*">
+                                        <!-- Pestaña 2: Fechas -->
+                                        <div class="tab-pane fade" id="fechas" role="tabpanel" aria-labelledby="fechas-tab-edit">
+                                            <br>
+                                            <fieldset>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empFechaContratoInicio">Fecha de Contrato Inicio:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha inicio."></i>
+                                                                </label>
+                                                                <input type="date" class="form-control" id="empFechaContratoInicio" name="empFechaContratoInicio" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="empFechaContratoFin">Fecha de Contrato Fin:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha fin."></i>
+                                                                </label>
+                                                                <input type="date" class="form-control" id="empFechaContratoFin" name="empFechaContratoFin" required>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="empQrPlin">Código QR Plin:</label>
-                                                        <input type="file" class="form-control-file" id="empQrPlin" name="empQrPlin" accept="image/*">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="empQrPagos">Código QR Pagos:</label>
-                                                        <input type="file" class="form-control-file" id="empQrPagos" name="empQrPagos" accept="image/*">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
-                                    <!-- Botones -->
-                                    <div class="text-center mt-4">
-                                        <button type="reset" class="btn btn-secondary"><i class="fas fa-paint-roller"></i> Limpiar</button>
-                                        <button type="submit" class="btn btn-primary" id="guardarEmpresa"><i class="far fa-save"></i> Guardar</button>
+
+                                        <!-- Pestaña 3: Códigos QR -
+                                        <div class="tab-pane fade" id="codigos-qr" role="tabpanel" aria-labelledby="codigos-qr-tab">
+                                            <br>
+                                            <fieldset>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="empQrYape">Código QR Yape:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Yape."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="empQrYape" name="empQrYape" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="empQrPlin">Código QR Plin:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Plin."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="empQrPlin" name="empQrPlin" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="empQrPagos">Código QR Pagos:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Pagos."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="empQrPagos" name="empQrPagos" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        -->
+                                    </div>
+
+                                    <!-- Botones de Acción -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary" id="guardarEmpresa">Guardar</button>
                                     </div>
                                 </form>
                             </div>
@@ -199,128 +258,183 @@
                 </div>
 
                 <!-- MODAL PARA PODER EDITAR -->
-                <div class="modal fade" id="editempresaModal" tabindex="-1" role="dialog" aria-labelledby="editempresaModalLabel" aria-hidden="true">
+                <div class="modal fade" id="editarEmpresaModal" tabindex="-1" role="dialog" aria-labelledby="editarEmpresaModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="editempresaModalLabel"><i class="fas fa-building"></i> Editar Empresa</h5>
+                                <h5 class="modal-title" id="editarEmpresaModalLabel"><i class="fas fa-building"></i> Editar Empresa</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <form id="editEmpresaFormulario">
-                                    <input id="editempresaId" type="hidden" value="${empresaSession.empId}"/>
-                                    <fieldset>
-                                        <legend><i class="fas fa-user"></i> Información Personal</legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempDocumentoTipo">Tipo de Documento:</label>
-                                                        <select class="form-control" id="editempDocumentoTipo" name="editempDocumentoTipo" required>
-                                                            <option value="" disabled selected>Seleccione una opción</option>
-                                                            <option value="DNI">DNI</option>
-                                                            <option value="RUC">RUC</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempDocumentoNumero">Número de Documento:</label>
-                                                        <input type="number" class="form-control" id="editempDocumentoNumero" name="editempDocumentoNumero" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempRazonSocial">Razón Social:</label>
-                                                        <input type="text" class="form-control" id="editempRazonSocial" name="editempRazonSocial" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempResponsable">Responsable:</label>
-                                                        <input type="text" class="form-control" id="editempResponsable" name="editempResponsable" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempTelefono">Teléfono:</label>
-                                                        <input type="number" class="form-control" id="editempTelefono" name="editempTelefono" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempEmail">Email:</label>
-                                                        <input type="email" class="form-control" id="editempEmail" name="editempEmail" required>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempNombreComercial">Nombre Comercial:</label>
-                                                        <input type="text" class="form-control" id="editempNombreComercial" name="editempNombreComercial">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempImageLogo">Imagen del Logo:</label>
-                                                        <input type="file" class="form-control-file" id="editempImageLogo" name="editempImageLogo" accept="image/*">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </fieldset>
+                                <form id="editarEmpresaFormulario">
+                                    <input id="editarEmpresaId" type="hidden" value="${empresaSession.empId}"/>
 
-                                    <!-- Fechas -->
-                                    <fieldset>
-                                        <legend><i class="fas fa-calendar"></i> Fechas</legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempFechaContratoInicio">Fecha de Contrato Inicio:</label>
-                                                        <input type="date" class="form-control" id="editempFechaContratoInicio" name="editempFechaContratoInicio">
+                                    <!-- Pestañas -->
+                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">
+                                                <i class="fas fa-building"></i> Empresa
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="fechas-tab-edit" data-toggle="tab" href="#fechas-edit" role="tab" aria-controls="fechas-edit" aria-selected="false">
+                                                <i class="fas fa-calendar"></i> Contrato
+                                            </a>
+                                        </li>
+                                        <!--
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="qr-tab" data-toggle="tab" href="#qr" role="tab" aria-controls="qr" aria-selected="false">
+                                                <i class="fas fa-qrcode"></i> Metodos de Pago
+                                            </a>
+                                        </li>
+                                        -->
+                                    </ul>
+                                    <br>
+                                    <!-- Contenido de las Pestañas -->
+                                    <div class="tab-content" id="myTabContent">
+                                        <div class="tab-pane fade show active" id="personal" role="tabpanel" aria-labelledby="personal-tab">
+                                            <fieldset>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpDocumentoTipo">Tipo de Documento:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el tipo de documento."></i>
+                                                                </label>
+                                                                <select class="form-control" id="editarEmpDocumentoTipo" name="editarEmpDocumentoTipo" required>
+                                                                    <option value="" disabled selected>Seleccione una opción</option>
+                                                                    <option value="DNI">DNI</option>
+                                                                    <option value="RUC">RUC</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpDocumentoNumero">Número de Documento:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el numero de documnento."></i>
+                                                                </label>
+                                                                <input type="number" class="form-control" id="editarEmpDocumentoNumero" name="editarEmpDocumentoNumero" placeholder="Ingresar numero de documento" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpRazonSocial">Razón Social:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la razon soscial."></i>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="editarEmpRazonSocial" name="editarEmpRazonSocial" placeholder="Ingresar la razon social" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpResponsable">Responsable:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el nombre del responsable de la empresa."></i>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="editarEmpResponsable" name="editarEmpResponsable" placeholder="Ingresar nombre del responsable" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpTelefono">Teléfono:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el telefono de la empresa."></i>
+                                                                </label>
+                                                                <input type="number" class="form-control" id="editarEmpTelefono" name="editarEmpTelefono" placeholder="Ingresar telefono" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpEmail">Email:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el email de la empresa."></i>
+                                                                </label>
+                                                                <input type="email" class="form-control" id="editarEmpEmail" name="editarEmpEmail" placeholder="Ingresar email" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpNombreComercial">Nombre Comercial:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el nombre comercial de la empresa."></i>
+                                                                </label>
+                                                                <input type="text" class="form-control" id="editarEmpNombreComercial" name="editarEmpNombreComercial" placeholder="Ingresar nombre comercial" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpImageLogo">Imagen del Logo:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el logo de la empresa."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="editarEmpImageLogo" name="editarEmpImageLogo" accept="image/*">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group">
-                                                        <label for="editempFechaContratoFin">Fecha de Contrato Fin:</label>
-                                                        <input type="date" class="form-control" id="editempFechaContratoFin" name="editempFechaContratoFin">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
 
-                                    <!-- Códigos QR -->
-                                    <fieldset>
-                                        <legend><i class="fas fa-qrcode"></i> Códigos QR</legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="editempQrYape">Código QR Yape:</label>
-                                                        <input type="file" class="form-control-file" id="editempQrYape" name="editempQrYape" accept="image/*">
+                                        <div class="tab-pane fade" id="fechas-edit" role="tabpanel" aria-labelledby="fechas-tab-edit">
+                                            <fieldset>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpFechaContratoInicio">Fecha de Contrato Inicio:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha de inicio."></i>
+                                                                </label>
+                                                                <input type="date" class="form-control" id="editarEmpFechaContratoInicio" name="editarEmpFechaContratoInicio" placeholder="Ingresar fecha de inicio"
+                                                                       required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpFechaContratoFin">Fecha de Contrato Fin:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha fin."></i>
+                                                                </label>
+                                                                <input type="date" class="form-control" id="editarEmpFechaContratoFin" name="editarEmpFechaContratoFin" placeholder="Ingresar fecha fin" required>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-12 col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="editempQrPlin">Código QR Plin:</label>
-                                                        <input type="file" class="form-control-file" id="editempQrPlin" name="editempQrPlin" accept="image/*">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="editempQrPagos">Código QR Pagos:</label>
-                                                        <input type="file" class="form-control-file" id="editempQrPagos" name="editempQrPagos" accept="image/*">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </fieldset>
                                         </div>
-                                    </fieldset>
+                                        <!-- METODOS DE PAGO
+                                        <div class="tab-pane fade" id="qr" role="tabpanel" aria-labelledby="qr-tab">
+                                            <fieldset>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpQrYape">Código QR Yape:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Yape."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="editarEmpQrYape" name="editarEmpQrYape" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpQrPlin">Código QR Plin:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Plin."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="editarEmpQrPlin" name="editarEmpQrPlin" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-md-4">
+                                                            <div class="form-group">
+                                                                <label for="editarEmpQrPagos">Código QR Pagos:
+                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Pagos."></i>
+                                                                </label>
+                                                                <input type="file" class="form-control-file" id="editarEmpQrPagos" name="editarEmpQrPagos" accept="image/*">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </div>
+                                        -->
+                                    </div>
+
                                     <!-- Botones -->
                                     <div class="text-center mt-4">
-                                        <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Guardar Cambios</button>
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>
                                 </form>
                             </div>
@@ -328,7 +442,7 @@
                     </div>
                 </div>
 
-
+                <!-- VISTA PARA PODER VISUALIZAR DESDE NIVEL ADMINISTRADOR -->
                 <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
                     <div class="container-fluid">
                         <div class="card-body p-2">
@@ -338,17 +452,13 @@
                                         <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">NOMBRE COMERCIAL</th>
-                                            <th scope="col">RESPONSABLES</th>
-                                            <th scope="col">FECHA DE CONTRATO INICIO</th>
-                                            <th scope="col">FECHA DE CONTRATO FIN</th>
-                                            <th scope="col">TELEFONO</th>
+                                            <th scope="col">RESPONSABLE</th>
+                                            <th scope="col">FECHA DE CONTRATO</th>
                                             <th scope="col">ESTADO</th>
                                             <th scope="col">ACCIONES</th>
-
                                         </tr>
                                         </thead>
                                         <tbody id="empresaBody">
-
                                         </tbody>
                                     </table>
                                 </div>
@@ -357,113 +467,271 @@
                     </div>
                 </c:if>
 
+                <!-- VISTA PARA PODER VISUALIZAR DESDE NIVEL PROPIETARIO -->
                 <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'}">
-                    <div class="container">
-                        <div class="card mt-1">
-                            <div class="container">
-                                <form id="empresaForm" class="form-neon form" action="#" method="POST" data-form="update" autocomplete="off">
-                                    <input type="hidden" name="empresa_id_up" value="${empresaSession.empId}">
-                                    <input type="hidden" name="modulo_empresa" value="actualizar">
-                                    <fieldset class="text-left">
-                                        <legend>
-                                            <i class="far fa-address-card"></i> &nbsp; Datos de la empresa
-                                        </legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-4">
-                                                    <figure>
-                                                        <img id="empresaLogo" class="img-fluid img-product-info" src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="no se encontro la imagen de la empresa"
-                                                             height="90px" width="90px">
-                                                    </figure>
-                                                    <p class="text-center">
-                                                        <a href="#" class="btn btn-outline-info" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Gestionar logo de empresa" title="">
-                                                            <i class="far fa-image"></i> &nbsp; Cambiar logo o imagen
-                                                        </a>
-                                                    </p>
+                    <div class="container mt-4" style="max-width: 900px;">
+                        <div class="container shadow-sm bg-white rounded p-4">
+                            <div class="row align-items-center mb-4">
+                                <!-- Logo de la empresa -->
+                                <canvas id="initialsCanvas" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"></canvas>
+                                <!-- Texto centrado -->
+                                <div class="col text-center" style="margin-left: 10px;">
+                                    <h3 class="font-weight-bold mt-3 text-primary">${empresaSession.empNombreComercial}</h3>
+                                    <p class="text-center">Número de Documento: <span class="text-primary">${empresaSession.empDocumentoNumero}</span></p>
+                                </div>
+                            </div>
+                            <!-- Separador -->
+                            <hr class="my-4" style="border-top: 2px solid #007bff;">
+                            <div class="container rounded bg-white p-4">
+                                <div class="row">
+                                    <!-- Navegación en Pestañas -->
+                                    <div class="col-lg-12">
+                                        <ul class="nav nav-tabs" id="editarEmpresaTabs" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="datosEmpresa-tab" data-toggle="tab" href="#datosEmpresa" role="tab" aria-controls="datosEmpresa" aria-selected="true">
+                                                    <i class="fas fa-building mr-2"></i>Empresa
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="empresaSucursales-tab" data-toggle="tab" href="#empresaSucursales" role="tab" aria-controls="empresaSucursales" aria-selected="false">
+                                                    <i class="fas fa-map-marker-alt mr-2"></i>Sucursales
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="tab-content mt-4" id="editarEmpresaTabsContent">
+                                    <!-- Datos de la Empresa -->
+                                    <div class="tab-pane fade show active" id="datosEmpresa" role="tabpanel" aria-labelledby="datosEmpresa-tab">
+                                        <form id="empresaForm" class="form-neon form" action="#" method="POST" data-form="update" autocomplete="off">
+                                            <input type="hidden" name="empresa_id_up" value="${empresaSession.empId}">
+                                            <input type="hidden" name="modulo_empresa" value="actualizar">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="empresaNombre">Nombre Comercial</label>
+                                                    <input type="text" class="form-control border-secondary" id="empresaNombre" value="${empresaSession.empNombreComercial}" maxlength="75">
                                                 </div>
-                                                <div class="col-12 col-md-8">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group bmd-form-group is-filled">
-                                                                <label for="empresaTipoDocumento" class="bmd-label-floating">Tipo de documento &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                                <input type="text" id="empresaTipoDocumento" class="form-control" name="empresa_numero_documento_up" maxlength="30">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group bmd-form-group is-filled">
-                                                                <label for="empresaNumeroDocumento" class="bmd-label-floating">Número de documento &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                                <input type="text" id="empresaNumeroDocumento" class="form-control" name="empresa_numero_documento_up" maxlength="30">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group bmd-form-group is-filled">
-                                                                <label for="empresaNombre" class="bmd-label-floating">Nombre Comercial &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                                <input type="text" id="empresaNombre" class="form-control" name="empresa_nombre_up" maxlength="75">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group bmd-form-group is-filled">
-                                                                <label for="empresaRazonSocial" class="bmd-label-floating">Razon Social &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-                                                                <input type="text" id="empresaRazonSocial" class="form-control" name="empresa_razon_social_up" maxlength="75">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="empresaRazonSocial">Razón Social</label>
+                                                    <input type="text" class="form-control border-secondary" id="empresaRazonSocial" value="${empresaSession.empRazonSocial}" maxlength="75">
                                                 </div>
                                             </div>
-                                        </div>
-                                    </fieldset>
-                                    <br><br><br>
-                                    <fieldset class="text-left">
-                                        <legend>
-                                            <i class="fas fa-phone-volume"></i> &nbsp; Información de contacto
-                                        </legend>
-                                        <div class="container-fluid">
-                                            <div class="row">
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group bmd-form-group is-filled">
-                                                        <label for="empresaTelefono">Teléfono:</label>
-                                                        <input type="text" id="empresaTelefono" class="form-control">
-                                                    </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="empresaTipoDocumento">Tipo de Documento</label>
+                                                    <input type="text" class="form-control border-secondary" id="empresaTipoDocumento" value="${empresaSession.empDocumentoTipo}" maxlength="30">
                                                 </div>
-                                                <div class="col-12 col-md-6">
-                                                    <div class="form-group bmd-form-group is-filled">
-                                                        <label for="empresaEmail" class="bmd-label-floating">Email</label>
-                                                        <input type="email" id="empresaEmail" class="form-control" name="empresa_email_up" maxlength="50">
-                                                    </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="empresaNumeroDocumento">Número de Documento</label>
+                                                    <input type="text" class="form-control border-secondary" id="empresaNumeroDocumento" value="${empresaSession.empDocumentoNumero}" maxlength="30">
                                                 </div>
                                             </div>
+                                            <hr class="my-4" style="border-top: 2px solid #007bff;">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="empresaTelefono">Teléfono</label>
+                                                    <input type="text" class="form-control border-secondary" id="empresaTelefono" value="${empresaSession.empTelefono}">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="empresaEmail">Correo Electrónico</label>
+                                                    <input type="email" class="form-control border-secondary" id="empresaEmail" value="${empresaSession.empEmail}" maxlength="50">
+                                                </div>
+                                            </div>
+                                            <div class="text-center mt-3">
+                                                <button type="submit" class="btn btn-primary btn-lg px-4 py-2" id="botonActualizar">Actualizar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="empresaSucursales" role="tabpanel" aria-labelledby="empresaSucursales-tab">
+                                        <div class="container mt-3">
+                                            <h5 class="font-weight-bold mb-3">Lista de Sucursales</h5>
+                                            <!-- Tabla para mostrar la información de las sucursales -->
+                                            <table class="table table-bordered">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Nombre Comercial</th>
+                                                    <th>Teléfono</th>
+                                                    <th>Correo Electrónico</th>
+                                                    <th>Activo</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <!-- Aquí se mostrarán las sucursales -->
+                                                <c:forEach var="sucursal" items="">
+                                                    <tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>
+                                                        </td>
+                                                    </tr>
+                                                </c:forEach>
+                                                </tbody>
+                                            </table>
+                                            <div class="text-center">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregarSucursalModal">
+                                                    Agregar Sucursal
+                                                </button>
+                                            </div>
                                         </div>
-                                    </fieldset>
-                                    <p class="text-center" style="margin-top: 40px;">
-                                        <button type="submit" id="botonActualizar" class="btn btn-raised btn-success btn-sm" disabled><i class="fas fa-sync"></i> &nbsp; ACTUALIZAR</button>
-                                    </p>
-                                </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </c:if>
 
-                <!-- Modal de Confirmación -->
-                <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="confirmModalLabel">Confirmar Actualización</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                ¿Estás seguro de que deseas actualizar los datos de la empresa? Se guardarán los cambios realizados.
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" id="cancelUpdate" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" id="confirmUpdate">Actualizar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+
+<!-- Modal crear metodo de pago ADMINISTRADOR / PROPIETARIO -->
+<!-- Modal para mostrar los métodos de pago -->
+<div class="modal fade" id="modalRegistrarMetodoPago" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarMetodoPagoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRegistrarMetodoPagos">Métodos de Pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Tabla para mostrar los métodos de pago -->
+                <table class="table table-striped" id="tablaMetodosPago">
+                    <thead>
+                    <tr>
+                        <th>Tipo de Pago</th>
+                        <th>Logo</th>
+                        <th>QR</th>
+                        <th>Nombre de Cuenta</th>
+                        <th>Número de Cuenta</th>
+                        <th>Detalle</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modalRegistrarMetodoPago" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarMetodoPagoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRegistrarMetodoPagoLabel">Registrar Método de Pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formRegistrarMetodoPago">
+                    <div class="form-group">
+                        <label for="metodoPagoTipo">Tipo de Pago</label>
+                        <input type="text" class="form-control" id="metodoPagoTipo" name="metodoPagoTipo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodoPagoLogo">Logo (URL)</label>
+                        <input type="file" class="form-control" id="metodoPagoLogo" name="metodoPagoLogo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodoPagoQr">QR (URL)</label>
+                        <input type="file" class="form-control" id="metodoPagoQr" name="metodoPagoQr" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodoPagoCuentaNombre">Nombre de Cuenta</label>
+                        <input type="text" class="form-control" id="metodoPagoCuentaNombre" name="metodoPagoCuentaNombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodoPagoCuentaNumero">Número de Cuenta</label>
+                        <input type="text" class="form-control" id="metodoPagoCuentaNumero" name="metodoPagoCuentaNumero" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="metodoPagoDetalle">Detalle</label>
+                        <textarea class="form-control" id="metodoPagoDetalle" name="metodoPagoDetalle" rows="3"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" id="guardarMetodoPago">Registrar Método de Pago</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación vista de propietario -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Confirmar Actualización</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas actualizar los datos de la empresa?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelUpdate" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmUpdate">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de eliminacion para empresa -->
+<div id="confirmDeleteModalEmpresa" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar ?</p>
+                <input type="hidden" id="deleteEmpresaId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="eliminarEmpresa">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de eliminacion para sucursal -->
+<div id="confirmDeleteModalSucursal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteModal">Confirmar eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar esta Sucursal ?</p>
+                <input type="hidden" id="deleteSucursalId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="eliminarSucursal">Eliminar</button>
             </div>
         </div>
     </div>
@@ -509,12 +777,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="sucursalModalLabel">Nueva sucursal</h5>
-
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
             <div class="modal-body">
                 <form id="sucursalFormulario">
+                    <ul class="nav nav-tabs" id="SucursalTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="sucursal-tab" data-toggle="tab" href="#sucursal" role="tab" aria-controls="sucursal" aria-selected="true">
+                                <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i>
+                                Informacion de Sucursal
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
                     <div class="mb-3">
                         <label for="sucNombre" class="form-label">Nombre Comercial</label>
                         <input type="text" class="form-control" id="sucNombre" placeholder="Nombre de la sucursal" required>
@@ -527,15 +802,13 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="guardarSucursal">Guardar Sucursal</button>
+                <button type="button" class="btn btn-primary" id="guardarSucursal">Guardar</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- MODAL PARA PODER EDITAR UNA SUCURSAL -->
-
 <div class="modal fade" id="editsucursalModal" tabindex="-1" role="dialog" aria-labelledby="editsucursalModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -546,10 +819,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="editFormularioSucursal">
+                <form id="editFormularioSucursal" enctype="multipart/form-data">
+                    <ul class="nav nav-tabs" id="editarClienteTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="sucursalEdit-tab" data-toggle="tab" href="#sucursal-edit" role="tab" aria-controls="sucursal-edit" aria-selected="true">
+                                <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i>
+                                Informacion de Sucursal
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
                     <input id="editSucursalId" type="hidden"/>
                     <fieldset>
-                        <legend><i class="fas fa-pencil-alt"></i> Información de Sucursal</legend>
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-12 col-md-6">
@@ -568,7 +849,7 @@
                         </div>
                     </fieldset>
                     <div class="text-center mt-4">
-                        <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Guardar Cambios</button>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </form>
             </div>

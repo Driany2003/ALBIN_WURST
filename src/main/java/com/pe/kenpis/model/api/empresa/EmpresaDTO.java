@@ -16,6 +16,8 @@ public class EmpresaDTO {
   private Date empFechaContratoInicio;
   private String empTelefono;
   private String empImagenLogo;
+  private Integer empPadreId;
+  private Date empFechaCreacion;
   private String empResponsable;
 
 
@@ -26,6 +28,10 @@ public class EmpresaDTO {
     this.empTelefono = empTelefono;
     this.empIsActive = empIsActive;
 
+  }
+  public EmpresaDTO(Integer empId, Boolean empIsActive){
+    this.empId = empId;
+    this.empIsActive = empIsActive;
   }
   public EmpresaDTO(Integer empId, String empResponsable,String empImagenLogo, String empNombreComercial, Date empFechaContratoInicio, Date empFechaContratoFin, String empTelefono, Boolean empIsActive) {
     this.empId = empId;
