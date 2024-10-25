@@ -18,7 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
-logs/
+*.logs
 
 ### NetBeans ###
 /nbproject/private/
@@ -32,4 +32,3 @@ build/
 
 ### VS Code ###
 .vscode/
-!/logs/kenpis.log
