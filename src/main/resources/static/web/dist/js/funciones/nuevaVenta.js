@@ -75,12 +75,12 @@ $(document).ready(function () {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();
                 subCategorias.forEach(function (producto) {
-                    var cardHtml = '<div class="card subcategoria-card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                    var cardHtml = '<div class="card subcategoria-card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecioVenta + '">' +
                         '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="data:image/jpeg;base64,' + producto.proImagen + '"/>' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                         '<p class="card-text">' + producto.proDescripcion + '</p>' +
-                        '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
+                        '<p class="card-text">Precio: S/ ' + producto.proPrecioVenta.toFixed(2) + '</p>' +
                         '</div></div>';
                     contenedor.append(cardHtml);
                 });
@@ -101,12 +101,12 @@ $(document).ready(function () {
             success: function (producto) {
                 var contenedorDet = $('#detalle-container');
                 contenedorDet.empty();
-                var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecio + '">' +
+                var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecioVenta + '">' +
                     '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="data:image/jpeg;base64,' + producto.proImagen + '"/>' +
                     '<div class="card-body">' +
                     '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                     '<p class="card-text-descripcion">' + producto.proDescripcion + '</p>' +
-                    '<p class="card-text">Precio: S/ ' + producto.proPrecio.toFixed(2) + '</p>' +
+                    '<p class="card-text">Precio: S/ ' + producto.proPrecioVenta.toFixed(2) + '</p>' +
                     '</div>' +
                     '<div class="quantity-container">' +
                     '<button class="quantity-button minus" type="button">-</button>' +

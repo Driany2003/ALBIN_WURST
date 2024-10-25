@@ -17,8 +17,11 @@ public class ProductoEntity {
   @Column(name = "pro_categoria")
   private String proCategoria;
 
-  @Column(name = "pro_precio")
-  private Double proPrecio;
+  @Column(name = "pro_precio_costo")
+  private Double proPrecioCosto;
+
+  @Column(name = "pro_precio_venta")
+  private Double proPrecioVenta;
 
   @Column(name = "pro_descripcion")
   private String proDescripcion;

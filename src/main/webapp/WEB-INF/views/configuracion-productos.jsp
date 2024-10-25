@@ -69,7 +69,8 @@
                                     <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Nombre</th>
-                                        <th scope="col">Precio</th>
+                                        <th scope="col">Precio Costo</th>
+                                        <th scope="col">Precio Venta</th>
                                         <th scope="col">Estado</th>
                                         <th scope="col">Accion</th>
                                     </tr>
@@ -102,8 +103,12 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <label for="precioProducto">Precio</label>
-                                    <input type="number" class="form-control" id="precioProducto" placeholder="Ingresar Precio" required>
+                                    <label for="precioProductoCosto">Precio Costo</label>
+                                    <input type="number" class="form-control" id="precioProductoCosto" placeholder="Ingresar Precio Costo" required>
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="precioProductoVenta">Precio Venta</label>
+                                    <input type="number" class="form-control" id="precioProductoVenta" placeholder="Ingresar Precio Venta" required>
                                 </div>
                                 <div class="form-group col-md-7">
                                     <label for="categoria">Categoría</label>
@@ -146,8 +151,12 @@
                                 <input type="text" class="form-control" id="editNombreProducto" required>
                             </div>
                             <div class="form-group">
-                                <label for="editPrecioProducto">Precio</label>
-                                <input type="number" class="form-control" id="editPrecioProducto" required>
+                                <label for="editPrecioProductoCosto">Precio Costo</label>
+                                <input type="number" class="form-control" id="editPrecioProductoCosto" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="editPrecioProductoVenta">Precio Venta</label>
+                                <input type="number" class="form-control" id="editPrecioProductoVenta" required>
                             </div>
                             <div class="form-group">
                                 <label for="editCategoria">Categoría</label>

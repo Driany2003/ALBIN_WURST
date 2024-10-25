@@ -7,10 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping(value = "/kenpis/menu")
 public class WMenuController {
+
   @RequestMapping(value = {"/venta/caja"}, method = RequestMethod.GET)
   public String menuAperturaCierre() {
     return "configuracion-caja";
   }
+
   @RequestMapping(value = {"/venta/nueva"}, method = RequestMethod.GET)
   public String menuVentaNueva() {
     return "venta-nueva";
@@ -49,6 +51,11 @@ public class WMenuController {
   @RequestMapping(value = {"/configuracion/producto"}, method = RequestMethod.GET)
   public String menuProducto() {
     return "configuracion-productos";
+  }
+
+  @RequestMapping(value = {"/configuracion/complementos"}, method = RequestMethod.GET)
+  public String menuComplementos() {
+    return "configuracion-complementos";
   }
 
   @RequestMapping(value = {"/configuracion/inventario"}, method = RequestMethod.GET)

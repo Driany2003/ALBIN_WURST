@@ -49,7 +49,8 @@ $(document).ready(function () {
                     productoBody.append(`
                     <tr id="product-row-${producto.proId}">
                         <td><img src="data:image/jpeg;base64,${producto.proImagen}" alt="${producto.proDescripcion}" width="50"> ${producto.proDescripcion}</td>
-                        <td> S/. ${producto.proPrecio.toFixed(2)}</td>
+                        <td> S/. ${producto.proPrecioCosto.toFixed(2)}</td>
+                        <td> S/. ${producto.proPrecioVenta.toFixed(2)}</td>
                        <td>
                             <label class="switch">
                                 <input type="checkbox" class="estado-checkbox"  data-id="${producto.proId}"  ${producto.proIsActive ? 'checked' : ''}>
@@ -143,7 +144,8 @@ $(document).ready(function () {
 
         var productoData = {
             proCategoria: $('#nombreProducto').val(),
-            proPrecio: $('#precioProducto').val(),
+            proPrecioCosto: $('#precioProductoCosto').val(),
+            proPrecioVenta: $('#precioProductoVenta').val(),
             padreId: $('#categoria').val(),
             proDescripcion: $('#descripcionProducto').val(),
             proImagen: img_base64,
@@ -175,7 +177,8 @@ $(document).ready(function () {
             success: function (producto) {
                 $('#editProductId').val(producto.proId);
                 $('#editNombreProducto').val(producto.proCategoria);
-                $('#editPrecioProducto').val(producto.proPrecio);
+                $('#editPrecioProductoCosto').val(producto.proPrecioCosto);
+                $('#editPrecioProductoVenta').val(producto.proPrecioVenta);
                 $('#editCategoria').val(producto.padreId);
                 $('#editDescripcionProducto').val(producto.proDescripcion);
                 $('#editImagenProducto').val(producto.proImagen);
@@ -194,7 +197,8 @@ $(document).ready(function () {
         event.preventDefault();
         var proId = $('#editProductId').val();
         var nombreProducto = $('#editNombreProducto').val();
-        var precioProducto = $('#editPrecioProducto').val();
+        var precioProductoCosto = $('#editPrecioProductoCosto').val();
+        var precioProductoVenta = $('#editPrecioProductoVenta').val();
         var padreCategoria = $('#editCategoria').val();
         var descripcionProducto = $('#editDescripcionProducto').val();
         var imagenProducto = $('#editImagenProducto').val();
@@ -205,7 +209,8 @@ $(document).ready(function () {
             data: JSON.stringify({
                 proId: proId,
                 proCategoria: nombreProducto,
-                proPrecio: precioProducto,
+                proPrecioCosto: precioProductoCosto,
+                proPrecioVenta: precioProductoVenta,
                 padreCategoria: padreCategoria,
                 proDescripcion: descripcionProducto,
                 proImagen: imagenProducto

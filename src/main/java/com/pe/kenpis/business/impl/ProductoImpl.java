@@ -4,12 +4,10 @@ import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.model.api.producto.ProductoListDTO;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
-import com.pe.kenpis.model.api.usuario.UsuarioDTO;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.ProductoInventarioEntity;
 import com.pe.kenpis.repository.ProductoInventarioRepository;
 import com.pe.kenpis.repository.ProductoRepository;
-import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.funciones.Java8Base64Image;
 import com.pe.kenpis.util.variables.Constantes;
 import lombok.RequiredArgsConstructor;
@@ -17,10 +15,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -99,7 +95,8 @@ public class ProductoImpl implements IProductoService {
       return new ProductoResponse();
     } else {
       request.setProCategoria(res.getProCategoria());
-      request.setProPrecio(res.getProPrecio());
+      request.setProPrecioCosto(res.getProPrecioCosto());
+      request.setProPrecioVenta(res.getProPrecioVenta());
       request.setProDescripcion(res.getProDescripcion());
       request.setPadreId(res.getPadreId());
       request.setEmpId(res.getEmpId());

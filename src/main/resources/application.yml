@@ -40,6 +40,7 @@ spring:
         show_sql: true # Opcional: muestra las consultas SQL en la consola
         format_sql: true # Opcional: formatea las consultas SQL para facilitar la lectura
         physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    open-in-view: off
 
 #Path para Logs
 logging:

@@ -10,7 +10,8 @@ import lombok.*;
 public class ProductoResponse {
 
   private Integer proId;
-  private Double proPrecio;
+  private Double proPrecioCosto;
+  private Double proPrecioVenta;
   private String proCategoria;
   private Boolean proIsActive;
   private String proDescripcion;
