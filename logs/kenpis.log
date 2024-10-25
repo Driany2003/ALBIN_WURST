@@ -1,0 +1,646 @@
+[INFO ] [25-10-2024 15:23:26] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 19760 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [25-10-2024 15:23:26] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-10-2024 15:23:26] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-10-2024 15:23:27] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-10-2024 15:23:27] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-10-2024 15:23:27] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 67 ms. Found 12 JPA repository interfaces.
+[INFO ] [25-10-2024 15:23:28] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-10-2024 15:23:28] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 15:23:28] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-10-2024 15:23:28] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-10-2024 15:23:28] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-10-2024 15:23:28] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-10-2024 15:23:28] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1463 ms
+[INFO ] [25-10-2024 15:23:28] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-10-2024 15:23:28] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-10-2024 15:23:28] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-10-2024 15:23:28] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-10-2024 15:23:29] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-10-2024 15:23:29] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-10-2024 15:23:30] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-10-2024 15:23:30] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 15:23:30] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6cfe53af, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3a76c5ee, org.springframework.security.web.context.SecurityContextPersistenceFilter@410af77f, org.springframework.security.web.header.HeaderWriterFilter@860cd00, org.springframework.security.web.authentication.logout.LogoutFilter@27492da, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@19e0a7de, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65bc11e7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@11a73770, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@55cb224b, org.springframework.security.web.session.SessionManagementFilter@20514c18, org.springframework.security.web.access.ExceptionTranslationFilter@1153b1bf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@180c4961]
+[INFO ] [25-10-2024 15:23:30] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-10-2024 15:23:31] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-10-2024 15:23:31] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 15:23:31] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-10-2024 15:23:31] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.83 seconds (JVM running for 5.447)
+[INFO ] [25-10-2024 15:23:53] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-10-2024 15:23:53] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-10-2024 15:23:53] [DispatcherServlet              :: 547 ] - Completed initialization in 7 ms
+[INFO ] [25-10-2024 15:23:56] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [25-10-2024 15:23:56] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [25-10-2024 15:24:04] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-10-2024 15:24:04] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-10-2024 15:24:04] [EmpresaImpl                    :: 64  ] - Implements :: findById :: 1
+[INFO ] [25-10-2024 15:24:05] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [25-10-2024 15:24:05] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse"ADMINISTRADOR"
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","usuCorreo":"jhan.jp@gmail.com"}
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"12345678901","empRazonSocial":"Albin Wurst","empResponsable":"PEDRO NALVARTE","empTelefono":"970180035","empImagenLogo":"data:image/jpeg;base64,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","empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1727672400000,"empFechaContratoFin":1729486800000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [25-10-2024 15:24:05] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [25-10-2024 15:24:07] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:24:54] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:24:54] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:25:11] [FxComunes                      :: 67  ] - ff{"proId":1,"proPrecioCosto":6.0,"proPrecioVenta":10.0,"proCategoria":"Tradicional","proIsActive":null,"proDescripcion":"Choripan Tradicional","padreId":null,"empId":null,"proImagen":null,"proImagenLongitud":null}
+[DEBUG] [25-10-2024 15:25:11] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[ERROR] [25-10-2024 15:25:11] [[dispatcherServlet]            :: 175 ] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because the return value of "com.pe.kenpis.model.api.producto.ProductoRequest.getProImagen()" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.isEmpty()" because the return value of "com.pe.kenpis.model.api.producto.ProductoRequest.getProImagen()" is null
+	at com.pe.kenpis.business.impl.ProductoImpl.convertRequestToEntity(ProductoImpl.java:148)
+	at com.pe.kenpis.business.impl.ProductoImpl.update(ProductoImpl.java:88)
+	at com.pe.kenpis.expose.web.WProductoController.update(WProductoController.java:95)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPut(FrameworkServlet.java:920)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:558)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+[INFO ] [25-10-2024 15:25:40] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:25:40] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:26:10] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:26:10] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:28:14] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:28:43] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:29:22] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:30:53] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:31:23] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:31:30] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:31:30] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:31:40] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:31:40] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:31:40] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:31:40] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:32:44] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:32:46] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:32:46] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:35:10] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:36:35] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:36:42] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:36:42] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:38:02] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:38:28] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:38:53] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:39:29] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 15:39:31] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 15:39:31] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 15:39:54] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 15:39:54] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-10-2024 15:39:54] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [25-10-2024 17:09:50] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 21937 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [25-10-2024 17:09:50] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-10-2024 17:09:50] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-10-2024 17:09:50] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-10-2024 17:09:51] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-10-2024 17:09:51] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 95 ms. Found 12 JPA repository interfaces.
+[INFO ] [25-10-2024 17:09:52] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-10-2024 17:09:52] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:09:52] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-10-2024 17:09:52] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-10-2024 17:09:52] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-10-2024 17:09:52] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-10-2024 17:09:52] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1623 ms
+[INFO ] [25-10-2024 17:09:52] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-10-2024 17:09:52] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-10-2024 17:09:52] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-10-2024 17:09:52] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-10-2024 17:09:53] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-10-2024 17:09:53] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-10-2024 17:09:53] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-10-2024 17:09:53] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:09:54] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@51e8ce8f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d3d6783, org.springframework.security.web.context.SecurityContextPersistenceFilter@243dd57d, org.springframework.security.web.header.HeaderWriterFilter@410af77f, org.springframework.security.web.authentication.logout.LogoutFilter@5fea49cb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3a76c5ee, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11a73770, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2140b113, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1df1f12a, org.springframework.security.web.session.SessionManagementFilter@65bc11e7, org.springframework.security.web.access.ExceptionTranslationFilter@7dce6db2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19e0a7de]
+[INFO ] [25-10-2024 17:09:54] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-10-2024 17:09:55] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-10-2024 17:09:55] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:09:55] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-10-2024 17:09:55] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.446 seconds (JVM running for 6.081)
+[INFO ] [25-10-2024 17:13:31] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-10-2024 17:13:31] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-10-2024 17:13:31] [DispatcherServlet              :: 547 ] - Completed initialization in 10 ms
+[DEBUG] [25-10-2024 17:13:39] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-10-2024 17:13:40] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-10-2024 17:13:40] [EmpresaImpl                    :: 64  ] - Implements :: findById :: 1
+[INFO ] [25-10-2024 17:13:40] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [25-10-2024 17:13:40] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse"ADMINISTRADOR"
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","usuCorreo":"jhan.jp@gmail.com"}
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"12345678901","empRazonSocial":"Albin Wurst","empResponsable":"PEDRO NALVARTE","empTelefono":"970180035","empImagenLogo":"data:image/jpeg;base64,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","empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1727672400000,"empFechaContratoFin":1729486800000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [25-10-2024 17:13:40] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [25-10-2024 17:13:43] [WUsuarioController             :: 94  ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 17:13:43] [WUsuarioController             :: 98  ] - ADMINISTRADOR
+[INFO ] [25-10-2024 17:13:43] [UsuarioImpl                    :: 57  ] - Implements :: findAllDto
+[INFO ] [25-10-2024 17:13:43] [UsuarioImpl                    :: 59  ] -  --------------- [org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@4a9d1b1b, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@408c7148, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@1125a1d6, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@2a738671]
+[INFO ] [25-10-2024 17:13:43] [FxComunes                      :: 67  ] - objeto result[{"usuNombre":"GIOMAR","authUsername":"GIOMAR","usuId":1,"usuGenero":"M","usuApeMaterno":"SULLCA","usuTelefono":"9701800335","usuApePaterno":"ORTEGA","empNombreComercial":"Albin Wurst Lima","usuNumeroDocumento":"72440370","authRoles":"PROPIETARIO","usuTipoDocumento":"DNI"},{"usuTelefono":"972514160","usuApeMaterno":"GARCIA","usuGenero":"M","usuId":2,"usuNumeroDocumento":"44116732","authUsername":"JHAN.MORENO","usuNombre":"JHAN","empNombreComercial":"Albin Wurst Lima","usuApePaterno":"MORENO","usuTipoDocumento":"DNI","authRoles":"ADMINISTRADOR"},{"usuId":4,"usuApeMaterno":"JULCA","usuNumeroDocumento":"87654321","usuTelefono":"999999990","usuGenero":"M","empNombreComercial":"Innovaciones Tech","authUsername":"JUAN","usuNombre":"JUAN","usuApePaterno":"PEREZ","authRoles":"PROPIETARIO","usuTipoDocumento":"DNI"},{"usuId":68,"usuGenero":"M","usuApeMaterno":"SULLCA","usuNombre":"JEACITO","usuApePaterno":"ORTEGA","empNombreComercial":"Albin Wurst Lima","usuTelefono":"970180035","usuNumeroDocumento":"72440370","authRoles":"PROPIETARIO","authUsername":"giomar.o","usuTipoDocumento":"DNI"}]
+[INFO ] [25-10-2024 17:13:43] [FxComunes                      :: 67  ] - QUE LLEGA DE ADMINISTRADOR[{"usuId":1,"empresaId":null,"usuNombre":"GIOMAR","usuApePaterno":"ORTEGA","usuApeMaterno":"SULLCA","usuTelefono":"9701800335","empNombreComercial":"Albin Wurst Lima","authRoles":"PROPIETARIO","authUsername":"GIOMAR","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null},{"usuId":2,"empresaId":null,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empNombreComercial":"Albin Wurst Lima","authRoles":"ADMINISTRADOR","authUsername":"JHAN.MORENO","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","authPassword":null},{"usuId":4,"empresaId":null,"usuNombre":"JUAN","usuApePaterno":"PEREZ","usuApeMaterno":"JULCA","usuTelefono":"999999990","empNombreComercial":"Innovaciones Tech","authRoles":"PROPIETARIO","authUsername":"JUAN","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"87654321","usuTipoDocumento":"DNI","authPassword":null},{"usuId":68,"empresaId":null,"usuNombre":"JEACITO","usuApePaterno":"ORTEGA","usuApeMaterno":"SULLCA","usuTelefono":"970180035","empNombreComercial":"Albin Wurst Lima","authRoles":"PROPIETARIO","authUsername":"giomar.o","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null}]
+[INFO ] [25-10-2024 17:13:43] [FxComunes                      :: 67  ] - Trae empresa admin [{"empId":1,"empNombreComercial":"Albin Wurst Lima"},{"empId":4,"empNombreComercial":"Innovaciones Tech"}]
+[INFO ] [25-10-2024 17:13:47] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [25-10-2024 17:13:48] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [25-10-2024 17:13:48] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [25-10-2024 17:13:48] [WEmpresaController             :: 123 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 17:13:48] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[WARN ] [25-10-2024 17:15:53] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[WARN ] [25-10-2024 17:15:53] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[INFO ] [25-10-2024 17:15:53] [WEmpresaController             :: 123 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 17:15:53] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [25-10-2024 17:16:08] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:16:08] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-10-2024 17:16:08] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [25-10-2024 17:16:35] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 22596 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [25-10-2024 17:16:35] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-10-2024 17:16:35] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-10-2024 17:16:35] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-10-2024 17:16:35] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-10-2024 17:16:35] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 70 ms. Found 12 JPA repository interfaces.
+[INFO ] [25-10-2024 17:16:36] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-10-2024 17:16:36] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:16:36] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-10-2024 17:16:36] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-10-2024 17:16:36] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-10-2024 17:16:36] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-10-2024 17:16:36] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1590 ms
+[WARN ] [25-10-2024 17:16:36] [[/]                            :: 173 ] - Cannot deserialize session attribute [listaUsuarios] for session [CA59B8A6B77A53A28C9E6AB7E7522F8E]
+[WARN ] [25-10-2024 17:16:36] [[/]                            :: 173 ] - Cannot deserialize session attribute [empresasAdministrador] for session [CA59B8A6B77A53A28C9E6AB7E7522F8E]
+[ERROR] [25-10-2024 17:16:36] [StandardManager                :: 175 ] - Exception loading sessions from persistent storage
+java.lang.ClassCastException: class java.io.ObjectStreamClass cannot be cast to class java.lang.String (java.io.ObjectStreamClass and java.lang.String are in module java.base of loader 'bootstrap')
+	at java.base/java.io.ObjectInputStream.readTypeString(ObjectInputStream.java:1837)
+	at java.base/java.io.ObjectStreamClass.readNonProxy(ObjectStreamClass.java:707)
+	at java.base/java.io.ObjectInputStream.readClassDescriptor(ObjectInputStream.java:1012)
+	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2048)
+	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1925)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2248)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1760)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2614)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2465)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2280)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1760)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:538)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:496)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1530)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1000)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:210)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:156)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:346)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4931)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:489)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:585)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+[INFO ] [25-10-2024 17:16:36] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-10-2024 17:16:36] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-10-2024 17:16:37] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-10-2024 17:16:37] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-10-2024 17:16:37] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-10-2024 17:16:37] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-10-2024 17:16:38] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-10-2024 17:16:38] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:16:39] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@55cb224b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4340699f, org.springframework.security.web.context.SecurityContextPersistenceFilter@65bc11e7, org.springframework.security.web.header.HeaderWriterFilter@20514c18, org.springframework.security.web.authentication.logout.LogoutFilter@4a0e3858, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4804fad9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45dbc81e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@407b2c76, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d3d3973, org.springframework.security.web.session.SessionManagementFilter@73c8a7c6, org.springframework.security.web.access.ExceptionTranslationFilter@860cd00, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ccafcfd]
+[INFO ] [25-10-2024 17:16:39] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-10-2024 17:16:39] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-10-2024 17:16:39] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:16:39] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-10-2024 17:16:39] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.195 seconds (JVM running for 5.778)
+[INFO ] [25-10-2024 17:17:15] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-10-2024 17:17:15] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-10-2024 17:17:15] [DispatcherServlet              :: 547 ] - Completed initialization in 6 ms
+[WARN ] [25-10-2024 17:17:18] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[WARN ] [25-10-2024 17:17:18] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[INFO ] [25-10-2024 17:17:18] [WEmpresaController             :: 123 ] - Controller :: loadEmpresasByRole :: null
+[ERROR] [25-10-2024 17:17:18] [[dispatcherServlet]            :: 175 ] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "usuSessionNivel" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "String.equalsIgnoreCase(String)" because "usuSessionNivel" is null
+	at com.pe.kenpis.expose.web.WEmpresaController.loadEmpresasByRole(WEmpresaController.java:127)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1072)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:555)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+[DEBUG] [25-10-2024 17:17:32] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-10-2024 17:17:32] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-10-2024 17:17:32] [EmpresaImpl                    :: 64  ] - Implements :: findById :: 1
+[INFO ] [25-10-2024 17:17:32] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [25-10-2024 17:17:32] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse"ADMINISTRADOR"
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","usuCorreo":"jhan.jp@gmail.com"}
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"12345678901","empRazonSocial":"Albin Wurst","empResponsable":"PEDRO NALVARTE","empTelefono":"970180035","empImagenLogo":"data:image/jpeg;base64,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","empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1727672400000,"empFechaContratoFin":1729486800000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [25-10-2024 17:17:32] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [25-10-2024 17:17:36] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [25-10-2024 17:17:50] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [25-10-2024 17:17:50] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [25-10-2024 17:17:50] [WEmpresaController             :: 123 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 17:17:50] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[WARN ] [25-10-2024 17:19:56] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [25-10-2024 17:19:56] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [25-10-2024 17:19:56] [WEmpresaController             :: 123 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 17:19:56] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[WARN ] [25-10-2024 17:20:55] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[WARN ] [25-10-2024 17:20:55] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[INFO ] [25-10-2024 17:20:55] [WEmpresaController             :: 123 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 17:20:55] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [25-10-2024 17:21:05] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 17:23:05] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 17:24:03] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 17:24:05] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 17:24:09] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:24:09] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-10-2024 17:24:09] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [25-10-2024 17:24:35] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 23241 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [25-10-2024 17:24:35] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-10-2024 17:24:35] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-10-2024 17:24:35] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-10-2024 17:24:36] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-10-2024 17:24:36] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 71 ms. Found 12 JPA repository interfaces.
+[INFO ] [25-10-2024 17:24:37] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-10-2024 17:24:37] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:24:37] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-10-2024 17:24:37] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-10-2024 17:24:37] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-10-2024 17:24:37] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-10-2024 17:24:37] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1424 ms
+[WARN ] [25-10-2024 17:24:37] [[/]                            :: 173 ] - Cannot deserialize session attribute [empresasAdministrador] for session [C8830B028D5C03109FB67EEB1A56C765]
+[ERROR] [25-10-2024 17:24:37] [StandardManager                :: 175 ] - Exception loading sessions from persistent storage
+java.lang.ClassCastException: class java.io.ObjectStreamClass cannot be cast to class java.lang.String (java.io.ObjectStreamClass and java.lang.String are in module java.base of loader 'bootstrap')
+	at java.base/java.io.ObjectInputStream.readTypeString(ObjectInputStream.java:1837)
+	at java.base/java.io.ObjectStreamClass.readNonProxy(ObjectStreamClass.java:707)
+	at java.base/java.io.ObjectInputStream.readClassDescriptor(ObjectInputStream.java:1012)
+	at java.base/java.io.ObjectInputStream.readNonProxyDesc(ObjectInputStream.java:2048)
+	at java.base/java.io.ObjectInputStream.readClassDesc(ObjectInputStream.java:1925)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2248)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1760)
+	at java.base/java.io.ObjectInputStream$FieldValues.<init>(ObjectInputStream.java:2614)
+	at java.base/java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2465)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2280)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1760)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:538)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:496)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1530)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1000)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:210)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:156)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:346)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4931)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:489)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:585)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+[INFO ] [25-10-2024 17:24:37] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-10-2024 17:24:37] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-10-2024 17:24:37] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-10-2024 17:24:37] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-10-2024 17:24:38] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-10-2024 17:24:38] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-10-2024 17:24:38] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-10-2024 17:24:38] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:24:39] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4340699f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5d3d3973, org.springframework.security.web.context.SecurityContextPersistenceFilter@537c7c01, org.springframework.security.web.header.HeaderWriterFilter@7dce6db2, org.springframework.security.web.authentication.logout.LogoutFilter@765a22af, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@70bcd431, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@243dd57d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3f560d36, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51e8ce8f, org.springframework.security.web.session.SessionManagementFilter@410af77f, org.springframework.security.web.access.ExceptionTranslationFilter@2c03de6e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@14c7dbf7]
+[INFO ] [25-10-2024 17:24:39] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-10-2024 17:24:40] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-10-2024 17:24:40] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:24:40] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-10-2024 17:24:40] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.623 seconds (JVM running for 5.217)
+[INFO ] [25-10-2024 17:25:14] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:25:14] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-10-2024 17:25:14] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [25-10-2024 17:25:41] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 20.0.1 on MacBook-Pro.local with PID 23791 (/Users/jhan.moreno/Applications/apps/sistemas/kenpis/target/classes started by jhan.moreno in /Users/jhan.moreno/Applications/apps/sistemas/kenpis)
+[DEBUG] [25-10-2024 17:25:41] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [25-10-2024 17:25:41] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [25-10-2024 17:25:41] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [25-10-2024 17:25:42] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [25-10-2024 17:25:42] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 70 ms. Found 12 JPA repository interfaces.
+[INFO ] [25-10-2024 17:25:43] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [25-10-2024 17:25:43] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:25:43] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [25-10-2024 17:25:43] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [25-10-2024 17:25:43] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [25-10-2024 17:25:43] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [25-10-2024 17:25:43] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1558 ms
+[INFO ] [25-10-2024 17:25:43] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [25-10-2024 17:25:43] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [25-10-2024 17:25:43] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [25-10-2024 17:25:43] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [25-10-2024 17:25:44] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [25-10-2024 17:25:44] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [25-10-2024 17:25:44] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [25-10-2024 17:25:44] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 17:25:45] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@161a64a7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e6b86e5, org.springframework.security.web.context.SecurityContextPersistenceFilter@5752b5c1, org.springframework.security.web.header.HeaderWriterFilter@2037e26c, org.springframework.security.web.authentication.logout.LogoutFilter@38239827, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@721c8bf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c12a861, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@944c1a1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2934eb2f, org.springframework.security.web.session.SessionManagementFilter@3a062b3b, org.springframework.security.web.access.ExceptionTranslationFilter@6c111823, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6a773d09]
+[INFO ] [25-10-2024 17:25:45] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [25-10-2024 17:25:46] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [25-10-2024 17:25:46] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [25-10-2024 17:25:46] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [25-10-2024 17:25:46] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.819 seconds (JVM running for 5.389)
+[INFO ] [25-10-2024 17:25:49] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [25-10-2024 17:25:49] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [25-10-2024 17:25:49] [DispatcherServlet              :: 547 ] - Completed initialization in 4 ms
+[INFO ] [25-10-2024 17:25:52] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [25-10-2024 17:25:52] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [25-10-2024 17:32:17] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-10-2024 17:32:17] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-10-2024 17:32:17] [EmpresaImpl                    :: 64  ] - Implements :: findById :: 1
+[INFO ] [25-10-2024 17:32:17] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [25-10-2024 17:32:17] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [25-10-2024 17:32:17] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse"ADMINISTRADOR"
+[INFO ] [25-10-2024 17:32:17] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","usuCorreo":"jhan.jp@gmail.com"}
+[INFO ] [25-10-2024 17:32:18] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"12345678901","empRazonSocial":"Albin Wurst","empResponsable":"PEDRO NALVARTE","empTelefono":"970180035","empImagenLogo":"data:image/jpeg;base64,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","empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1727672400000,"empFechaContratoFin":1729486800000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [25-10-2024 17:32:18] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [25-10-2024 17:32:18] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [25-10-2024 17:32:18] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [25-10-2024 17:32:18] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [25-10-2024 17:32:18] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [25-10-2024 17:32:30] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 17:32:36] [ProductoImpl                   :: 53  ] - Implements :: findById :: 1
+[DEBUG] [25-10-2024 17:32:36] [Java8Base64Image               :: 83  ] - El fichero \1_foto.jpg ha sido borrado satisfactoriamente
+[INFO ] [25-10-2024 17:32:56] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 17:33:20] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 18:07:55] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [25-10-2024 18:07:55] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [25-10-2024 18:08:02] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-10-2024 18:08:03] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-10-2024 18:08:03] [EmpresaImpl                    :: 64  ] - Implements :: findById :: 1
+[INFO ] [25-10-2024 18:08:03] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [25-10-2024 18:08:03] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse"ADMINISTRADOR"
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","usuCorreo":"jhan.jp@gmail.com"}
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"12345678901","empRazonSocial":"Albin Wurst","empResponsable":"PEDRO NALVARTE","empTelefono":"970180035","empImagenLogo":"data:image/jpeg;base64,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","empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1727672400000,"empFechaContratoFin":1729486800000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [25-10-2024 18:08:03] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [25-10-2024 18:08:05] [ProductoImpl                   :: 43  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [25-10-2024 18:08:10] [ProductoInventarioImpl         :: 29  ] - Implements :: findAll
+[INFO ] [25-10-2024 18:08:13] [WClienteController             :: 73  ] - Controller :: loadEmpresasByRole
+[INFO ] [25-10-2024 18:08:13] [ClienteImpl                    :: 39  ] - Implements :: findAllDto
+[INFO ] [25-10-2024 18:08:13] [ClienteImpl                    :: 41  ] -  --------------- [org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@5848b65e, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@14ff871b, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@6a399d55, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@24bfefa8, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@39584727, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@5177c848]
+[INFO ] [25-10-2024 18:08:13] [FxComunes                      :: 67  ] - objeto result[{"cliId":13,"cliNotificacion":true,"cliCorreo":"correo@correo.com","empNombreComercial":"Innovaciones Tech","cliIsActive":true,"cliNombre":" MOTO","cliTelefono":"444444443"},{"cliId":14,"cliNotificacion":true,"cliCorreo":"correito@correo.com","empNombreComercial":"Albin Wurst Lima","cliIsActive":true,"cliNombre":"LOBATON","cliTelefono":"970180034"},{"cliNombre":"GIOMAR","cliTelefono":"970180359","cliNotificacion":true,"cliId":22,"empNombreComercial":"Albin Wurst Lima","cliIsActive":true,"cliCorreo":"giomar@hotmail.com"},{"cliNotificacion":true,"cliId":23,"empNombreComercial":"Albin Wurst Lima","cliIsActive":true,"cliNombre":"JHAN","cliCorreo":"wanda@hotmail.com","cliTelefono":"970180034"},{"cliNotificacion":true,"cliId":24,"cliNombre":"ROMEO","empNombreComercial":"Innovaciones Tech","cliIsActive":true,"cliCorreo":"giomar@hotmail.com","cliTelefono":"970180035"},{"cliTelefono":"987678900","cliId":26,"cliNombre":"ALVARO","cliNotificacion":true,"empNombreComercial":"Albin Wurst Lima","cliCorreo":"giom@hotmail.com","cliIsActive":true}]
+[INFO ] [25-10-2024 18:08:13] [FxComunes                      :: 67  ] - QUE LLEGA DE ADMINISTRADOR[{"cliId":13,"cliTelefono":"444444443","cliNombre":" MOTO","cliCorreo":"correo@correo.com","cliNotificacion":true,"cliIsActive":true,"empId":null,"empNombreComercial":"Innovaciones Tech","cliFechaCreacion":null},{"cliId":14,"cliTelefono":"970180034","cliNombre":"LOBATON","cliCorreo":"correito@correo.com","cliNotificacion":true,"cliIsActive":true,"empId":null,"empNombreComercial":"Albin Wurst Lima","cliFechaCreacion":null},{"cliId":22,"cliTelefono":"970180359","cliNombre":"GIOMAR","cliCorreo":"giomar@hotmail.com","cliNotificacion":true,"cliIsActive":true,"empId":null,"empNombreComercial":"Albin Wurst Lima","cliFechaCreacion":null},{"cliId":23,"cliTelefono":"970180034","cliNombre":"JHAN","cliCorreo":"wanda@hotmail.com","cliNotificacion":true,"cliIsActive":true,"empId":null,"empNombreComercial":"Albin Wurst Lima","cliFechaCreacion":null},{"cliId":24,"cliTelefono":"970180035","cliNombre":"ROMEO","cliCorreo":"giomar@hotmail.com","cliNotificacion":true,"cliIsActive":true,"empId":null,"empNombreComercial":"Innovaciones Tech","cliFechaCreacion":null},{"cliId":26,"cliTelefono":"987678900","cliNombre":"ALVARO","cliCorreo":"giom@hotmail.com","cliNotificacion":true,"cliIsActive":true,"empId":null,"empNombreComercial":"Albin Wurst Lima","cliFechaCreacion":null}]
+[INFO ] [25-10-2024 18:08:13] [FxComunes                      :: 67  ] - Trae empresa admin [{"empId":1,"empNombreComercial":"Albin Wurst Lima"},{"empId":4,"empNombreComercial":"Innovaciones Tech"}]
+[INFO ] [25-10-2024 18:08:16] [WUsuarioController             :: 94  ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [25-10-2024 18:08:16] [WUsuarioController             :: 98  ] - ADMINISTRADOR
+[INFO ] [25-10-2024 18:08:16] [UsuarioImpl                    :: 57  ] - Implements :: findAllDto
+[INFO ] [25-10-2024 18:08:16] [UsuarioImpl                    :: 59  ] -  --------------- [org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@4c6a993e, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@15ffbd85, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@79ae5964, org.springframework.data.jpa.repository.query.AbstractJpaQuery$TupleConverter$TupleBackedMap@7f0758e1]
+[INFO ] [25-10-2024 18:08:16] [FxComunes                      :: 67  ] - objeto result[{"usuNombre":"GIOMAR","authUsername":"GIOMAR","usuId":1,"usuGenero":"M","usuApeMaterno":"SULLCA","usuTelefono":"9701800335","usuApePaterno":"ORTEGA","empNombreComercial":"Albin Wurst Lima","usuNumeroDocumento":"72440370","authRoles":"PROPIETARIO","usuTipoDocumento":"DNI"},{"usuTelefono":"972514160","usuApeMaterno":"GARCIA","usuGenero":"M","usuId":2,"usuNumeroDocumento":"44116732","authUsername":"JHAN.MORENO","usuNombre":"JHAN","empNombreComercial":"Albin Wurst Lima","usuApePaterno":"MORENO","usuTipoDocumento":"DNI","authRoles":"ADMINISTRADOR"},{"usuId":4,"usuApeMaterno":"JULCA","usuNumeroDocumento":"87654321","usuTelefono":"999999990","usuGenero":"M","empNombreComercial":"Innovaciones Tech","authUsername":"JUAN","usuNombre":"JUAN","usuApePaterno":"PEREZ","authRoles":"PROPIETARIO","usuTipoDocumento":"DNI"},{"usuId":68,"usuGenero":"M","usuApeMaterno":"SULLCA","usuNombre":"JEACITO","usuApePaterno":"ORTEGA","empNombreComercial":"Albin Wurst Lima","usuTelefono":"970180035","usuNumeroDocumento":"72440370","authRoles":"PROPIETARIO","authUsername":"giomar.o","usuTipoDocumento":"DNI"}]
+[INFO ] [25-10-2024 18:08:16] [FxComunes                      :: 67  ] - QUE LLEGA DE ADMINISTRADOR[{"usuId":1,"empresaId":null,"usuNombre":"GIOMAR","usuApePaterno":"ORTEGA","usuApeMaterno":"SULLCA","usuTelefono":"9701800335","empNombreComercial":"Albin Wurst Lima","authRoles":"PROPIETARIO","authUsername":"GIOMAR","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null},{"usuId":2,"empresaId":null,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empNombreComercial":"Albin Wurst Lima","authRoles":"ADMINISTRADOR","authUsername":"JHAN.MORENO","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","authPassword":null},{"usuId":4,"empresaId":null,"usuNombre":"JUAN","usuApePaterno":"PEREZ","usuApeMaterno":"JULCA","usuTelefono":"999999990","empNombreComercial":"Innovaciones Tech","authRoles":"PROPIETARIO","authUsername":"JUAN","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"87654321","usuTipoDocumento":"DNI","authPassword":null},{"usuId":68,"empresaId":null,"usuNombre":"JEACITO","usuApePaterno":"ORTEGA","usuApeMaterno":"SULLCA","usuTelefono":"970180035","empNombreComercial":"Albin Wurst Lima","authRoles":"PROPIETARIO","authUsername":"giomar.o","usuCorreo":null,"usuGenero":"M","usuNumeroDocumento":"72440370","usuTipoDocumento":"DNI","authPassword":null}]
+[INFO ] [25-10-2024 18:08:16] [FxComunes                      :: 67  ] - Trae empresa admin [{"empId":1,"empNombreComercial":"Albin Wurst Lima"},{"empId":4,"empNombreComercial":"Innovaciones Tech"}]
+[DEBUG] [25-10-2024 18:08:19] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [25-10-2024 18:08:19] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [25-10-2024 18:08:19] [EmpresaImpl                    :: 64  ] - Implements :: findById :: 1
+[INFO ] [25-10-2024 18:08:19] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [25-10-2024 18:08:19] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [25-10-2024 18:08:19] [FxComunes                      :: 67  ] - UsuarioAuthorityResponse"ADMINISTRADOR"
+[INFO ] [25-10-2024 18:08:19] [FxComunes                      :: 67  ] - UsuarioResponse{"usuId":2,"usuNombre":"JHAN","usuApePaterno":"MORENO","usuApeMaterno":"GARCIA","usuTelefono":"972514160","empresaId":1,"usuGenero":"M","usuNumeroDocumento":"44116732","usuTipoDocumento":"DNI","usuCorreo":"jhan.jp@gmail.com"}
+[INFO ] [25-10-2024 18:08:19] [FxComunes                      :: 67  ] - EmpresaSession{"empId":1,"empDocumentoTipo":"RUC","empDocumentoNumero":"12345678901","empRazonSocial":"Albin Wurst","empResponsable":"PEDRO NALVARTE","empTelefono":"970180035","empImagenLogo":"data:image/jpeg;base64,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","empNombreComercial":"Albin Wurst Lima","empFechaContratoInicio":1727672400000,"empFechaContratoFin":1729486800000,"empFechaCreacion":1728108853000,"empQrYape":null,"empQrPlin":null,"empQrPagos":null,"empIsActive":true,"empEmail":"albirwurst@hotmail.com","empPadreId":0}
+[INFO ] [25-10-2024 18:08:20] [FxComunes                      :: 67  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [25-10-2024 18:08:20] [FxComunes                      :: 67  ] - REGISTRADO[]
+[INFO ] [25-10-2024 18:08:20] [FxComunes                      :: 67  ] - EN_PROCESO[]
+[INFO ] [25-10-2024 18:08:20] [FxComunes                      :: 67  ] - PAGADO[]
+[INFO ] [25-10-2024 18:08:20] [FxComunes                      :: 67  ] - ATENDIDO[]
+[INFO ] [25-10-2024 18:08:31] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [25-10-2024 18:08:31] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [25-10-2024 18:08:31] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.

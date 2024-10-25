@@ -15,7 +15,7 @@ $(document).ready(function () {
                 var editCategoria = $('#editCategoria');
                 seleccionarCategoria.empty();
                 editCategoria.empty();
-                seleccionarCategoria.append('<option value="" disabled selected>Seleccionar Una Categoria</option>');
+                seleccionarCategoria.append('<option value="" disabled selected>Seleccionar Categoria</option>');
                 editCategoria.append('<option value="" disabled selected> Seleccionar Nueva Categoria</option>');
 
                 function construirOpciones(categorias, nivel = 0) {
@@ -48,9 +48,10 @@ $(document).ready(function () {
                 response.forEach(producto => {
                     productoBody.append(`
                     <tr id="product-row-${producto.proId}">
-                        <td><img src="data:image/jpeg;base64,${producto.proImagen}" alt="${producto.proDescripcion}" width="50"> ${producto.proDescripcion}</td>
-                        <td> S/. ${producto.proPrecioCosto.toFixed(2)}</td>
-                        <td> S/. ${producto.proPrecioVenta.toFixed(2)}</td>
+                        <td><img src="data:image/jpeg;base64,${producto.proImagen}" alt="${producto.proDescripcion}" width="50"></td>
+                        <td>${producto.proDescripcion}</td>
+                        <td>S/. ${producto.proPrecioCosto.toFixed(2)}</td>
+                        <td>S/. ${producto.proPrecioVenta.toFixed(2)}</td>
                        <td>
                             <label class="switch">
                                 <input type="checkbox" class="estado-checkbox"  data-id="${producto.proId}"  ${producto.proIsActive ? 'checked' : ''}>
