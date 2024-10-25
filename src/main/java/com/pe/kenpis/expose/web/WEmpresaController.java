@@ -95,9 +95,9 @@ public class WEmpresaController {
   //actualizar la vista de propietario
   @PutMapping("/update-propietario")
   public ResponseEntity<EmpresaResponse> updatePropietario(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("que trae", request);
-    log.info("Controller :: update Status propietario");
-    EmpresaResponse empresa = service.updateStatus(request);
+    FxComunes.printJson("que trae para editar", request);
+    log.info("Controller :: update  propietario");
+    EmpresaResponse empresa = service.updatePropietario(request);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
@@ -131,8 +131,12 @@ public class WEmpresaController {
       session.setAttribute("empresasAdministrador", listaEmpresa);
     } else if (usuSessionNivel.equalsIgnoreCase("PROPIETARIO")) {
       EmpresaResponse empresaResponse = service.obtenerEmpresaPorUsuario(usuarioResponse.getUsuId());
+      List<EmpresaDTO> listaSucursales = service.obtenerSucursalesPorEmpresa(empresaResponse.getEmpId());
       response.put("status", "success");
       response.put("data", empresaResponse);
+      response.put("listaSucursales", listaSucursales);
+
+      FxComunes.printJson("lista de sucursales de la empresa", listaSucursales);
       session.setAttribute("propietarioEmpresa", empresaResponse);
     }
     return new ResponseEntity<>(response, HttpStatus.OK);

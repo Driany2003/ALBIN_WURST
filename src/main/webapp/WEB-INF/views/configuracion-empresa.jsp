@@ -431,7 +431,7 @@
                                     <!-- Datos de la Empresa -->
                                     <div class="tab-pane fade show active" id="datosEmpresa" role="tabpanel" aria-labelledby="datosEmpresa-tab">
                                         <form id="empresaForm" class="form-neon form" action="#" method="POST" data-form="update" autocomplete="off">
-                                            <input type="hidden" name="empresa_id_up" value="${empresaSession.empId}">
+                                            <input type="hidden" name="empresaId" value="${empresaSession.empId}">
                                             <input type="hidden" name="modulo_empresa" value="actualizar">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
@@ -482,17 +482,7 @@
                                                     <th>Activo</th>
                                                 </tr>
                                                 </thead>
-                                                <tbody>
-                                                <!-- Aquí se mostrarán las sucursales -->
-                                                <c:forEach var="sucursal" items="">
-                                                    <tr>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-                                                        </td>
-                                                    </tr>
-                                                </c:forEach>
+                                                <tbody id="sucursalesTableBody">
                                                 </tbody>
                                             </table>
                                             <div class="text-center">

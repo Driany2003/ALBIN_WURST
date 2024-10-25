@@ -65,14 +65,23 @@ public class EmpresaImpl implements IEmpresaService {
     return repository.findById(id).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
   }
 
+  //VISTA DE PROPIETARIO PARA VER LA INFO PERSONAL
   @Override
   public EmpresaResponse obtenerEmpresaPorUsuario(Integer usuarioId) {
     log.info("Implements :: obtenerEmpresaPorUsuario :: {}", usuarioId);
-
     Optional<EmpresaEntity> empresaOpt = usuarioRepository.findEmpresaByUsuarioId(usuarioId);
     return empresaOpt.map(this::convertEntityToResponse).orElse(new EmpresaResponse());
   }
 
+  @Override
+  public  List<EmpresaDTO> obtenerSucursalesPorEmpresa(Integer empId){
+    log.info("Implements :: obtenerSucursalesPorEmpresa :: {}", empId);
+    List<Map<String, Object>> results = repository.findSucursalesByEmpresaPadreId(empId);
+    return results.stream().map(result -> {
+      return new EmpresaDTO((String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (String) result.get("empEmail"),(Boolean) result.get("empIsActive"));
+    }).collect(Collectors.toList());
+
+  }
 
   /* METODOS PARA REGISTRAR */
 
@@ -158,6 +167,9 @@ public class EmpresaImpl implements IEmpresaService {
     if (res.getEmpId() == null) {
       return new EmpresaResponse();
     } else {
+      request.setEmpPadreId(res.getEmpPadreId());
+      request.setEmpIsActive(res.getEmpIsActive());
+      request.setEmpImagenLogo(res.getEmpImagenLogo());
       request.setEmpFechaContratoFin(res.getEmpFechaContratoFin());
       request.setEmpFechaContratoInicio(res.getEmpFechaContratoInicio());
       request.setEmpFechaCreacion(res.getEmpFechaCreacion());

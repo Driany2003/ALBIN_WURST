@@ -14,26 +14,28 @@ public class EmpresaDTO {
   private Boolean empIsActive;
   private Date empFechaContratoFin;
   private Date empFechaContratoInicio;
+  private Date empFechaCreacion;
   private String empTelefono;
   private String empImagenLogo;
   private Integer empPadreId;
-  private Date empFechaCreacion;
   private String empResponsable;
-
+  private String empEmail;
 
   //para poder listar las sucursales cuando demos click a una empresa.
-  public EmpresaDTO( Integer empId,String empNombreComercial, String empTelefono, Boolean empIsActive) {
+  public EmpresaDTO(Integer empId, String empNombreComercial, String empTelefono, Boolean empIsActive) {
     this.empNombreComercial = empNombreComercial;
     this.empId = empId;
     this.empTelefono = empTelefono;
     this.empIsActive = empIsActive;
 
   }
-  public EmpresaDTO(Integer empId, Boolean empIsActive){
+
+  public EmpresaDTO(Integer empId, Boolean empIsActive) {
     this.empId = empId;
     this.empIsActive = empIsActive;
   }
-  public EmpresaDTO(Integer empId, String empResponsable,String empImagenLogo, String empNombreComercial, Date empFechaContratoInicio, Date empFechaContratoFin, String empTelefono, Boolean empIsActive) {
+
+  public EmpresaDTO(Integer empId, String empResponsable, String empImagenLogo, String empNombreComercial, Date empFechaContratoInicio, Date empFechaContratoFin, String empTelefono, Boolean empIsActive) {
     this.empId = empId;
     this.empImagenLogo = empImagenLogo;
     this.empNombreComercial = empNombreComercial;
@@ -43,6 +45,13 @@ public class EmpresaDTO {
     this.empIsActive = empIsActive;
     this.empResponsable = empResponsable;
 
+  }
+
+  public EmpresaDTO(String empNombreComercial, String empTelefono, String empEmail, Boolean empIsActive) {
+    this.empNombreComercial = empNombreComercial;
+    this.empTelefono = empTelefono;
+    this.empEmail = empEmail;
+    this.empIsActive = empIsActive;
   }
 
 }

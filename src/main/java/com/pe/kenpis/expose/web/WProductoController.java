@@ -91,7 +91,7 @@ public class WProductoController {
 
   @PutMapping("/update")
   public ResponseEntity<ProductoResponse> update(@RequestBody ProductoRequest request) {
-    FxComunes.printJson("fff", request);
+    FxComunes.printJson("ff", request);
     ProductoResponse response = service.update(request);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }

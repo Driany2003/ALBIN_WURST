@@ -103,6 +103,7 @@ $(document).ready(function () {
     }
 
     // Renderizar la vista para el Propietario (igual que en el código anterior)
+// Renderizar la vista para el Propietario
     function renderPropietarioView(empresa) {
         if (empresa.empImagenLogo) {
             $('#logoEmpresa').attr('src', empresa.empImagenLogo).show();
@@ -121,7 +122,33 @@ $(document).ready(function () {
         $('#empresaNumeroDocumento').val(empresa.empDocumentoNumero);
         $('#empresaTelefono').val(empresa.empTelefono);
         $('#empresaEmail').val(empresa.empEmail);
+
+        // Verificar si hay sucursales y mostrarlas en la tabla
+        if (empresa.listaSucursales && Array.isArray(empresa.listaSucursales)) {
+            var tableBody = $('#sucursalesTableBody');
+            tableBody.empty();
+
+            empresa.listaSucursales.forEach(function (sucursal) {
+                var rowHtml = `
+                <tr>
+                    <td>${sucursal.empNombreComercial || 'N/A'}</td>
+                    <td>${sucursal.empTelefono || 'N/A'}</td>
+                    <td>${sucursal.empEmail || 'N/A'}</td>
+                    <td>
+                        <input type="checkbox" ${sucursal.empIsActive ? 'checked' : ''} disabled>
+                    </td>
+                </tr>`;
+                tableBody.append(rowHtml);
+            });
+        } else {
+            var noDataHtml = `
+            <tr>
+                <td colspan="4" class="text-center">No se encontraron sucursales para esta empresa.</td>
+            </tr>`;
+            $('#sucursalesTableBody').append(noDataHtml);
+        }
     }
+
     function getInitials(name) {
         return name.split(' ').map(word => word.charAt(0)).join('').toUpperCase();
     }
@@ -957,36 +984,50 @@ $(document).ready(function () {
 
     $('#botonActualizar').prop('disabled', true);
 
-// Manejar la actualización del formulario
-    $('#empresaForm').on('submit', function (event) {
+    $('#empresaForm').submit(function (event) {
         event.preventDefault();
-        if (formularioModificado) {
-            $('#confirmModal').modal('show');
-        } else {
-            toastr.info('No se realizaron cambios en el formulario.');
-        }
-    });
 
-// Confirmar la actualización desde el modal
-    $('#confirmUpdate').on('click', function () {
-        $.ajax({
-            url: '/kenpis/empresas/update-propietario',
-            method: 'PUT',
-            data: $('#empresaForm').serialize(),
-            success: function (response) {
-                if (response.status === 'success') {
-                    toastr.success('Empresa actualizada correctamente.');
-                    formularioModificado = false;
-                    $('#confirmModal').modal('hide');
-                } else {
-                    toastr.error('Error al actualizar la empresa.');
+        // Crear un objeto con los datos del formulario
+        var empresaData = {
+            empId: $('#empresaId').val(),
+            empNombreComercial: $('#empresaNombre').val(),
+            empRazonSocial: $('#empresaRazonSocial').val(),
+            empDocumentoTipo: $('#empresaTipoDocumento').val(),
+            empDocumentoNumero: $('#empresaNumeroDocumento').val(),
+            empTelefono: $('#empresaTelefono').val(),
+            empEmail: $('#empresaEmail').val()
+        };
+
+
+        if (!formularioModificado) {
+            toastr.info('No se realizaron cambios en el formulario.');
+            return;
+        }
+        $('#confirmModal').modal('show');
+
+        $('#confirmUpdate').off('click').on('click', function () {
+            $.ajax({
+                url: '/kenpis/empresas/update-propietario',
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(empresaData),
+                success: function (response) {
+                        toastr.success('Empresa actualizada correctamente.');
+                        formularioModificado = false;
+                        $('#confirmModal').modal('hide');
+                },
+                error: function () {
+                    toastr.error('Error en la solicitud.');
                 }
-            },
-            error: function () {
-                toastr.error('Error en la solicitud.');
-            }
+            });
+        });
+
+        // Cancelar la actualización desde el modal
+        $('#cancelUpdate').on('click', function () {
+            $('#confirmModal').modal('hide');
         });
     });
+
 
 // Cancelar la actualización desde el modal
     $('#cancelUpdate').on('click', function () {
