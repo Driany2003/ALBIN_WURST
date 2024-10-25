@@ -130,6 +130,7 @@ $(document).ready(function () {
             usuCorreo: $('#correoUsuario').val(),
             usuTipoDocumento: $('#tipoDocumento').val(),
             usuNumeroDocumento: $('#numeroDocumento').val()
+
         };
 
         $.ajax({

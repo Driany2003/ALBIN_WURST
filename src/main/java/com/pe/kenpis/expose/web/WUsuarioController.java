@@ -155,7 +155,7 @@ public class WUsuarioController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
-  //listar combos para empresas seleccionadas
+  //listar combos para empresas seleccionadas, por revisar ya que creo que no deberia y no se si esta utilizando en u js
   @GetMapping("/cargar-responsables/{empId}")
   public ResponseEntity<List<ResponsablesDTO>> getResponsables(@PathVariable Integer empId) {
     List<ResponsablesDTO> responsable = service.obtenerUsuariosPorEmpresa(empId);

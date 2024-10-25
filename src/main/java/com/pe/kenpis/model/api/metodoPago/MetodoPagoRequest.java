@@ -5,26 +5,14 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Column;
+import java.util.List;
 
 @Getter
 @Setter
 @ToString
 public class MetodoPagoRequest {
 
-  private Integer metPagoId;
-
   private Integer empId;
-
-  private String metPagoTipo;
-
-  private String metPagoLogo;
-
-  private String metPagoQr;
-
-  private String metPagoCuentaNumero;
-
-  private String metPagoCuentaNombre;
-
-  private String metPagoDetalle;
+  private List<MetodoPagoDTO> metodosPago;
 
 }

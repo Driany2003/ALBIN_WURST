@@ -18,7 +18,7 @@ public class EmpresaRequest {
   private String empRazonSocial;
   private String empResponsable;
   private String empTelefono;
-  private Long empImageLogo;
+  private String empImagenLogo;
   private String empNombreComercial;
   private Date empFechaContratoInicio;
   private Date empFechaContratoFin;

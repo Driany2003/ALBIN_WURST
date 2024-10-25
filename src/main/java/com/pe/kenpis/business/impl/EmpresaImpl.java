@@ -39,9 +39,7 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public List<EmpresaDTO> findAllActiveEmpresaById() {
     log.info("Implements  :: findAll");
-
     List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
-
     return results.stream().map(result -> {
       return new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empResponsable"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
     }).collect(Collectors.toList());
@@ -54,14 +52,6 @@ public class EmpresaImpl implements IEmpresaService {
     return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
 
-  /*
-  //empresa en sesion datos para exponer cuando un usuario inicia sesion, lista de sucursales,
-  @Override
-  public List<EmpresaResponseDTO> findEmpresaAndSucursalByUsuarioId(Integer empId) {
-    List<Map<String, Object>> results = repository.findSucursalesByEmpresaId(empId);
-    return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
-  }
-*/
   //lista de sucursales para la vista de empresa
   @Override
   public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
@@ -78,18 +68,11 @@ public class EmpresaImpl implements IEmpresaService {
   @Override
   public EmpresaResponse obtenerEmpresaPorUsuario(Integer usuarioId) {
     log.info("Implements :: obtenerEmpresaPorUsuario :: {}", usuarioId);
-    Optional<UsuarioEntity> usuarioOpt = usuarioRepository.findById(usuarioId);
 
-    if (usuarioOpt.isPresent()) {
-      UsuarioEntity usuario = usuarioOpt.get();
-      Integer empresaId = usuario.getEmpresaId();
-
-      Optional<EmpresaEntity> empresaOpt = repository.findById(empresaId);
-      return empresaOpt.map(this::convertEntityToResponse).orElse(new EmpresaResponse());
-    } else {
-      return new EmpresaResponse();
-    }
+    Optional<EmpresaEntity> empresaOpt = usuarioRepository.findEmpresaByUsuarioId(usuarioId);
+    return empresaOpt.map(this::convertEntityToResponse).orElse(new EmpresaResponse());
   }
+
 
   /* METODOS PARA REGISTRAR */
 
@@ -114,7 +97,7 @@ public class EmpresaImpl implements IEmpresaService {
     nuevaSucursal.setEmpDocumentoTipo(empresaPadre.getEmpDocumentoTipo());
     nuevaSucursal.setEmpDocumentoNumero(empresaPadre.getEmpDocumentoNumero());
     nuevaSucursal.setEmpRazonSocial(empresaPadre.getEmpRazonSocial());
-    nuevaSucursal.setEmpImageLogo(empresaPadre.getEmpImageLogo());
+    nuevaSucursal.setEmpImagenLogo(empresaPadre.getEmpImagenLogo());
     nuevaSucursal.setEmpFechaContratoInicio(empresaPadre.getEmpFechaContratoInicio());
     nuevaSucursal.setEmpFechaContratoFin(empresaPadre.getEmpFechaContratoFin());
     nuevaSucursal.setEmpEmail(empresaPadre.getEmpEmail());
@@ -133,7 +116,6 @@ public class EmpresaImpl implements IEmpresaService {
 
     return convertEntityToResponse(repository.save(nuevaSucursal));
   }
-
 
   /* METODOS PARA ACTUALIZAR */
   @Override
@@ -204,7 +186,7 @@ public class EmpresaImpl implements IEmpresaService {
       request.setEmpFechaContratoFin(res.getEmpFechaContratoFin());
       request.setEmpFechaContratoInicio(res.getEmpFechaContratoInicio());
       request.setEmpFechaCreacion(res.getEmpFechaCreacion());
-      request.setEmpImageLogo(res.getEmpImageLogo());
+      request.setEmpImagenLogo(res.getEmpImagenLogo());
       request.setEmpNombreComercial(res.getEmpNombreComercial());
       request.setEmpRazonSocial(res.getEmpRazonSocial());
       request.setEmpTelefono(res.getEmpTelefono());

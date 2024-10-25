@@ -1,10 +1,12 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IMetodoPagoService;
+import com.pe.kenpis.model.api.metodoPago.MetodoPagoDTO;
 import com.pe.kenpis.model.api.metodoPago.MetodoPagoRequest;
 import com.pe.kenpis.model.api.metodoPago.MetodoPagoResponse;
 import com.pe.kenpis.model.entity.MetodoPagoEntity;
 import com.pe.kenpis.repository.MetodoPagoRepository;
+import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -31,7 +33,7 @@ public class MetodoPagoImpl implements IMetodoPagoService {
 
   //actualizar metodos de pago
   @Override
-  public MetodoPagoResponse update(MetodoPagoRequest request) {
+  public MetodoPagoResponse update(MetodoPagoDTO request) {
     MetodoPagoEntity metodoPago = metodoPagoRepository.findById(request.getMetPagoId()).orElseThrow(() -> new RuntimeException("Método de pago no encontrado"));
 
     metodoPago.setMetPagoTipo(request.getMetPagoTipo());
@@ -52,19 +54,23 @@ public class MetodoPagoImpl implements IMetodoPagoService {
 
   // crear metodo de pago
   @Override
-  public MetodoPagoResponse crearMetodoPago(MetodoPagoRequest metodoPagoRequest) {
-    return convertEntityToResponse(metodoPagoRepository.save(convertRequestToEntity(metodoPagoRequest)));
+  public void crearMetodosPago(MetodoPagoRequest request) {
+    for (MetodoPagoDTO metodoPagoDTO : request.getMetodosPago()) {
+      MetodoPagoEntity metodoPagoEntity = convertRequestMetodoPagoDToEntity(metodoPagoDTO);
+      metodoPagoEntity.setEmpId(request.getEmpId());
+      metodoPagoRepository.save(metodoPagoEntity);
+    }
   }
 
   //eliminar metodo de pago
   @Override
-  public MetodoPagoResponse delete(Integer id) {
-    MetodoPagoEntity metodoPago = metodoPagoRepository.findById(id).orElseThrow(() -> new RuntimeException("Método de pago no encontrado"));
+  public MetodoPagoResponse delete(String metPagoTipo, Integer empId) {
+    MetodoPagoEntity metodoPago = metodoPagoRepository.findByTipoAndEmpId(metPagoTipo, empId)
+        .orElseThrow(() -> new RuntimeException("Método de pago no encontrado"));
+
     metodoPagoRepository.delete(metodoPago);
     return convertEntityToResponse(metodoPago);
   }
-
-
 
   private MetodoPagoEntity convertRequestToEntity(MetodoPagoRequest in) {
     MetodoPagoEntity out = new MetodoPagoEntity();
@@ -72,9 +78,15 @@ public class MetodoPagoImpl implements IMetodoPagoService {
     return out;
   }
 
-  private MetodoPagoResponse convertEntityToResponse(MetodoPagoEntity in) {
-    MetodoPagoResponse out = new MetodoPagoResponse();
+  private MetodoPagoEntity convertRequestMetodoPagoDToEntity(MetodoPagoDTO in) {
+    MetodoPagoEntity out = new MetodoPagoEntity();
     BeanUtils.copyProperties(in, out);
     return out;
+  }
+
+  private MetodoPagoResponse convertEntityToResponse(MetodoPagoEntity entity) {
+    MetodoPagoResponse response = new MetodoPagoResponse();
+    BeanUtils.copyProperties(entity,response);
+    return response;
   }
 }

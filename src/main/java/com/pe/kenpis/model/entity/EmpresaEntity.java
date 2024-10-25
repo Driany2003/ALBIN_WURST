@@ -33,7 +33,7 @@ public class EmpresaEntity {
   private String empTelefono;
 
   @Column(name = "emp_imagen_logo")
-  private Long empImageLogo;
+  private String empImagenLogo;
 
   @Column(name = "emp_nombre_comercial")
   private String empNombreComercial;

@@ -3,6 +3,8 @@ $(document).ready(function () {
 
     function cargarEmpresas() {
         var usuarioId = $('#usuarioId').val();
+        var usuarioNivel = $('#usuarioNivel').val();
+        console.log("nivel de usuairi", usuarioNivel);
 
         $.ajax({
             url: '/kenpis/empresas/cargar-empresas',
@@ -11,77 +13,10 @@ $(document).ready(function () {
             data: JSON.stringify({usuId: usuarioId}),
             success: function (response) {
                 if (response.status === 'success') {
-                    if (Array.isArray(response.data)) {
-                        var tableBody = $('#empresaBody');
-                        tableBody.empty();
-                        response.data.forEach(function (empresa) {
-                            var responsableTelefono = (empresa.empResponsable || 'Sin responsable') + ' - ' + (empresa.empTelefono || 'Sin teléfono');
-
-
-                            tableBody.append(
-                                '<tr id="empresa-row-' + empresa.empId + '" class="empresa-row" data-id="' + empresa.empId + '">' +
-                                '<td>' +
-                                '<img src="' + (empresa.empImageLogo || 'path_to_default_logo.png') + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
-                                '<span>' + empresa.empNombreComercial + '</span>' +
-                                '</td>' +
-                                '<td>' +
-                                '<span class="text">' + responsableTelefono + '</span>' +
-                                '</td>' +
-                                '<td>' +
-                                '<div class="contrato-fechas">' +
-                                '<div><i class="fas fa-calendar-alt"></i> <strong>Inicio:</strong> ' + formatDate(empresa.empFechaContratoInicio) + '</div>' +
-                                '<div><i class="fas fa-calendar-check"></i> <strong>Fin:</strong> ' + formatDate(empresa.empFechaContratoFin) + '</div>' +
-                                '</div>' +
-                                '</td>' +
-                                '<td>' +
-                                '<label class="switch">' +
-                                '<input type="checkbox" class="estado-checkbox" data-id="' + empresa.empId + '" ' + (empresa.empIsActive ? 'checked' : '') + '>' +
-                                '<span class="slider"></span>' +
-                                '</label>' +
-                                '</td>' +
-                                '<td>' +
-                                '<button type="button" data-id="' + (empresa.empId || '') + '" class="btn btn-sm btn-warning editarEmpresa" data-toggle="tooltip" data-placement="top" title="Editar Empresa">' +
-                                '<i class="fas fa-pencil-alt"></i>' +
-                                '</button>' +
-                                '<span> </span>' +
-                                '<button type="button" data-id="' + (empresa.empId || '') + '" class="btn btn-sm btn-danger eliminarEmpresa" data-toggle="tooltip" data-placement="top" title="Eliminar Empresa">' +
-                                '<i class="fas fa-trash"></i>' +
-                                '</button>' +
-                                '<span> </span>' +
-                                '<button type="button" data-id="' + (empresa.empId || '') + '" class="btn btn-sm btn-info mostrarSucursales" data-toggle="tooltip" data-placement="top" title="Mostrar Sucursales">' +
-                                '<i class="fas fa-building"></i>' +
-                                '</button>' +
-                                '<span> </span>' +
-                                '<button type="button" data-id="' + (empresa.empId || '') + '" class="btn btn-sm btn-danger mostrarMetodosPago" data-toggle="tooltip" data-placement="top" title="Mostrar Metodos de pago">' +
-                                '<i class="fas fa-credit-card"></i>' +
-                                '</button>' +
-                                '</td>' +
-                                '</tr>'
-                            );
-                        });
-
-                        // Mover la asignación de eventos fuera del bucle forEach
-                        $('.eliminarEmpresa').off('click').on('click', function (event) {
-                            event.preventDefault();
-                            var empId = $(this).data('id');
-                            eliminarEmpresa(empId);
-                        });
-
-                        $('.editarEmpresa').off('click').on('click', function (event) {
-                            event.preventDefault();
-                            var empId = $(this).data('id');
-                            editarEmpresa(empId);
-                        });
-
-                        $('.mostrarSucursales').off('click').on('click', function () {
-                            var sucursalId = $(this).data('id');
-                            cargarSucursales(sucursalId);
-                        });
-
-                        $('.mostrarMetodosPago').off('click').on('click', function () {
-                            var empId = $(this).data('id');
-                            cargarMetodoPago(empId);
-                        });
+                    if (usuarioNivel === 'ADMINISTRADOR' && Array.isArray(response.data)) {
+                        renderAdministradorView(response.data);
+                    } else if (usuarioNivel === 'PROPIETARIO' && response.data) {
+                        renderPropietarioView(response.data);
                     }
                 } else {
                     alert(response.message || 'Error al cargar los datos');
@@ -93,10 +28,128 @@ $(document).ready(function () {
         });
     }
 
+    // Renderizar la vista para el Administrador
+    function renderAdministradorView(empresas) {
+        var tableBody = $('#empresaBody');
+        tableBody.empty();
+        empresas.forEach(function (empresa) {
+            var responsableTelefono = (empresa.empResponsable || 'Sin responsable') + ' - ' + (empresa.empTelefono || 'Sin teléfono');
+            tableBody.append(
+                '<tr id="empresa-row-' + empresa.empId + '" class="empresa-row" data-id="' + empresa.empId + '">' +
+                '<td>' +
+                '<img src="' + empresa.empImagenLogo + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
+                '<span>' + empresa.empNombreComercial + '</span>' +
+                '</td>' +
+                '<td>' +
+                '<span class="text">' + responsableTelefono + '</span>' +
+                '</td>' +
+                '<td>' +
+                '<div class="contrato-fechas">' +
+                '<div><i class="fas fa-calendar-alt"></i>&nbsp;<strong>Inicio:</strong> ' + formatDate(empresa.empFechaContratoInicio) + '</div>' +
+                '<div><i class="fas fa-calendar-check"></i>&nbsp;<strong>Fin:</strong> ' + formatDate(empresa.empFechaContratoFin) + '</div>' +
+                '</div>' +
+                '</td>' +
+                '<td>' +
+                '<label class="switch">' +
+                '<input type="checkbox" class="estado-checkbox" data-id="' + empresa.empId + '" ' + (empresa.empIsActive ? 'checked' : '') + '>' +
+                '<span class="slider"></span>' +
+                '</label>' +
+                '</td>' +
+                '<td>' +
+                '<button type="button" data-id="' + empresa.empId + '" class="btn btn-sm btn-warning editarEmpresa" data-toggle="tooltip" title="Editar Empresa">' +
+                '<i class="fas fa-pencil-alt"></i>' +
+                '</button>' +
+                '<span> </span>' +
+                '<button type="button" data-id="' + empresa.empId + '" class="btn btn-sm btn-danger eliminarEmpresa" data-toggle="tooltip" title="Eliminar Empresa">' +
+                '<i class="fas fa-trash"></i>'+
+                '</button>' +
+                '<span> </span>' +
+                '<button type="button" data-id="' + empresa.empId + '" class="btn btn-sm btn-info mostrarSucursales" data-toggle="tooltip" title="Mostrar Sucursales">' +
+                '<i class="fas fa-building"></i>' +
+                '</button>' +
+                '<span> </span>' +
+                '<button type="button" data-id="' + empresa.empId + '" class="btn btn-sm btn-danger mostrarMetodosPago" data-toggle="tooltip" title="Mostrar Métodos de Pago">' +
+                '<i class="fas fa-credit-card"></i>' +
+                '</button>' +
+                '</td>' +
+                '</tr>'
+            );
+        });
+
+        // Asignación de eventos fuera del bucle forEach
+        $('.eliminarEmpresa').off('click').on('click', function (event) {
+            event.preventDefault();
+            var empId = $(this).data('id');
+            eliminarEmpresa(empId);
+        });
+
+        $('.editarEmpresa').off('click').on('click', function (event) {
+            event.preventDefault();
+            var empId = $(this).data('id');
+            editarEmpresa(empId);
+        });
+
+        $('.mostrarSucursales').off('click').on('click', function () {
+            var sucursalId = $(this).data('id');
+            cargarSucursales(sucursalId);
+        });
+
+        $('.mostrarMetodosPago').off('click').on('click', function () {
+            var empId = $(this).data('id');
+            $('#btnAgregarMetodoPago').data('emp-id', empId);
+            $('#guardarMetPago').data('emp-id', empId);
+            cargarMetodoPago(empId);
+        });
+    }
+
+    // Renderizar la vista para el Propietario (igual que en el código anterior)
+    function renderPropietarioView(empresa) {
+        if (empresa.empImagenLogo) {
+            $('#logoEmpresa').attr('src', empresa.empImagenLogo).show();
+            $('#initialsCanvas').hide();
+        } else {
+            var initials = getInitials(empresa.empNombreComercial);
+            drawInitialsOnCanvas(initials);
+        }
+        // Establecer los valores en las etiquetas HTML
+        $('#NombreComercial').text(empresa.empNombreComercial);
+        $('#NumeroDocumento').text(empresa.empDocumentoNumero);
+        // Establecer los valores en los campos de formulario
+        $('#empresaNombre').val(empresa.empNombreComercial);
+        $('#empresaRazonSocial').val(empresa.empRazonSocial);
+        $('#empresaTipoDocumento').val(empresa.empDocumentoTipo);
+        $('#empresaNumeroDocumento').val(empresa.empDocumentoNumero);
+        $('#empresaTelefono').val(empresa.empTelefono);
+        $('#empresaEmail').val(empresa.empEmail);
+    }
+    function getInitials(name) {
+        return name.split(' ').map(word => word.charAt(0)).join('').toUpperCase();
+    }
+
+    function drawInitialsOnCanvas(initials) {
+        var canvas = document.getElementById('initialsCanvas');
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = '#007bff'; // Fondo
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = 'bold 40px Arial';
+        ctx.fillStyle = '#ffffff';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(initials, canvas.width / 2, canvas.height / 2);
+    }
+    // Formatear fechas
+    function formatDate(date) {
+        var options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+        return new Date(date).toLocaleDateString('es-ES', options);
+    }
+
+
 // Validación de correo electrónico
     function validarEmail() {
         const email = $('#empEmail').val().trim();
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Expresión regular simple para validar el email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             $('#empEmail').addClass('is-invalid');
             $('#emailError').remove();
@@ -180,6 +233,29 @@ $(document).ready(function () {
         }
     }
 
+    $('#empImageLogo').on('change', function () {
+        var file = this.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#logoPreview').attr('src', e.target.result).css({width: '100px', height: '100px'}).show();
+                $('#cargarLogo').show();
+                $('#empImageBase64').val(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        } else {
+            $('#logoPreview').hide();
+            $('#cargarLogo').hide();
+            $('#empImageBase64').val('');
+        }
+    });
+
+    $('#cargarLogo').on('click', function () {
+        $('#empImageLogo').trigger('click');
+    });
+
+
     $('#guardarEmpresa').on('click', function (event) {
         event.preventDefault();
         const emailValido = validarEmail();
@@ -194,7 +270,6 @@ $(document).ready(function () {
                 empRazonSocial: $('#empRazonSocial').val(),
                 empResponsable: $('#empResponsable').val(),
                 empTelefono: $('#empTelefono').val(),
-                empImageLogo: $('#empImageLogo').val(),
                 empNombreComercial: $('#empNombreComercial').val(),
                 empFechaContratoInicio: $('#empFechaContratoInicio').val(),
                 empFechaContratoFin: $('#empFechaContratoFin').val(),
@@ -203,6 +278,8 @@ $(document).ready(function () {
                 empQrPlin: $('#empQrPlin').val(),
                 empQrPagos: $('#empQrPagos').val(),
                 empEmail: $('#empEmail').val(),
+                empImageLogo: $('#empImageBase64').val()
+
             };
 
             $.ajax({
@@ -224,6 +301,9 @@ $(document).ready(function () {
     });
     $('#empresaModal').on('hidden.bs.modal', function () {
         $('#empresaFormulario')[0].reset();
+        $('#logoPreview').hide(); // Ocultar la vista previa del logo
+        $('#cargarLogo').hide();  // Ocultar el botón de cargar nuevo logo
+        $('#empImageBase64').val(''); // Limpiar el campo oculto
         $('.modal-backdrop').remove();
     });
 
@@ -332,6 +412,11 @@ $(document).ready(function () {
                     const date = new Date(milisegundos);
                     return date.toISOString().split('T')[0]; // Formato YYYY-MM-DD
                 };
+                if (empresa.empImagenLogo) {
+                    $('#logoPreviewEdit').attr('src', empresa.empImagenLogo).css({width: '100px', height: '100px'}).show();
+                } else {
+                    $('#logoPreviewEdit').hide();
+                }
 
                 $('#editarEmpFechaContratoInicio').val(formatDate(empresa.empFechaContratoInicio));
                 $('#editarEmpFechaContratoFin').val(formatDate(empresa.empFechaContratoFin));
@@ -343,6 +428,27 @@ $(document).ready(function () {
             }
         });
     }
+
+    // Manejar la carga del logo de la empresa en el formulario de edición
+    $('#editarEmpImageLogo').on('change', function () {
+        var file = this.files[0];
+        if (file) {
+            if (file.type === 'image/png' || file.type === 'image/jpeg') {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#logoPreviewEdit').attr('src', e.target.result).css({width: '100px', height: '100px'}).show();
+                };
+                reader.readAsDataURL(file);
+            } else {
+                toastr.error('Solo se permiten imágenes en formato PNG o JPG.');
+                $('#editarEmpImageLogo').val('');
+                $('#logoPreviewEdit').hide();
+            }
+        } else {
+            $('#logoPreviewEdit').hide();
+        }
+    });
+
 
 // editar empresa update
     $('#editarEmpresaFormulario').submit(function (event) {
@@ -365,6 +471,7 @@ $(document).ready(function () {
                 empNombreComercial: $('#editarEmpNombreComercial').val(),
                 empFechaContratoInicio: $('#editarEmpFechaContratoInicio').val(),
                 empFechaContratoFin: $('#editarEmpFechaContratoFin').val(),
+                empImagenLogo: $('#logoPreviewEdit').attr('src'),
                 empIsActive: true
             };
 
@@ -621,81 +728,224 @@ $(document).ready(function () {
         });
     });
 
-
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    $('#cargarMetodoPago').on('click', function (event) {
-        event.preventDefault();
-        $('#modalRegistrarMetodoPago').modal('show');
-        var empId = $('#guardarMetodoPago').data('emp-id');
-        var metodoPagoData = {
-            empId: empId,
-            metPagoTipo: $('#metodoPagoTipo').val(),
-            metPagoLogo: $('#metodoPagoLogo').val(),
-            metPagoQr: $('#metodoPagoQr').val(),
-            metPagoCuentaNombre: $('#metodoPagoCuentaNombre').val(),
-            metPagoCuentaNumero: $('#metodoPagoCuentaNumero').val(),
-            metPagoDetalle: $('#metodoPagoDetalle').val()
-        };
+    $('#btnAgregarMetodoPago').on('click', function () {
+        var empId = $(this).data('emp-id');
+        console.log("Id de la empresa seleccionada", empId);
+        $('#modalRegistrarMetodosPago').modal('show');
+    });
 
-        $.ajax({
-            url: '/kenpis/metodoPago/create',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(metodoPagoData),
-            success: function (response) {
-                $('#modalRegistrarMetodoPago').modal('hide');
-                toastr.success('Metodo de pago registrado con éxito.');
-                cargarEmpresas();
-            },
-            error: function (xhr, status, error) {
-                console.error('Error al guardar el metodo de pago:', error);
-                toastr.error('Hubo un error al guardar el metodo de pago. Intenta de nuevo.');
+    // Habilitar o deshabilitar campos adicionales al seleccionar un método de pago
+    $('.metodo-pago-checkbox').on('change', function () {
+        var $fila = $(this).closest('tr'); // Obtener la fila actual
+
+        if ($(this).is(':checked')) {
+            $fila.find('input[type="text"]').attr('disabled', false);
+            $fila.find('input[type="file"]').attr('disabled', false);
+        } else {
+            $fila.find('input[type="text"]').attr('disabled', true).val('');
+            $fila.find('input[type="file"]').val('');
+            $fila.find('img').hide();
+            $fila.find('#editQrYape, #editQrPlin').hide();
+            $fila.find('#cargarQrYape, #cargarQrPlin').show();
+            $fila.find('input[type="file"]').attr('disabled', true);
+        }
+    });
+
+    // Manejar la carga del QR
+    $('input[type="file"]').on('change', function () {
+        var $fila = $(this).closest('tr');
+        var file = this.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $fila.find('img').attr('src', e.target.result).css({width: '50px', height: '50px'}).show(); // Ajustar el tamaño y mostrar la imagen
+                // Ocultar el botón de cargar QR
+                $fila.find('#cargarQrYape, #cargarQrPlin').hide();
+                // Mostrar el botón de editar
+                $fila.find('#editQrYape, #editQrPlin').show();
+            }
+            reader.readAsDataURL(file);
+        } else {
+            $fila.find('img').hide();
+            $fila.find('#editQrYape, #editQrPlin').hide();
+            $fila.find('#cargarQrYape, #cargarQrPlin').show();
+        }
+    });
+
+    // Funcionalidad para editar el QR (opcional, puedes agregar tu lógica aquí)
+    $('#editarQrYape').on('click', function () {
+        var $fila = $(this).closest('tr');
+        $fila.find('input[type="file"]').trigger('click');
+    });
+
+    $('#editarQrPlin').on('click', function () {
+        var $fila = $(this).closest('tr');
+        $fila.find('input[type="file"]').trigger('click');
+    });
+
+    // Guardar método de pago seleccionado
+    $('#guardarMetPago').on('click', function () {
+        var empId = $(this).data('emp-id');
+        console.log("valor del Id de la empresa " + empId);
+        var metodosPago = [];
+        var validInput = true;
+
+        $('#tablaMetodosPago tbody tr').each(function () {
+            var $fila = $(this);
+            var metodoPagoCheckbox = $fila.find('.metodo-pago-checkbox');
+
+            if (metodoPagoCheckbox.is(':checked')) {
+                var metodoPago = {
+                    metPagoTipo: metodoPagoCheckbox.data('tipo'),
+                    metPagoCuentaNumero: $fila.find('input[type="text"][id^="metPagoCuenta"]').val(),
+                    metPagoCuentaNombre: $fila.find('input[type="text"][id^="metPagoNombre"]').val(),
+                    metPagoDetalle: $fila.find('input[type="text"][id^="metPagoDetalle"]').val(),
+                    metPagoQr: $fila.find('img').attr('src') || ''
+                };
+
+                if (!metodoPago.metPagoCuentaNumero || !metodoPago.metPagoCuentaNombre || !metodoPago.metPagoDetalle) {
+                    validInput = false;
+                    return false; // Salir del loop
+                }
+
+                metodosPago.push(metodoPago);
             }
         });
-    });
-    $('#modalRegistrarMetodoPago').on('hidden.bs.modal', function () {
-        $('#formRegistrarMetodoPago')[0].reset();
-        $('.modal-backdrop').remove();
+
+        var metodoPagoData = {
+            empId: empId,
+            metodosPago: metodosPago
+        };
+        if (validInput) {
+            $.ajax({
+                url: `/kenpis/metodoPago/create`,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(metodoPagoData),
+                success: function (response) {
+                    toastr.success("Métodos de pago guardados exitosamente");
+                    $('#modalRegistrarMetodosPago').modal('hide');
+                    cargarMetodoPago(empId);
+                },
+                error: function (error) {
+                    toastr.error("Error al guardar métodos de pago", error);
+                }
+            });
+        } else {
+            toastr.info("Por favor, complete todos los campos requeridos para los métodos de pago seleccionados.");
+        }
     });
 
+
+    // Resetear el formulario al cerrar el modal
+    $('#modalRegistrarMetodosPago').on('hidden.bs.modal', function () {
+        $('#formRegistrarMetodosPago')[0].reset();
+        $('.modal-backdrop').remove();
+    });
+    $('#btnAgregarMetodoPago').on('click', function () {
+        $('#modalRegistrarMetodosPago').modal('show');
+        $('#modalRegistrarMetodoPago').modal('hide');
+    });
+    $('#guardarMetPago').on('click', function () {
+        $('#modalRegistrarMetodoPago').modal('show');
+        $('#modalRegistrarMetodosPago').modal('hide');
+    });
+
+    // Cargar métodos de pago para una empresa
     function cargarMetodoPago(empId) {
         $.ajax({
             url: '/kenpis/metodoPago/empresa/' + empId,
             method: 'GET',
             success: function (response) {
-                var html = ''
+                $('#tablaMetodoPago tbody').empty();
+                $('.metodo-pago-checkbox').prop('checked', false);
+
                 if (response.data && response.data.length > 0) {
+                    var metodosExistentes = response.data.map(metodo => metodo.metPagoTipo);
+
                     response.data.forEach(function (metodo) {
-                        html += '<tr>' +
+                        var html = '<tr>' +
                             '<td>' + metodo.metPagoTipo + '</td>' +
-                            '<td><img src="' + metodo.metPagoLogo + '" alt="Logo" style="width: 50px; height: 50px;"></td>' +
                             '<td><img src="' + metodo.metPagoQr + '" alt="QR" style="width: 50px; height: 50px;"></td>' +
                             '<td>' + metodo.metPagoCuentaNombre + '</td>' +
                             '<td>' + metodo.metPagoCuentaNumero + '</td>' +
                             '<td>' + metodo.metPagoDetalle + '</td>' +
+                            '<td>' +
+                            '<button type="button" data-id="' + metodo.empId + '"   data-tipo="' + metodo.metPagoTipo + '"   class="btn btn-sm btn-danger eliminarMetodoPago" data-toggle="tooltip" data-placement="top" title="Eliminar Metodo de Pago">' +
+                            '<i class="fas fa-trash"></i>' +
+                            '</button>' +
+                            '</td>' +
                             '</tr>';
+                        $('#tablaMetodoPago tbody').append(html);
                     });
-                } else  {
-                    html = '<tr><td colspan="6"> response.message;</td></tr>';
 
+                    $('#tablaMetodosPago tbody tr').each(function () {
+                        var tipo = $(this).find('.metodo-pago-checkbox').data('tipo');
+                        if (metodosExistentes.includes(tipo)) {
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
+
+                } else {
+                    var noMethodsHtml = '<tr><td colspan="7" class="text-center">No hay métodos de pago disponibles.</td></tr>';
+                    $('#tablaMetodoPago tbody').html(noMethodsHtml);
                 }
 
-                $('#tablaMetodosPago tbody').html(html);
-                $('#modalRegistrarMetodoPago').modal('show');
+                // Asignar el evento de eliminación después de cargar la tabla
+                $('.eliminarMetodoPago').off('click').on('click', function (event) {
+                    event.preventDefault();
+                    var empId = $(this).data('id');
+                    var metTipoPago = $(this).data('tipo');
+                    console.log("Id de la empresa: " + empId + ", Tipo de método de pago: " + metTipoPago);
+                    eliminarMetodoPago(empId, metTipoPago);
+                });
+
+                $('#modalRegistrarMetodoPago').modal('show').on('show.bs.modal', function () {
+                    $('#modalRegistrarMetodosPago').modal('hide');
+                });
             },
             error: function (xhr, status, error) {
-                console.error('Error al cargar los métodos de pago:', error);
                 toastr.error('Error al cargar los métodos de pago.');
             }
         });
     }
 
 
+    function eliminarMetodoPago(empId, metTipoPago) {
+        $('#deleteMetodoPagoId').val(metTipoPago);
+        $('#deleteEmpId').val(empId);
+        console.log("Id de la empresa: " + empId + ", Tipo de método de pago: " + metTipoPago);
+        $('#confirmDeleteModalMetodoPago').modal('show');
+    }
+
+// Evento de clic en el botón de eliminar del modal
+    $('#eliminarMetodoPago').off('click').on('click', function () {
+        let metTipoPago = $('#deleteMetodoPagoId').val();
+        let empId = $('#deleteEmpId').val();
+        console.log("Eliminando método de pago con tipo: " + metTipoPago + " y empId: " + empId);
+
+        $.ajax({
+            url: `/kenpis/metodoPago/delete/${metTipoPago}/${empId}`,
+            method: 'DELETE',
+            success: function () {
+                $('#confirmDeleteModalMetodoPago').modal('hide');
+                toastr.success('Método de Pago eliminado correctamente.');
+                cargarMetodoPago(empId);
+            },
+            error: function () {
+                toastr.error('Error al eliminar el Método de Pago. Intente nuevamente.');
+            }
+        });
+    });
+
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    //EDITAR LA EMPRESA DE UN USUARIO CON ROL DE PROPIETARIO
+    // EDITAR LA EMPRESA DE UN USUARIO CON ROL DE PROPIETARIO
 
     var formularioModificado = false;
 

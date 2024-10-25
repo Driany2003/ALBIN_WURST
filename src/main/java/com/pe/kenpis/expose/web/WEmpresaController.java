@@ -43,7 +43,6 @@ public class WEmpresaController {
   public ResponseEntity<EmpresaResponse> findById(@PathVariable Integer id) {
     log.info("Controller :: findById :: {}", id);
     EmpresaResponse empresa = service.findById(id);
-    FxComunes.printJson("trae para actualizar una empresa", empresa);
     return ResponseEntity.ok(empresa);
   }
 
@@ -71,7 +70,6 @@ public class WEmpresaController {
   public ResponseEntity<EmpresaResponse> updateEmpresa(@RequestBody EmpresaRequest request) {
     log.info("Controller :: empresa update");
     EmpresaResponse empresa = service.update(request);
-    FxComunes.printJson("trae para actualizar una empresa", empresa);
     return new ResponseEntity<>(empresa, HttpStatus.OK);
   }
 
@@ -128,7 +126,6 @@ public class WEmpresaController {
 
     if (usuSessionNivel.equalsIgnoreCase("ADMINISTRADOR")) {
       List<EmpresaDTO> listaEmpresa = service.findAllActiveEmpresaById();
-      FxComunes.printJson("lista de empresa", listaEmpresa);
       response.put("status", "success");
       response.put("data", listaEmpresa);
       session.setAttribute("empresasAdministrador", listaEmpresa);

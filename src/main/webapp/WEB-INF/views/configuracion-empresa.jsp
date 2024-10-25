@@ -67,6 +67,7 @@
                 </c:if>
                 <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                 <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                <input id="usuarioNivel" type="hidden" value="${usuSessionNivel}"/>
 
                 <!-- Modal para Crear Empresa -->
                 <div class="modal fade" id="empresaModal" tabindex="-1" role="dialog" aria-labelledby="empresaModalLabel" aria-hidden="true">
@@ -92,13 +93,6 @@
                                                 <i class="fas fa-calendar"></i> Contrato
                                             </a>
                                         </li>
-                                        <!--
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="codigos-qr-tab" data-toggle="tab" href="#codigos-qr" role="tab" aria-controls="codigos-qr" aria-selected="false">
-                                                <i class="fas fa-qrcode"></i> Metodos de Pago
-                                            </a>
-                                        </li>
-                                        -->
                                     </ul>
 
                                     <!-- Contenido de las Pestañas -->
@@ -171,10 +165,11 @@
                                                         </div>
                                                         <div class="col-12 col-md-6">
                                                             <div class="form-group">
-                                                                <label for="empImageLogo">Imagen del Logo:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el logo."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="empImageLogo" name="empImageLogo" accept="image/*">
+                                                                <label for="empImageLogo">Logo de la empresa</label>
+                                                                <input type="file" id="empImageLogo" name="empImageLogo" accept="image/png, image/jpeg">
+                                                                <img id="logoPreview" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                                                <button type="button" id="cargarLogo" class="btn btn-sm btn-primary" style="display: none; margin-top: 10px;">Cargar nuevo logo</button>
+                                                                <input type="hidden" id="empImageBase64" name="empImageBase64">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -208,42 +203,6 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-
-                                        <!-- Pestaña 3: Códigos QR -
-                                        <div class="tab-pane fade" id="codigos-qr" role="tabpanel" aria-labelledby="codigos-qr-tab">
-                                            <br>
-                                            <fieldset>
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="empQrYape">Código QR Yape:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Yape."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="empQrYape" name="empQrYape" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="empQrPlin">Código QR Plin:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Plin."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="empQrPlin" name="empQrPlin" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="empQrPagos">Código QR Pagos:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Pagos."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="empQrPagos" name="empQrPagos" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        -->
                                     </div>
 
                                     <!-- Botones de Acción -->
@@ -283,13 +242,6 @@
                                                 <i class="fas fa-calendar"></i> Contrato
                                             </a>
                                         </li>
-                                        <!--
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="qr-tab" data-toggle="tab" href="#qr" role="tab" aria-controls="qr" aria-selected="false">
-                                                <i class="fas fa-qrcode"></i> Metodos de Pago
-                                            </a>
-                                        </li>
-                                        -->
                                     </ul>
                                     <br>
                                     <!-- Contenido de las Pestañas -->
@@ -363,7 +315,8 @@
                                                                 <label for="editarEmpImageLogo">Imagen del Logo:
                                                                     <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el logo de la empresa."></i>
                                                                 </label>
-                                                                <input type="file" class="form-control-file" id="editarEmpImageLogo" name="editarEmpImageLogo" accept="image/*">
+                                                                <input type="file" class="form-control-file" id="editarEmpImageLogo" name="editarEmpImageLogo" accept="image/png, image/jpeg">
+                                                                <img id="logoPreviewEdit" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -396,40 +349,6 @@
                                                 </div>
                                             </fieldset>
                                         </div>
-                                        <!-- METODOS DE PAGO
-                                        <div class="tab-pane fade" id="qr" role="tabpanel" aria-labelledby="qr-tab">
-                                            <fieldset>
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="editarEmpQrYape">Código QR Yape:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Yape."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="editarEmpQrYape" name="editarEmpQrYape" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="editarEmpQrPlin">Código QR Plin:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Plin."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="editarEmpQrPlin" name="editarEmpQrPlin" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-4">
-                                                            <div class="form-group">
-                                                                <label for="editarEmpQrPagos">Código QR Pagos:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el codigo QR de Pagos."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="editarEmpQrPagos" name="editarEmpQrPagos" accept="image/*">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </div>
-                                        -->
                                     </div>
 
                                     <!-- Botones -->
@@ -466,20 +385,27 @@
                         </div>
                     </div>
                 </c:if>
-
                 <!-- VISTA PARA PODER VISUALIZAR DESDE NIVEL PROPIETARIO -->
                 <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'}">
                     <div class="container mt-4" style="max-width: 900px;">
                         <div class="container shadow-sm bg-white rounded p-4">
                             <div class="row align-items-center mb-4">
-                                <!-- Logo de la empresa -->
-                                <canvas id="initialsCanvas" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"></canvas>
-                                <!-- Texto centrado -->
+                                <div>
+                                    <c:choose>
+                                        <c:when test="${not empty empresaSession.empImagenLogo}">
+                                            <img id="logoEmpresa" src="${empresaSession.empImagenLogo}" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;" alt="Logo de la empresa">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <canvas id="initialsCanvas" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"></canvas>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
                                 <div class="col text-center" style="margin-left: 10px;">
-                                    <h3 class="font-weight-bold mt-3 text-primary">${empresaSession.empNombreComercial}</h3>
-                                    <p class="text-center">Número de Documento: <span class="text-primary">${empresaSession.empDocumentoNumero}</span></p>
+                                    <h3 class="font-weight-bold mt-3 text-primary" id="NombreComercial"></h3>
+                                    <p class="text-center">Número de Documento: <span class="text-primary" id="NumeroDocumento"></span></p>
                                 </div>
                             </div>
+
                             <!-- Separador -->
                             <hr class="my-4" style="border-top: 2px solid #007bff;">
                             <div class="container rounded bg-white p-4">
@@ -510,32 +436,32 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaNombre">Nombre Comercial</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaNombre" value="${empresaSession.empNombreComercial}" maxlength="75">
+                                                    <input type="text" class="form-control border-secondary" id="empresaNombre"  maxlength="75">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaRazonSocial">Razón Social</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaRazonSocial" value="${empresaSession.empRazonSocial}" maxlength="75">
+                                                    <input type="text" class="form-control border-secondary" id="empresaRazonSocial" maxlength="75">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaTipoDocumento">Tipo de Documento</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaTipoDocumento" value="${empresaSession.empDocumentoTipo}" maxlength="30">
+                                                    <input type="text" class="form-control border-secondary" id="empresaTipoDocumento"  maxlength="30">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaNumeroDocumento">Número de Documento</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaNumeroDocumento" value="${empresaSession.empDocumentoNumero}" maxlength="30">
+                                                    <input type="text" class="form-control border-secondary" id="empresaNumeroDocumento"  maxlength="30">
                                                 </div>
                                             </div>
                                             <hr class="my-4" style="border-top: 2px solid #007bff;">
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaTelefono">Teléfono</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaTelefono" value="${empresaSession.empTelefono}">
+                                                    <input type="text" class="form-control border-secondary" id="empresaTelefono" value="">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaEmail">Correo Electrónico</label>
-                                                    <input type="email" class="form-control border-secondary" id="empresaEmail" value="${empresaSession.empEmail}" maxlength="50">
+                                                    <input type="email" class="form-control border-secondary" id="empresaEmail" value="" maxlength="50">
                                                 </div>
                                             </div>
                                             <div class="text-center mt-3">
@@ -543,7 +469,6 @@
                                             </div>
                                         </form>
                                     </div>
-
                                     <div class="tab-pane fade" id="empresaSucursales" role="tabpanel" aria-labelledby="empresaSucursales-tab">
                                         <div class="container mt-3">
                                             <h5 class="font-weight-bold mb-3">Lista de Sucursales</h5>
@@ -591,9 +516,10 @@
 
 
 <!-- Modal crear metodo de pago ADMINISTRADOR / PROPIETARIO -->
+
 <!-- Modal para mostrar los métodos de pago -->
 <div class="modal fade" id="modalRegistrarMetodoPago" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarMetodoPagoLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalRegistrarMetodoPagos">Métodos de Pago</h5>
@@ -602,16 +528,15 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Tabla para mostrar los métodos de pago -->
-                <table class="table table-striped" id="tablaMetodosPago">
-                    <thead>
+                <table class="table table-bordered table-hover" id="tablaMetodoPago">
+                    <thead class="thead-light">
                     <tr>
                         <th>Tipo de Pago</th>
-                        <th>Logo</th>
                         <th>QR</th>
                         <th>Nombre de Cuenta</th>
                         <th>Número de Cuenta</th>
                         <th>Detalle</th>
+                        <th>Accion</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -619,54 +544,107 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button id="btnAgregarMetodoPago" class="btn btn-primary" data-emp-id="{{empId}}">Agregar Método de Pago</button>
             </div>
         </div>
     </div>
 </div>
 
-
-
-<div class="modal fade" id="modalRegistrarMetodoPago" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarMetodoPagoLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<!-- MODAL DE REGISTRO PARA UN MÉTODO DE PAGO -->
+<div class="modal fade" id="modalRegistrarMetodosPago" tabindex="-1" aria-labelledby="modalRegistrarMetodosPagoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalRegistrarMetodoPagoLabel">Registrar Método de Pago</h5>
+                <h5 class="modal-title" id="modalRegistrarMetodosPagoLabel">Seleccionar Método de Pago</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="formRegistrarMetodoPago">
-                    <div class="form-group">
-                        <label for="metodoPagoTipo">Tipo de Pago</label>
-                        <input type="text" class="form-control" id="metodoPagoTipo" name="metodoPagoTipo" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="metodoPagoLogo">Logo (URL)</label>
-                        <input type="file" class="form-control" id="metodoPagoLogo" name="metodoPagoLogo" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="metodoPagoQr">QR (URL)</label>
-                        <input type="file" class="form-control" id="metodoPagoQr" name="metodoPagoQr" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="metodoPagoCuentaNombre">Nombre de Cuenta</label>
-                        <input type="text" class="form-control" id="metodoPagoCuentaNombre" name="metodoPagoCuentaNombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="metodoPagoCuentaNumero">Número de Cuenta</label>
-                        <input type="text" class="form-control" id="metodoPagoCuentaNumero" name="metodoPagoCuentaNumero" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="metodoPagoDetalle">Detalle</label>
-                        <textarea class="form-control" id="metodoPagoDetalle" name="metodoPagoDetalle" rows="3"></textarea>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary" id="guardarMetodoPago">Registrar Método de Pago</button>
-                    </div>
+                <form id="formRegistrarMetodosPago">
+                    <table id="tablaMetodosPago" class="table table-bordered table-responsive">
+                        <thead class="thead-light">
+                        <tr>
+                            <th style="width: 15%;">Método de Pago</th>
+                            <th style="width: 13%;">QR</th>
+                            <th style="width: 15%;">Número de Cuenta</th>
+                            <th style="width: 15%;">Nombre de la Cuenta</th>
+                            <th style="width: 20%;">Detalle de la Cuenta</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="metodo-pago-checkbox" data-tipo="Yape">
+                                Yape
+                            </td>
+                            <td>
+                                <div id="qrYapeContainer">
+                                    <img src="ruta-al-qr-yape" alt="QR Yape" id="qrYape" style="width: 50px; height: 50px; display: none;">
+                                    <div id="cargarQrYape">
+                                        <input type="file" class="form-control-file" id="metQrYape" accept="image/*" disabled>
+                                        <label for="metQrYape" class="form-label" style="cursor: pointer;">Cargar QR</label>
+                                    </div>
+                                    <div id="editQrYape" style="display:none;">
+                                        <button type="button" class="btn btn-secondary mt-2" id="editarQrYape">Editar QR</button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoCuentaYape" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoNombreYape" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoDetalleYape" disabled></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="metodo-pago-checkbox" data-tipo="Plin">
+                                Plin
+                            </td>
+                            <td>
+                                <div id="qrPlinContainer">
+                                    <img src="ruta-al-qr-plin" alt="QR Plin" id="qrPlin" style="width: 50px; height: 50px; display: none;">
+                                    <div id="cargarQrPlin">
+                                        <input type="file" class="form-control-file" id="metQrPlin" accept="image/*" disabled>
+                                        <label for="metQrPlin" class="form-label" style="cursor: pointer;">Cargar QR</label>
+                                    </div>
+                                    <div id="editQrPlin" style="display:none;">
+                                        <button type="button" class="btn btn-secondary mt-2" id="editarQrPlin">Editar QR</button>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoCuentaPlin" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoNombrePlin" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoDetallePlin" disabled></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="metodo-pago-checkbox" data-tipo="Tarjeta">
+                                Tarjeta
+                            </td>
+                            <td>
+                                <div>No Aplica</div>
+                            </td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoCuentaTarjeta" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoNombreTarjeta" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoDetalleTarjeta" disabled></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="metodo-pago-checkbox" data-tipo="Efectivo">
+                                Efectivo
+                            </td>
+                            <td>
+                                <div>No Aplica</div>
+                            </td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoCuentaEfectivo" value="No Aplica" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoNombreEfectivo" value="No Aplica" disabled></td>
+                            <td><input type="text" class="form-control form-control-lg w-100" id="metPagoDetalleEfectivo" disabled></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-emp-id="{{empId}}" id="guardarMetPago">Guardar</button>
             </div>
         </div>
     </div>
@@ -737,9 +715,32 @@
     </div>
 </div>
 
+<!-- Modal de eliminacion para un metodoPago -->
+<div id="confirmDeleteModalMetodoPago" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteMetodoPagoModal">Confirmar eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Estás seguro de que deseas eliminar este Metodo de Pago ?</p>
+                <input type="hidden" id="deleteMetodoPagoId">
+                <input type="hidden" id="deleteEmpId">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="eliminarMetodoPago">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal de Sucursales -->
-<div class="modal fade" id="sucursalesModal" tabindex="-1" aria-labelledby="sucursalesModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="sucursalesModal" role="dialog" tabindex="-1" aria-labelledby="sucursalesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="sucursalesModalLabel"></h5>
@@ -777,7 +778,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="sucursalModalLabel">Nueva sucursal</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form id="sucursalFormulario">
@@ -859,6 +862,10 @@
 
 
 <style>
+    .custom-button:focus {
+        outline: none;
+    }
+
     .table {
         background-color: white;
     }
