@@ -2,15 +2,16 @@ package com.pe.kenpis.repository;
 
 import com.pe.kenpis.model.entity.ProductoComplemetosEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+
+import java.util.Map;
 
 @Repository
 public interface ProductoComplementosRepository extends JpaRepository<ProductoComplemetosEntity, Integer> {
 
+  //LISTAR COMPLEMENTOS PADRES POR EMPRESA
+  @Query(value = "{call SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA}", nativeQuery = true)
+  Map<String, Object> SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA();
 
-  /*
-select TPC.emp_id, TE.emp_razon_social, TPC.pro_comp_id, TPC.pro_comp_nombre, TPC.pro_comp_precio, TPC.pro_comp_id_padre
-from T_PRODUCTO_COMPLEMENTOS TPC inner join dbo.T_EMPRESA TE on TPC.emp_id = TE.emp_id
-WHERE TPC.pro_comp_id_padre = 0
-GROUP BY TPC.emp_id, TE.emp_razon_social, TPC.pro_comp_id, TPC.pro_comp_nombre, TPC.pro_comp_precio, TPC.pro_comp_id_padre; */
 }

@@ -17,4 +17,5 @@ public interface EmpresaMetodoPagoRepository extends JpaRepository<EmpresaMetodo
 
   @Query( value = "SELECT * FROM T_EMPRESA_METODO_PAGO  WHERE met_pago_tipo = :metPagoTipo AND emp_id = :empId", nativeQuery = true)
   Optional<EmpresaMetodoPagoEntity> findByTipoAndEmpId(String metPagoTipo, Integer empId);
+
 }
