@@ -21,6 +21,12 @@
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
     <%@ include file="includes/left-sidebar.jspf" %>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
 
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
@@ -31,9 +37,56 @@
                 </div>
             </div>
         </div>
-        <br><br>
-        <div id="product-card" class="product-card">
 
+        <div class="container-fluid">
+            <div class="card mt-1">
+                <div class="card-header">
+                    <div class="form-row">
+                        <div class="col-md-2">
+                            <div class="d-flex justify-content-end mb-2">
+                                <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#createProductModal">Ingresar Producto</button>
+                                <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
+                                <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="d-flex justify-content-end mb-2">
+                                <div class="input-group" style="width: 300px;">
+                                    <input type="text" class="form-control" id="tableFilter" placeholder="Filtra Productos...">
+                                    <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="card-body p-2">
+                        <div class="card-body p-2">
+                            <div class="table-responsive">
+                                <table id="producto-inventario" class="table table-sm table-bordered table-striped">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Detalle</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Queda</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Accion</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="productoBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <%@ include file="includes/footer.jspf" %>
     </div>
@@ -78,7 +131,7 @@
             margin-left: 5px;
         }
 
-        .product-card {
+        .producto-inventario {
             background-color: #f8f9fa; /* Fondo gris claro */
             border: 1px solid #d1d1d1; /* Borde gris claro */
             border-radius: 10px; /* Bordes redondeados */

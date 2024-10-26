@@ -93,6 +93,11 @@
                                                 <i class="fas fa-calendar"></i> Contrato
                                             </a>
                                         </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="logo-tab" data-toggle="tab" href="#logo" role="tab" aria-controls="logo" aria-selected="false">
+                                                <i class="fas fa-calendar"></i> Logo
+                                            </a>
+                                        </li>
                                     </ul>
 
                                     <!-- Contenido de las Pestañas -->
@@ -155,21 +160,12 @@
                                                                 <input type="email" class="form-control" id="empEmail" name="empEmail" placeholder="Ingresar email" required>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 col-md-6">
+                                                        <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="empNombreComercial">Nombre Comercial:
                                                                     <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el nombre comercial."></i>
                                                                 </label>
                                                                 <input type="text" class="form-control" id="empNombreComercial" name="empNombreComercial" placeholder="Ingresarel nombre comercial" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="empImageLogo">Logo de la empresa</label>
-                                                                <input type="file" id="empImageLogo" name="empImageLogo" accept="image/png, image/jpeg">
-                                                                <img id="logoPreview" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
-                                                                <button type="button" id="cargarLogo" class="btn btn-sm btn-primary" style="display: none; margin-top: 10px;">Cargar nuevo logo</button>
-                                                                <input type="hidden" id="empImageBase64" name="empImageBase64">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -183,7 +179,7 @@
                                             <fieldset>
                                                 <div class="container-fluid">
                                                     <div class="row">
-                                                        <div class="col-12 col-md-6">
+                                                        <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="empFechaContratoInicio">Fecha de Contrato Inicio:
                                                                     <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha inicio."></i>
@@ -191,7 +187,7 @@
                                                                 <input type="date" class="form-control" id="empFechaContratoInicio" name="empFechaContratoInicio" required>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 col-md-6">
+                                                        <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="empFechaContratoFin">Fecha de Contrato Fin:
                                                                     <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha fin."></i>
@@ -202,6 +198,21 @@
                                                     </div>
                                                 </div>
                                             </fieldset>
+                                        </div>
+
+                                        <!-- Pestaña 3: Logo -->
+                                        <div class="tab-pane fade" id="logo" role="tabpanel" aria-labelledby="logo-tab">
+                                            <div class="col-12 text-center">
+                                                <div class="form-group">
+                                                    <img id="logoPreview" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="empImagenLogo" class="btn btn-secondary">Cargar</label>
+                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Cargar logo de la empresa."></i>
+                                                    <input type="file" class="form-control-file" id="empImagenLogo" name="empImagenLogo" style="visibility:hidden;" accept="image/png, image/jpeg">
+                                                    <!--<input type="hidden" id="empImageBase64" name="empImageBase64">-->
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -234,12 +245,17 @@
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
                                             <a class="nav-link active" id="personal-tab" data-toggle="tab" href="#personal" role="tab" aria-controls="personal" aria-selected="true">
-                                                <i class="fas fa-building"></i> Empresa
+                                                <i class="fas fa-building"></i> Datos
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" id="fechas-tab-edit" data-toggle="tab" href="#fechas-edit" role="tab" aria-controls="fechas-edit" aria-selected="false">
                                                 <i class="fas fa-calendar"></i> Contrato
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="logo-tab-edit" data-toggle="tab" href="#logo-edit" role="tab" aria-controls="logo-edit" aria-selected="false">
+                                                <i class="fas fa-calendar"></i> Logo
                                             </a>
                                         </li>
                                     </ul>
@@ -302,21 +318,12 @@
                                                                 <input type="email" class="form-control" id="editarEmpEmail" name="editarEmpEmail" placeholder="Ingresar email" required>
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 col-md-6">
+                                                        <div class="col-12">
                                                             <div class="form-group">
                                                                 <label for="editarEmpNombreComercial">Nombre Comercial:
                                                                     <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el nombre comercial de la empresa."></i>
                                                                 </label>
                                                                 <input type="text" class="form-control" id="editarEmpNombreComercial" name="editarEmpNombreComercial" placeholder="Ingresar nombre comercial" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="editarEmpImageLogo">Imagen del Logo:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese el logo de la empresa."></i>
-                                                                </label>
-                                                                <input type="file" class="form-control-file" id="editarEmpImageLogo" name="editarEmpImageLogo" accept="image/png, image/jpeg">
-                                                                <img id="logoPreviewEdit" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -325,34 +332,40 @@
                                         </div>
 
                                         <div class="tab-pane fade" id="fechas-edit" role="tabpanel" aria-labelledby="fechas-tab-edit">
-                                            <fieldset>
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="editarEmpFechaContratoInicio">Fecha de Contrato Inicio:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha de inicio."></i>
-                                                                </label>
-                                                                <input type="date" class="form-control" id="editarEmpFechaContratoInicio" name="editarEmpFechaContratoInicio" placeholder="Ingresar fecha de inicio"
-                                                                       required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="editarEmpFechaContratoFin">Fecha de Contrato Fin:
-                                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha fin."></i>
-                                                                </label>
-                                                                <input type="date" class="form-control" id="editarEmpFechaContratoFin" name="editarEmpFechaContratoFin" placeholder="Ingresar fecha fin" required>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            <div class="col-12">
+                                                <div class="form-group">
+                                                    <label for="editarEmpFechaContratoInicio">Fecha de Contrato Inicio:
+                                                        <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha de inicio."></i>
+                                                    </label>
+                                                    <input type="date" class="form-control" id="editarEmpFechaContratoInicio" name="editarEmpFechaContratoInicio" placeholder="Ingresar fecha de inicio"
+                                                           required>
                                                 </div>
-                                            </fieldset>
+                                            </div>
+                                            <div class="col-12 ">
+                                                <div class="form-group">
+                                                    <label for="editarEmpFechaContratoFin">Fecha de Contrato Fin:
+                                                        <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Ingrese la fecha fin."></i>
+                                                    </label>
+                                                    <input type="date" class="form-control" id="editarEmpFechaContratoFin" name="editarEmpFechaContratoFin" placeholder="Ingresar fecha fin" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="logo-edit" role="tabpanel" aria-labelledby="logo-tab-edit">
+                                            <div class="col-12 text-center">
+                                                <div class="form-group">
+                                                    <img id="logoPreviewEdit" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="editarEmpImageLogo" class="btn btn-secondary">Modificar</label>
+                                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Modificar logo de la empresa."></i>
+                                                    <input type="file" class="form-control-file" id="editarEmpImageLogo" name="editarEmpImageLogo" style="visibility:hidden;" accept="image/png, image/jpeg">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- Botones -->
-                                    <div class="text-center mt-4">
+                                    <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>
                                 </form>
@@ -394,7 +407,8 @@
                                 <div>
                                     <c:choose>
                                         <c:when test="${not empty empresaSession.empImagenLogo}">
-                                            <img id="logoEmpresa" src="${empresaSession.empImagenLogo}" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;" alt="Logo de la empresa">
+                                            <img id="logoEmpresa" src="${empresaSession.empImagenLogo}" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"
+                                                 alt="Logo de la empresa">
                                         </c:when>
                                         <c:otherwise>
                                             <canvas id="initialsCanvas" class="rounded-circle shadow" width="100" height="100" style="width: 100px; height: 100px; margin-right: 5px;"></canvas>
@@ -437,7 +451,7 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaNombre">Nombre Comercial</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaNombre"  maxlength="75">
+                                                    <input type="text" class="form-control border-secondary" id="empresaNombre" maxlength="75">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaRazonSocial">Razón Social</label>
@@ -447,11 +461,11 @@
                                             <div class="form-row">
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaTipoDocumento">Tipo de Documento</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaTipoDocumento"  maxlength="30">
+                                                    <input type="text" class="form-control border-secondary" id="empresaTipoDocumento" maxlength="30">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                     <label for="empresaNumeroDocumento">Número de Documento</label>
-                                                    <input type="text" class="form-control border-secondary" id="empresaNumeroDocumento"  maxlength="30">
+                                                    <input type="text" class="form-control border-secondary" id="empresaNumeroDocumento" maxlength="30">
                                                 </div>
                                             </div>
                                             <hr class="my-4" style="border-top: 2px solid #007bff;">

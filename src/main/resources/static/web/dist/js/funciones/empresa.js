@@ -289,7 +289,27 @@ $(document).ready(function () {
         }
     }
 
-    $('#empImageLogo').on('change', function () {
+
+
+    $('#empImagenLogo').on('change', function () {
+        var file = this.files[0];
+        if (file) {
+            if (file.type === 'image/png' || file.type === 'image/jpeg') {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#logoPreview').attr('src', e.target.result).css({width: '100px', height: '100px'}).show();
+                };
+                reader.readAsDataURL(file);
+            } else {
+                toastr.error('Solo se permiten imágenes en formato PNG o JPG.');
+                $('#logoPreview').val('');
+                $('#logoPreview').hide();
+            }
+        } else {
+            $('#logoPreview').hide();
+        }
+
+        /*
         var file = this.files[0];
 
         if (file) {
@@ -305,6 +325,7 @@ $(document).ready(function () {
             $('#cargarLogo').hide();
             $('#empImageBase64').val('');
         }
+         */
     });
 
     $('#cargarLogo').on('click', function () {
@@ -330,12 +351,8 @@ $(document).ready(function () {
                 empFechaContratoInicio: $('#empFechaContratoInicio').val(),
                 empFechaContratoFin: $('#empFechaContratoFin').val(),
                 empFechaCreacion: $('#empFechaCreacion').val(),
-                empQrYape: $('#empQrYape').val(),
-                empQrPlin: $('#empQrPlin').val(),
-                empQrPagos: $('#empQrPagos').val(),
                 empEmail: $('#empEmail').val(),
-                empImageLogo: $('#empImageBase64').val()
-
+                empImagenLogo: $('#logoPreview').attr('src')
             };
 
             $.ajax({
@@ -359,7 +376,7 @@ $(document).ready(function () {
         $('#empresaFormulario')[0].reset();
         $('#logoPreview').hide(); // Ocultar la vista previa del logo
         $('#cargarLogo').hide();  // Ocultar el botón de cargar nuevo logo
-        $('#empImageBase64').val(''); // Limpiar el campo oculto
+        //$('#empImageBase64').val(''); // Limpiar el campo oculto
         $('.modal-backdrop').remove();
     });
 

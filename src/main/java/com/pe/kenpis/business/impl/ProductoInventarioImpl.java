@@ -5,12 +5,14 @@ import com.pe.kenpis.model.api.producto.inventario.ProductoInventarioRequest;
 import com.pe.kenpis.model.api.producto.inventario.ProductoInventarioResponse;
 import com.pe.kenpis.model.entity.ProductoInventarioEntity;
 import com.pe.kenpis.repository.ProductoInventarioRepository;
+import com.pe.kenpis.util.funciones.DateUtil;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -27,24 +29,24 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   @Override
   public List<ProductoInventarioResponse> findAll() {
     log.info("Implements :: findAll");
-    return repository.findProductsWithInventory().stream()
-        .map(this::convertMapToResponse)
-        .collect(Collectors.toList());
+    return repository.findProductsWithInventory().stream().map(this::convertMapToResponse).collect(Collectors.toList());
   }
 
   private ProductoInventarioResponse convertMapToResponse(Map<String, Object> map) {
     ProductoInventarioResponse response = new ProductoInventarioResponse();
-    response.setProPrecio((Double) map.get("proPrecio"));
+    response.setProPrecioCosto((Double) map.get("proPrecioCosto"));
+    response.setProPrecioVenta((Double) map.get("proPrecioVenta"));
+    response.setProCategoria((String) map.get("proCategoria"));
     response.setProDescripcion((String) map.get("proDescripcion"));
     response.setEmpId((Integer) map.get("empId"));
     response.setProImagen((String) map.get("proImagen"));
     response.setProIsActive((Boolean) map.get("proIsActive"));
     response.setProInvStockInicial((Integer) map.get("proInvStockInicial"));
     response.setProInvStockVentas((Integer) map.get("proInvStockVentas"));
-    response.setProInvFechaCreacion((Date) map.get("proInvFechaCreacion"));
+    response.setProInvStockActual((Integer) map.get("proInvStockInicial") - (Integer) map.get("proInvStockVentas"));
+    response.setProInvFechaCreacion(DateUtil.diasParaVencimiento((Date) map.get("proInvFechaCreacion")));
     return response;
   }
-
 
   @Override
   public ProductoInventarioResponse findById(Integer id) {
@@ -55,7 +57,7 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   @Override
   public ProductoInventarioResponse create(ProductoInventarioRequest request) {
     log.debug("Implements :: create :: Inicio");
-    FxComunes.printJson("ProductoInventarioRequest",request);
+    FxComunes.printJson("ProductoInventarioRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 

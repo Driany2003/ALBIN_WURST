@@ -15,10 +15,13 @@ public class ProductoInventarioResponse {
   private Integer productoId;
   private Integer proInvStockInicial;
   private Integer proInvStockVentas;
-  private Date proInvFechaCreacion;
+  private Integer proInvFechaCreacion;
   //
-  private Double proPrecio;
+  private Double proPrecioCosto;
+  private Double proPrecioVenta;
+  private String proCategoria;
   private String proDescripcion;
+  private Integer proInvStockActual;
   private Integer empId;
   private String proImagen;
   private Boolean proIsActive;

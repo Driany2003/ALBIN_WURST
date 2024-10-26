@@ -16,7 +16,7 @@ import java.util.List;
 @Controller
 @RequestMapping(value = "/kenpis/inventario")
 @Slf4j
-public class WInventarioController {
+public class WProductoInventarioController {
 
   @Autowired
   private IProductoInventarioService service;

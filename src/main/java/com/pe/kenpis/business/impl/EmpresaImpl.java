@@ -91,7 +91,7 @@ public class EmpresaImpl implements IEmpresaService {
     request.setEmpIsActive(true);
     request.setEmpFechaCreacion(new Date());
     request.setEmpPadreId(0);
-    FxComunes.printJson("EmpresaRequest", request);
+    //FxComunes.printJson("EmpresaRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
