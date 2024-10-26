@@ -124,7 +124,7 @@ public class ProductoImpl implements IProductoService {
     return productos.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
-  //LISTAR EN EL COMBO DE PRODUCTO "LISTAR CATEGORIAS EN EL COMBO DE REGISTRAR"
+  //LISTAR EN EL COMBO DE LA VISTA PRODUCTO "LISTAR CATEGORIAS EN EL COMBO DE REGISTRAR"
   public List<ProductoListDTO> getAllCategorias(Integer empId) {
     return repository.findAllCategorias(empId).stream().map(this::convertToListCategoriaDTO).collect(Collectors.toList());
   }
@@ -139,7 +139,7 @@ public class ProductoImpl implements IProductoService {
   }
 
   private ProductoListDTO convertToCategoriabyEmpresaDTO(Map<String, Object> map) {
-    return new ProductoListDTO((Integer) map.get("proId"), (Integer) map.get("empId"), (String) map.get("proCategoria"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecio"));
+    return new ProductoListDTO((Integer) map.get("proId"), (Integer) map.get("empId"),(String) map.get("proCategoria"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"));
   }
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {

@@ -24,22 +24,21 @@ public class ProductoListDTO {
     this.proIsActive = proIsActive;
     this.proPrecioCosto = proPrecioCosto;
     this.proPrecioVenta = proPrecioVenta;
-
   }
-
+//VISTA DE PRODUCTO
   public ProductoListDTO(Integer proId, Integer empId, String proCategoria) {
     this.proId = proId;
     this.empId = empId;
     this.proCategoria = proCategoria;
   }
 
-  public ProductoListDTO(Integer proId, Integer empId,String proDescripcion ,String proCategoria,String proImagen, Boolean proIsActive, Double proPrecioCosto) {
+  //MODULO de VENTA
+  public ProductoListDTO(Integer proId, Integer empId,String proDescripcion ,String proCategoria,String proImagen, Boolean proIsActive) {
     this.proId = proId;
     this.empId = empId;
     this.proCategoria = proCategoria;
     this.proDescripcion = proDescripcion;
     this.proImagen = proImagen;
     this.proIsActive = proIsActive;
-    this.proPrecioCosto = proPrecioCosto;
   }
 }
