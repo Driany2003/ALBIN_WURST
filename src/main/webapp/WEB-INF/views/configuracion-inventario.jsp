@@ -120,7 +120,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <script src="/static/web/dist/js/funciones/inventario.js"></script>
+    <script src="/static/web/dist/js/funciones/productoInventario.js"></script>
     <%@ include file="includes/all-jquery.jspf" %>
 </body>
 </html>

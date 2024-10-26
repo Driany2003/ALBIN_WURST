@@ -41,7 +41,7 @@ public class WUsuarioController {
       throw new RuntimeException("No se encontró el ID de usuario en la sesión.");
     }
     model.addAttribute("usuario", service.findById(usuSessionId));
-    return "usuario-mi-perfil";
+    return "configuracion-usuario-mi-perfil";
   }
 
   @PutMapping("/actualizar-perfil")

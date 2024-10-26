@@ -388,7 +388,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 
     <script src="/static/web/dist/js/funciones/dashboard.js"></script>
-    <script src="/static/web/dist/js/funciones/taskboard.js"></script>
 
     <%@ include file="includes/all-jquery.jspf" %>
 </body>

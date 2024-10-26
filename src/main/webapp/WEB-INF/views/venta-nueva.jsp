@@ -290,7 +290,7 @@
 
 
         <!--  modal: NUEVA VENTA -->
-        <script src="/static/web/dist/js/funciones/nuevaVenta.js"></script>
+        <script src="/static/web/dist/js/funciones/ventaNueva.js"></script>
         <%@ include file="includes/all-jquery.jspf" %>
         <!-- ============================================================== -->
         <!-- footer -->
