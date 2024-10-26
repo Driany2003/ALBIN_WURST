@@ -76,8 +76,16 @@ public class WEmpresaController {
   //actualizar sucursal
   @PutMapping("/sucursal-update")
   public ResponseEntity<SucursalDTOResponse> updateSucursal(@RequestBody SucursalDTOrequest request) {
-    FxComunes.printJson("lo que trae JS para editar sucursal", request);
+    FxComunes.printJson("lo que trae  para editar sucursal", request);
     log.info("Controller :: sucursal Update");
+    SucursalDTOResponse sucursal = service.updateSucursal(request);
+    return new ResponseEntity<>(sucursal, HttpStatus.OK);
+  }
+
+  @PutMapping("/propietario/sucursal-update")
+  public ResponseEntity<SucursalDTOResponse> updateSucursalPropietario(@RequestBody SucursalDTOrequest request) {
+    FxComunes.printJson("lo que trae para editar sucursal Propietario", request);
+    log.info("Controller :: sucursal Update Propietario");
     SucursalDTOResponse sucursal = service.updateSucursal(request);
     return new ResponseEntity<>(sucursal, HttpStatus.OK);
   }
@@ -147,7 +155,7 @@ public class WEmpresaController {
   public ResponseEntity<Map<String, Object>> findSucursalesByEmpresa(@PathVariable Integer empId) {
     log.info("Controller :: findSucursalesByEmpresa :: empresaId={}", empId);
     List<EmpresaDTO> sucursales = service.findSucursalByEmpresa(empId);
-    FxComunes.printJson("trae sucursales", sucursales);
+    FxComunes.printJson("trae sucursales para vista de administrador", sucursales);
     Map<String, Object> response = new HashMap<>();
     response.put("status", "success");
     response.put("data", sucursales);

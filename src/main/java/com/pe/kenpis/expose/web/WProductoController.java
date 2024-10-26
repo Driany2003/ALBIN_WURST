@@ -82,7 +82,6 @@ public class WProductoController {
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
 
-
   @PostMapping("/create")
   public ResponseEntity<ProductoResponse> create(@RequestBody ProductoRequest request) {
     ProductoResponse response = service.create(request);

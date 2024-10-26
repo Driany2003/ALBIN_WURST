@@ -16,7 +16,7 @@ $(document).ready(function () {
                     if (usuarioNivel === 'ADMINISTRADOR' && Array.isArray(response.data)) {
                         renderAdministradorView(response.data);
                     } else if (usuarioNivel === 'PROPIETARIO' && response.data) {
-                        renderPropietarioView(response.data);
+                        renderPropietarioView(response.data, response.listaSucursales);
                     }
                 } else {
                     alert(response.message || 'Error al cargar los datos');
@@ -61,7 +61,7 @@ $(document).ready(function () {
                 '</button>' +
                 '<span> </span>' +
                 '<button type="button" data-id="' + empresa.empId + '" class="btn btn-sm btn-danger eliminarEmpresa" data-toggle="tooltip" title="Eliminar Empresa">' +
-                '<i class="fas fa-trash"></i>'+
+                '<i class="fas fa-trash"></i>' +
                 '</button>' +
                 '<span> </span>' +
                 '<button type="button" data-id="' + empresa.empId + '" class="btn btn-sm btn-info mostrarSucursales" data-toggle="tooltip" title="Mostrar Sucursales">' +
@@ -102,9 +102,9 @@ $(document).ready(function () {
         });
     }
 
-    // Renderizar la vista para el Propietario (igual que en el código anterior)
 // Renderizar la vista para el Propietario
-    function renderPropietarioView(empresa) {
+    function renderPropietarioView(empresa, listaSucursales) {
+        // Mostrar el logo o las iniciales de la empresa
         if (empresa.empImagenLogo) {
             $('#logoEmpresa').attr('src', empresa.empImagenLogo).show();
             $('#initialsCanvas').hide();
@@ -112,9 +112,11 @@ $(document).ready(function () {
             var initials = getInitials(empresa.empNombreComercial);
             drawInitialsOnCanvas(initials);
         }
+
         // Establecer los valores en las etiquetas HTML
         $('#NombreComercial').text(empresa.empNombreComercial);
         $('#NumeroDocumento').text(empresa.empDocumentoNumero);
+
         // Establecer los valores en los campos de formulario
         $('#empresaNombre').val(empresa.empNombreComercial);
         $('#empresaRazonSocial').val(empresa.empRazonSocial);
@@ -123,22 +125,46 @@ $(document).ready(function () {
         $('#empresaTelefono').val(empresa.empTelefono);
         $('#empresaEmail').val(empresa.empEmail);
 
-        // Verificar si hay sucursales y mostrarlas en la tabla
-        if (empresa.listaSucursales && Array.isArray(empresa.listaSucursales)) {
+        if (listaSucursales && Array.isArray(listaSucursales)) {
             var tableBody = $('#sucursalesTableBody');
             tableBody.empty();
 
-            empresa.listaSucursales.forEach(function (sucursal) {
+            listaSucursales.forEach(function (sucursal) {
+
                 var rowHtml = `
                 <tr>
                     <td>${sucursal.empNombreComercial || 'N/A'}</td>
                     <td>${sucursal.empTelefono || 'N/A'}</td>
-                    <td>${sucursal.empEmail || 'N/A'}</td>
                     <td>
-                        <input type="checkbox" ${sucursal.empIsActive ? 'checked' : ''} disabled>
+                        <label class="switch">
+                            <input type="checkbox" class="estado-checkbox" data-id="${sucursal.empId}" ${sucursal.empIsActive ? 'checked' : ''}>
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <button type="button" data-id="${sucursal.empId}" class="btn btn-sm btn-warning editarSucursal" data-toggle="tooltip" title="Editar Sucursal">
+                            <i class="fas fa-pencil-alt"></i>
+                        </button>
+                        <span> </span>
+                        <button type="button" data-id="${sucursal.empId}" class="btn btn-sm btn-danger eliminarSucursal" data-toggle="tooltip" title="Eliminar Sucursal">
+                            <i class="fas fa-trash"></i>
+                        </button>
                     </td>
                 </tr>`;
                 tableBody.append(rowHtml);
+
+                $('.editarSucursal').click(function () {
+                    var sucursalId = $(this).data('id');
+                    editarSucursalPropietario(sucursalId);
+                });
+
+                $('#btnAgregarSucursalPropietario').data('id', sucursal.empId);
+
+                $('.eliminarSucursal').click(function () {
+                    var sucursalId = $(this).data('id');
+                    eliminarSucursal(sucursalId);
+                });
+
             });
         } else {
             var noDataHtml = `
@@ -166,6 +192,7 @@ $(document).ready(function () {
         ctx.textBaseline = 'middle';
         ctx.fillText(initials, canvas.width / 2, canvas.height / 2);
     }
+
     // Formatear fechas
     function formatDate(date) {
         var options = {year: 'numeric', month: '2-digit', day: '2-digit'};
@@ -587,7 +614,76 @@ $(document).ready(function () {
     }
 
     /* REGISTRAR Y EDITAR PARA UNA SUCURSAL */
+    function validarSucursalPro() {
+        const nombreComercial = $('#sucProNombre').val().trim();
+        const telefono = $('#sucProTelefono').val().trim();
+        let isValid = true;
 
+        // Validar nombre comercial
+        if (!nombreComercial) {
+            $('#sucProNombre').addClass('is-invalid');
+            $('#nombreError').remove();
+            $('#sucProNombre').after('<div id="nombreError" class="text-danger">El nombre comercial es obligatorio.</div>');
+            isValid = false;
+        } else {
+            $('#sucProNombre').removeClass('is-invalid');
+            $('#nombreError').remove();
+        }
+
+        // Validar número de teléfono
+        if (telefono.length !== 9 || isNaN(telefono)) {
+            $('#sucProTelefono').addClass('is-invalid');
+            $('#telefonoError').remove();
+            $('#sucProTelefono').after('<div id="telefonoError" class="text-danger">El teléfono debe tener 9 dígitos y ser numérico.</div>');
+            isValid = false;
+        } else {
+            $('#sucProTelefono').removeClass('is-invalid');
+            $('#telefonoError').remove();
+        }
+
+        return isValid;
+    }
+
+
+    // Crear sucursal vista Propietario
+
+    $('#btnAgregarSucursalPro').on('click', function () {
+        $('#sucProNombre').val('');
+        $('#sucProTelefono').val('');
+        $('#sucursalModalPro').modal('show');
+    });
+
+    $('#guardarSucursalPro').on('click', function () {
+        var empId = $('#empresaProId').val();
+        console.log("Id de la empresa" , empId);
+
+        var sucursalData = {
+            empNombreComercial: $('#sucProNombre').val(),
+            empTelefono: $('#sucProTelefono').val(),
+            empPadreId: parseInt(empId),
+        };
+        if (!validarSucursalPro()) {
+            return;
+        }
+
+        $.ajax({
+            url: '/kenpis/empresas/sucursales-create',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(sucursalData),
+            success: function (response) {
+                $('#sucursalModalPro').modal('hide');
+                toastr.success('Sucursal registrada con éxito.');
+                cargarEmpresas();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error al guardar la sucursal:', error);
+                toastr.error('Hubo un error al guardar la sucursal. Intenta de nuevo.');
+            }
+        });
+    });
+
+// Crear sucursal vista Administrador
     function validarSucursal() {
         const nombreComercial = $('#sucNombre').val().trim();
         const telefono = $('#sucTelefono').val().trim();
@@ -656,6 +752,83 @@ $(document).ready(function () {
         });
     });
 
+    function validarSucursalProEditar() {
+        const nombreComercial = $('#editSucursalProNombreComercial').val().trim();
+        const telefono = $('#editSucursalProTelefono').val().trim();
+        let isValid = true;
+
+        // Validar nombre comercial
+        if (!nombreComercial) {
+            $('#editSucursalProNombreComercial').addClass('is-invalid');
+            $('#nombreError').remove();
+            $('#editSucursalProNombreComercial').after('<div id="nombreError" class="text-danger">El nombre comercial es obligatorio.</div>');
+            isValid = false;
+        } else {
+            $('#editSucursalProNombreComercial').removeClass('is-invalid');
+            $('#nombreError').remove();
+        }
+
+        // Validar número de teléfono
+        if (telefono.length !== 9 || isNaN(telefono)) {
+            $('#editSucursalProTelefono').addClass('is-invalid');
+            $('#telefonoError').remove();
+            $('#editSucursalProTelefono').after('<div id="telefonoError" class="text-danger">El teléfono debe tener 9 dígitos y ser numérico.</div>');
+            isValid = false;
+        } else {
+            $('#editSucursalProTelefono').removeClass('is-invalid');
+            $('#telefonoError').remove();
+        }
+
+        return isValid;
+    }
+
+// Editar sucursal en la vista de propietario
+    function editarSucursalPropietario(sucursalId) {
+        $.ajax({
+            url: `/kenpis/empresas/find-by-id/${sucursalId}`,
+            method: 'GET',
+            success: function (sucursal) {
+                $('#editSucursalProId').val(sucursal.empId);
+                $('#editSucursalProNombreComercial').val(sucursal.empNombreComercial);
+                $('#editSucursalProTelefono').val(sucursal.empTelefono);
+
+                $('#editsucursalPropietarioModal').modal('show');
+            },
+            error: function () {
+                toastr.error('Error al obtener los detalles de la sucursal.');
+            }
+        });
+    }
+
+
+    $('#editFormularioSucursalPropietario').submit(function (event) {
+        event.preventDefault();
+        console.log('Formulario de sucursal enviado');
+        var sucursalData = {
+            empId: $('#editSucursalProId').val(),
+            empNombreComercial: $('#editSucursalProNombreComercial').val(),
+            empTelefono: $('#editSucursalProTelefono').val(),
+        };
+        if (!validarSucursalProEditar()) {
+            return;
+        }
+
+        $.ajax({
+            url: `/kenpis/empresas/propietario/sucursal-update`,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify(sucursalData),
+            success: function () {
+                cargarEmpresas();
+                $('#editsucursalPropietarioModal').modal('hide');
+                toastr.success('Sucursal actualizada correctamente.');
+            },
+            error: function () {
+                toastr.error('Error al actualizar la sucursal. Intente nuevamente.');
+            }
+        });
+    });
+
     function validarSucursalEditar() {
         const nombreComercial = $('#editSucursalNombreComercial').val().trim();
         const telefono = $('#editSucursalTelefono').val().trim();
@@ -686,6 +859,7 @@ $(document).ready(function () {
         return isValid;
     }
 
+// Editar sucursal en la vista de administrador
     function editarSucursal(sucursalId) {
         $.ajax({
             url: `/kenpis/empresas/find-by-id/${sucursalId}`,
@@ -1012,9 +1186,9 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 data: JSON.stringify(empresaData),
                 success: function (response) {
-                        toastr.success('Empresa actualizada correctamente.');
-                        formularioModificado = false;
-                        $('#confirmModal').modal('hide');
+                    toastr.success('Empresa actualizada correctamente.');
+                    formularioModificado = false;
+                    $('#confirmModal').modal('hide');
                 },
                 error: function () {
                     toastr.error('Error en la solicitud.');

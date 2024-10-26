@@ -30,11 +30,6 @@ public class EmpresaDTO {
 
   }
 
-  public EmpresaDTO(Integer empId, Boolean empIsActive) {
-    this.empId = empId;
-    this.empIsActive = empIsActive;
-  }
-
   public EmpresaDTO(Integer empId, String empResponsable, String empImagenLogo, String empNombreComercial, Date empFechaContratoInicio, Date empFechaContratoFin, String empTelefono, Boolean empIsActive) {
     this.empId = empId;
     this.empImagenLogo = empImagenLogo;
@@ -46,12 +41,4 @@ public class EmpresaDTO {
     this.empResponsable = empResponsable;
 
   }
-
-  public EmpresaDTO(String empNombreComercial, String empTelefono, String empEmail, Boolean empIsActive) {
-    this.empNombreComercial = empNombreComercial;
-    this.empTelefono = empTelefono;
-    this.empEmail = empEmail;
-    this.empIsActive = empIsActive;
-  }
-
 }

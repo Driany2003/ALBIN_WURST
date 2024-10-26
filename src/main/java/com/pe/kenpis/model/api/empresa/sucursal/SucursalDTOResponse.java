@@ -7,9 +7,9 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class SucursalDTOResponse {
+  private Integer empId;
   private String empNombreComercial;
   private String empTelefono;
-  private Integer empId;
   private String empResponsable;
 
   public SucursalDTOResponse(String empNombreComercial, String empTelefono, String empResponsable, Integer empId) {

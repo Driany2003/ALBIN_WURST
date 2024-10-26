@@ -478,17 +478,18 @@
                                                 <tr>
                                                     <th>Nombre Comercial</th>
                                                     <th>Teléfono</th>
-                                                    <th>Correo Electrónico</th>
-                                                    <th>Activo</th>
+                                                    <th>Estado</th>
+                                                    <th>Accion</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody id="sucursalesTableBody">
                                                 </tbody>
                                             </table>
                                             <div class="text-center">
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agregarSucursalModal">
+                                                <button type="button" class="btn btn-primary" id="btnAgregarSucursalPro" data-toggle="modal" data-target="#agregarSucursalModal">
                                                     Agregar Sucursal
                                                 </button>
+                                                <input type="hidden" id="empresaProId" name="empresaProId" value="${empresaSession.empId}">
                                             </div>
                                         </div>
                                     </div>
@@ -762,7 +763,7 @@
     </div>
 </div>
 
-<!-- MODAL DE REGISTRO PARA UNA SUCURSAL -->
+<!-- MODAL DE REGISTRO PARA UNA SUCURSAL VISTA ADMINISTRADOR -->
 <div class="modal fade" id="sucursalModal" tabindex="-1" aria-labelledby="sucursalModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -796,6 +797,45 @@
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" id="guardarSucursal">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE REGISTRO PARA UNA SUCURSAL VISTA PROPIETARIO -->
+<div class="modal fade" id="sucursalModalPro" tabindex="-1" aria-labelledby="sucursalModalProLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sucursalModalProLabel">Nueva sucursal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="FormularioAgregarSucursalPro">
+                    <ul class="nav nav-tabs" id="SucursalProTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="sucursalPro-tab" data-toggle="tab" href="#sucursal" role="tab" aria-controls="sucursal" aria-selected="true">
+                                <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i>
+                                Informacion de Sucursal
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
+                    <div class="mb-3">
+                        <label for="sucNombre" class="form-label">Nombre Comercial</label>
+                        <input type="text" class="form-control" id="sucProNombre" placeholder="Nombre de la sucursal" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sucTelefono" class="form-label">Número Telefónico</label>
+                        <input type="number" class="form-control" id="sucProTelefono" placeholder="Número de teléfono" required>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="guardarSucursalPro">Guardar</button>
             </div>
         </div>
     </div>
@@ -836,6 +876,55 @@
                                     <div class="form-group">
                                         <label for="editSucursalTelefono">Teléfono:</label>
                                         <input type="tel" class="form-control" id="editSucursalTelefono" name="editempTelefono" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL PARA PODER EDITAR UNA SUCURSAL PROPIETARIO -->
+<div class="modal fade" id="editsucursalPropietarioModal" tabindex="-1" role="dialog" aria-labelledby="editsucursalPropietarioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editsucursalPropietarioModalLabel"><i class="fas fa-building"></i> Editar Sucursal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editFormularioSucursalPropietario" enctype="multipart/form-data">
+                    <ul class="nav nav-tabs" id="editarClientePropietarioTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="sucursalEditPro-tab" data-toggle="tab" href="#sucursalPro-edit" role="tab" aria-controls="sucursal-edit" aria-selected="true">
+                                <i class="fas fa-pencil-alt" style="margin-right: 5px;"></i>
+                                Informacion de Sucursal
+                            </a>
+                        </li>
+                    </ul>
+                    <br>
+                    <input id="editSucursalProId" type="hidden"/>
+                    <fieldset>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="editSucursalProNombreComercial">Nombre Comercial:</label>
+                                        <input type="text" class="form-control" id="editSucursalProNombreComercial" name="editSucursalProNombreComercial" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <label for="editSucursalProTelefono">Teléfono:</label>
+                                        <input type="tel" class="form-control" id="editSucursalProTelefono" name="editSucursalProTelefono" required>
                                     </div>
                                 </div>
                             </div>

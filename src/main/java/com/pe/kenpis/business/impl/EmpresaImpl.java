@@ -78,7 +78,7 @@ public class EmpresaImpl implements IEmpresaService {
     log.info("Implements :: obtenerSucursalesPorEmpresa :: {}", empId);
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaPadreId(empId);
     return results.stream().map(result -> {
-      return new EmpresaDTO((String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (String) result.get("empEmail"),(Boolean) result.get("empIsActive"));
+      return new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"),(Boolean) result.get("empIsActive"));
     }).collect(Collectors.toList());
 
   }
@@ -106,13 +106,14 @@ public class EmpresaImpl implements IEmpresaService {
     nuevaSucursal.setEmpDocumentoTipo(empresaPadre.getEmpDocumentoTipo());
     nuevaSucursal.setEmpDocumentoNumero(empresaPadre.getEmpDocumentoNumero());
     nuevaSucursal.setEmpRazonSocial(empresaPadre.getEmpRazonSocial());
-    nuevaSucursal.setEmpImagenLogo(empresaPadre.getEmpImagenLogo());
+    nuevaSucursal.setEmpImagenLogo("no tiene logo");
     nuevaSucursal.setEmpFechaContratoInicio(empresaPadre.getEmpFechaContratoInicio());
     nuevaSucursal.setEmpFechaContratoFin(empresaPadre.getEmpFechaContratoFin());
     nuevaSucursal.setEmpEmail(empresaPadre.getEmpEmail());
     nuevaSucursal.setEmpQrYape(empresaPadre.getEmpQrYape());
     nuevaSucursal.setEmpQrPlin(empresaPadre.getEmpQrPlin());
     nuevaSucursal.setEmpQrPagos(empresaPadre.getEmpQrPagos());
+    nuevaSucursal.setEmpResponsable("sin responsable");
     //aca estan los datos del request
     nuevaSucursal.setEmpPadreId(request.getEmpPadreId());
     nuevaSucursal.setEmpTelefono(request.getEmpTelefono());
