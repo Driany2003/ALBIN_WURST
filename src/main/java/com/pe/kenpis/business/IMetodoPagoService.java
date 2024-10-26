@@ -1,9 +1,8 @@
 package com.pe.kenpis.business;
 
-import com.pe.kenpis.model.api.metodoPago.MetodoPagoDTO;
-import com.pe.kenpis.model.api.metodoPago.MetodoPagoRequest;
-import com.pe.kenpis.model.api.metodoPago.MetodoPagoResponse;
-import org.springframework.stereotype.Service;
+import com.pe.kenpis.model.api.empresa.metodoPago.MetodoPagoDTO;
+import com.pe.kenpis.model.api.empresa.metodoPago.MetodoPagoRequest;
+import com.pe.kenpis.model.api.empresa.metodoPago.MetodoPagoResponse;
 
 import java.util.List;
 

@@ -10,14 +10,16 @@ import lombok.*;
 public class ProductoRequest {
 
   private Integer proId;
+  private Integer empId;
+  private Integer padreId;
+  private String proCategoria;
   private Double proPrecioCosto;
   private Double proPrecioVenta;
-  private String proCategoria;
-  private Boolean proIsActive;
   private String proDescripcion;
-  private Integer padreId;
-  private Integer empId;
   private String proImagen;
   private String proImagenLongitud;
+  private String proInventarioRelacion;
+  private String proComplementos;
+  private Boolean proIsActive;
 
 }

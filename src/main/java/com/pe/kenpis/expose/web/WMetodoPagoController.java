@@ -1,9 +1,9 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IMetodoPagoService;
-import com.pe.kenpis.model.api.metodoPago.MetodoPagoDTO;
-import com.pe.kenpis.model.api.metodoPago.MetodoPagoRequest;
-import com.pe.kenpis.model.api.metodoPago.MetodoPagoResponse;
+import com.pe.kenpis.model.api.empresa.metodoPago.MetodoPagoDTO;
+import com.pe.kenpis.model.api.empresa.metodoPago.MetodoPagoRequest;
+import com.pe.kenpis.model.api.empresa.metodoPago.MetodoPagoResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

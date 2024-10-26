@@ -17,4 +17,5 @@ public class ProductoDTO extends ProductoResponse {
     this.venDetCantidad = venDetCantidad;
     this.proPrecio = proPrecio;
   }
+
 }

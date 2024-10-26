@@ -14,6 +14,12 @@ public class ProductoEntity {
   @Column(name = "pro_id")
   private Integer proId;
 
+  @Column(name = "emp_id")
+  private Integer empId;
+
+  @Column(name = "padre_id")
+  private Integer padreId;
+
   @Column(name = "pro_categoria")
   private String proCategoria;
 
@@ -26,19 +32,19 @@ public class ProductoEntity {
   @Column(name = "pro_descripcion")
   private String proDescripcion;
 
-  @Column(name = "pro_is_active")
-  private Boolean proIsActive;
-
-  @Column(name = "padre_id")
-  private Integer padreId;
-
-  @Column(name = "emp_id")
-  private Integer empId;
-
   @Column(name = "pro_imagen")
   private String proImagen;
 
   @Column(name = "pro_imagen_longitud")
   private String proImagenLongitud;
+
+  @Column(name = "pro_inventario_relacion")
+  private String proInventarioRelacion;
+
+  @Column(name = "pro_complementos")
+  private String proComplementos;
+
+  @Column(name = "pro_is_active")
+  private Boolean proIsActive;
 
 }
