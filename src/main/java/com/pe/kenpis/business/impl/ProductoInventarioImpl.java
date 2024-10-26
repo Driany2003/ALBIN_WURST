@@ -1,8 +1,8 @@
 package com.pe.kenpis.business.impl;
 
 import com.pe.kenpis.business.IProductoInventarioService;
-import com.pe.kenpis.model.api.producto.inventario.ProductoInventarioRequest;
-import com.pe.kenpis.model.api.producto.inventario.ProductoInventarioResponse;
+import com.pe.kenpis.model.api.producto.inventario.ProductoProductoRequest;
+import com.pe.kenpis.model.api.producto.inventario.ProductoComplementoResponse;
 import com.pe.kenpis.model.entity.ProductoInventarioEntity;
 import com.pe.kenpis.repository.ProductoInventarioRepository;
 import com.pe.kenpis.util.funciones.DateUtil;
@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -27,13 +26,13 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   private final ProductoInventarioRepository repository;
 
   @Override
-  public List<ProductoInventarioResponse> findAll() {
+  public List<ProductoComplementoResponse> findAll() {
     log.info("Implements :: findAll");
     return repository.findProductsWithInventory().stream().map(this::convertMapToResponse).collect(Collectors.toList());
   }
 
-  private ProductoInventarioResponse convertMapToResponse(Map<String, Object> map) {
-    ProductoInventarioResponse response = new ProductoInventarioResponse();
+  private ProductoComplementoResponse convertMapToResponse(Map<String, Object> map) {
+    ProductoComplementoResponse response = new ProductoComplementoResponse();
     response.setProPrecioCosto((Double) map.get("proPrecioCosto"));
     response.setProPrecioVenta((Double) map.get("proPrecioVenta"));
     response.setProCategoria((String) map.get("proCategoria"));
@@ -49,54 +48,54 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   }
 
   @Override
-  public ProductoInventarioResponse findById(Integer id) {
+  public ProductoComplementoResponse findById(Integer id) {
     log.info("Implements :: findById :: " + id);
-    return repository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoInventarioResponse());
+    return repository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoComplementoResponse());
   }
 
   @Override
-  public ProductoInventarioResponse create(ProductoInventarioRequest request) {
+  public ProductoComplementoResponse create(ProductoProductoRequest request) {
     log.debug("Implements :: create :: Inicio");
     FxComunes.printJson("ProductoInventarioRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
   @Override
-  public ProductoInventarioResponse update(ProductoInventarioRequest request) {
-    ProductoInventarioResponse res = repository.findById(request.getProInvId()).map(this::convertEntityToResponse).orElse(new ProductoInventarioResponse());
+  public ProductoComplementoResponse update(ProductoProductoRequest request) {
+    ProductoComplementoResponse res = repository.findById(request.getProInvId()).map(this::convertEntityToResponse).orElse(new ProductoComplementoResponse());
     if (res.getProInvId() == null) {
-      return new ProductoInventarioResponse();
+      return new ProductoComplementoResponse();
     } else {
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }
   }
 
   @Override
-  public ProductoInventarioResponse delete(Integer id) {
+  public ProductoComplementoResponse delete(Integer id) {
     log.debug("Implements :: delete :: ID -> {}", id);
-    ProductoInventarioResponse res = repository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoInventarioResponse());
+    ProductoComplementoResponse res = repository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoComplementoResponse());
     Optional<ProductoInventarioEntity> ent = repository.findById(res.getProInvId());
     if (ent.isPresent()) {
       return convertEntityToResponse(repository.save(convertRequestToEntity(convertResponseToRequest(res))));
     } else {
-      return new ProductoInventarioResponse();
+      return new ProductoComplementoResponse();
     }
   }
 
-  private ProductoInventarioEntity convertRequestToEntity(ProductoInventarioRequest in) {
+  private ProductoInventarioEntity convertRequestToEntity(ProductoProductoRequest in) {
     ProductoInventarioEntity out = new ProductoInventarioEntity();
     BeanUtils.copyProperties(in, out);
     return out;
   }
 
-  private ProductoInventarioResponse convertEntityToResponse(ProductoInventarioEntity in) {
-    ProductoInventarioResponse out = new ProductoInventarioResponse();
+  private ProductoComplementoResponse convertEntityToResponse(ProductoInventarioEntity in) {
+    ProductoComplementoResponse out = new ProductoComplementoResponse();
     BeanUtils.copyProperties(in, out);
     return out;
   }
 
-  private ProductoInventarioRequest convertResponseToRequest(ProductoInventarioResponse in) {
-    ProductoInventarioRequest out = new ProductoInventarioRequest();
+  private ProductoProductoRequest convertResponseToRequest(ProductoComplementoResponse in) {
+    ProductoProductoRequest out = new ProductoProductoRequest();
     BeanUtils.copyProperties(in, out);
     return out;
   }

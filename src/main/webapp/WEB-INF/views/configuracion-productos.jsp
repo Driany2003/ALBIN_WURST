@@ -75,7 +75,7 @@
                                         <th scope="col">Estado</th>
                                         <th scope="col">Accion</th>
                                     </tr>
-                                    </thead>git pull
+                                    </thead>
                                     <tbody id="productoBody">
                                     </tbody>
                                 </table>
@@ -121,16 +121,16 @@
                                 <label for="descripcionProducto">Descripcion del Producto</label>
                                 <textarea class="form-control" id="descripcionProducto" rows="3" placeholder="Ingresar la Descripcion del Producto" required></textarea>
                             </div>
-                            <hr class="hr hr-blurry"/>
+                            <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
                             <div class="form-group">
                                 <label for="descripcionProducto">Complementos</label>
                             </div>
-                            <hr class="hr hr-blurry"/>
+                            <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
                             <div class="form-group">
                                 <label for="descripcionProducto">Imagen</label>
                             </div>
                             <div class="form-group text-center">
-                                <label for="imagenProducto" class="btn btn-outline-secondary">Agregar Imagen</label>
+                                <label for="imagenProducto" class="btn btn-outline-secondary">Cargar</label>
                                 <input type="file" id="imagenProducto" style="display: none;">
                             </div>
                             <div class="modal-footer">
@@ -201,141 +201,35 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <style>
-            .switch {
-                position: relative;
-                display: inline-block;
-                width: 40px;
-                height: 20px;
-            }
+<!-- customs css -->
+<link href="/static/css/custom.css" rel="stylesheet">
 
-            .switch input {
-                opacity: 0;
-                width: 0;
-                height: 0;
-            }
+<!-- customs -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link href="/static/web/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="/static/web/assets/extra-libs/taskboard/css/lobilist.css" rel="stylesheet">
+<link href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css" rel="stylesheet">
+<link href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
-            .slider {
-                position: absolute;
-                cursor: pointer;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: #ccc;
-                transition: .4s;
-                border-radius: 20px;
-            }
-
-            .slider:before {
-                position: absolute;
-                content: "";
-                height: 16px;
-                width: 16px;
-                left: 2px;
-                bottom: 2px;
-                background-color: white;
-                transition: .4s;
-                border-radius: 50%;
-            }
-
-            input:checked + .slider {
-                background-color: #673ab7;
-            }
-
-            input:focus + .slider {
-                box-shadow: 0 0 1px #673ab7;
-            }
-
-            input:checked + .slider:before {
-                transform: translateX(20px);
-            }
-
-            .table {
-                background-color: white;
-            }
-
-            .modal-header {
-                border-bottom: none;
-            }
-
-            .modal-title {
-                font-weight: bold;
-            }
-
-            .form-group label {
-                font-weight: bold;
-            }
-
-            #productImage {
-                margin-top: 10px;
-            }
-
-            .modal-footer {
-                border-top: none;
-            }
-
-            /* Estilo para los campos de entrada del modal */
-            .coolinput {
-                display: flex;
-                flex-direction: column;
-                width: fit-content;
-                position: static;
-                max-width: 240px;
-            }
-
-            .coolinput label.text {
-                font-size: 0.75rem;
-                color: #000000;
-                font-weight: 700;
-                position: relative;
-                top: 0.5rem;
-                margin: 0 0 0 7px;
-                padding: 0 3px;
-                background: #e8e8e8;
-                width: fit-content;
-            }
-
-            .coolinput input[type="text"].input {
-                padding: 11px 10px;
-                font-size: 0.75rem;
-                border: 2px #000000 solid;
-                border-radius: 5px;
-                background: #e8e8e8;
-            }
-
-            .coolinput input[type="text"].input:focus {
-                outline: none;
-            }
-
-
-        </style>
-
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-        <!--  modal: PRODUCTOS -->
-        <script src="/static/web/dist/js/funciones/producto.js"></script>
-        <%@ include file="includes/all-jquery.jspf" %>
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <%@ include file="includes/footer.jspf" %>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
+<!--  functions-->
+<script src="/static/web/dist/js/funciones/producto.js"></script>
+<!-- import -->
+<%@ include file="includes/all-jquery.jspf" %>
+<!-- footer -->
+<%@ include file="includes/footer.jspf" %>
+<!-- End footer -->
 </body>
 </html>

@@ -1,8 +1,8 @@
 package com.pe.kenpis.expose.web;
 
 import com.pe.kenpis.business.IProductoInventarioService;
-import com.pe.kenpis.model.api.producto.inventario.ProductoInventarioRequest;
-import com.pe.kenpis.model.api.producto.inventario.ProductoInventarioResponse;
+import com.pe.kenpis.model.api.producto.inventario.ProductoProductoRequest;
+import com.pe.kenpis.model.api.producto.inventario.ProductoComplementoResponse;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,32 +22,32 @@ public class WProductoInventarioController {
   private IProductoInventarioService service;
 
   @GetMapping("/find-by-id/{id}")
-  public ResponseEntity<ProductoInventarioResponse> findById(@PathVariable Integer id) {
-    ProductoInventarioResponse dato = service.findById(id);
+  public ResponseEntity<ProductoComplementoResponse> findById(@PathVariable Integer id) {
+    ProductoComplementoResponse dato = service.findById(id);
     return ResponseEntity.ok(dato);
   }
 
   @PostMapping("/create")
-  public ResponseEntity<ProductoInventarioResponse> create(@RequestBody ProductoInventarioRequest request) {
-    ProductoInventarioResponse response = service.create(request);
+  public ResponseEntity<ProductoComplementoResponse> create(@RequestBody ProductoProductoRequest request) {
+    ProductoComplementoResponse response = service.create(request);
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
   @GetMapping("/find-all")
-  public ResponseEntity<List<ProductoInventarioResponse>> findAll() {
-    List<ProductoInventarioResponse> productos = service.findAll();
+  public ResponseEntity<List<ProductoComplementoResponse>> findAll() {
+    List<ProductoComplementoResponse> productos = service.findAll();
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
   @PutMapping("/update")
-  public ResponseEntity<ProductoInventarioResponse> update(@RequestBody ProductoInventarioRequest request) {
+  public ResponseEntity<ProductoComplementoResponse> update(@RequestBody ProductoProductoRequest request) {
     FxComunes.printJson("fff", request);
-    ProductoInventarioResponse response = service.update(request);
+    ProductoComplementoResponse response = service.update(request);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
   @DeleteMapping("/delete/{id}")
-  public ResponseEntity<ProductoInventarioResponse> delete(@PathVariable Integer id) {
-    ProductoInventarioResponse response = service.delete(id);
+  public ResponseEntity<ProductoComplementoResponse> delete(@PathVariable Integer id) {
+    ProductoComplementoResponse response = service.delete(id);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 

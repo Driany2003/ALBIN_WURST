@@ -1,0 +1,20 @@
+package com.pe.kenpis.business;
+
+import com.pe.kenpis.model.api.producto.inventario.ProductoComplementoResponse;
+import com.pe.kenpis.model.api.producto.inventario.ProductoProductoRequest;
+
+import java.util.List;
+
+public interface IProductoComplementoService {
+
+  List<ProductoComplementoResponse> findAll();
+
+  ProductoComplementoResponse findById(Integer id);
+
+  ProductoComplementoResponse create(ProductoProductoRequest request);
+
+  ProductoComplementoResponse update(ProductoProductoRequest request);
+
+  ProductoComplementoResponse delete(Integer id);
+
+}

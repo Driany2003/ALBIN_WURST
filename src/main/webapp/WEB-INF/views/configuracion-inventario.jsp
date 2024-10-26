@@ -37,7 +37,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid">
             <div class="card mt-1">
                 <div class="card-header">
@@ -88,92 +87,35 @@
                 </div>
             </div>
         </div>
-        <%@ include file="includes/footer.jspf" %>
     </div>
+</div>
 
-    <style>
-        .img-container {
-            background-color: #e0f7fa;
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-        }
+<!-- customs css -->
+<link href="/static/css/custom.css" rel="stylesheet">
 
-        /* Ajuste del tamaño de la imagen */
-        .img-product-list {
-            width: 150px;
-            height: auto;
-            display: block;
-        }
+<!-- customs -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<link href="/static/web/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="/static/web/assets/extra-libs/taskboard/css/lobilist.css" rel="stylesheet" >
+<link href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css" rel="stylesheet" >
+<link href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" >
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
-        .container-fluid {
-            border: 1px solid #ddd;
-            background-color: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-        }
+<!--  functions -->
+<script src="/static/web/dist/js/funciones/productoInventario.js"></script>
+<!-- import -->
+<%@ include file="includes/all-jquery.jspf" %>
+<!-- footer -->
+<%@ include file="includes/footer.jspf" %>
 
-        ul.list-unstyled li.media-product {
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-
-        .media-product-title {
-            margin-bottom: 20px;
-        }
-
-        .media-product-options {
-            margin-top: 15px;
-        }
-
-        .media-product-options a, .media-product-options button {
-            margin-left: 5px;
-        }
-
-        .producto-inventario {
-            background-color: #f8f9fa; /* Fondo gris claro */
-            border: 1px solid #d1d1d1; /* Borde gris claro */
-            border-radius: 10px; /* Bordes redondeados */
-            padding: 15px; /* Espacio interno */
-            margin-bottom: 20px; /* Espacio inferior entre tarjetas */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle relieve */
-        }
-
-        /* Contenedor de la imagen con fondo celeste */
-        .img-container {
-            background-color: #e0f7fa; /* Celeste muy bajito */
-            padding: 10px; /* Espacio entre la imagen y el borde del contenedor */
-            border-radius: 5px; /* Bordes ligeramente redondeados */
-            display: inline-block; /* Ajusta el tamaño al contenido */
-        }
-
-        /* Ajuste del tamaño de la imagen */
-        .img-product-list {
-            width: 150px; /* Ajusta el ancho según el tamaño deseado */
-            height: auto; /* Mantiene la proporción de la imagen */
-            display: block; /* Hace que la imagen sea un bloque dentro del contenedor */
-        }
-
-
-    </style>
-
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <script src="/static/web/dist/js/funciones/productoInventario.js"></script>
-    <%@ include file="includes/all-jquery.jspf" %>
 </body>
 </html>
