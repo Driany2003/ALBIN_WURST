@@ -110,9 +110,6 @@ public class EmpresaImpl implements IEmpresaService {
     nuevaSucursal.setEmpFechaContratoInicio(empresaPadre.getEmpFechaContratoInicio());
     nuevaSucursal.setEmpFechaContratoFin(empresaPadre.getEmpFechaContratoFin());
     nuevaSucursal.setEmpEmail(empresaPadre.getEmpEmail());
-    nuevaSucursal.setEmpQrYape(empresaPadre.getEmpQrYape());
-    nuevaSucursal.setEmpQrPlin(empresaPadre.getEmpQrPlin());
-    nuevaSucursal.setEmpQrPagos(empresaPadre.getEmpQrPagos());
     nuevaSucursal.setEmpResponsable("sin responsable");
     //aca estan los datos del request
     nuevaSucursal.setEmpPadreId(request.getEmpPadreId());
@@ -175,10 +172,6 @@ public class EmpresaImpl implements IEmpresaService {
       request.setEmpFechaContratoInicio(res.getEmpFechaContratoInicio());
       request.setEmpFechaCreacion(res.getEmpFechaCreacion());
       request.setEmpResponsable(res.getEmpResponsable());
-      request.setEmpQrPlin(res.getEmpQrPlin());
-      request.setEmpQrYape(res.getEmpQrYape());
-      request.setEmpQrPagos(res.getEmpQrPagos());
-
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }
   }
@@ -204,9 +197,6 @@ public class EmpresaImpl implements IEmpresaService {
       request.setEmpRazonSocial(res.getEmpRazonSocial());
       request.setEmpTelefono(res.getEmpTelefono());
       request.setEmpResponsable(res.getEmpResponsable());
-      request.setEmpQrPlin(res.getEmpQrPlin());
-      request.setEmpQrYape(res.getEmpQrYape());
-      request.setEmpQrPagos(res.getEmpQrPagos());
       request.setEmpPadreId(res.getEmpPadreId());
 
       // Si la empresa es desactivada, cambiar el estado de las sucursales a 'false'

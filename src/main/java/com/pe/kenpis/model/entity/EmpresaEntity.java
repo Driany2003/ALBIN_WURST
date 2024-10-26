@@ -47,15 +47,6 @@ public class EmpresaEntity {
   @Column(name = "emp_fecha_creacion")
   private Date empFechaCreacion;
 
-  @Column(name = "emp_qr_yape")
-  private Long empQrYape;
-
-  @Column(name = "emp_qr_plin")
-  private Long empQrPlin;
-
-  @Column(name = "emp_qr_Pagos")
-  private Long empQrPagos;
-
   @Column(name = "emp_is_active")
   private Boolean empIsActive;
 
