@@ -1,4 +1,4 @@
-package com.pe.kenpis.model.api.producto;
+package com.pe.kenpis.model.api.producto.complementos;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductoRequest {
+public class ProductoComplementosRequest {
 
   private Integer proId;
   private Integer empId;

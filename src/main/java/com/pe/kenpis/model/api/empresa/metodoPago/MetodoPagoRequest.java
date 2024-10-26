@@ -1,10 +1,9 @@
-package com.pe.kenpis.model.api.metodoPago;
+package com.pe.kenpis.model.api.empresa.metodoPago;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Column;
 import java.util.List;
 
 @Getter

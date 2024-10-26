@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductoListDTO {
+
   private Integer proId;
   private Integer empId;
   private String proCategoria;
@@ -24,7 +25,6 @@ public class ProductoListDTO {
     this.proIsActive = proIsActive;
     this.proPrecioCosto = proPrecioCosto;
     this.proPrecioVenta = proPrecioVenta;
-
   }
 
   public ProductoListDTO(Integer proId, Integer empId, String proCategoria) {

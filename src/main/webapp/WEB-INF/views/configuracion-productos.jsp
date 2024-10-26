@@ -75,7 +75,7 @@
                                         <th scope="col">Estado</th>
                                         <th scope="col">Accion</th>
                                     </tr>
-                                    </thead>
+                                    </thead>git pull
                                     <tbody id="productoBody">
                                     </tbody>
                                 </table>
