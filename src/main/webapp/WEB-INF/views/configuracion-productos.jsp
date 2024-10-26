@@ -68,6 +68,7 @@
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
+                                        <th scope="col">Imagen</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Precio Costo</th>
                                         <th scope="col">Precio Venta</th>
@@ -94,32 +95,39 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-
                     <div class="modal-body">
                         <form id="createProductForm" role="form" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="categoria">Categoría</label>
+                                <select class="form-control" id="categoria" required>
+                                    <option value="" disabled selected>Seleccionar Categoria</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="nombreProducto">Nombre del Producto</label>
                                 <input type="text" class="form-control" id="nombreProducto" placeholder="Ingresar Nombre del Producto" required>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-md-5">
+                                <div class="form-group col-md-6">
                                     <label for="precioProductoCosto">Precio Costo</label>
                                     <input type="number" class="form-control" id="precioProductoCosto" placeholder="Ingresar Precio Costo" required>
                                 </div>
-                                <div class="form-group col-md-5">
+                                <div class="form-group col-md-6">
                                     <label for="precioProductoVenta">Precio Venta</label>
                                     <input type="number" class="form-control" id="precioProductoVenta" placeholder="Ingresar Precio Venta" required>
-                                </div>
-                                <div class="form-group col-md-7">
-                                    <label for="categoria">Categoría</label>
-                                    <select class="form-control" id="categoria" required>
-                                        <option value="" disabled selected>Seleccionar Una Categoria</option>
-                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="descripcionProducto">Descripcion del Producto</label>
                                 <textarea class="form-control" id="descripcionProducto" rows="3" placeholder="Ingresar la Descripcion del Producto" required></textarea>
+                            </div>
+                            <hr class="hr hr-blurry"/>
+                            <div class="form-group">
+                                <label for="descripcionProducto">Complementos</label>
+                            </div>
+                            <hr class="hr hr-blurry"/>
+                            <div class="form-group">
+                                <label for="descripcionProducto">Imagen</label>
                             </div>
                             <div class="form-group text-center">
                                 <label for="imagenProducto" class="btn btn-outline-secondary">Agregar Imagen</label>
@@ -127,7 +135,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="registrarProducto">Agregar Producto</button>
+                                <button type="submit" class="btn btn-primary" id="registrarProducto">Agregar</button>
                             </div>
                         </form>
                     </div>
@@ -147,34 +155,47 @@
                     <div class="modal-body">
                         <form id="editarProductoForm">
                             <div class="form-group">
+                                <label for="editCategoria">Categoría</label>
+                                <select class="form-control" id="editCategoria" required></select>
+                            </div>
+                            <div class="form-group">
                                 <label for="editNombreProducto">Nombre</label>
                                 <input type="text" class="form-control" id="editNombreProducto" required>
                             </div>
-                            <div class="form-group">
-                                <label for="editPrecioProductoCosto">Precio Costo</label>
-                                <input type="number" class="form-control" id="editPrecioProductoCosto" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editPrecioProductoVenta">Precio Venta</label>
-                                <input type="number" class="form-control" id="editPrecioProductoVenta" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="editCategoria">Categoría</label>
-                                <select class="form-control" id="editCategoria" required></select>
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="editPrecioProductoCosto">Precio Costo</label>
+                                    <input type="number" class="form-control" id="editPrecioProductoCosto" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="editPrecioProductoVenta">Precio Venta</label>
+                                    <input type="number" class="form-control" id="editPrecioProductoVenta" required>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="editDescripcionProducto">Descripción</label>
                                 <textarea class="form-control" id="editDescripcionProducto" rows="3"></textarea>
                             </div>
+                            <hr class="hr hr-blurry"/>
+                            <div class="form-group">
+                                <label for="descripcionProducto">Complementos</label>
+                            </div>
+                            <hr class="hr hr-blurry"/>
+                            <div class="form-group">
+                                <label for="descripcionProducto">Imagen</label>
+                            </div>
                             <div id="editImgContainer">
                             </div>
-                            <br>
-                            <div class="form-group">
+                            <div class="form-group text-center">
                                 <label for="editImagenProductoNuevo" class="btn btn-outline-secondary">Editar Imagen</label>
                                 <input type="file" id="editImagenProductoNuevo" style="display: none;">
                             </div>
                             <input type="hidden" id="editProductId">
-                            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
                         </form>
                     </div>
                 </div>

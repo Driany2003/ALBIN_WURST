@@ -38,6 +38,8 @@ $(document).ready(function () {
                 '<tr id="empresa-row-' + empresa.empId + '" class="empresa-row" data-id="' + empresa.empId + '">' +
                 '<td>' +
                 '<img src="' + empresa.empImagenLogo + '" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;"> ' +
+                '</td>' +
+                '<td>' +
                 '<span>' + empresa.empNombreComercial + '</span>' +
                 '</td>' +
                 '<td>' +

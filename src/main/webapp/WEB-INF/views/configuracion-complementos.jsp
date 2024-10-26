@@ -68,6 +68,7 @@
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
+                                        <th scope="col">Logo</th>
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Precio Costo</th>
                                         <th scope="col">Precio Venta</th>

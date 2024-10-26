@@ -370,6 +370,7 @@
                                     <table id="empresaTable" class="table table-sm table-bordered table-striped">
                                         <thead class="thead-dark">
                                         <tr>
+                                            <th scope="col">LOGO</th>
                                             <th scope="col">NOMBRE COMERCIAL</th>
                                             <th scope="col">RESPONSABLE</th>
                                             <th scope="col">FECHA DE CONTRATO</th>
