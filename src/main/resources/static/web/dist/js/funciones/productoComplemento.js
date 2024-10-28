@@ -5,6 +5,7 @@ var urlUpdate = '/kenpis/' + urlObjeto + '/update';
 var urlDelete = '/kenpis/' + urlObjeto + '/delete/';
 var urlFindAll = '/kenpis/' + urlObjeto + '/find-all';
 var urlFindById = '/kenpis/' + urlObjeto + '/find-by-id/';
+var tbd = test;
 
 $(document).ready(function () {
     var empresaId = $("#empresaId").val();
