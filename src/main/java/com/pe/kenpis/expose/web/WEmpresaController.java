@@ -49,7 +49,6 @@ public class WEmpresaController {
   // crear empresa
   @PostMapping("/create")
   public ResponseEntity<EmpresaResponse> createEmpresa(@RequestBody EmpresaRequest request) {
-    FxComunes.printJson("create Empresa", request);
     log.info("Controller :: create");
     EmpresaResponse empresa = service.create(request);
 
@@ -59,7 +58,6 @@ public class WEmpresaController {
   // crear sucursal
   @PostMapping("/sucursales-create")
   public ResponseEntity<EmpresaResponse> createSucursal(@RequestBody SucursalRequest request) {
-    FxComunes.printJson("create Sucursal", request);
     log.info("Controller :: createSucursal");
     EmpresaResponse sucursal = service.createSucursal(request);
     return new ResponseEntity<>(sucursal, HttpStatus.CREATED);

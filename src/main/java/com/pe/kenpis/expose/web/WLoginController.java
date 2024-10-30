@@ -71,11 +71,6 @@ public class WLoginController {
     request.getSession().setAttribute("usuarioSession", usuarioResponse);
     request.getSession().setAttribute("empresaSession", empresaResponse);
 
-    // LOGS CONSOLE
-    //FxComunes.printJson("listaDeSucursales QUE ESTA LLEGANDO", empresaDTO);
-    FxComunes.printJson("UsuarioAuthorityResponse", usuarioAuthorityResponse.getAuthRoles());
-    FxComunes.printJson("UsuarioResponse", usuarioResponse);
-    FxComunes.printJson("EmpresaSession", empresaResponse);
     //MUESTRA LA CANTIDAD DE PEDIDOSESTADOS EN EL DASHBOARD
     Map<String, Object> pedidosEstado = ventaEstadoService.getCountPedidosXEstado();
     model.put("pedidosEstado", pedidosEstado);
@@ -90,11 +85,6 @@ public class WLoginController {
     model.put(Constantes.VENTA_ESTADO.EN_PROCESO, enProceso);
     model.put(Constantes.VENTA_ESTADO.PAGADO, pagado);
     model.put(Constantes.VENTA_ESTADO.ATENDIDO, atendido);
-
-    FxComunes.printJson(Constantes.VENTA_ESTADO.REGISTRADO, registrado);
-    FxComunes.printJson(Constantes.VENTA_ESTADO.EN_PROCESO, enProceso);
-    FxComunes.printJson(Constantes.VENTA_ESTADO.PAGADO, pagado);
-    FxComunes.printJson(Constantes.VENTA_ESTADO.ATENDIDO, atendido);
 
     return "dashboard";
   }

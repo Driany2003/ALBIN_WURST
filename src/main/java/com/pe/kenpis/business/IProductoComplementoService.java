@@ -1,20 +1,27 @@
 package com.pe.kenpis.business;
 
-import com.pe.kenpis.model.api.producto.inventario.ProductoComplementoResponse;
-import com.pe.kenpis.model.api.producto.inventario.ProductoProductoRequest;
+import com.pe.kenpis.model.api.producto.complementos.*;
 
 import java.util.List;
 
 public interface IProductoComplementoService {
 
-  List<ProductoComplementoResponse> findAll();
+  List<ProductoComplementoResponseDTO> findAll();
 
-  ProductoComplementoResponse findById(Integer id);
+  List<ProductoComplementoResponseDTO> findDetallesByIdPadre(Integer idPadre, Integer empId);
 
-  ProductoComplementoResponse create(ProductoProductoRequest request);
+  ProductoComplementosResponse findById(Integer id);
 
-  ProductoComplementoResponse update(ProductoProductoRequest request);
+  ProductoComplementosResponse create(ProductoComplementosRequest request);
 
-  ProductoComplementoResponse delete(Integer id);
+  ProductoComplementoResponseDTO createComplemento(ProductoComplementoRequestRegistrarDTO request);
+
+  ProductoComplementosResponse update(ProductoComplementoRequestUpdateDTO request);
+
+  ProductoComplementosResponse updatePadre(ProductoComplementoRequestUpdateDTO request);
+
+  ProductoComplementosResponse deleteComplemento(Integer id);
+
+  ProductoComplementosResponse delete(Integer id);
 
 }

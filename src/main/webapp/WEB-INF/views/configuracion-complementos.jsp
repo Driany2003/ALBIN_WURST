@@ -133,7 +133,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary" id="registrarProducto">Agregar</button>
+                                <button type="submit" class="btn btn-primary" id="registrarComplemento">Agregar</button>
                             </div>
                         </form>
                     </div>
@@ -146,7 +146,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="editModalLabel">Editar</h5>
+                        <h5 class="modal-title" id="editModalLabel">Editar Complemento</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -154,49 +154,30 @@
                     <div class="modal-body">
                         <form id="editForm" role="form" method="post">
                             <div class="form-group">
-                                <input type="hidden" id="proComplementoIdPadre">
-                                <label for="complementoTipoEdit">Tipo de Complementos</label>
-                                <input type="text" class="form-control" id="complementoTipoEdit" required>
+                                <input type="hidden" id="editProductId">
+                                <label for="complementoTipoEdit">Tipo de Complemento</label>
+                                <input type="text" class="form-control" id="complementoTipoEdit" >
                             </div>
                             <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
+
                             <div class="form-group">
                                 <table id="complementosTableEdit" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Precio</th>
-                                        <th>Accion</th>
+                                        <th>Acción</th>
                                     </tr>
                                     </thead>
                                     <tbody id="complementosTableBodyEdit">
-                                    <tr>
-                                        <td>
-                                            <input type="hidden" id="proComplementoId_edit">
-                                            <input type="text" class="form-control" id="complementoNombre_edit" placeholder="Nombre" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" id="complementoPrecio_edit" placeholder="Precio" required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="hidden" id="proComplementoId_edit_2">
-                                            <input type="text" class="form-control" id="complementoNombre_edit_1" placeholder="Nombre" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" id="complementoPrecio_edit_1" placeholder="Precio" required>
-                                        </td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
+
                             <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
+
                             <div class="form-group text-right">
-                                <button class="btn btn-outline-primary mr-2"> ( + )</button>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="button" class="btn btn-outline-primary btn-add-row mr-2"> ( + )</button>
                             </div>
                         </form>
                     </div>
@@ -206,6 +187,17 @@
     </div>
 </div>
 
+<style>
+    .table .text-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .table .btn {
+        margin-right: 5px;
+    }
+</style>
 
 <!-- customs css -->
 <link href="/static/css/custom.css" rel="stylesheet">

@@ -40,9 +40,7 @@ public class EmpresaImpl implements IEmpresaService {
   public List<EmpresaDTO> findAllActiveEmpresaById() {
     log.info("Implements  :: findAll");
     List<Map<String, Object>> results = repository.findAllActiveEmpresaById();
-    return results.stream().map(result -> {
-      return new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empResponsable"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"));
-    }).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empResponsable"), (String) result.get("empImagenLogo"), (String) result.get("empNombreComercial"), (Date) result.get("empFechaContratoInicio"), (Date) result.get("empFechaContratoFin"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
   }
 
   //lista empresas activas solo para los combos
@@ -74,12 +72,10 @@ public class EmpresaImpl implements IEmpresaService {
   }
 
   @Override
-  public  List<EmpresaDTO> obtenerSucursalesPorEmpresa(Integer empId){
+  public List<EmpresaDTO> obtenerSucursalesPorEmpresa(Integer empId) {
     log.info("Implements :: obtenerSucursalesPorEmpresa :: {}", empId);
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaPadreId(empId);
-    return results.stream().map(result -> {
-      return new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"),(Boolean) result.get("empIsActive"));
-    }).collect(Collectors.toList());
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
 
   }
 
@@ -91,7 +87,6 @@ public class EmpresaImpl implements IEmpresaService {
     request.setEmpIsActive(true);
     request.setEmpFechaCreacion(new Date());
     request.setEmpPadreId(0);
-    //FxComunes.printJson("EmpresaRequest", request);
     return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
@@ -100,7 +95,6 @@ public class EmpresaImpl implements IEmpresaService {
     log.debug("Implements :: createSucursal :: Inicio");
 
     EmpresaEntity empresaPadre = repository.findById(request.getEmpPadreId()).orElseThrow(() -> new IllegalArgumentException("No se encontró la empresa padre con ID: " + request.getEmpPadreId()));
-
     EmpresaEntity nuevaSucursal = new EmpresaEntity();
 
     nuevaSucursal.setEmpDocumentoTipo(empresaPadre.getEmpDocumentoTipo());
@@ -118,8 +112,6 @@ public class EmpresaImpl implements IEmpresaService {
 
     nuevaSucursal.setEmpIsActive(true);
     nuevaSucursal.setEmpFechaCreacion(new Date());
-
-    FxComunes.printJson("SucursalRequest", request);
 
     return convertEntityToResponse(repository.save(nuevaSucursal));
   }
@@ -178,40 +170,16 @@ public class EmpresaImpl implements IEmpresaService {
 
   //estado de un empresa - activo,inactivo
   public EmpresaResponse updateStatus(EmpresaRequest request) {
-    // Buscar la empresa por ID y convertirla en una respuesta
     EmpresaResponse res = repository.findById(request.getEmpId()).map(this::convertEntityToResponse).orElse(new EmpresaResponse());
 
     // Si no se encuentra la empresa, devolver una nueva respuesta vacía
     if (res.getEmpId() == null) {
       return new EmpresaResponse();
     } else {
-      // Actualizar los campos del request con los valores existentes
-      request.setEmpDocumentoTipo(res.getEmpDocumentoTipo());
-      request.setEmpDocumentoNumero(res.getEmpDocumentoNumero());
-      request.setEmpEmail(res.getEmpEmail());
-      request.setEmpFechaContratoFin(res.getEmpFechaContratoFin());
-      request.setEmpFechaContratoInicio(res.getEmpFechaContratoInicio());
-      request.setEmpFechaCreacion(res.getEmpFechaCreacion());
-      request.setEmpImagenLogo(res.getEmpImagenLogo());
-      request.setEmpNombreComercial(res.getEmpNombreComercial());
-      request.setEmpRazonSocial(res.getEmpRazonSocial());
-      request.setEmpTelefono(res.getEmpTelefono());
-      request.setEmpResponsable(res.getEmpResponsable());
-      request.setEmpPadreId(res.getEmpPadreId());
-
-      // Si la empresa es desactivada, cambiar el estado de las sucursales a 'false'
-      List<Map<String, Object>> sucursales = repository.findSucursalesByEmpresaIdList(res.getEmpId());
-      boolean nuevoEstado = request.getEmpIsActive();
-
-      for (Map<String, Object> sucursalData : sucursales) {
-        Integer sucursalId = (Integer) sucursalData.get("empId");
-        EmpresaEntity sucursal = repository.findById(sucursalId).orElseThrow(() -> new RuntimeException("Sucursal not found"));
-        sucursal.setEmpIsActive(nuevoEstado);
-        repository.save(sucursal);
-      }
+      repository.updateEstadoEmpresaYSucursales(request.getEmpId(), request.getEmpIsActive());
+      // Retornar la respuesta actualizada
+      return convertEntityToResponse(repository.findById(request.getEmpId()).orElse(null));
     }
-
-    return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
   }
 
 
@@ -230,35 +198,8 @@ public class EmpresaImpl implements IEmpresaService {
     }
   }
 
-  private EmpresaEntity convertMapToEntity(Map<String, Object> sucursalData) {
-    EmpresaEntity sucursal = new EmpresaEntity();
-    sucursal.setEmpId((Integer) sucursalData.get("empId"));
-    sucursal.setEmpIsActive((Boolean) sucursalData.get("empIsActive"));
-    return sucursal;
-  }
-
   //Request empresa
   private EmpresaEntity convertRequestToEntity(EmpresaRequest in) {
-    EmpresaEntity out = new EmpresaEntity();
-    BeanUtils.copyProperties(in, out);
-    return out;
-  }
-
-  //Request sucursal
-  private EmpresaEntity convertRequestToEntity(SucursalDTOrequest in) {
-    EmpresaEntity out = new EmpresaEntity();
-    BeanUtils.copyProperties(in, out);
-    return out;
-  }
-
-  //Response sucursal
-  private SucursalResponse convertEntityToResponseSucursal(EmpresaEntity in) {
-    SucursalResponse out = new SucursalResponse();
-    BeanUtils.copyProperties(in, out);
-    return out;
-  }
-
-  private EmpresaEntity convertEntityToResponseEmpresaDTO(EmpresaDTO in) {
     EmpresaEntity out = new EmpresaEntity();
     BeanUtils.copyProperties(in, out);
     return out;
