@@ -41,5 +41,8 @@ public interface ProductoComplementosRepository extends JpaRepository<ProductoCo
   @Transactional
   @Query("UPDATE ProductoComplemetosEntity p SET p.proCompNombre = :proCompNombre WHERE p.proCompId = :proCompId")
   void actualizarNombreComplementoPadre(@Param("proCompId") Integer proCompId, @Param("proCompNombre") String proCompNombre);
+
+  @Query(value = "SELECT " + "p1.pro_comp_id AS id_complemento_principal, " + "p1.pro_comp_nombre AS nombre_complemento_principal, " + "STUFF((SELECT ', ' + p2.pro_comp_nombre " + "FROM T_PRODUCTO_COMPLEMENTOS p2 " + "WHERE p2.pro_comp_id_padre = p1.pro_comp_id " + "AND p2.emp_id = p1.emp_id " + "FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS subcomplementos " + "FROM T_PRODUCTO_COMPLEMENTOS p1 " + "WHERE (p1.pro_comp_id_padre = 0 OR p1.pro_comp_id_padre IS NULL) " + "AND p1.emp_id = :empId " + "GROUP BY p1.pro_comp_id, p1.pro_comp_nombre, p1.emp_id", nativeQuery = true)
+  List<Object[]> findAllWithSubcomplementosByEmpresa(@Param("empId") Integer empId);
 }
 

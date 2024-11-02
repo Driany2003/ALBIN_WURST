@@ -14,6 +14,7 @@ public class ProductoComplementoResponseDTO {
   private String proCompNombre;
   private Double proCompPrecio;
   private Integer proCompIdPadre;
+  private String subComplementos;
   private List<DetalleResponse> detalles;
 
   @Getter
@@ -48,6 +49,12 @@ public class ProductoComplementoResponseDTO {
     this.proCompPrecio = proCompPrecio;
     this.proCompIdPadre = proCompIdPadre;
     this.detalles = detalles;
+  }
+
+  public ProductoComplementoResponseDTO(Integer proCompId, String proCompNombre, String subComplementos) {
+    this.proCompId = proCompId;
+    this.proCompNombre = proCompNombre;
+    this.subComplementos = subComplementos;
   }
 
 }

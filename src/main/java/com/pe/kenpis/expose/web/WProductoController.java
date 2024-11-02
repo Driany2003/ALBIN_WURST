@@ -1,9 +1,11 @@
 package com.pe.kenpis.expose.web;
 
+import com.pe.kenpis.business.IProductoComplementoService;
 import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.model.api.producto.ProductoListDTO;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.api.producto.complementos.ProductoComplementoResponseDTO;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
@@ -21,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/kenpis/producto")
@@ -29,33 +32,27 @@ public class WProductoController {
 
   @Autowired
   private IProductoService service;
+  @Autowired
+  private IProductoComplementoService productoComplementoService;
 
   @GetMapping("/categorias")
-  public ResponseEntity<List<ProductoListDTO>> getAllCategories(@RequestParam("empId") Integer empId) {
+  public ResponseEntity<Map<String, Object>> getAllCategories(@RequestParam("empId") Integer empId) {
+    Map<String, Object> response = new HashMap<>();
     List<ProductoListDTO> categorias = service.getAllCategorias(empId);
-    return new ResponseEntity<>(categorias, HttpStatus.OK);
+    FxComunes.printJson("listar las categorias por empresa ",categorias);
+    List<ProductoComplementoResponseDTO> complementos = productoComplementoService.obtenerComplementosConSubcomplementosPorEmpresa(empId);
+    FxComunes.printJson("listar los complementos ",complementos);
+
+    response.put("status", "success");
+    response.put("categorias", categorias);
+    response.put("complementos", complementos);
+    return  ResponseEntity.ok(response);
   }
 
   @GetMapping("/nuevaVenta-categorias")
   public ResponseEntity<List<ProductoListDTO>> getCategoriasbyEmpresa(@RequestParam("empId") Integer empId) {
     List<ProductoListDTO> categorias = service.getCategoriasbyEmpresa(empId);
     return new ResponseEntity<>(categorias, HttpStatus.OK);
-  }
-
-  @RequestMapping(value = "/echofile", method = RequestMethod.POST, produces = {"application/json"})
-  public @ResponseBody HashMap<String, Object> echoFile(MultipartHttpServletRequest request, HttpServletResponse response) throws Exception {
-    MultipartFile multipartFile = request.getFile("file");
-    Long size = multipartFile.getSize();
-    String contentType = multipartFile.getContentType();
-    InputStream stream = multipartFile.getInputStream();
-    byte[] bytes = IOUtils.toByteArray(stream);
-
-    HashMap<String, Object> map = new HashMap<String, Object>();
-    map.put("fileoriginalsize", size);
-    map.put("contenttype", contentType);
-    map.put("base64", new String(Base64Utils.encode(bytes)));
-
-    return map;
   }
 
   @GetMapping("/find-all-by-type/{categoria}")
@@ -84,13 +81,13 @@ public class WProductoController {
 
   @PostMapping("/create")
   public ResponseEntity<ProductoResponse> create(@RequestBody ProductoRequest request) {
+    FxComunes.printJson("TRAE", request);
     ProductoResponse response = service.create(request);
     return new ResponseEntity<>(response, HttpStatus.CREATED);
   }
 
   @PutMapping("/update")
   public ResponseEntity<ProductoResponse> update(@RequestBody ProductoRequest request) {
-    FxComunes.printJson("ff", request);
     ProductoResponse response = service.update(request);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }

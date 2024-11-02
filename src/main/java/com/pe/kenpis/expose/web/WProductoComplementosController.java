@@ -63,7 +63,15 @@ public class WProductoComplementosController {
     FxComunes.printJson("trae complementos por empresa ", productos);
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
-
+/*
+  //para poder listar los complementos por empresa.
+  @GetMapping("/find-all/{empId}")
+  public ResponseEntity<List<ProductoComplementoResponseDTO>> obtenerComplementosPorEmpresa(@PathVariable Integer empId) {
+    List<ProductoComplementoResponseDTO> complementos = service.obtenerComplementosConSubcomplementosPorEmpresa(empId);
+    FxComunes.printJson("listar los complementos ",complementos);
+    return new ResponseEntity<>(complementos, HttpStatus.OK);
+  }
+*/
   @PutMapping("/update")
   public ResponseEntity<ProductoComplementosResponse> update(@RequestBody ProductoComplementoRequestUpdateDTO request) {
     FxComunes.printJson("Lo que actualizo del complemento detalle", request);

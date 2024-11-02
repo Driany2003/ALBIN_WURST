@@ -68,12 +68,11 @@
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">Imagen</th>
-                                        <th scope="col">Nombre</th>
-                                        <th scope="col">Precio Costo</th>
-                                        <th scope="col">Precio Venta</th>
-                                        <th scope="col">Estado</th>
-                                        <th scope="col">Accion</th>
+                                        <th scope="col">PRODUCTO</th>
+                                        <th scope="col">PRECIO COSTO</th>
+                                        <th scope="col">PRECIO VENTA</th>
+                                        <th scope="col">ESTADO</th>
+                                        <th scope="col">ACCION</th>
                                     </tr>
                                     </thead>
                                     <tbody id="productoBody">
@@ -123,15 +122,22 @@
                             </div>
                             <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
                             <div class="form-group">
-                                <label for="descripcionProducto">Complementos</label>
+                                <label for="complementoProducto">Complementos</label>
+                                <input type="hidden" id="complementoProducto">
                             </div>
+                            <div id="complementos-container" class="form-group"></div>
                             <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
                             <div class="form-group">
                                 <label for="descripcionProducto">Imagen</label>
                             </div>
                             <div class="form-group text-center">
-                                <label for="imagenProducto" class="btn btn-outline-secondary">Cargar</label>
-                                <input type="file" id="imagenProducto" style="display: none;">
+                                <div class="form-group">
+                                    <img id="imagenPreview" src="" alt="Imagen del Producto" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagenProducto" class="btn btn-secondary">Cargar</label>
+                                    <input type="file" class="form-control-file" id="imagenProducto" name="imagenProducto" style="visibility:hidden;" accept="image/png, image/jpeg">
+                                </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -203,6 +209,58 @@
         </div>
     </div>
 </div>
+
+<style>
+    .switch-complemento {
+        position: relative;
+        display: inline-block;
+        width: 40px;
+        height: 20px;
+    }
+
+    .switch-complemento input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider-complemento {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    .slider-complemento:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider-complemento {
+        background-color: #66bb6a; /* Color para el switch activo */
+    }
+
+    input:checked + .slider-complemento:before {
+        transform: translateX(20px);
+    }
+
+    .small {
+        color: #666; /* Color para el texto de los subcomplementos */
+    }
+
+</style>
 
 <!-- customs css -->
 <link href="/static/css/custom.css" rel="stylesheet">

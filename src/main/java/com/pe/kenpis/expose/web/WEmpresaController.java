@@ -51,7 +51,6 @@ public class WEmpresaController {
   public ResponseEntity<EmpresaResponse> createEmpresa(@RequestBody EmpresaRequest request) {
     log.info("Controller :: create");
     EmpresaResponse empresa = service.create(request);
-
     return new ResponseEntity<>(empresa, HttpStatus.CREATED);
   }
 

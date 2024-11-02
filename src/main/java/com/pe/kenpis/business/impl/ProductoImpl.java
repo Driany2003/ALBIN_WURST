@@ -30,7 +30,6 @@ public class ProductoImpl implements IProductoService {
 
   private final ProductoRepository repository;
   private final ProductoInventarioRepository inventarioRepository;
-  private String imageOutFoto = Constantes.RUTAS.UNIDAD;
 
   @Override
   public List<ProductoResponse> findAll() {
@@ -57,11 +56,9 @@ public class ProductoImpl implements IProductoService {
   @Override
   public ProductoResponse create(ProductoRequest request) {
     log.debug("Implements :: create :: Inicio");
-
     ProductoEntity producto = convertRequestToEntity(request);
     producto.setProIsActive(true);
 
-    // Guardar el producto
     ProductoEntity savedProducto = repository.save(producto);
 
     ProductoInventarioEntity inventario = new ProductoInventarioEntity();
@@ -144,48 +141,18 @@ public class ProductoImpl implements IProductoService {
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {
     ProductoEntity out = new ProductoEntity();
-    imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (!in.getProImagen().isEmpty()) {
-      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
-      out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
-      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
-    } else {
-      out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
-      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
-    }
-    Java8Base64Image.eliminaArchivo(imageOutFoto);
     BeanUtils.copyProperties(in, out);
     return out;
   }
 
   private ProductoResponse convertEntityToResponse(ProductoEntity in) {
     ProductoResponse out = new ProductoResponse();
-    imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (!in.getProImagen().isEmpty()) {
-      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
-      out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
-      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
-    } else {
-      out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
-      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
-    }
-    Java8Base64Image.eliminaArchivo(imageOutFoto);
     BeanUtils.copyProperties(in, out);
     return out;
   }
 
   private ProductoRequest convertResponseToRequest(ProductoResponse in) {
     ProductoRequest out = new ProductoRequest();
-    imageOutFoto = "\\" + in.getProId() + "_foto.jpg";
-    if (!in.getProImagen().isEmpty()) {
-      Java8Base64Image.decoder(Base64.encodeBase64String(in.getProImagen().getBytes(Charsets.ISO_8859_1)), imageOutFoto);
-      out.setProImagen(Java8Base64Image.encoder(imageOutFoto));
-      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
-    } else {
-      out.setProImagen(Constantes.IMAGENES.SIN_FOTO);
-      out.setProImagenLongitud(Java8Base64Image.convertStringToBytes(in.getProImagen()));
-    }
-    Java8Base64Image.eliminaArchivo(imageOutFoto);
     BeanUtils.copyProperties(in, out);
     return out;
   }

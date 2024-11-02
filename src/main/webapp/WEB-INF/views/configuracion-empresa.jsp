@@ -192,7 +192,7 @@
                                                     <label for="empImagenLogo" class="btn btn-secondary">Cargar</label>
                                                     <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Cargar logo de la empresa."></i>
                                                     <input type="file" class="form-control-file" id="empImagenLogo" name="empImagenLogo" style="visibility:hidden;" accept="image/png, image/jpeg">
-                                                    <!--<input type="hidden" id="empImageBase64" name="empImageBase64">-->
+                                                    <input type="hidden" id="empImageBase64" name="empImageBase64">
                                                 </div>
                                             </div>
                                         </div>
@@ -365,7 +365,6 @@
                                     <table id="empresaTable" class="table table-sm table-bordered table-striped">
                                         <thead class="thead-dark">
                                         <tr>
-                                            <th scope="col">LOGO</th>
                                             <th scope="col">NOMBRE COMERCIAL</th>
                                             <th scope="col">RESPONSABLE</th>
                                             <th scope="col">FECHA DE CONTRATO</th>

@@ -1,10 +1,9 @@
 $(document).ready(function () {
     var empresaId = $("#empresaId").val();
-    console.log ("hola", empresaId);
+    let complementosSeleccionados = [];
     listarCategoria();
     cargarProductos();
 
-    // Listar las categorías para el registro de productos
     function listarCategoria() {
         $.ajax({
             url: '/kenpis/producto/categorias',
@@ -13,11 +12,16 @@ $(document).ready(function () {
             success: function (data) {
                 var seleccionarCategoria = $('#categoria');
                 var editCategoria = $('#editCategoria');
+                var complementosContainer = $('#complementos-container');
+
                 seleccionarCategoria.empty();
                 editCategoria.empty();
+                complementosContainer.empty();
+
                 seleccionarCategoria.append('<option value="" disabled selected>Seleccionar Categoria</option>');
                 editCategoria.append('<option value="" disabled selected> Seleccionar Nueva Categoria</option>');
 
+                // Función para construir las opciones de categoría
                 function construirOpciones(categorias, nivel = 0) {
                     categorias.forEach(function (categoria) {
                         var opcion = '<option value="' + categoria.proId + '">' + categoria.proCategoria + '</option>';
@@ -29,13 +33,81 @@ $(document).ready(function () {
                     });
                 }
 
-                construirOpciones(data);
+                // Construimos las opciones de categorías
+                construirOpciones(data.categorias);
+
+                // Función para construir los complementos
+                function construirComplementos(complementos) {
+
+                    complementos.forEach(function (complemento) {
+                        var complementoContainer = $('<div class="complemento-section"></div>');
+
+                        var complementoNombre = $('<h6></h6>').text(complemento.proCompNombre);
+
+                        var switchLabel = $('<label>').addClass('switch-complemento');
+                        var inputSwitch = $('<input>')
+                            .attr({
+                                type: 'checkbox',
+                                class: 'complemento-checkbox',
+                                'data-id': complemento.proCompId
+                            })
+                            .on('change', function () {
+                                const complementoId = $(this).data('id');
+
+
+                                if ($(this).is(':checked')) {
+                                    // Agregar el ID al arreglo de complementos seleccionados si está marcado
+                                    if (!complementosSeleccionados.includes(complementoId)) {
+                                        complementosSeleccionados.push(complementoId);
+                                    }
+                                } else {
+                                    // Eliminar el ID del arreglo si está desmarcado
+                                    complementosSeleccionados = complementosSeleccionados.filter(id => id !== complementoId);
+                                }
+
+                                console.log("Complementos seleccionados:", complementosSeleccionados);
+                            });
+
+                        if (complemento.proCompIsActive) {
+                            inputSwitch.attr('checked', 'checked');
+                            complementosSeleccionados.push(complemento.proCompId);
+                        }
+
+                        var sliderSpan = $('<span>').addClass('slider-complemento');
+
+                        switchLabel.append(inputSwitch);
+                        switchLabel.append(sliderSpan);
+
+                        var subcomplementosList = $('<small></small>');
+                        if (complemento.subComplementos) {
+                            var subcomplementos = complemento.subComplementos.split(', ');
+                            subcomplementosList.text(subcomplementos.join(', '));
+                        }
+
+                        var headerContainer = $('<div class="complemento-header d-flex justify-content-between align-items-center"></div>');
+                        headerContainer.append(complementoNombre);
+                        headerContainer.append(switchLabel);
+
+                        complementoContainer.append(headerContainer);
+                        complementoContainer.append(subcomplementosList);
+
+                        $('#complementos-container').append(complementoContainer);
+                    });
+
+                    return complementosSeleccionados;
+                }
+
+
+
+                // Construimos los complementos con los datos recibidos
+                construirComplementos(data.complementos);
             },
             error: function (error) {
-                console.error('Error al obtener las categorías:', error);
+                console.error('Error al obtener las categorías y complementos:', error);
             }
         });
     }
+
 
     function cargarProductos() {
         $.ajax({
@@ -48,8 +120,10 @@ $(document).ready(function () {
                 response.forEach(producto => {
                     productoBody.append(`
                     <tr id="product-row-${producto.proId}">
-                        <td><img src="data:image/jpeg;base64,${producto.proImagen}" alt="${producto.proDescripcion}" width="50"></td>
-                        <td>${producto.proDescripcion}</td>
+                    <td>
+                      <img src="${producto.proImagen}" alt="Logo" style="width: 50px; height: 50px; vertical-align: middle;">
+                      <span>${producto.proDescripcion}</span>
+                    <td>
                         <td>S/. ${producto.proPrecioCosto.toFixed(2)}</td>
                         <td>S/. ${producto.proPrecioVenta.toFixed(2)}</td>
                        <td>
@@ -73,13 +147,13 @@ $(document).ready(function () {
                 $('.eliminarProducto').click(function (event) {
                     event.preventDefault();
                     var proId = $(this).data('id');
-                    console.log("ID DEL PRODUCTO A ELEIMINAR SELECCIONADO",proId);
+                    console.log("ID DEL PRODUCTO A ELEIMINAR SELECCIONADO", proId);
                     eliminarProducto(proId);
                 });
                 $('.editarProducto').click(function (event) {
                     event.preventDefault();
                     var proId = $(this).data('id');
-                    console.log("ID  DEL PRODUCTO SELECCIONADO",proId);
+                    console.log("ID  DEL PRODUCTO SELECCIONADO", proId);
                     editarProducto(proId);
                 });
 
@@ -90,67 +164,37 @@ $(document).ready(function () {
         });
     }
 
-    var isJpg = function (name) {
-        return name.match(/jpg$/i)
-    };
-    var isJpeg = function (name) {
-        return name.match(/jpeg$/i)
-    };
-
-    var isPng = function (name) {
-        return name.match(/png$/i)
-    };
+    $('#imagenProducto').on('change', function () {
+        var file = this.files[0];
+        if (file) {
+            if (file.type === 'image/png' || file.type === 'image/jpeg') {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagenPreview').attr('src', e.target.result).css({width: '100px', height: '100px'}).show();
+                };
+                reader.readAsDataURL(file);
+            } else {
+                toastr.error('Solo se permiten imágenes en formato PNG o JPG.');
+                $('#imagenPreview').val('');
+                $('#imagenPreview').hide();
+            }
+        } else {
+            $('#imagenPreview').hide();
+        }
+    });
 
     // Registrar Producto
     $('#registrarProducto').click(function (event) {
-        event.preventDefault();
-        var file = $('#imagenProducto');
-        var filename = $.trim(file.val());
-
-        alert(filename);
-
-        if (!(isJpg(filename) || isJpeg(filename) || isPng(filename))) {
-            alert('Please browse a JPG/PNG file to upload ...');
-            return;
-        }
-
-        var img_base64 = "";
-        var img_contenttype = "";
-        form_data = new FormData(); // added
-        image = $('#imagenProducto').prop('files')[0]; // modified
-        form_data.append('file', image); // added
-        console.log(image);
-
-        $.ajax({
-            type: "POST",
-            url: '/kenpis/producto/echofile',
-            data: form_data,
-            enctype: 'multipart/form-data',
-            processData: false,
-            contentType: false
-        }).done(function (data) {
-            //imgContainer.html('');
-            //var img = '<img src="data:' + data.contenttype + ';base64,' + data.base64 + '"/>';
-            //imgContainer.append(img);
-            img_base64 = data.base64;
-            img_contenttype = data.contenttype;
-            crearProducto(img_base64, img_contenttype);
-        }).fail(function (jqXHR, textStatus) {
-            //alert(jqXHR.responseText);
-            alert('File upload failed ...');
-        });
-    });
-
-    function crearProducto(img_base64, img_contenttype) {
-
+        let complementosSeleccionadosString = complementosSeleccionados.join(',');
         var productoData = {
             proCategoria: $('#nombreProducto').val(),
             proPrecioCosto: $('#precioProductoCosto').val(),
             proPrecioVenta: $('#precioProductoVenta').val(),
             padreId: $('#categoria').val(),
+            proComplementos :complementosSeleccionadosString,
             proDescripcion: $('#descripcionProducto').val(),
-            proImagen: img_base64,
-            proImagenLongitud: img_contenttype,
+            proImagen: $('#imagenPreview').attr('src'),
+            proImagenLongitud: "campo vacio",
             empId: empresaId
         }
         $.ajax({
@@ -167,7 +211,8 @@ $(document).ready(function () {
                 toastr.error('Error al registrar el producto. Intente nuevamente.');
             }
         });
-    }
+    });
+
 
     //Funcion para editar un Producto
     function editarProducto(proId) {

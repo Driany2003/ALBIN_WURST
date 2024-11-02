@@ -8,6 +8,8 @@ public interface IProductoComplementoService {
 
   List<ProductoComplementoResponseDTO> findAll();
 
+  List<ProductoComplementoResponseDTO> obtenerComplementosConSubcomplementosPorEmpresa(Integer empId);
+
   List<ProductoComplementoResponseDTO> findDetallesByIdPadre(Integer idPadre, Integer empId);
 
   ProductoComplementosResponse findById(Integer id);

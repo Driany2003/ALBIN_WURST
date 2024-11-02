@@ -31,6 +31,18 @@ public class ProductoComplementoImpl implements IProductoComplementoService {
     return listaComplementos.stream().map(result -> new ProductoComplementoResponseDTO((Integer) result.get("emp_id"), (String) result.get("emp_razon_social"), (Integer) result.get("pro_comp_id"), (String) result.get("pro_comp_nombre"), (Double) result.get("pro_comp_precio"), (Integer) result.get("pro_comp_id_padre"))).collect(Collectors.toList());
   }
 
+  //listar complementos para registrar un producto
+  public List<ProductoComplementoResponseDTO> obtenerComplementosConSubcomplementosPorEmpresa(Integer empId) {
+    List<Object[]> resultados = productoComplementosRepository.findAllWithSubcomplementosByEmpresa(empId);
+    return resultados.stream()
+        .map(r -> new ProductoComplementoResponseDTO(
+            ((Number) r[0]).intValue(),
+            (String) r[1],
+            (String) r[2]
+        ))
+        .collect(Collectors.toList());
+  }
+
   @Override
   public ProductoComplementosResponse findById(Integer id) {
     log.info("Implements :: findById :: " + id);
