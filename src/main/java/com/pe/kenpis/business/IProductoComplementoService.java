@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface IProductoComplementoService {
 
-  List<ProductoComplementoResponseDTO> findAll();
+   List<ProductoComplementoResponseDTO> findAll(Integer id);
 
   List<ProductoComplementoResponseDTO> obtenerComplementosConSubcomplementosPorEmpresa(Integer empId);
+
+  List<ProductoComplementoResponseDTO> obtenerComplementosConSubcomplementos(Integer productId, Integer empId);
 
   List<ProductoComplementoResponseDTO> findDetallesByIdPadre(Integer idPadre, Integer empId);
 

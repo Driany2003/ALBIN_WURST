@@ -141,7 +141,7 @@ $(document).ready(function () {
                             <span class="slider"></span>
                         </label>
                     </td>
-
+                    <td>
                         <button type="button" data-id="${sucursal.empId}" class="btn btn-sm btn-warning editarSucursal" data-toggle="tooltip" title="Editar Sucursal">
                             <i class="fas fa-pencil-alt"></i>
                         </button>
@@ -962,7 +962,7 @@ $(document).ready(function () {
         if (file) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $fila.find('img').attr('src', e.target.result).css({width: '50px', height: '50px'}).show(); // Ajustar el tamaño y mostrar la imagen
+                $fila.find('img').attr('src', e.target.result).css({width: '50px', height: '50px'}).show();
                 // Ocultar el botón de cargar QR
                 $fila.find('#cargarQrYape, #cargarQrPlin').hide();
                 // Mostrar el botón de editar
@@ -1009,7 +1009,7 @@ $(document).ready(function () {
 
                 if (!metodoPago.metPagoCuentaNumero || !metodoPago.metPagoCuentaNombre || !metodoPago.metPagoDetalle) {
                     validInput = false;
-                    return false; // Salir del loop
+                    return false;
                 }
 
                 metodosPago.push(metodoPago);

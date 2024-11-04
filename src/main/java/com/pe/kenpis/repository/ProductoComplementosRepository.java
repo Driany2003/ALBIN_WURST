@@ -16,8 +16,9 @@ import java.util.Map;
 public interface ProductoComplementosRepository extends JpaRepository<ProductoComplemetosEntity, Integer> {
 
   //LISTAR COMPLEMENTOS PADRES POR EMPRESA
-  @Query(value = "{call SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA}", nativeQuery = true)
-  List<Map<String, Object>> SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA();
+  @Query(value = "{call SP_COMPLEMENTOS_PADRE_POR_EMPRESA(:empId)}", nativeQuery = true)
+  List<Map<String, Object>> SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA(@Param("empId") Integer empId);
+
 
   @Query(value = "SELECT pc.pro_comp_id AS proCompId , pc.pro_comp_nombre AS proCompNombre, pc.pro_comp_precio AS proCompPrecio FROM T_PRODUCTO_COMPLEMENTOS pc WHERE pc.pro_comp_id_padre = :idPadre AND pc.emp_id = :empId", nativeQuery = true)
   List<Map<String, Object>> findDetallesByIdPadreAndEmpId(@Param("idPadre") Integer idPadre, @Param("empId") Integer empId);
@@ -42,7 +43,13 @@ public interface ProductoComplementosRepository extends JpaRepository<ProductoCo
   @Query("UPDATE ProductoComplemetosEntity p SET p.proCompNombre = :proCompNombre WHERE p.proCompId = :proCompId")
   void actualizarNombreComplementoPadre(@Param("proCompId") Integer proCompId, @Param("proCompNombre") String proCompNombre);
 
+  //PARA REGISTRAR
   @Query(value = "SELECT " + "p1.pro_comp_id AS id_complemento_principal, " + "p1.pro_comp_nombre AS nombre_complemento_principal, " + "STUFF((SELECT ', ' + p2.pro_comp_nombre " + "FROM T_PRODUCTO_COMPLEMENTOS p2 " + "WHERE p2.pro_comp_id_padre = p1.pro_comp_id " + "AND p2.emp_id = p1.emp_id " + "FOR XML PATH(''), TYPE).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS subcomplementos " + "FROM T_PRODUCTO_COMPLEMENTOS p1 " + "WHERE (p1.pro_comp_id_padre = 0 OR p1.pro_comp_id_padre IS NULL) " + "AND p1.emp_id = :empId " + "GROUP BY p1.pro_comp_id, p1.pro_comp_nombre, p1.emp_id", nativeQuery = true)
   List<Object[]> findAllWithSubcomplementosByEmpresa(@Param("empId") Integer empId);
+
+  //PARA EDITAR
+  @Query(value = "WITH ComplementosSeleccionados AS ( " + "    SELECT value AS complemento_id " + "    FROM STRING_SPLIT((SELECT pro_complementos FROM T_PRODUCTO WHERE pro_id = :productId), ',') " + "), " + "ComplementosPrincipales AS ( " + "    SELECT p1.pro_comp_id AS id_complemento_principal, " + "           p1.pro_comp_nombre AS nombre_complemento_principal, " + "           STUFF(( " + "               SELECT ', ' + p2.pro_comp_nombre " + "               FROM T_PRODUCTO_COMPLEMENTOS p2 " + "               WHERE p2.pro_comp_id_padre = p1.pro_comp_id " + "                 AND p2.emp_id = p1.emp_id " + "               FOR XML PATH(''), TYPE " + "           ).value('.', 'NVARCHAR(MAX)'), 1, 2, '') AS subcomplementos " + "    FROM T_PRODUCTO_COMPLEMENTOS p1 " + "    WHERE (p1.pro_comp_id_padre = 0 OR p1.pro_comp_id_padre IS NULL) " + "      AND p1.emp_id = :empId " + "      AND p1.pro_comp_id IN (SELECT complemento_id FROM ComplementosSeleccionados) " + ") " + "SELECT * FROM ComplementosPrincipales", nativeQuery = true)
+  List<Object[]> findComplementosConSubcomplementosByProductoId(@Param("productId") Integer productId, @Param("empId") Integer empId);
+
 }
 

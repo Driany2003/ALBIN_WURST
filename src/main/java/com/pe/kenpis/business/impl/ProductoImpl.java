@@ -4,8 +4,10 @@ import com.pe.kenpis.business.IProductoService;
 import com.pe.kenpis.model.api.producto.ProductoListDTO;
 import com.pe.kenpis.model.api.producto.ProductoRequest;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
+import com.pe.kenpis.model.api.producto.complementos.ProductoComplementoResponseDTO;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.ProductoInventarioEntity;
+import com.pe.kenpis.repository.ProductoComplementosRepository;
 import com.pe.kenpis.repository.ProductoInventarioRepository;
 import com.pe.kenpis.repository.ProductoRepository;
 import com.pe.kenpis.util.funciones.Java8Base64Image;
@@ -17,10 +19,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,6 +28,7 @@ import java.util.stream.Collectors;
 public class ProductoImpl implements IProductoService {
 
   private final ProductoRepository repository;
+  private final ProductoComplementosRepository productoComplementosRepository;
   private final ProductoInventarioRepository inventarioRepository;
 
   @Override
@@ -38,13 +38,24 @@ public class ProductoImpl implements IProductoService {
   }
 
   @Override
-  public List<ProductoListDTO> findActiveProductosWithActiveEmpresa() {
-    log.info("Implements :: findActiveProductosWithActiveEmpresa");
-    return repository.findActiveProductosWithActiveEmpresa().stream().map(this::convertToProductoDTO).collect(Collectors.toList());
+  public List<ProductoListDTO> findActiveProductosWithActive() {
+    log.info("Implements :: findActiveProductosWithActive");
+    return repository.findActiveProductosWithActive().stream().map(this::convertToProductoDTO).collect(Collectors.toList());
   }
 
   private ProductoListDTO convertToProductoDTO(Map<String, Object> map) {
     return new ProductoListDTO((Integer) map.get("proId"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecioCosto"), (Double) map.get("proPrecioVenta"));
+  }
+
+  @Override
+  public List<ProductoListDTO> findActiveProductosWithActiveEmpresa(Integer empId) {
+        log.info("llegue"+ empId);
+    log.info("Implements :: findActiveProductosWithActiveEmpresa");
+    return repository.findActiveProductosWithActiveEmpresa(empId).stream().map(this::convertToProductoDTOEmpresa).collect(Collectors.toList());
+  }
+
+  private ProductoListDTO convertToProductoDTOEmpresa(Map<String, Object> map) {
+    return new ProductoListDTO((Integer) map.get("empId"),(Integer) map.get("proId"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecioCosto"), (Double) map.get("proPrecioVenta"));
   }
 
   @Override
@@ -73,6 +84,24 @@ public class ProductoImpl implements IProductoService {
   }
 
   @Override
+  public ProductoResponse createCategoria(ProductoRequest request) {
+    log.debug("Implements :: create Categoria :: Inicio");
+    ProductoEntity producto = convertRequestToEntity(request);
+    producto.setEmpId(request.getEmpId());
+    producto.setPadreId(0);
+    producto.setProPrecioCosto(0.0);
+    producto.setProPrecioVenta(0.0);
+    producto.setProDescripcion(" Categoria " +  request.getProCategoria());
+    producto.setProIsActive(true);
+    producto.setProImagenLongitud("Imagen Longitud");
+
+    ProductoEntity savedProducto = repository.save(producto);
+
+
+    return convertEntityToResponse(savedProducto);
+  }
+
+  @Override
   public ProductoResponse update(ProductoRequest request) {
     ProductoResponse res = repository.findById(request.getProId()).map(this::convertEntityToResponse).orElse(new ProductoResponse());
     if (res.getProId() == null) {
@@ -81,6 +110,7 @@ public class ProductoImpl implements IProductoService {
       request.setPadreId(res.getPadreId());
       request.setEmpId(res.getEmpId());
       request.setProIsActive(res.getProIsActive());
+      res.setProImagen(request.getProImagen());
       request.setProImagenLongitud(res.getProImagenLongitud());
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }
@@ -136,7 +166,7 @@ public class ProductoImpl implements IProductoService {
   }
 
   private ProductoListDTO convertToCategoriabyEmpresaDTO(Map<String, Object> map) {
-    return new ProductoListDTO((Integer) map.get("proId"), (Integer) map.get("empId"),(String) map.get("proCategoria"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"));
+    return new ProductoListDTO((Integer) map.get("proId"), (Integer) map.get("empId"), (String) map.get("proCategoria"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"));
   }
 
   private ProductoEntity convertRequestToEntity(ProductoRequest in) {

@@ -70,7 +70,9 @@ public class WLoginController {
     request.getSession().setAttribute("usuSessionId", usuarioResponse.getUsuId());
     request.getSession().setAttribute("usuarioSession", usuarioResponse);
     request.getSession().setAttribute("empresaSession", empresaResponse);
+    request.getSession().setAttribute("empresaSessionID", empresaResponse.getEmpId());
 
+    log.info("emprsa session : {}",  empresaResponse.getEmpId());
     //MUESTRA LA CANTIDAD DE PEDIDOSESTADOS EN EL DASHBOARD
     Map<String, Object> pedidosEstado = ventaEstadoService.getCountPedidosXEstado();
     model.put("pedidosEstado", pedidosEstado);

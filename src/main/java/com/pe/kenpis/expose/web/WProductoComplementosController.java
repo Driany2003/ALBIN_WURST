@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,8 +59,10 @@ public class WProductoComplementosController {
   }
 
   @GetMapping("/find-all")
-  public ResponseEntity<List<ProductoComplementoResponseDTO>> findAll() {
-    List<ProductoComplementoResponseDTO> productos = service.findAll();
+  public ResponseEntity<List<ProductoComplementoResponseDTO>> findAll( HttpSession session) {
+    Integer empresaSession = (Integer) session.getAttribute("empresaSessionID");
+    System.out.println("empresa"+ empresaSession);
+    List<ProductoComplementoResponseDTO> productos = service.findAll(empresaSession);
     FxComunes.printJson("trae complementos por empresa ", productos);
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }

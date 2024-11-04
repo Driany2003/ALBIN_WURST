@@ -24,7 +24,7 @@ public class WVentaController {
 
 
   @PostMapping("/create")
-  public ResponseEntity<VentaResponse> create(@RequestBody VentaRequest ventaRequest) throws Exception {
+  public ResponseEntity<VentaResponse> create(@RequestBody VentaRequest ventaRequest)  {
     VentaResponse ventaResponse = service.create(ventaRequest);
     return new ResponseEntity<>(ventaResponse, HttpStatus.CREATED);
   }

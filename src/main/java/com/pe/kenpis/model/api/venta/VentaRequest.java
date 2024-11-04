@@ -20,7 +20,7 @@ public class VentaRequest {
   private Integer empresaId;
   private Integer clienteId;
   private String venAlias;
-  private String VenConsideraciones;
+  private String venConsideraciones;
   private String venTipoPago;
   private Integer usuarioId;
 

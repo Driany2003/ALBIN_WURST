@@ -52,7 +52,8 @@ public class VentaImpl implements IVentaService {
     return ventasList.stream().map(this::convertVentasEntityToResponse).collect(Collectors.toList());
   }
 
-  public VentaResponse create(VentaRequest ventaRequest) throws Exception {
+  @Override
+  public VentaResponse create(VentaRequest ventaRequest)  {
     FxComunes.printJson("VentaRequest", ventaRequest);
 
     VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
@@ -64,13 +65,16 @@ public class VentaImpl implements IVentaService {
     List<VentaDetalleEntity> detallesVentas = new ArrayList<>();
     for (VentaDetalleRequest detalle : ventaRequest.getDetallesVentas()) {
       VentaDetalleEntity nuevoDetalle = new VentaDetalleEntity();
+      nuevoDetalle.setVenDetObservaciones(detalle.getVenDetObservaciones());
       nuevoDetalle.setVentaId(ventaGuardada.getVenId());
       nuevoDetalle.setProductoId(detalle.getProductoId());
       nuevoDetalle.setVenDetCantidad(detalle.getVenDetCantidad());
       nuevoDetalle.setVenDetPrecio(detalle.getVenDetPrecio());
       nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
       detallesVentas.add(nuevoDetalle);
+
     }
+
     detalleVentaRepository.saveAll(detallesVentas);
 
     FxComunes.printJson("VentaDetalleEntity", detallesVentas);

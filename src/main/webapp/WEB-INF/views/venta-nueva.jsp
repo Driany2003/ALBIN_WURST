@@ -9,25 +9,16 @@
 <!-- ============================================================== -->
 <!-- Main wrapper - style you can find in pages.scss -->
 <!-- ============================================================== -->
+<%@ page contentType="text/html; charset=UTF-8" %>
+<html dir="ltr" lang="es">
+<%@ include file="includes/header.jspf" %>
+<body>
+<%@ include file="includes/preloader.jspf" %>
+
 <div id="main-wrapper">
-    <!-- ============================================================== -->
-    <!-- Topbar header - style you can find in pages.scss -->
-    <!-- ============================================================== -->
     <%@ include file="includes/topbar.jspf" %>
-    <!-- ============================================================== -->
-    <!-- End Topbar header -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
     <%@ include file="includes/left-sidebar.jspf" %>
-    <!-- ============================================================== -->
-    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-    <!-- =========================MAMASHAROOO===================================== -->
+
     <div class="page-wrapper">
         <div class="page-breadcrumb">
             <div class="row">
@@ -36,6 +27,7 @@
                 </div>
             </div>
         </div>
+
         <div class="container-fluid">
             <div class="card mt-1">
                 <div class="card-header">
@@ -53,62 +45,54 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="card-body p-3">
-                    <div class="card-body p-1">
-                        <div class="form-row">
-                            <div class="form-group col-md-2 text-md-right align-middle">
-                                <label for="cliTelefono" class="control-label col-form-label"># Celular Cliente</label>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <div class="input-group">
-                                    <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese número">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" id="buscarCliente" style="cursor: pointer;">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2 text-md-right align-middle">
+                            <label for="cliTelefono" class="control-label col-form-label"># Celular Cliente</label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <div class="input-group">
+                                <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese número">
+                                <div class="input-group-append">
+                                    <span class="input-group-text" id="buscarCliente" style="cursor: pointer;">
+                                        <i class="fa fa-search"></i>
+                                    </span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-1 text-md-right align-middle">
-                                <label for="cliNombre" class="control-label col-form-label">Nombre</label>
-                            </div>
-                            <div class="form-group col-md-1">
-                                <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
-                                <input id="clienteId" type="hidden"/>
-                            </div>
-                            <div class="form-group col-md-1 text-md-right align-middle" id="alias-label">
-                                <label for="alias" class="control-label col-form-label">Alias</label>
-                            </div>
-                            <div class="form-group col-md-1" id="alias-field" style="display: none;">
-                                <input id="alias" type="text" class="form-control form-control-sm">
-                            </div>
+                        </div>
+                        <div class="form-group col-md-1 text-md-right align-middle">
+                            <label for="cliNombre" class="control-label col-form-label">Nombre</label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
+                            <input id="clienteId" type="hidden"/>
+                        </div>
+                        <div class="form-group col-md-1 text-md-right align-middle" id="alias-label">
+                            <label for="alias" class="control-label col-form-label">Alias</label>
+                        </div>
+                        <div class="form-group col-md-1" id="alias-field" style="display: none;">
+                            <input id="alias" type="text" class="form-control form-control-sm">
+                        </div>
 
-                            <div class="form-group col-md-2 text-md-right align-middle">
-                                <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
-                            </div>
-                            <div class="form-group col-md-2 text-md-right align-middle">
-                                <select id="venTipoPago" class="form-control form-control-sm">
-                                    <option value="">-- Seleccione --</option>
-                                    <option value="EFECTIVO">EFECTIVO</option>
-                                    <option value="YAPE">YAPE</option>
-                                    <option value="PLIN">PLIN</option>
-                                </select>
-                            </div>
-
+                        <div class="form-group col-md-2 text-md-right align-middle">
+                            <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <select id="venTipoPago" class="form-control form-control-sm">
+                                <option value="">-- Seleccione --</option>
+                                <option value="EFECTIVO">EFECTIVO</option>
+                                <option value="YAPE">YAPE</option>
+                                <option value="PLIN">PLIN</option>
+                            </select>
                         </div>
                     </div>
+
                     <div class="card-header">
-                        <div class="form-row">
-                            <div class="col-md-11">
-                                <h5 class="card-title">Detalle Pedido</h5>
-                            </div>
-                            <div class="text-center col-md-1">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventaModal">
-                                    Agregar
-                                </button>
-                            </div>
-                        </div>
+                        <h5 class="card-title">Detalle Pedido</h5>
+                        <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#ventaModal">Agregar</button>
                     </div>
+
                     <div class="card-body p-2">
                         <div class="table-responsive">
                             <table id="ventasTable" class="table table-sm table-bordered table-striped">
@@ -122,19 +106,12 @@
                                     <th scope="col"></th>
                                 </tr>
                                 </thead>
-                                <tbody id="ventasBody">
-
-                                </tbody>
+                                <tbody id="ventasBody"></tbody>
                                 <tfoot>
                                 <tr>
                                     <th colspan="4" class="text-right">Total a pagar:</th>
                                     <th id="totalPagar">S/ 0.00</th>
-                                </tr>
-                                <tr>
-                                    <th colspan="4"></th>
-                                    <th class="text-right">
-                                        <button id="pagarButton" class="btn btn-success btn-sm">Grabar</button>
-                                    </th>
+                                    <th><button id="pagarButton" class="btn btn-success btn-sm">Grabar</button></th>
                                 </tr>
                                 </tfoot>
                             </table>
@@ -142,76 +119,74 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Modal Ventas -->
-            <div class="modal fade" id="ventaModal" tabindex="-1" role="dialog" aria-labelledby="ventaModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="ventaModalLabel">Agregar Pedido</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="ventaForm">
-                                <div class="form-body">
-                                    <div id="productos-container" class="container-fluid">
-                                        <div id="detalle-container" class="d-flex flex-wrap">
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-actions text-center p-3">
-                                    <button type="button" id="volverSubCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
-                                    <button type="button" id="volverCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
-                                    <button type="button" id="guardarPedido" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Guardar</button>
-                                </div>
-                            </form>
-                        </div>
+        <!-- Modal Ventas -->
+        <div class="modal fade" id="ventaModal" tabindex="-1" role="dialog" aria-labelledby="ventaModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ventaModalLabel">Agregar Pedido</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-            </div>
-
-            <!-- Modal para registrar cliente-->
-            <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="clienteModalLabel">Registrar Cliente</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label for="cliNombrePopap">Nombre</label>
-                                <input type="text" class="form-control" id="cliNombrePopap">
+                    <div class="modal-body">
+                        <form id="ventaForm">
+                            <div class="form-body">
+                                <div id="productos-container" class="container-fluid">
+                                    <div id="detalle-container" class="d-flex flex-wrap"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="cliTelefonoNoRegistrado">Teléfono</label>
-                                <input type="text" class="form-control" id="cliTelefonoNoRegistrado">
+                            <div class="form-actions text-center p-3">
+                                <button type="button" id="volverSubCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
+                                <button type="button" id="volverCategorias" class="btn btn-secondary btn-sm" style="display: none;"><i class="fa fa-arrow-left"></i> Volver</button>
+                                <button type="button" id="guardarPedido" class="btn btn-success btn-sm"><i class="fa fa-check"></i> Guardar</button>
                             </div>
-                            <div class="form-group">
-                                <label for="cliCorreoPopap">Correo</label>
-                                <input type="email" class="form-control" id="cliCorreoPopap" value="correo@correo.com">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" id="registrarCliente">Registrar Cliente</button>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- MODAL PARA APERTURAR CAJA -->
+        <!-- Modal para registrar cliente-->
+        <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="clienteModalLabel">Registrar Cliente</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="cliNombrePopap">Nombre</label>
+                            <input type="text" class="form-control" id="cliNombrePopap">
+                        </div>
+                        <div class="form-group">
+                            <label for="cliTelefonoNoRegistrado">Teléfono</label>
+                            <input type="text" class="form-control" id="cliTelefonoNoRegistrado">
+                        </div>
+                        <div class="form-group">
+                            <label for="cliCorreoPopap">Correo</label>
+                            <input type="email" class="form-control" id="cliCorreoPopap" value="correo@correo.com">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="registrarCliente">Registrar Cliente</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal para Aperturar Caja -->
         <div class="modal fade" id="aperturarCajaModal" tabindex="-1" role="dialog" aria-labelledby="aperturarCajaModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="aperturarCajaModalLabel">Aperturar Rapida de Caja</h5>
+                        <h5 class="modal-title" id="aperturarCajaModalLabel">Aperturar Rápida de Caja</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -227,7 +202,6 @@
                                     </c:forEach>
                                 </select>
                             </div>
-
                             <div class="form-group">
                                 <label for="montoInicial">Monto Inicial</label>
                                 <input type="number" class="form-control" id="montoInicial" required placeholder="Ingresar un Monto Inicial">
@@ -243,7 +217,69 @@
         </div>
     </div>
 </div>
-<!-- customs css -->
+
+<style>
+    .card {
+        border-radius: 10px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+    }
+    .card-img-top {
+        object-fit: cover;
+        height: 150px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .quantity-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+    .quantity-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+    .quantity-button:hover {
+        background-color: #0056b3;
+    }
+    .quantity-display {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 10px;
+        color: #333;
+    }
+    .modal-footer {
+        justify-content: center;
+    }
+    .table thead th {
+        background-color: #007bff;
+        color: white;
+    }
+    .btn-danger {
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .btn-primary, .btn-success {
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    #totalPagar {
+        font-weight: bold;
+        font-size: 1.5em;
+        color: #28a745;
+        text-align: right;
+        padding: 10px;
+    }
+</style>
+
 <link href="/static/css/custom.css" rel="stylesheet">
 
 <!-- customs -->

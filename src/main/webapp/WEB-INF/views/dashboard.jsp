@@ -142,15 +142,18 @@
                                                     <hr>
                                                     <div class="productos-section mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <div class="producto-item">
-                                                                <p class="mb-0">
-                                                                        ${producto.proDescripcion}
-                                                                </p>
-                                                                <p><strong>${producto.venDetCantidad} x S/${producto.proPrecio}</strong></p>
+                                                            <div class="producto-item d-flex justify-content-between align-items-center p-2 border rounded mb-2">
+                                                                <div class="producto-descripcion">
+                                                                    <p class="mb-0 font-weight-bold">${producto.proDescripcion}</p>
+                                                                    <small class="text-muted">${producto.vendetObservaciones}</small>
+                                                                </div>
+                                                                <div class="producto-detalles text-right">
+                                                                    <p class="mb-0"><strong>${producto.venDetCantidad} x S/ ${producto.proPrecio}</strong></p>
+                                                                </div>
                                                             </div>
-                                                            <hr>
                                                         </c:forEach>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </c:forEach>

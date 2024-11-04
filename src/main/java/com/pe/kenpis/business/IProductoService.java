@@ -15,6 +15,8 @@ public interface IProductoService {
 
   ProductoResponse create(ProductoRequest request);
 
+  ProductoResponse createCategoria(ProductoRequest request);
+
   ProductoResponse update(ProductoRequest request);
 
   ProductoResponse updateStatus(ProductoRequest request);
@@ -23,7 +25,9 @@ public interface IProductoService {
 
   List<ProductoResponse> findAll();
 
-  List<ProductoListDTO> findActiveProductosWithActiveEmpresa();
+  List<ProductoListDTO> findActiveProductosWithActive();
+
+  List<ProductoListDTO> findActiveProductosWithActiveEmpresa(Integer empId);
 
   List<ProductoResponse> getProductosByCategoriaId(int categoriaId);
 

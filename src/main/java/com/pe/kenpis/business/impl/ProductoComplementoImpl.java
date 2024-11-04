@@ -13,6 +13,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -26,8 +27,8 @@ public class ProductoComplementoImpl implements IProductoComplementoService {
   private final ProductoComplementosRepository productoComplementosRepository;
 
   @Override
-  public List<ProductoComplementoResponseDTO> findAll() {
-    List<Map<String, Object>> listaComplementos = productoComplementosRepository.SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA();
+    public List<ProductoComplementoResponseDTO> findAll(Integer empId) {
+    List<Map<String, Object>> listaComplementos = productoComplementosRepository.SP_LISTA_COMPLEMENTOS_PADRE_POR_EMPRESA(empId);
     return listaComplementos.stream().map(result -> new ProductoComplementoResponseDTO((Integer) result.get("emp_id"), (String) result.get("emp_razon_social"), (Integer) result.get("pro_comp_id"), (String) result.get("pro_comp_nombre"), (Double) result.get("pro_comp_precio"), (Integer) result.get("pro_comp_id_padre"))).collect(Collectors.toList());
   }
 
@@ -47,6 +48,22 @@ public class ProductoComplementoImpl implements IProductoComplementoService {
   public ProductoComplementosResponse findById(Integer id) {
     log.info("Implements :: findById :: " + id);
     return productoComplementosRepository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoComplementosResponse());
+  }
+  public List<ProductoComplementoResponseDTO> obtenerComplementosConSubcomplementos(Integer productId, Integer empId) {
+    // Llamada al repositorio para obtener los resultados de la consulta
+    List<Object[]> resultados = productoComplementosRepository.findComplementosConSubcomplementosByProductoId(productId, empId);
+
+    // Mapear los resultados a ComplementoDTO
+    List<ProductoComplementoResponseDTO> complementos = new ArrayList<>();
+    for (Object[] fila : resultados) {
+      Integer idComplementoPrincipal = (Integer) fila[0];
+      String nombreComplementoPrincipal = (String) fila[1];
+      String subcomplementos = (String) fila[2];
+
+      complementos.add(new ProductoComplementoResponseDTO(idComplementoPrincipal, nombreComplementoPrincipal, subcomplementos));
+    }
+
+    return complementos;
   }
 
   @Override

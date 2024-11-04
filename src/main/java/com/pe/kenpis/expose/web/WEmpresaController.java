@@ -5,6 +5,7 @@ import com.pe.kenpis.business.IUsuarioService;
 import com.pe.kenpis.model.api.empresa.EmpresaDTO;
 import com.pe.kenpis.model.api.empresa.EmpresaRequest;
 import com.pe.kenpis.model.api.empresa.EmpresaResponse;
+import com.pe.kenpis.model.api.empresa.EmpresaResponseDTO;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOResponse;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalDTOrequest;
 import com.pe.kenpis.model.api.empresa.sucursal.SucursalRequest;
@@ -36,6 +37,14 @@ public class WEmpresaController {
   public ResponseEntity<List<EmpresaDTO>> findAll() {
     log.info("Controller :: findAll");
     List<EmpresaDTO> empresas = service.findAllActiveEmpresaById();
+    return new ResponseEntity<>(empresas, HttpStatus.OK);
+  }
+
+  //listar empresas combo box
+  @GetMapping("/find-all/empresas")
+  public ResponseEntity<List<EmpresaResponseDTO>> findAllEmpresaComboBox() {
+    log.info("Controller :: findAllEmpresaComboBox");
+    List<EmpresaResponseDTO> empresas = service.findAllByStatus();
     return new ResponseEntity<>(empresas, HttpStatus.OK);
   }
 

@@ -1,0 +1,546 @@
+[INFO ] [03-11-2024 18:21:25] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 26616 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 18:21:25] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 18:21:25] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 18:21:25] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 18:21:26] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 18:21:26] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 90 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 18:21:27] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 18:21:27] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 18:21:27] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 18:21:27] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 18:21:27] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 18:21:27] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 18:21:27] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1720 ms
+[INFO ] [03-11-2024 18:21:27] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 18:21:27] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 18:21:28] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 18:21:28] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 18:21:29] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 18:21:29] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 18:21:30] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 18:21:30] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 18:21:31] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1ddf8693, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63c527b8, org.springframework.security.web.context.SecurityContextPersistenceFilter@13fa316, org.springframework.security.web.header.HeaderWriterFilter@63912df4, org.springframework.security.web.authentication.logout.LogoutFilter@2aadc0fd, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6f1be022, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@21c3edf3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33953d8e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b5a2865, org.springframework.security.web.session.SessionManagementFilter@496f43d7, org.springframework.security.web.access.ExceptionTranslationFilter@626bcc3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2f045e01]
+[INFO ] [03-11-2024 18:21:31] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 18:21:32] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 18:21:32] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 18:21:32] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 18:21:32] [KenpisApplication              :: 61  ] - Started KenpisApplication in 7.002 seconds (JVM running for 7.604)
+[INFO ] [03-11-2024 18:21:32] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 18:21:32] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 18:21:32] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[WARN ] [03-11-2024 18:21:32] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [106] milliseconds.
+[DEBUG] [03-11-2024 18:21:35] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 18:21:35] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 18:21:35] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 18:21:35] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 18:21:35] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 18:21:36] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 18:21:39] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:21:39] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:21:39] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 18:21:46] [ProductoImpl                   :: 52  ] - Implements :: findById :: 58
+[INFO ] [03-11-2024 18:21:46] [FxComunes                      :: 68  ] - COMPLEMETNOS[]
+[DEBUG] [03-11-2024 18:22:00] [ProductoImpl                   :: 109 ] - Implements :: delete :: ID -> 58
+[INFO ] [03-11-2024 18:22:00] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[DEBUG] [03-11-2024 18:22:02] [ProductoImpl                   :: 109 ] - Implements :: delete :: ID -> 9
+[INFO ] [03-11-2024 18:22:02] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[DEBUG] [03-11-2024 18:22:16] [ProductoImpl                   :: 109 ] - Implements :: delete :: ID -> 55
+[INFO ] [03-11-2024 18:22:17] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:22:25] [FxComunes                      :: 68  ] - trae complementos por empresa [{"empId":1,"empNombreComercial":"Albin Wurst","proCompId":1,"proCompNombre":"Cremas","proCompPrecio":0.0,"proCompIdPadre":0,"subComplementos":null,"detalles":null},{"empId":1,"empNombreComercial":"Albin Wurst","proCompId":2,"proCompNombre":"Toppings","proCompPrecio":0.0,"proCompIdPadre":0,"subComplementos":null,"detalles":null},{"empId":1,"empNombreComercial":"Albin Wurst","proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":0.0,"proCompIdPadre":0,"subComplementos":null,"detalles":null}]
+[INFO ] [03-11-2024 18:22:27] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:22:27] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:22:28] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[DEBUG] [03-11-2024 18:25:02] [ProductoImpl                   :: 58  ] - Implements :: create :: Inicio
+[INFO ] [03-11-2024 18:25:02] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:29:08] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 18:29:08] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [03-11-2024 18:29:08] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [03-11-2024 18:29:15] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 2956 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 18:29:15] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 18:29:15] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 18:29:15] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 18:29:16] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 18:29:16] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 77 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 18:29:17] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 18:29:17] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 18:29:17] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 18:29:17] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 18:29:17] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 18:29:17] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 18:29:17] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1267 ms
+[INFO ] [03-11-2024 18:29:17] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 18:29:17] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 18:29:18] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 18:29:18] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 18:29:18] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 18:29:18] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 18:29:19] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 18:29:19] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 18:29:20] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@79525769, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6dd512ab, org.springframework.security.web.context.SecurityContextPersistenceFilter@3975bc84, org.springframework.security.web.header.HeaderWriterFilter@1a808c8, org.springframework.security.web.authentication.logout.LogoutFilter@dbb8c1c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@68de5ca4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@70104104, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@151966f3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6a9a6fb1, org.springframework.security.web.session.SessionManagementFilter@4566f78a, org.springframework.security.web.access.ExceptionTranslationFilter@35a6c819, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2925d056]
+[INFO ] [03-11-2024 18:29:20] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 18:29:20] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 18:29:20] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 18:29:20] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 18:29:20] [KenpisApplication              :: 61  ] - Started KenpisApplication in 4.913 seconds (JVM running for 5.413)
+[INFO ] [03-11-2024 18:29:24] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 18:29:24] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 18:29:24] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [03-11-2024 18:29:25] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 18:29:25] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [03-11-2024 18:29:28] [ProductoImpl                   :: 109 ] - Implements :: delete :: ID -> 59
+[INFO ] [03-11-2024 18:29:28] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[DEBUG] [03-11-2024 18:29:33] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 18:29:33] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 18:29:33] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 18:29:34] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 18:29:34] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 18:29:34] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 18:29:35] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:29:35] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:29:35] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[DEBUG] [03-11-2024 18:29:49] [ProductoImpl                   :: 58  ] - Implements :: create :: Inicio
+[INFO ] [03-11-2024 18:29:49] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:30:54] [ProductoImpl                   :: 52  ] - Implements :: findById :: 8
+[INFO ] [03-11-2024 18:30:55] [FxComunes                      :: 68  ] - COMPLEMETNOS[]
+[INFO ] [03-11-2024 18:30:59] [ProductoImpl                   :: 52  ] - Implements :: findById :: 60
+[INFO ] [03-11-2024 18:30:59] [FxComunes                      :: 68  ] - COMPLEMETNOS[{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null}]
+[INFO ] [03-11-2024 18:47:22] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:47:22] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:47:22] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 18:48:08] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:48:09] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:48:09] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 18:54:19] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:54:19] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:54:19] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 18:54:53] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:54:54] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:54:54] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 18:58:45] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:58:45] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:58:45] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 18:59:04] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 18:59:04] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 18:59:04] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 19:02:16] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 19:02:16] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 19:02:16] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 19:10:27] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 19:10:27] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 19:10:27] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 19:10:28] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 19:10:28] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 19:10:28] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 19:12:59] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 19:12:59] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 19:12:59] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[DEBUG] [03-11-2024 19:14:57] [ProductoImpl                   :: 109 ] - Implements :: delete :: ID -> 60
+[INFO ] [03-11-2024 19:14:57] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 21:26:17] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [192] milliseconds.
+[DEBUG] [03-11-2024 21:26:19] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 21:26:19] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 21:26:19] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 21:26:19] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 21:26:19] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 21:26:19] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[WARN ] [03-11-2024 21:26:31] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [03-11-2024 21:26:31] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [03-11-2024 21:26:31] [WEmpresaController             :: 128 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [03-11-2024 21:26:31] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [03-11-2024 21:26:34] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 21:26:34] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 21:26:34] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[WARN ] [03-11-2024 21:27:48] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [03-11-2024 21:27:48] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [03-11-2024 21:27:48] [WEmpresaController             :: 128 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [03-11-2024 21:27:48] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [03-11-2024 21:27:54] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 21:27:54] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 21:27:55] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 22:09:27] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 22:09:27] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [03-11-2024 22:09:29] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 22:09:29] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 22:09:29] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 22:09:29] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 22:09:29] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 22:09:29] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 22:09:32] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 22:09:37] [PoolBase                       :: 184 ] - HikariPool-1 - Failed to validate connection ConnectionID:72 ClientConnectionId: 4f3cae2d-65cf-4219-bfaa-4fad856be642 (La conexión está cerrada.). Possibly consider using a shorter maxLifetime value.
+[WARN ] [03-11-2024 22:09:37] [Command                        :: 7238] - TDSCommand@1879e439 (SQLServerStatement:137 executeXXX): Command could not be timed out. Reason: Socket closed
+[INFO ] [03-11-2024 22:09:37] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 22:09:37] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 22:10:40] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 22:10:40] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 22:10:40] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[WARN ] [03-11-2024 22:26:33] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [03-11-2024 22:26:33] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [03-11-2024 22:26:33] [WEmpresaController             :: 128 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [03-11-2024 22:26:33] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [03-11-2024 22:26:35] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 22:26:35] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 22:26:35] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 22:51:41] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 22:51:41] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [03-11-2024 22:51:41] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [03-11-2024 22:52:00] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 14780 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 22:52:00] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 22:52:00] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 22:52:00] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 22:52:01] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 22:52:01] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 83 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 22:52:02] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 22:52:02] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 22:52:02] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 22:52:02] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 22:52:02] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 22:52:02] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 22:52:02] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1806 ms
+[WARN ] [03-11-2024 22:52:02] [[/]                            :: 173 ] - Cannot deserialize session attribute [empresasAdministrador] for session [0A665389567538F2851F740F9C078062]
+[ERROR] [03-11-2024 22:52:02] [StandardManager                :: 175 ] - Exception loading sessions from persistent storage
+java.lang.InstantiationError: java.io.ObjectStreamException
+	at java.base/jdk.internal.reflect.GeneratedSerializationConstructorAccessor9.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at java.base/java.io.ObjectStreamClass.newInstance(ObjectStreamClass.java:1081)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2071)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1594)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:430)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1530)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1000)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:210)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:156)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:346)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4931)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:489)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:585)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+[INFO ] [03-11-2024 22:52:02] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 22:52:02] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 22:52:03] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 22:52:03] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 22:52:04] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 22:52:04] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 22:52:05] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 22:52:05] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 22:52:05] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@50ab44b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26870bc1, org.springframework.security.web.context.SecurityContextPersistenceFilter@34678d53, org.springframework.security.web.header.HeaderWriterFilter@10f08b7a, org.springframework.security.web.authentication.logout.LogoutFilter@1a07f814, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17a99fc9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@11f7d7e4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1e137ad0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65841997, org.springframework.security.web.session.SessionManagementFilter@54cd8a0d, org.springframework.security.web.access.ExceptionTranslationFilter@7f5f9b8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@25267bd5]
+[INFO ] [03-11-2024 22:52:05] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 22:52:06] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 22:52:06] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 22:52:06] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 22:52:06] [KenpisApplication              :: 61  ] - Started KenpisApplication in 6.324 seconds (JVM running for 6.884)
+[INFO ] [03-11-2024 23:11:59] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:11:59] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:11:59] [DispatcherServlet              :: 547 ] - Completed initialization in 25 ms
+[WARN ] [03-11-2024 23:12:00] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [271] milliseconds.
+[INFO ] [03-11-2024 23:12:03] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 23:12:03] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [03-11-2024 23:12:12] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 23:12:12] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 23:12:12] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 23:12:12] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 23:12:12] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 23:12:12] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 23:12:14] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 23:12:14] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:12:14] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 23:18:14] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:18:14] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [03-11-2024 23:18:14] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [03-11-2024 23:18:28] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 12572 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 23:18:28] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 23:18:28] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 23:18:29] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 23:18:29] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 23:18:29] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 86 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 23:18:30] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 23:18:30] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:18:30] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 23:18:30] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 23:18:30] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 23:18:30] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 23:18:30] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1550 ms
+[INFO ] [03-11-2024 23:18:30] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 23:18:30] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 23:18:31] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 23:18:31] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 23:18:31] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 23:18:32] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 23:18:33] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 23:18:33] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:18:33] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6c181ae6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37e56464, org.springframework.security.web.context.SecurityContextPersistenceFilter@49955f66, org.springframework.security.web.header.HeaderWriterFilter@5790f208, org.springframework.security.web.authentication.logout.LogoutFilter@724bd3cf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@75f2275f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@38401ebf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@55cd0901, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4e3ecd11, org.springframework.security.web.session.SessionManagementFilter@38fdc678, org.springframework.security.web.access.ExceptionTranslationFilter@68e336e6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2c61b65a]
+[INFO ] [03-11-2024 23:18:33] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 23:18:34] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 23:18:34] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:18:34] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 23:18:34] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.662 seconds (JVM running for 6.183)
+[INFO ] [03-11-2024 23:26:20] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:26:20] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:26:20] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[DEBUG] [03-11-2024 23:26:20] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 23:26:20] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 23:26:20] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 23:26:20] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 23:26:20] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 23:26:20] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[WARN ] [03-11-2024 23:26:23] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [03-11-2024 23:26:23] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [03-11-2024 23:26:23] [WEmpresaController             :: 128 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [03-11-2024 23:26:23] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [03-11-2024 23:26:24] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 23:26:24] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:26:24] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[WARN ] [03-11-2024 23:26:34] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 37] (through reference chain: com.pe.kenpis.model.api.producto.ProductoRequest["proImagen"])]
+[WARN ] [03-11-2024 23:28:18] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 37] (through reference chain: com.pe.kenpis.model.api.producto.ProductoRequest["proImagen"])]
+[INFO ] [03-11-2024 23:31:12] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:31:12] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [03-11-2024 23:31:12] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [03-11-2024 23:31:20] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 26432 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 23:31:20] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 23:31:20] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 23:31:20] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 23:31:20] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 23:31:21] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 80 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 23:31:21] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 23:31:21] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:31:21] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 23:31:21] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 23:31:21] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 23:31:21] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 23:31:21] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1384 ms
+[WARN ] [03-11-2024 23:31:21] [[/]                            :: 173 ] - Cannot deserialize session attribute [empresasAdministrador] for session [58D1246BC84072AC44EC013E50186B82]
+[ERROR] [03-11-2024 23:31:21] [StandardManager                :: 175 ] - Exception loading sessions from persistent storage
+java.lang.InstantiationError: java.io.ObjectStreamException
+	at java.base/jdk.internal.reflect.GeneratedSerializationConstructorAccessor9.newInstance(Unknown Source)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at java.base/java.io.ObjectStreamClass.newInstance(ObjectStreamClass.java:1081)
+	at java.base/java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2071)
+	at java.base/java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1594)
+	at java.base/java.io.ObjectInputStream.readObject(ObjectInputStream.java:430)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1530)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1000)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:210)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:156)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:346)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4931)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:794)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1332)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1322)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:140)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:866)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:248)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:433)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:921)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:171)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:489)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:481)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:184)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:585)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:732)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:409)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1300)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1289)
+	at com.pe.kenpis.KenpisApplication.main(KenpisApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+[INFO ] [03-11-2024 23:31:22] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 23:31:22] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 23:31:22] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 23:31:22] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 23:31:23] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 23:31:23] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 23:31:24] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 23:31:24] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:31:24] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@41427eb6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@112efa55, org.springframework.security.web.context.SecurityContextPersistenceFilter@53eb0d45, org.springframework.security.web.header.HeaderWriterFilter@6350e79b, org.springframework.security.web.authentication.logout.LogoutFilter@3919e37d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14aae8dd, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@354fdaff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@cb457e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@11f7c157, org.springframework.security.web.session.SessionManagementFilter@53499fa2, org.springframework.security.web.access.ExceptionTranslationFilter@30010fd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74bdb848]
+[INFO ] [03-11-2024 23:31:24] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 23:31:25] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 23:31:25] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:31:25] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 23:31:25] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.195 seconds (JVM running for 5.669)
+[INFO ] [03-11-2024 23:35:08] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:35:08] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:35:08] [DispatcherServlet              :: 547 ] - Completed initialization in 2 ms
+[WARN ] [03-11-2024 23:35:08] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [228] milliseconds.
+[DEBUG] [03-11-2024 23:35:11] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 23:35:11] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 23:35:11] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 23:35:11] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 23:35:11] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 23:35:11] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 23:35:14] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 23:35:14] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:35:14] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[WARN ] [03-11-2024 23:35:28] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `java.lang.String` from Object value (token `JsonToken.START_OBJECT`)<EOL> at [Source: (org.springframework.util.StreamUtils$NonClosingInputStream); line: 1, column: 38] (through reference chain: com.pe.kenpis.model.api.producto.ProductoRequest["proImagen"])]
+[INFO ] [03-11-2024 23:38:24] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:38:24] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [03-11-2024 23:38:24] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [03-11-2024 23:38:34] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 25316 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 23:38:34] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 23:38:34] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 23:38:34] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 23:38:34] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 23:38:34] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 86 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 23:38:35] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 23:38:35] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:38:35] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 23:38:35] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 23:38:35] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 23:38:35] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 23:38:35] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1335 ms
+[INFO ] [03-11-2024 23:38:35] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 23:38:35] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 23:38:36] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 23:38:36] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 23:38:36] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 23:38:36] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 23:38:37] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 23:38:37] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:38:38] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@78e90106, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4cdcb371, org.springframework.security.web.context.SecurityContextPersistenceFilter@976f7d8, org.springframework.security.web.header.HeaderWriterFilter@386dc189, org.springframework.security.web.authentication.logout.LogoutFilter@111050c6, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@286f5bea, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13c949fa, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6881aff1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@155b6fe7, org.springframework.security.web.session.SessionManagementFilter@50b50658, org.springframework.security.web.access.ExceptionTranslationFilter@32c79a8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@22670fd1]
+[INFO ] [03-11-2024 23:38:38] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 23:38:39] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 23:38:39] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:38:39] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 23:38:39] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.196 seconds (JVM running for 5.694)
+[INFO ] [03-11-2024 23:38:40] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:38:40] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:38:40] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [03-11-2024 23:38:41] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 23:38:41] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [03-11-2024 23:38:47] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 23:38:47] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 23:38:47] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 23:38:47] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 23:38:47] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 23:38:47] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 23:38:49] [FxComunes                      :: 68  ] - trae complementos por empresa [{"empId":1,"empNombreComercial":"Albin Wurst","proCompId":1,"proCompNombre":"Cremas","proCompPrecio":0.0,"proCompIdPadre":0,"subComplementos":null,"detalles":null},{"empId":1,"empNombreComercial":"Albin Wurst","proCompId":2,"proCompNombre":"Toppings","proCompPrecio":0.0,"proCompIdPadre":0,"subComplementos":null,"detalles":null},{"empId":1,"empNombreComercial":"Albin Wurst","proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":0.0,"proCompIdPadre":0,"subComplementos":null,"detalles":null}]
+[INFO ] [03-11-2024 23:38:49] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 23:38:50] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:38:50] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 23:54:34] [LocalContainerEntityManagerFactoryBean :: 651 ] - Closing JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:54:34] [HikariDataSource               :: 350 ] - HikariPool-1 - Shutdown initiated...
+[INFO ] [03-11-2024 23:54:34] [HikariDataSource               :: 352 ] - HikariPool-1 - Shutdown completed.
+[INFO ] [03-11-2024 23:54:43] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 17216 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [03-11-2024 23:54:43] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [03-11-2024 23:54:43] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [03-11-2024 23:54:43] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [03-11-2024 23:54:43] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [03-11-2024 23:54:43] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 84 ms. Found 12 JPA repository interfaces.
+[INFO ] [03-11-2024 23:54:44] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [03-11-2024 23:54:44] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:54:44] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [03-11-2024 23:54:44] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [03-11-2024 23:54:44] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [03-11-2024 23:54:44] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [03-11-2024 23:54:44] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1565 ms
+[INFO ] [03-11-2024 23:54:45] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [03-11-2024 23:54:45] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [03-11-2024 23:54:45] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [03-11-2024 23:54:45] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [03-11-2024 23:54:46] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [03-11-2024 23:54:46] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [03-11-2024 23:54:47] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [03-11-2024 23:54:47] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [03-11-2024 23:54:48] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e338c33, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@335b4726, org.springframework.security.web.context.SecurityContextPersistenceFilter@151966f3, org.springframework.security.web.header.HeaderWriterFilter@6357e219, org.springframework.security.web.authentication.logout.LogoutFilter@6b6f1f11, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3f7372ae, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a39dcbc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@53e770e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@36aef944, org.springframework.security.web.session.SessionManagementFilter@347118bc, org.springframework.security.web.access.ExceptionTranslationFilter@3975bc84, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@79525769]
+[INFO ] [03-11-2024 23:54:48] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [03-11-2024 23:54:48] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [03-11-2024 23:54:48] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [03-11-2024 23:54:48] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [03-11-2024 23:54:48] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.811 seconds (JVM running for 6.378)
+[INFO ] [03-11-2024 23:56:57] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:56:57] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [03-11-2024 23:56:57] [DispatcherServlet              :: 547 ] - Completed initialization in 1 ms
+[INFO ] [03-11-2024 23:56:59] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 23:56:59] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[INFO ] [03-11-2024 23:57:02] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[WARN ] [03-11-2024 23:57:02] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[INFO ] [03-11-2024 23:57:13] [FxComunes                      :: 68  ] - que recibe al crear una categoria{"proId":null,"empId":null,"padreId":null,"proCategoria":"giomasr","proPrecioCosto":null,"proPrecioVenta":null,"proDescripcion":null,"proImagen":null,"proImagenLongitud":null,"proInventarioRelacion":null,"proComplementos":null,"proIsActive":null}
+[DEBUG] [03-11-2024 23:57:13] [ProductoImpl                   :: 77  ] - Implements :: create Categoria :: Inicio
+[WARN ] [03-11-2024 23:57:13] [DefaultHandlerExceptionResolver :: 208 ] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'empId' for method parameter type Integer is present but converted to null]
+[DEBUG] [03-11-2024 23:58:08] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 23:58:08] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 23:58:08] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 23:58:08] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 23:58:08] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 23:58:08] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[WARN ] [03-11-2024 23:58:17] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-yape
+[WARN ] [03-11-2024 23:58:17] [PageNotFound                   :: 1283] - No mapping for GET /kenpis/menu/configuracion/ruta-al-qr-plin
+[INFO ] [03-11-2024 23:58:17] [WEmpresaController             :: 128 ] - Controller :: loadEmpresasByRole :: 2
+[INFO ] [03-11-2024 23:58:17] [EmpresaImpl                    :: 41  ] - Implements  :: findAll
+[INFO ] [03-11-2024 23:58:19] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 23:58:19] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:58:19] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[DEBUG] [03-11-2024 23:59:35] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [03-11-2024 23:59:35] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [03-11-2024 23:59:35] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [03-11-2024 23:59:36] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [03-11-2024 23:59:36] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [03-11-2024 23:59:36] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[INFO ] [03-11-2024 23:59:37] [ProductoImpl                   :: 42  ] - Implements :: findActiveProductosWithActiveEmpresa
+[INFO ] [03-11-2024 23:59:37] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:59:37] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]
+[INFO ] [03-11-2024 23:59:45] [FxComunes                      :: 68  ] - que recibe al crear una categoria{"proId":null,"empId":1,"padreId":null,"proCategoria":"giomarrrrr","proPrecioCosto":null,"proPrecioVenta":null,"proDescripcion":null,"proImagen":null,"proImagenLongitud":null,"proInventarioRelacion":null,"proComplementos":null,"proIsActive":null}
+[DEBUG] [03-11-2024 23:59:45] [ProductoImpl                   :: 77  ] - Implements :: create Categoria :: Inicio
+[INFO ] [03-11-2024 23:59:45] [FxComunes                      :: 68  ] - listar las categorias por empresa [{"proId":14,"empId":1,"proCategoria":"Bebida","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":15,"empId":1,"proCategoria":"Choripan","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":16,"empId":1,"proCategoria":"A la Tabla","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":17,"empId":1,"proCategoria":"Combo","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null},{"proId":62,"empId":1,"proCategoria":"giomarrrrr","proPrecioCosto":null,"proIsActive":null,"proDescripcion":null,"proImagen":null,"proPrecioVenta":null}]
+[INFO ] [03-11-2024 23:59:45] [FxComunes                      :: 68  ] - listar los complementos [{"empId":null,"empNombreComercial":null,"proCompId":1,"proCompNombre":"Cremas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Mostaza, Mayonesa, Ketchup, Ají (Uchucuta)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":2,"proCompNombre":"Toppings","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Papas al Hilo, Pickles (Pepinillos)","detalles":null},{"empId":null,"empNombreComercial":null,"proCompId":3,"proCompNombre":"Bebidas","proCompPrecio":null,"proCompIdPadre":null,"subComplementos":"Cafe, Gaseosa","detalles":null}]

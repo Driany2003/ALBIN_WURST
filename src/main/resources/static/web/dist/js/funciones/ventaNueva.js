@@ -23,14 +23,17 @@ $(document).ready(function () {
             cargarDetalleProducto(subCategoriaId);
         }
     });
+
     function mostrarCampoAlias() {
         $('#alias-label').show();
         $('#alias-field').show();
     }
+
     function ocultarCampoAlias() {
         $('#alias-label').hide();
         $('#alias-field').hide();
     }
+
     function actualizarCampoAlias() {
         let telefono = $('#cliTelefono').val();
         if (telefono === '000000000') {
@@ -44,13 +47,13 @@ $(document).ready(function () {
         $.ajax({
             url: '/kenpis/producto/nuevaVenta-categorias',
             method: 'GET',
-            data: { empId: empresaId },
+            data: {empId: empresaId},
             success: function (categorias) {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();
                 categorias.forEach(function (categoria) {
                     var cardHtml = '<div class="card categoria-card m-2" style="width: 18rem;" data-id="' + categoria.proId + '">' +
-                        '<img alt="Producto" height="50" width="50" class="card-img-top" alt="No se pudo mostrar la imagen" src="data:image/jpeg;base64,' + categoria.proImagen + '"/>' +
+                        '<img alt="Producto" height="50" width="50" class="card-img-top" alt="No se pudo mostrar la imagen" src="' + categoria.proImagen + '"/>' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + categoria.proCategoria + '</h5>' +
                         '<p class="card-text">' + categoria.proDescripcion + '</p>' +
@@ -76,7 +79,7 @@ $(document).ready(function () {
                 contenedor.empty();
                 subCategorias.forEach(function (producto) {
                     var cardHtml = '<div class="card subcategoria-card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecioVenta + '">' +
-                        '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="data:image/jpeg;base64,' + producto.proImagen + '"/>' +
+                        '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="' + producto.proImagen + '"/>' +
                         '<div class="card-body">' +
                         '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
                         '<p class="card-text">' + producto.proDescripcion + '</p>' +
@@ -98,32 +101,57 @@ $(document).ready(function () {
         $.ajax({
             url: '/kenpis/producto/find-by-id/' + productoId,
             method: 'GET',
-            success: function (producto) {
+            success: function (response) {
+                var producto = response.findById;
+                var complementos = response.complementos;
+
                 var contenedorDet = $('#detalle-container');
                 contenedorDet.empty();
-                var cardHtml = '<div class="card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecioVenta + '">' +
-                    '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="data:image/jpeg;base64,' + producto.proImagen + '"/>' +
-                    '<div class="card-body">' +
-                    '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
-                    '<p class="card-text-descripcion">' + producto.proDescripcion + '</p>' +
-                    '<p class="card-text">Precio: S/ ' + producto.proPrecioVenta.toFixed(2) + '</p>' +
-                    '</div>' +
-                    '<div class="quantity-container">' +
-                    '<button class="quantity-button minus" type="button">-</button>' +
-                    '<span class="quantity-display">1</span> ' +
-                    ' <button class="quantity-button plus" type="button">+</button>' +
-                    '</div>' +
-                    '</div>';
+
+                // Estructura del contenedor principal, dividida en dos columnas: producto y complementos
+                var cardHtml = `
+                <div class="d-flex flex-row">
+                    <!-- Columna del producto -->
+                    <div class="card m-2" style="width: 18rem;" data-id="${producto.proId}" data-precio="${producto.proPrecioVenta}">
+                        <img alt="Producto" height="150px" width="100%" class="card-img-top" src="${producto.proImagen}"/>
+                        <div class="card-body">
+                            <h5 class="card-title">${producto.proCategoria}</h5>
+                            <p class="card-text-descripcion">${producto.proDescripcion}</p>
+                            <p class="card-text">Precio: S/ ${producto.proPrecioVenta.toFixed(2)}</p>
+                        </div>
+                        <div class="quantity-container">
+                            <button class="quantity-button minus" type="button">-</button>
+                            <span class="quantity-display">1</span>
+                            <button class="quantity-button plus" type="button">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Columna de complementos en el costado derecho -->
+                    <div class="complementos-section ml-4">
+                        <h6>Complementos</h6>
+                        ${complementos.map(complemento => `
+                            <div class="complemento-item mb-2">
+                                <label>
+                                    <input type="checkbox" class="complemento-checkbox" data-id="${complemento.proCompId}" data-nombre="${complemento.proCompNombre}" > 
+                                    ${complemento.proCompNombre}
+                                </label>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
                 contenedorDet.append(cardHtml);
+
                 $('#volverSubCategorias').show();
                 $('#volverCategorias').hide();
                 $('#guardarPedido').show();
             },
             error: function (xhr, status, error) {
-                console.error('Error al obtener subcategorías:', error);
+                console.error('Error al obtener el detalle del producto:', error);
             }
         });
     }
+
 
     //FUNCIONES PARA LOS CONTADORES
     $('#detalle-container').on('click', '.quantity-button.plus', function () {
@@ -169,28 +197,44 @@ $(document).ready(function () {
         var producto = $('.card[data-id]').find('.card-text-descripcion').text();
         var precio = $('.card[data-id]').data('precio');
         var cantidad = parseInt($('.quantity-display').text());
+        var complementosSeleccionados = [];
+
+        $('.complemento-checkbox:checked').each(function () {
+            complementosSeleccionados.push($(this).data('nombre'));
+        });
+
         if (cantidad > 0) {
             var subtotal = cantidad * precio;
             detallesVenta.push({
                 productoId: productoId,
                 proDescripcion: producto,
                 venDetCantidad: cantidad,
-                venDetPrecio: precio.toFixed(2),
-                venDetSubtotal: subtotal.toFixed(2)
+                venDetPrecio: precio,
+                venDetSubtotal: subtotal,
+                venDetObservaciones: complementosSeleccionados.join(', ')
+
             });
         }
         $('#ventasBody').empty();
         var detallesHtml = detallesVenta.map(function (detalle) {
-            return '<tr>' +
-                '<td>' + detalle.productoId + '</td>' +
-                '<td>' + detalle.proDescripcion + '</td>' +
-                '<td>' + detalle.venDetCantidad + '</td>' +
-                '<td>S/ ' + detalle.venDetPrecio + '</td>' +
-                '<td>S/ ' + detalle.venDetSubtotal + '</td>' +
-                '<td><button class="btn btn-danger btn-sm eliminar-detalle">Eliminar</button></td>' +
-                '</tr>';
+            return `<tr>
+        <td class="align-middle text-center font-weight-bold">${detalle.productoId}</td>
+        <td class="align-middle">
+            <div><strong>${detalle.proDescripcion}</strong></div>
+            <small class="text-muted">${detalle.venDetObservaciones}</small>
+        </td>
+        <td class="align-middle text-center">${detalle.venDetCantidad}</td>
+        <td class="align-middle text-right">S/ ${detalle.venDetPrecio}</td>
+        <td class="align-middle text-right font-weight-bold text-success">S/ ${detalle.venDetSubtotal}</td>
+        <td class="align-middle text-center">
+            <button class="btn btn-danger btn-sm eliminar-detalle">
+                <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
+        </td>
+    </tr>`;
         }).join('');
         $('#ventasBody').append(detallesHtml);
+
         actualizarTotal();
         $('#ventaForm')[0].reset();
         verificarTabla();
@@ -211,6 +255,7 @@ $(document).ready(function () {
         verificarTabla();
     });
     $('#pagarButton').prop('disabled', true);
+
     function verificarTabla() {
         if ($('#ventasBody tr').length > 0) {
             $('#pagarButton').prop('disabled', false);
@@ -258,6 +303,7 @@ $(document).ready(function () {
                 detallesVentas: detallesVenta,
                 venTotal: totalPagar,
                 venTipoPago: tipoPago
+
             }),
             success: function (response) {
                 toastr.success('Pedido guardado correctamente.');

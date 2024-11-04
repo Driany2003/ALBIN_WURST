@@ -45,6 +45,8 @@
                                 <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#createProductModal">Ingresar Producto</button>
                                 <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                                 <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                                <input id="usuarioNivel" type="hidden" value="${usuSessionNivel}"/>
+
                             </div>
                         </div>
                         <div class="col-md-10">
@@ -86,7 +88,7 @@
         </div>
         <!-- MODAL PARA PODER CREAR UN PRODCUCTO -->
         <div class="modal fade" id="createProductModal" tabindex="-1" role="dialog" aria-labelledby="createProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="createProductModalLabel">Agregar Producto</h5>
@@ -96,49 +98,128 @@
                     </div>
                     <div class="modal-body">
                         <form id="createProductForm" role="form" method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="categoria">Categoría</label>
-                                <select class="form-control" id="categoria" required>
-                                    <option value="" disabled selected>Seleccionar Categoria</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="nombreProducto">Nombre del Producto</label>
-                                <input type="text" class="form-control" id="nombreProducto" placeholder="Ingresar Nombre del Producto" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="precioProductoCosto">Precio Costo</label>
-                                    <input type="number" class="form-control" id="precioProductoCosto" placeholder="Ingresar Precio Costo" required>
+                            <!-- Pestañas -->
+                            <ul class="nav nav-tabs" id="productTab" role="tablist">
+                                <!-- Pestaña Empresa (solo visible para administradores) -->
+                                <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="empresa-tab" data-toggle="tab" href="#empresa" role="tab" aria-controls="empresa" aria-selected="true">
+                                            <i class="fas fa-building" style="margin-right: 5px;"></i> Empresa
+                                        </a>
+                                    </li>
+                                </c:if>
+                                <!-- Pestaña Categoría -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="categoria-select-tab" data-toggle="tab" href="#categoria-select" role="tab" aria-controls="categoria-select" aria-selected="false">Categoría</a>
+                                </li>
+                                <!-- Pestaña Producto (nombre, descripción, complementos e imagen) -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="producto-tab" data-toggle="tab" href="#producto" role="tab" aria-controls="producto" aria-selected="false">Producto</a>
+                                </li>
+                                <!-- Pestaña Precio -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="precio-tab" data-toggle="tab" href="#precio" role="tab" aria-controls="precio" aria-selected="false">Precio</a>
+                                </li>
+                            </ul>
+
+                            <!-- Contenido de las pestañas -->
+                            <div class="tab-content mt-4" id="productTabContent">
+
+                                <!-- Empresa -->
+                                <div class="tab-pane fade show active" id="empresa" role="tabpanel" aria-labelledby="empresa-tab">
+                                    <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                                        <div class="form-group">
+                                            <label for="empresaSelect">Seleccionar Empresa</label>
+                                            <select class="form-control" id="empresaSelect">
+                                                <option value="" disabled selected>Seleccione una Empresa</option>
+                                            </select>
+                                        </div>
+                                    </c:if>
                                 </div>
-                                <div class="form-group col-md-6">
-                                    <label for="precioProductoVenta">Precio Venta</label>
-                                    <input type="number" class="form-control" id="precioProductoVenta" placeholder="Ingresar Precio Venta" required>
+
+                                <!-- Categoría -->
+                                <div class="tab-pane fade" id="categoria-select" role="tabpanel" aria-labelledby="categoria-select-tab">
+                                    <div class="form-group">
+                                        <label for="categoria">Categoría</label>
+                                        <div class="input-group">
+                                            <select class="form-control" id="categoria" required>
+                                                <option value="" disabled selected>Seleccionar Categoría</option>
+                                            </select>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button" id="agregarNuevaCategoria">Agregar Nueva Categoría</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Campo de nueva categoría con logo -->
+                                        <div id="nuevaCategoria" class="mt-3 p-3 border rounded" style="display: none; position: relative;">
+                                            <!-- Botón de cerrar -->
+                                            <button type="button" id="cerrarNuevaCategoria" class="close" aria-label="Close" style="position: absolute; top: 10px; right: 10px;">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+
+                                            <h5>Agregar Nueva Categoría</h5>
+                                            <input type="text" class="form-control mb-2" id="ingresarNombreCategoria" placeholder="Nombre de la Nueva Categoría" required>
+
+                                            <label for="imagenCategoria" class="d-block">Cargar Logo de la Categoría</label>
+                                            <input type="file" class="form-control-file mb-2" id="imagenCategoria" accept="image/png, image/jpeg" required>
+
+                                            <!-- Vista previa de la imagen -->
+                                            <div class="text-center mt-2">
+                                                <img id="categoriaImagenPrevia" src="#" alt="Vista previa del logo" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                            </div>
+
+                                            <button type="button" class="btn btn-sm btn-success mt-3" id="guardarCategoriaBtn">Guardar Categoría</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Producto (nombre, descripción, complementos e imagen) -->
+                                <div class="tab-pane fade" id="producto" role="tabpanel" aria-labelledby="producto-tab">
+                                    <div class="form-group">
+                                        <label for="nombreProducto">Nombre del Producto</label>
+                                        <input type="text" class="form-control" id="nombreProducto" placeholder="Ingresar Nombre del Producto" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="descripcionProducto">Descripción del Producto</label>
+                                        <textarea class="form-control" id="descripcionProducto" rows="3" placeholder="Ingresar la Descripción del Producto" required></textarea>
+                                    </div>
+                                    <div id="complementos-container" class="form-group">
+                                        <label for="complemento1">Complementos del Producto</label>
+                                        <div class="d-flex flex-wrap">
+                                            <!-- Ejemplo de switch de complemento -->
+                                            <div class="custom-control custom-switch m-1">
+                                                <input  class="custom-control-input" id="complemento1">
+                                                <label class="custom-control-label" for="complemento1"><p>No hay empresa seleccionada</p></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="hr hr-blurry" style="border: 2px solid lightgray;"/>
+                                    <div class="form-group text-center mt-2">
+                                        <label for="imagenProducto">Imagen del Producto</label>
+                                        <div class="form-group">
+                                            <img id="imagenPreview" src="#" alt="Imagen del Producto" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                        </div>
+                                        <label for="imagenProducto" class="btn btn-secondary">Cargar Imagen</label>
+                                        <input type="file" class="form-control-file" id="imagenProducto" name="imagenProducto" style="visibility:hidden;" accept="image/png, image/jpeg">
+                                    </div>
+                                </div>
+
+                                <!-- Precio -->
+                                <div class="tab-pane fade" id="precio" role="tabpanel" aria-labelledby="precio-tab">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="precioProductoCosto">Precio Costo</label>
+                                            <input type="number" class="form-control" id="precioProductoCosto" placeholder="Ingresar Precio Costo" required>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="precioProductoVenta">Precio Venta</label>
+                                            <input type="number" class="form-control" id="precioProductoVenta" placeholder="Ingresar Precio Venta" required>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="descripcionProducto">Descripcion del Producto</label>
-                                <textarea class="form-control" id="descripcionProducto" rows="3" placeholder="Ingresar la Descripcion del Producto" required></textarea>
-                            </div>
-                            <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
-                            <div class="form-group">
-                                <label for="complementoProducto">Complementos</label>
-                                <input type="hidden" id="complementoProducto">
-                            </div>
-                            <div id="complementos-container" class="form-group"></div>
-                            <hr class="hr hr-blurry" style="border: 3px solid lightblue;"/>
-                            <div class="form-group">
-                                <label for="descripcionProducto">Imagen</label>
-                            </div>
-                            <div class="form-group text-center">
-                                <div class="form-group">
-                                    <img id="imagenPreview" src="" alt="Imagen del Producto" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
-                                </div>
-                                <div class="form-group">
-                                    <label for="imagenProducto" class="btn btn-secondary">Cargar</label>
-                                    <input type="file" class="form-control-file" id="imagenProducto" name="imagenProducto" style="visibility:hidden;" accept="image/png, image/jpeg">
-                                </div>
-                            </div>
+
+                            <!-- Footer -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary" id="registrarProducto">Agregar</button>
@@ -148,6 +229,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Modal de editar producto -->
         <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -185,7 +267,8 @@
                             </div>
                             <hr class="hr hr-blurry"/>
                             <div class="form-group">
-                                <label for="descripcionProducto">Complementos</label>
+                                <label for="editComplementosContainer">Complementos</label>
+                                <input type="hidden" id="editComplementosContainer">
                             </div>
                             <hr class="hr hr-blurry"/>
                             <div class="form-group">
@@ -194,8 +277,14 @@
                             <div id="editImgContainer">
                             </div>
                             <div class="form-group text-center">
-                                <label for="editImagenProductoNuevo" class="btn btn-outline-secondary">Editar Imagen</label>
-                                <input type="file" id="editImagenProductoNuevo" style="display: none;">
+                                <div class="form-group">
+                                    <img id="logoPreviewEdit" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                </div>
+                                <div class="form-group">
+                                    <label for="editarProductoImageLogo" class="btn btn-secondary">Modificar</label>
+                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Modificar Imagen del producto."></i>
+                                    <input type="file" class="form-control-file" id="editarProductoImageLogo" name="editarProductoImageLogo" style="visibility:hidden;" accept="image/png, image/jpeg">
+                                </div>
                             </div>
                             <input type="hidden" id="editProductId">
                             <div class="modal-footer">
@@ -211,6 +300,30 @@
 </div>
 
 <style>
+
+    #nuevaCategoria {
+        background-color: #f8f9fa; /* Color de fondo ligero */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    #guardarCategoriaBtn {
+        width: 100%; /* Botón ancho */
+    }
+
+    #cerrarNuevaCategoria {
+        font-size: 1.2rem;
+        border: none;
+        background: none;
+        color: #333;
+        cursor: pointer;
+    }
+
+    #cerrarNuevaCategoria:hover {
+        color: #ff4d4d; /* Cambia a rojo al pasar el mouse */
+    }
+
     .switch-complemento {
         position: relative;
         display: inline-block;

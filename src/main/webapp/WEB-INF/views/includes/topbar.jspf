@@ -14,13 +14,15 @@
                     <!-- Logo icon -->
                     <b class="logo-icon">
                         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                        <img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Kenpis" class="light-logo">
+                        <img src="/static/web/assets/images/0_logo/albin-wurst-2.png"  class="light-logo" style="width: 200px" height="60px">
                     </b>
                     <!--End Logo icon -->
                     <!-- Logo text -->
+                    <!--
                     <span class="logo-text">
                         <img src="/static/web/assets/images/0_logo/logo_kenpis_texto.png" alt="Kenpis" class="light-logo"/>
                     </span>
+                    -->
                 </a>
                 <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)" data-sidebartype="mini-sidebar">
                     <i class="mdi mdi-toggle-switch mdi-toggle-switch-off font-20"></i>

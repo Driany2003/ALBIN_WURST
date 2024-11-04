@@ -17,9 +17,9 @@
     <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(/static/web/assets/images/big/auth-bg.jpg) no-repeat center center;">
         <div class="auth-box">
             <div class="logo">
-                <span class="db"><img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Kenpis"/></span>
+                <span class="db"><img src="/static/web/assets/images/0_logo/albin-wurst-2.png" alt="Albin Wurst" style="width: 310px" height="120px"/></span>
                 <br>
-                <h1 class="font-medium m-b-10">KENPIS</h1>
+                <h1 class="font-medium m-b-10">Albin Wurst</h1>
                 <h3 class="font-10 m-b-5">VENDE SIMPLE Y GANA MÁS</h3>
             </div>
             <!-- Form -->

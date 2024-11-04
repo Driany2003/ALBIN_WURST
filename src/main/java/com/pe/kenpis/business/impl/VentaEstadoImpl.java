@@ -125,6 +125,7 @@ public class VentaEstadoImpl implements IVentaEstadoService {
       Integer venEstadoId = (Integer) map.get("venEstadoId");
       Double venTotal = (Double) map.get("venTotal");
       String venTipoPago = (String) map.get("venTipoPago");
+      String vendetObservaciones = (String) map.get("vendetObservaciones");
 
       if (!ventasGrupo.containsKey(ventaId)) {
         Map<String, Object> ventaData = new HashMap<>();
@@ -132,14 +133,19 @@ public class VentaEstadoImpl implements IVentaEstadoService {
         ventaData.put("venEstadoId", venEstadoId);
         ventaData.put("venTotal" , venTotal);
         ventaData.put("venTipoPago" , venTipoPago);
+        ventaData.put("vendetObservaciones" , vendetObservaciones);
+
         ventasGrupo.put(ventaId, ventaData);
         productosGrupo.put(ventaId, new ArrayList<>());
       }
 
+      Double precio = map.get("proPrecio") != null ? (Double) map.get("proPrecio") : 0.0;
+
       ProductoDTO producto = new ProductoDTO(
           (String) map.get("proDescripcion"),
           (Integer) map.get("venDetCantidad"),
-          (Double) map.get("proPrecio")
+          precio,
+          vendetObservaciones
       );
       productosGrupo.get(ventaId).add(producto);
     }
