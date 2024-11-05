@@ -232,7 +232,7 @@
 
         <!-- Modal de editar producto -->
         <div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editProductModalLabel">Editar Producto</h5>
@@ -241,52 +241,103 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="editarProductoForm">
-                            <div class="form-group">
-                                <label for="editCategoria">Categoría</label>
-                                <select class="form-control" id="editCategoria" required></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="editNombreProducto">Nombre</label>
-                                <input type="text" class="form-control" id="editNombreProducto" required>
+                        <form id="editarProductoForm" role="form" method="post" enctype="multipart/form-data">
+                            <!-- Pestañas -->
+                            <ul class="nav nav-tabs" id="editProductTab" role="tablist">
+                                <!-- Pestaña Empresa (solo visible para administradores) -->
+                                <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="edit-empresa-tab" data-toggle="tab" href="#edit-empresa" role="tab" aria-controls="edit-empresa" aria-selected="true">
+                                            <i class="fas fa-building" style="margin-right: 5px;"></i> Empresa
+                                        </a>
+                                    </li>
+                                </c:if>
+                                <!-- Pestaña Categoría -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="edit-categoria-tab" data-toggle="tab" href="#edit-categoria" role="tab" aria-controls="edit-categoria" aria-selected="false">Categoría</a>
+                                </li>
+                                <!-- Pestaña Producto -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="edit-producto-tab" data-toggle="tab" href="#edit-producto" role="tab" aria-controls="edit-producto" aria-selected="false">Producto</a>
+                                </li>
+                                <!-- Pestaña Precio -->
+                                <li class="nav-item">
+                                    <a class="nav-link" id="edit-precio-tab" data-toggle="tab" href="#edit-precio" role="tab" aria-controls="edit-precio" aria-selected="false">Precio</a>
+                                </li>
+                            </ul>
+
+                            <!-- Contenido de las pestañas -->
+                            <div class="tab-content mt-4" id="editProductTabContent">
+                                <input type="hidden" id="editProductId" >
+                                <!-- Empresa -->
+                                <div class="tab-pane fade show active" id="edit-empresa" role="tabpanel" aria-labelledby="edit-empresa-tab">
+                                    <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                                        <div class="form-group">
+                                            <label for="editEmpresaSelect">Seleccionar Empresa</label>
+                                            <select class="form-control" id="editEmpresaSelect">
+                                                <option value="" disabled selected>Seleccione una Empresa</option>
+                                            </select>
+                                        </div>
+                                    </c:if>
+                                </div>
+
+                                <!-- Categoría -->
+                                <div class="tab-pane fade" id="edit-categoria" role="tabpanel" aria-labelledby="edit-categoria-tab">
+                                    <div class="form-group">
+                                        <label for="editCategoria">Categoría</label>
+                                        <select class="form-control" id="editCategoria"  name="editCategoria"></select>
+                                    </div>
+                                </div>
+
+                                <!-- Producto -->
+                                <div class="tab-pane fade" id="edit-producto" role="tabpanel" aria-labelledby="edit-producto-tab">
+                                    <div class="form-group">
+                                        <label for="editNombreProducto">Nombre del Producto</label>
+                                        <input type="text" class="form-control" id="editNombreProducto" placeholder="Ingresar Nombre del Producto" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editDescripcionProducto">Descripción del Producto</label>
+                                        <textarea class="form-control" id="editDescripcionProducto" rows="3" placeholder="Ingresar la Descripción del Producto" required></textarea>
+                                    </div>
+                                    <!-- Complementos -->
+                                    <div id="editComplementosContainer" class="form-group">
+                                        <label for="editComplemento1">Complementos del Producto</label>
+                                        <div class="d-flex flex-wrap">
+                                            <div class="custom-control custom-switch m-1">
+                                                <input type="checkbox" class="custom-control-input" id="editComplemento1">
+                                                <label class="custom-control-label" for="editComplemento1">Complemento 1</label>
+                                            </div>
+                                            <!-- Agrega más switches aquí según necesites -->
+                                        </div>
+                                    </div>
+                                    <hr class="hr hr-blurry" style="border: 2px solid lightgray;"/>
+                                    <!-- Imagen del Producto -->
+                                    <div class="form-group text-center mt-2">
+                                        <label for="editImagenProducto">Imagen del Producto</label>
+                                        <div class="form-group">
+                                            <img id="editImagenPreview" src="#" alt="Imagen del Producto" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
+                                        </div>
+                                        <label for="editImagenProducto" class="btn btn-secondary">Cargar Imagen</label>
+                                        <input type="file" class="form-control-file" id="editImagenProducto" name="editImagenProducto" style="visibility:hidden;" accept="image/png, image/jpeg">
+                                    </div>
+                                </div>
+
+                                <!-- Precio -->
+                                <div class="tab-pane fade" id="edit-precio" role="tabpanel" aria-labelledby="edit-precio-tab">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="editPrecioProductoCosto">Precio Costo</label>
+                                            <input type="number" class="form-control" id="editPrecioProductoCosto" name="editPrecioProductoCosto" placeholder="Ingresar Precio Costo">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="editPrecioProductoVenta">Precio Venta</label>
+                                            <input type="number" class="form-control" id="editPrecioProductoVenta" name="editPrecioProductoVenta" placeholder="Ingresar Precio Venta" >
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="editPrecioProductoCosto">Precio Costo</label>
-                                    <input type="number" class="form-control" id="editPrecioProductoCosto" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="editPrecioProductoVenta">Precio Venta</label>
-                                    <input type="number" class="form-control" id="editPrecioProductoVenta" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="editDescripcionProducto">Descripción</label>
-                                <textarea class="form-control" id="editDescripcionProducto" rows="3"></textarea>
-                            </div>
-                            <hr class="hr hr-blurry"/>
-                            <div class="form-group">
-                                <label for="editComplementosContainer">Complementos</label>
-                                <input type="hidden" id="editComplementosContainer">
-                            </div>
-                            <hr class="hr hr-blurry"/>
-                            <div class="form-group">
-                                <label for="descripcionProducto">Imagen</label>
-                            </div>
-                            <div id="editImgContainer">
-                            </div>
-                            <div class="form-group text-center">
-                                <div class="form-group">
-                                    <img id="logoPreviewEdit" src="" alt="Logo de la empresa" style="display: none; width: 100px; height: 100px; margin-top: 10px;">
-                                </div>
-                                <div class="form-group">
-                                    <label for="editarProductoImageLogo" class="btn btn-secondary">Modificar</label>
-                                    <i class="fas fa-question-circle info-icon" data-toggle="tooltip" data-placement="right" title="Modificar Imagen del producto."></i>
-                                    <input type="file" class="form-control-file" id="editarProductoImageLogo" name="editarProductoImageLogo" style="visibility:hidden;" accept="image/png, image/jpeg">
-                                </div>
-                            </div>
-                            <input type="hidden" id="editProductId">
+                            <!-- Footer -->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 <button type="submit" class="btn btn-primary">Guardar</button>
@@ -296,6 +347,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 

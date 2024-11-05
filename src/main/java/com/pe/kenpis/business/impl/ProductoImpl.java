@@ -107,10 +107,10 @@ public class ProductoImpl implements IProductoService {
     if (res.getProId() == null) {
       return new ProductoResponse();
     } else {
-      request.setPadreId(res.getPadreId());
-      request.setEmpId(res.getEmpId());
       request.setProIsActive(res.getProIsActive());
-      res.setProImagen(request.getProImagen());
+      res.setPadreId(request.getPadreId());
+      request.setEmpId(res.getEmpId());
+      res.setProComplementos(request.getProComplementos());
       request.setProImagenLongitud(res.getProImagenLongitud());
       return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
     }

@@ -37,8 +37,6 @@ public class WProductoController {
   private IProductoService service;
   @Autowired
   private IProductoComplementoService productoComplementoService;
-  @Autowired
-  private IEmpresaService serviceEmpresa;
 
   @GetMapping("/categorias")
   public ResponseEntity<Map<String, Object>> getAllCategories(@RequestParam("empId") Integer empId) {

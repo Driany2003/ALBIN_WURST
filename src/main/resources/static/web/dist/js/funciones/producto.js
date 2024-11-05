@@ -2,21 +2,22 @@ $(document).ready(function () {
     var empresaId = $("#empresaId").val();
     var usuarioNivel = $("#usuarioNivel").val();
     let complementosSeleccionados = [];
+    let editComplementosSeleccionados = [];
     cargarProductos();
 
     if (usuarioNivel === "ADMINISTRADOR") {
-        cargarEmpresas();
+        cargarEmpresas("empresaSelect");
 
-    } else if(usuarioNivel !== "ADMINISTRADOR") {
+    } else if (usuarioNivel !== "ADMINISTRADOR") {
         listarCategoria(empresaId);
     }
 
-    function cargarEmpresas() {
+    function cargarEmpresas(selectorId, callback) {
         $.ajax({
             url: '/kenpis/empresas/find-all/empresas',
             method: 'GET',
             success: function (empresas) {
-                const seleccionarEmpresa = $('#empresaSelect');
+                const seleccionarEmpresa = $(`#${selectorId}`);
                 seleccionarEmpresa.empty();
                 seleccionarEmpresa.append('<option value="" disabled selected>Seleccione una Empresa</option>');
 
@@ -28,6 +29,9 @@ $(document).ready(function () {
                     const empIdSeleccionado = $(this).val();
                     listarCategoria(empIdSeleccionado);
                 });
+                if (typeof callback === "function") {
+                    callback();
+                }
             },
             error: function (error) {
                 console.error('Error al cargar las empresas:', error);
@@ -35,7 +39,7 @@ $(document).ready(function () {
         });
     }
 
-    function listarCategoria(empresaId) {
+    function listarCategoria(empresaId, callback) {
         $.ajax({
             url: '/kenpis/producto/categorias',
             method: 'GET',
@@ -45,10 +49,12 @@ $(document).ready(function () {
                     var seleccionarCategoria = $('#categoria');
                     var editCategoria = $('#editCategoria');
                     var complementosContainer = $('#complementos-container');
+                    var editComplementosContainer = $('#editComplementosContainer');
 
                     seleccionarCategoria.empty().append('<option value="" disabled selected>Seleccionar Categoria</option>');
                     editCategoria.empty().append('<option value="" disabled selected>Seleccionar Nueva Categoria</option>');
                     complementosContainer.empty();
+                    editComplementosContainer.empty();
 
                     // Llenar categorías
                     if (Array.isArray(data.categorias)) {
@@ -64,10 +70,13 @@ $(document).ready(function () {
                     // Llenar complementos
                     if (Array.isArray(data.complementos)) {
                         construirComplementos(data.complementos, complementosContainer, complementosSeleccionados);
+                        construirComplementos(data.complementos, editComplementosContainer, editComplementosSeleccionados);
                     } else {
                         console.warn("No hay complementos disponibles para mostrar.");
                         complementosContainer.append('<p>No hay complementos disponibles.</p>');
                     }
+
+                    if (callback) callback();
                 } else {
                     toastr.error("Error en la respuesta del servidor.");
                 }
@@ -80,16 +89,9 @@ $(document).ready(function () {
     }
 
     function construirComplementos(complementos, contenedor, complementosSeleccionados) {
-        console.log("Iniciando construirComplementos...");
-        contenedor.empty(); // Limpia el contenedor antes de agregar los elementos
 
-        console.log("Complementos recibidos en construirComplementos:", complementos);
-        console.log("Complementos seleccionados:", complementosSeleccionados);
-
+        contenedor.empty();
         complementos.forEach(function (complemento) {
-            console.log("Construyendo complemento:", complemento);
-
-            // Crear los elementos del complemento
             var complementoContainer = $('<div class="complemento-section"></div>');
             var complementoNombre = $('<h6></h6>').text(complemento.proCompNombre);
 
@@ -110,13 +112,12 @@ $(document).ready(function () {
                     } else {
                         complementosSeleccionados = complementosSeleccionados.filter(id => id !== complementoId);
                     }
-                    console.log("Complementos seleccionados después del cambio:", complementosSeleccionados);
+                    console.log("Complementos seleccionados actualizados:", complementosSeleccionados);
                 });
 
             var sliderSpan = $('<span>').addClass('slider-complemento');
             switchLabel.append(inputSwitch).append(sliderSpan);
 
-            // Manejar subcomplementos
             var subcomplementosList = $('<small></small>');
             if (complemento.subComplementos) {
                 var subcomplementos = Array.isArray(complemento.subComplementos) ? complemento.subComplementos.join(', ') : complemento.subComplementos;
@@ -127,8 +128,6 @@ $(document).ready(function () {
             headerContainer.append(complementoNombre).append(switchLabel);
 
             complementoContainer.append(headerContainer).append(subcomplementosList);
-
-            // Agregar el complemento al contenedor principal
             contenedor.append(complementoContainer);
         });
 
@@ -345,7 +344,6 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.status === "success") {
                     var producto = response.findById;
-                    var complementos = response.complementos;
 
                     $('#editProductId').val(producto.proId);
                     $('#editNombreProducto').val(producto.proCategoria);
@@ -355,17 +353,27 @@ $(document).ready(function () {
                     $('#editDescripcionProducto').val(producto.proDescripcion);
 
                     if (producto.proImagen) {
-                        $('#logoPreviewEdit').attr('src', producto.proImagen).css({width: '100px', height: '100px'}).show();
+                        $('#editImagenPreview').attr('src', producto.proImagen).css({width: '100px', height: '100px'}).show();
                     } else {
-                        $('#logoPreviewEdit').hide();
+                        $('#editImagenPreview').hide();
                     }
 
-                    // Convertir los IDs de complementos seleccionados del producto en un array
-                    let editComplementosSeleccionados = producto.proComplementos ? producto.proComplementos.split(',').map(Number) : [];
-                    console.log("Complementos seleccionados para el producto a editar:", editComplementosSeleccionados);
+                    let selectedEmpresaId = producto.empId;
+                    let selectedCategoriaId = producto.padreId;
 
+                    cargarEmpresas("editEmpresaSelect", function () {
+                        $('#editEmpresaSelect').val(selectedEmpresaId);
+
+                        // Luego de cargar y seleccionar la empresa, cargar categorías
+                        listarCategoria(selectedEmpresaId, function () {
+                            $('#editCategoria').val(selectedCategoriaId);
+                        });
+                    });
+
+
+                    editComplementosSeleccionados = producto.proComplementos ? producto.proComplementos.split(',').map(Number) : [];
                     // Llamar a construirComplementos con los complementos obtenidos y los seleccionados
-                    construirComplementos(complementos, $('#editComplementosContainer'), editComplementosSeleccionados);
+                    construirComplementos(response.complementos, $('#editComplementosContainer'), editComplementosSeleccionados);
 
                     $('#editProductModal').modal('show');
                 } else {
@@ -380,19 +388,24 @@ $(document).ready(function () {
 
     $('#editarProductoForm').submit(function (event) {
         event.preventDefault();
-        var proId = $('#editProductId').val();
-        let complementosSeleccionadosString = complementosSeleccionados.join(',');
+
+        editComplementosSeleccionados = $('#editComplementosContainer .complemento-checkbox:checked')
+            .map(function() { return $(this).data('id'); })
+            .get();
+
         var productoData = {
-            proId: proId,
+            empId: $('#editEmpresaSelect').val(),
+            proId: $('#editProductId').val(),
             proCategoria: $('#editNombreProducto').val(),
             proPrecioCosto: $('#editPrecioProductoCosto').val(),
             proPrecioVenta: $('#editPrecioProductoVenta').val(),
-            padreCategoria: $('#editCategoria').val(),
+            padreId: $('#editCategoria').val(),
             proDescripcion: $('#editDescripcionProducto').val(),
-            proImagen: $('#logoPreviewEdit').attr('src'),
-            proComplementos: complementosSeleccionadosString
+            proImagen: $('#editImagenPreview').attr('src'),
+            proComplementos: editComplementosSeleccionados.join(',')
         };
 
+        console.log("Datos de producto a enviar en PUT:", productoData);
         $.ajax({
             url: `/kenpis/producto/update`,
             method: 'PUT',
