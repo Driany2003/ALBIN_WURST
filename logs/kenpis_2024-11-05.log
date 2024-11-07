@@ -1,0 +1,39 @@
+[INFO ] [05-11-2024 14:29:49] [KenpisApplication              :: 55  ] - Starting KenpisApplication using Java 12.0.2 on Giomar with PID 19740 (C:\Sistemas\kenpis\target\classes started by creo0 in C:\Sistemas\kenpis)
+[DEBUG] [05-11-2024 14:29:49] [KenpisApplication              :: 56  ] - Running with Spring Boot v2.7.18, Spring v5.3.31
+[INFO ] [05-11-2024 14:29:49] [KenpisApplication              :: 638 ] - The following 1 profile is active: "dev"
+[INFO ] [05-11-2024 14:29:49] [DevToolsPropertyDefaultsPostProcessor :: 255 ] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] [05-11-2024 14:29:49] [RepositoryConfigurationDelegate :: 132 ] - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] [05-11-2024 14:29:50] [RepositoryConfigurationDelegate :: 201 ] - Finished Spring Data repository scanning in 83 ms. Found 12 JPA repository interfaces.
+[INFO ] [05-11-2024 14:29:50] [TomcatWebServer                :: 108 ] - Tomcat initialized with port(s): 8080 (http)
+[INFO ] [05-11-2024 14:29:50] [Http11NioProtocol              :: 173 ] - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] [05-11-2024 14:29:50] [StandardService                :: 173 ] - Starting service [Tomcat]
+[INFO ] [05-11-2024 14:29:50] [StandardEngine                 :: 173 ] - Starting Servlet engine: [Apache Tomcat/9.0.83]
+[INFO ] [05-11-2024 14:29:50] [TldScanner                     :: 173 ] - At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+[INFO ] [05-11-2024 14:29:50] [[/]                            :: 173 ] - Initializing Spring embedded WebApplicationContext
+[INFO ] [05-11-2024 14:29:50] [ServletWebServerApplicationContext :: 292 ] - Root WebApplicationContext: initialization completed in 1492 ms
+[INFO ] [05-11-2024 14:29:51] [LogHelper                      :: 31  ] - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] [05-11-2024 14:29:51] [Version                        :: 44  ] - HHH000412: Hibernate ORM core version 5.6.15.Final
+[INFO ] [05-11-2024 14:29:51] [Version                        :: 56  ] - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] [05-11-2024 14:29:51] [HikariDataSource               :: 110 ] - HikariPool-1 - Starting...
+[INFO ] [05-11-2024 14:29:52] [HikariDataSource               :: 123 ] - HikariPool-1 - Start completed.
+[INFO ] [05-11-2024 14:29:52] [Dialect                        :: 175 ] - HHH000400: Using dialect: org.hibernate.dialect.SQLServerDialect
+[INFO ] [05-11-2024 14:29:53] [JtaPlatformInitiator           :: 52  ] - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] [05-11-2024 14:29:53] [LocalContainerEntityManagerFactoryBean :: 437 ] - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[INFO ] [05-11-2024 14:29:53] [DefaultSecurityFilterChain     :: 55  ] - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@372ada23, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@79ef4b82, org.springframework.security.web.context.SecurityContextPersistenceFilter@965982f, org.springframework.security.web.header.HeaderWriterFilter@5fcb3e3, org.springframework.security.web.authentication.logout.LogoutFilter@747452e7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@372fb601, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@168cba54, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6321d146, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@39620acf, org.springframework.security.web.session.SessionManagementFilter@70bba1fa, org.springframework.security.web.access.ExceptionTranslationFilter@1b188f2c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7f026199]
+[INFO ] [05-11-2024 14:29:54] [WelcomePageHandlerMapping      :: 60  ] - Adding welcome page template: index
+[INFO ] [05-11-2024 14:29:54] [OptionalLiveReloadServer       :: 59  ] - LiveReload server is running on port 35729
+[INFO ] [05-11-2024 14:29:54] [Http11NioProtocol              :: 173 ] - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] [05-11-2024 14:29:54] [TomcatWebServer                :: 220 ] - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] [05-11-2024 14:29:54] [KenpisApplication              :: 61  ] - Started KenpisApplication in 5.481 seconds (JVM running for 6.051)
+[INFO ] [05-11-2024 14:30:15] [[/]                            :: 173 ] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] [05-11-2024 14:30:15] [DispatcherServlet              :: 525 ] - Initializing Servlet 'dispatcherServlet'
+[INFO ] [05-11-2024 14:30:15] [DispatcherServlet              :: 547 ] - Completed initialization in 2 ms
+[WARN ] [05-11-2024 14:30:15] [SessionIdGeneratorBase         :: 173 ] - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [200] milliseconds.
+[DEBUG] [05-11-2024 14:30:52] [UsuarioImpl                    :: 208 ] - Implements :: findByUsuUsername :: JHAN.MORENO
+[DEBUG] [05-11-2024 14:30:52] [UsuarioImpl                    :: 192 ] - Implements :: findUsuarioAuthorityByUsuId :: 2
+[INFO ] [05-11-2024 14:30:53] [EmpresaImpl                    :: 62  ] - Implements :: findById :: 1
+[INFO ] [05-11-2024 14:30:53] [WLoginController               :: 61  ] - Usuario logueado: JHAN.MORENO
+[INFO ] [05-11-2024 14:30:53] [WLoginController               :: 62  ] - Estado de la empresa (activo/inactivo): true
+[INFO ] [05-11-2024 14:30:53] [WLoginController               :: 75  ] - emprsa session : 1
+[INFO ] [05-11-2024 14:30:53] [FxComunes                      :: 68  ] - PedidosEstado{"DESCARTADO":null,"EN_PROCESO":null,"REGISTRADO":null,"ATENDIDO":null,"PAGADO":null}
+[WARN ] [05-11-2024 23:42:23] [HikariPool                     :: 788 ] - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7h53m31s527ms889µs600ns).

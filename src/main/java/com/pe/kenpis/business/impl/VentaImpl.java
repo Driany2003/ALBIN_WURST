@@ -6,6 +6,7 @@ import com.pe.kenpis.model.api.venta.VentaRequest;
 import com.pe.kenpis.model.api.venta.VentaResponse;
 import com.pe.kenpis.model.api.venta.detalle.VentaDetalleRequest;
 import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
+import com.pe.kenpis.model.api.venta.reporteVentasDTO.ReporteVentas;
 import com.pe.kenpis.model.entity.ProductoEntity;
 import com.pe.kenpis.model.entity.VentaDetalleEntity;
 import com.pe.kenpis.model.entity.VentaEntity;
@@ -22,10 +23,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -53,7 +53,7 @@ public class VentaImpl implements IVentaService {
   }
 
   @Override
-  public VentaResponse create(VentaRequest ventaRequest)  {
+  public VentaResponse create(VentaRequest ventaRequest) {
     FxComunes.printJson("VentaRequest", ventaRequest);
 
     VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
@@ -85,11 +85,9 @@ public class VentaImpl implements IVentaService {
     estadoInicial.setVenEstadoFechaRegistrado(new Date());
     ventaEstadoRepository.save(estadoInicial);
 
-
     VentaResponse response = convertVentasEntityToResponse(ventaGuardada);
     return response;
   }
-
 
   @Override
   public List<VentaDetalleResponse> obtenerDetallesDeVenta() {
@@ -104,7 +102,70 @@ public class VentaImpl implements IVentaService {
     }).collect(Collectors.toList());
   }
 
+  // reporte dinamico del dashboard //
 
+  @Override
+  public ReporteVentas obtenerReporteVentas(LocalDate fechaInicio, LocalDate fechaFin) {
+    List<Map<String, Object>> reporte = ventaRepository.obtenerReporteVentas(fechaInicio, fechaFin);
+
+    if (reporte.isEmpty()) {
+      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, Collections.emptyList());
+    }
+
+    Map<String, Object> resumen = reporte.get(0);
+
+    Double totalVenta = (Double) resumen.get("precioVentaTotal");
+    Double totalCosto = (Double) resumen.get("precioCostoTotal");
+    Double gananciaTotal = (Double) resumen.get("ganancia");
+
+    Integer numeroVentas = ((Number) resumen.get("totalVentas")).intValue();
+    Double totalYape = (Double) resumen.get("totalYape");
+    Double totalPlin = (Double) resumen.get("totalPlin");
+    Double totalEfectivo = (Double) resumen.get("totalEfectivo");
+
+    // Productos Más Vendidos
+    List<ReporteVentas.ProductoMasVendido> productosMasVendidos = reporte.stream().map(item -> new ReporteVentas.ProductoMasVendido(((Number) item.get("productoId")).intValue(), (String) item.get("productoNombre"), ((Number) item.get("cantidadVendida")).intValue(), ((Number) item.get("popularidad")).doubleValue())).collect(Collectors.toList());
+    return new ReporteVentas(totalVenta, totalCosto, gananciaTotal, numeroVentas, totalYape, totalPlin, totalEfectivo, productosMasVendidos);
+  }
+
+  @Override
+  public ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin) {
+    List<Map<String, Object>> result = ventaRepository.obtenerReporteVentasXFecha(fechaInicio, fechaFin);
+
+    if (result.isEmpty()) {
+      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, Collections.emptyList());
+    }
+
+    // Extrae el resumen general del primer elemento de la lista
+    Map<String, Object> resumen = result.get(0);
+
+    ReporteVentas reporte = new ReporteVentas(convertToDouble(resumen.get("precioVentaTotal")), convertToDouble(resumen.get("precioCostoTotal")), convertToDouble(resumen.get("ganancia")), ((Number) resumen.get("totalVentas")).intValue(), convertToDouble(resumen.get("totalYape")), convertToDouble(resumen.get("totalPlin")), convertToDouble(resumen.get("totalEfectivo")), new ArrayList<>());
+
+    // Llenar la lista de productos más vendidos
+    List<ReporteVentas.ProductoMasVendido> productos = new ArrayList<>();
+    for (Map<String, Object> productoRow : result) {
+      ReporteVentas.ProductoMasVendido producto = new ReporteVentas.ProductoMasVendido((Integer) productoRow.get("productoId"), (String) productoRow.get("productoNombre"), ((Number) productoRow.get("cantidadVendida")).intValue(), convertToDouble(productoRow.get("popularidad")));
+      productos.add(producto);
+    }
+    reporte.setProductosMasVendidos(productos);
+
+    return reporte;
+  }
+
+  // Método de ayuda para convertir BigDecimal a Double, con verificación de null
+  private Double convertToDouble(Object value) {
+    if (value == null) {
+      return 0.0;
+    } else if (value instanceof BigDecimal) {
+      return ((BigDecimal) value).doubleValue();
+    } else if (value instanceof Double) {
+      return (Double) value;
+    } else if (value instanceof Integer) {
+      return ((Integer) value).doubleValue();
+    } else {
+      throw new IllegalArgumentException("Unsupported number type: " + value.getClass());
+    }
+  }
 
   private VentaEntity convertVentasRequestToEntity(VentaRequest request) {
     VentaEntity entity = new VentaEntity();
