@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -38,28 +37,51 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
     Integer stockVentas = map.get("proInvStockVentas") != null ? (Integer) map.get("proInvStockVentas") : 0;
     Integer stockActual = stockInicial - stockVentas;
 
-
-    return new ProductoComplementoResponse(
-        (Integer) map.get("productoId"),
-        (Date) map.get("proInvFechaVencimiento"),
-        (String) map.get("proDescripcion"),
-        (String) map.get("proImagen"),
-        (Boolean) map.get("proIsActive"),
-        (Double) map.get("proPrecioCosto"),
-        (Double) map.get("proPrecioVenta"),
-        (String) map.get("proCategoria"),
-        (Integer) map.get("empId"),
-        stockInicial,
-        stockVentas,
-        stockActual,
-        (Date) map.get("proInvFechaCreacion")
+    return new ProductoComplementoResponse((Integer) map.get("productoId"), (Date) map.get("proInvFechaVencimiento"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecioCosto"), (Double) map.get("proPrecioVenta"), (String) map.get("proCategoria"), (Integer) map.get("empId"), stockInicial, stockVentas, stockActual, (Date) map.get("proInvFechaCreacion")
 
     );
 
   }
 
+  @Override
+  public boolean verificarStockSuficiente(Integer productoId, Integer cantidadRequerida) {
+    Optional<ProductoInventarioEntity> optional = repository.findByProductoId(productoId);
+
+    if (optional.isPresent()) {
+      ProductoInventarioEntity producto = optional.get();
+      int stockActual = producto.getProInvStockInicial() - producto.getProInvStockVentas();
+      return stockActual >= cantidadRequerida;
+    } else {
+      throw new IllegalArgumentException("Producto con ID " + productoId + " no encontrado.");
+    }
+  }
 
 
+  @Override
+  public ProductoComplementoResponse actualizarStock(Integer productoId, Integer cantidadVendida) {
+    log.info("Actualizando stock para producto con productoId: " + productoId + " con cantidad vendida: " + cantidadVendida);
+
+    Optional<ProductoInventarioEntity> optional = repository.findByProductoId(productoId);
+
+    if (optional.isPresent()) {
+      ProductoInventarioEntity entity = optional.get();
+
+      Integer stockActual = entity.getProInvStockInicial() - entity.getProInvStockVentas();
+      if (cantidadVendida <= stockActual) {
+        entity.setProInvStockVentas(entity.getProInvStockVentas() + cantidadVendida);
+
+        // Guardar el cambio en el repositorio
+        ProductoInventarioEntity updatedEntity = repository.save(entity);
+        return convertEntityToResponse(updatedEntity);
+      } else {
+        log.warn("Stock insuficiente para el producto con productoId: " + productoId);
+        return null; // o lanzar una excepción personalizada si prefieres
+      }
+    } else {
+      log.warn("Producto con productoId " + productoId + " no encontrado.");
+      return null;
+    }
+  }
 
   @Override
   public ProductoComplementoResponse findById(Integer productoId) {
@@ -75,8 +97,6 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
       return null;
     }
   }
-
-
 
   @Override
   public ProductoComplementoResponse create(ProductoProductoRequest request) {
@@ -103,7 +123,6 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
       return null;
     }
   }
-
 
   @Override
   public ProductoComplementoResponse delete(Integer id) {

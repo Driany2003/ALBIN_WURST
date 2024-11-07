@@ -52,6 +52,10 @@ public interface VentaRepository extends JpaRepository<VentaEntity, Integer> {
       " FROM T_VENTA v " +
       " WHERE CAST(v.ven_fecha AS DATE) BETWEEN :fechaInicio AND :fechaFin) AS totalEfectivo, " +
 
+      "(SELECT COALESCE(SUM(CASE WHEN v.ven_tipo_pago = 'Tarjeta' THEN v.ven_total ELSE 0 END), 0) " +
+      " FROM T_VENTA v " +
+      " WHERE CAST(v.ven_fecha AS DATE) BETWEEN :fechaInicio AND :fechaFin) AS totalTarjeta, " +
+
       "p.pro_id AS productoId, " +
       "p.pro_descripcion AS productoNombre, " +
       "SUM(vd.ven_det_cantidad) AS cantidadVendida, " +

@@ -5,11 +5,30 @@ $(document).ready(function () {
         const fechaInicio = $('#fechaInicio').val();
         const fechaFin = $('#fechaFin').val();
 
+        // Si la validación es exitosa, llama a generarReporte
+        if (validarFechas(fechaInicio, fechaFin)) {
+            generarReporte(fechaInicio, fechaFin);
+        }
+    });
+
+    function validarFechas(fechaInicio, fechaFin) {
         if (!fechaInicio || !fechaFin) {
-            alert("Por favor, selecciona ambas fechas para generar el reporte.");
-            return;
+            toastr.error("Por favor, selecciona ambas fechas para generar el reporte.");
+            return false;
         }
 
+        if (new Date(fechaFin) < new Date(fechaInicio)) {
+            $('#reporteModal').modal('hide');
+            toastr.error("La fecha de fin no puede ser anterior a la fecha de inicio.");
+            return false;
+
+        }
+
+        return true;
+    }
+
+    function generarReporte(fechaInicio, fechaFin) {
+        // Actualiza las fechas en el modal
         $('#fechaInicioText').text(fechaInicio);
         $('#fechaFinText').text(fechaFin);
 
@@ -21,6 +40,15 @@ $(document).ready(function () {
                 fechaFin: fechaFin
             },
             success: function (data) {
+                if (!data || data.numeroVentas === 0) {
+                    toastr.error("No se encontraron datos para las fechas seleccionadas.");
+                    return;
+                }
+
+                // Mostrar el modal solo si hay datos válidos
+                $('#reporteModal').modal('show');
+
+                // Actualiza los datos del reporte en el modal
                 $('#totalVenta').text(`S/ ${data.totalVenta.toFixed(2)}`);
                 $('#totalCosto').text(`S/ ${data.totalCosto.toFixed(2)}`);
                 $('#gananciaTotal').text(`S/ ${data.gananciaTotal.toFixed(2)}`);
@@ -28,6 +56,7 @@ $(document).ready(function () {
                 $('#totalYape').text(`S/ ${data.totalYape.toFixed(2)}`);
                 $('#totalPlin').text(`S/ ${data.totalPlin.toFixed(2)}`);
                 $('#totalEfectivo').text(`S/ ${data.totalEfectivo.toFixed(2)}`);
+                $('#totalTarjeta').text(`S/ ${data.totalTarjeta.toFixed(2)}`);
 
                 const productosTableBody = $('#productosMasVendidos');
                 productosTableBody.empty();
@@ -106,10 +135,11 @@ $(document).ready(function () {
                 });
             },
             error: function () {
-                alert("Ocurrió un error al generar el reporte. Intenta nuevamente.");
+                toastr.error("Ocurrió un error al generar el reporte. Intenta nuevamente.");
             }
         });
-    });
+    }
+
 
     // Botón de imprimir
     $('.btn-group-custom button:contains("Imprimir")').click(function () {
@@ -180,20 +210,31 @@ $(document).ready(function () {
     $('.btn-group-custom button:contains("Exportar")').click(function () {
         // Abre el modal si está cerrado
 
-
+        $('.btn-group-custom').hide();
+        $('#productosMasVendidosSection').css({
+            'transform': 'scale(0.8)',  // Reduce el tamaño al 80%
+            'transform-origin': 'top left'  // Establece el punto de origen para el escalado
+        });
         // Espera unos milisegundos para asegurar que esté completamente abierto antes de exportar
         setTimeout(function () {
             var element = document.getElementById('reporteModal');
 
             var opt = {
-                margin: 0.2,
+                margin: 0.1,
                 filename: 'Reporte_Ventas.pdf',
                 image: {type: 'jpeg', quality: 0.98},
-                html2canvas: {scale: 1.2, useCORS: true},
-                jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
+                html2canvas: {scale: 2.3, useCORS: true},
+                //html2canvas: {scale: 1, useCORS: true, windowWidth: 80,windowHeight : 80, width: 10, height : 10  },
+                jsPDF: {unit: 'in', format: 'a4', orientation: 'landscape'}
             };
 
-            html2pdf().set(opt).from(element).save();
+            html2pdf().set(opt).from(element).save().then(function () {
+                $('.btn-group-custom').show();
+                $('#productosMasVendidosSection').css({
+                    'transform': 'scale(1)',  // Restaura el tamaño original
+                    'transform-origin': 'initial'  // Restaura el origen
+                });
+            });
         }, 500); // Espera medio segundo para que el modal se muestre completamente
 
     });

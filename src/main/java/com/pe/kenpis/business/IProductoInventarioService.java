@@ -9,6 +9,10 @@ public interface IProductoInventarioService {
 
   List<ProductoComplementoResponse> findAll();
 
+  boolean verificarStockSuficiente(Integer productoId, Integer cantidadRequerida);
+
+  ProductoComplementoResponse actualizarStock(Integer productoId, Integer cantidadVendida);
+
   ProductoComplementoResponse findById(Integer id);
 
   ProductoComplementoResponse create(ProductoProductoRequest request);

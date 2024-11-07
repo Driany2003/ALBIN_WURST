@@ -20,6 +20,7 @@ public class ReporteVentas {
   private Double totalYape;
   private Double totalPlin;
   private Double totalEfectivo;
+  private Double totalTarjeta;
 
   // Lista de productos más vendidos
   private List<ProductoMasVendido> productosMasVendidos;

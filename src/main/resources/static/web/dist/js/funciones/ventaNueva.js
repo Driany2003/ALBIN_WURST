@@ -1,7 +1,5 @@
 $(document).ready(function () {
     var empresaId = $('#empresaId').val();
-
-
     let totalPagar;
     let detallesVenta = [];
     let clienteId = null;
@@ -121,8 +119,8 @@ $(document).ready(function () {
                         </div>
                         <div class="quantity-container">
                             <button class="quantity-button minus" type="button">-</button>
-                            <span class="quantity-display">1</span>
-                            <button class="quantity-button plus" type="button">+</button>
+                            <span class="quantity-display">0</span>
+                            <button id="agregarCantidadButton" class="quantity-button plus" type="button">+</button>
                         </div>
                     </div>
 
@@ -141,7 +139,6 @@ $(document).ready(function () {
                 </div>
             `;
                 contenedorDet.append(cardHtml);
-
                 $('#volverSubCategorias').show();
                 $('#volverCategorias').hide();
                 $('#guardarPedido').show();
@@ -152,12 +149,22 @@ $(document).ready(function () {
         });
     }
 
-
     //FUNCIONES PARA LOS CONTADORES
     $('#detalle-container').on('click', '.quantity-button.plus', function () {
         var quantityDisplay = $(this).siblings('.quantity-display');
         var currentQuantity = parseInt(quantityDisplay.text());
-        quantityDisplay.text(currentQuantity + 1);
+        var productoId = $(this).closest('.card').data('id'); // Obtener el ID del producto
+
+        // Verificar stock antes de incrementar la cantidad
+        verificarStock(productoId, currentQuantity + 1, function (stockSuficiente) {
+            if (stockSuficiente) {
+                quantityDisplay.text(currentQuantity + 1);
+                $('#agregarCantidadButton').prop('disabled', false);
+            } else {
+                toastr.error("Stock insuficiente para la cantidad solicitada.");
+                $('#agregarCantidadButton').prop('disabled', true);
+            }
+        });
     });
 
     $('#detalle-container').on('click', '.quantity-button.minus', function () {
@@ -165,8 +172,28 @@ $(document).ready(function () {
         var currentQuantity = parseInt(quantityDisplay.text());
         if (currentQuantity > 1) {
             quantityDisplay.text(currentQuantity - 1);
+            $('#agregarCantidadButton').prop('disabled', false);
         }
     });
+
+    function verificarStock(productoId, cantidad, callback) {
+        $.ajax({
+            url: '/kenpis/inventario/verificar-stock',
+            method: 'GET',
+            data: {
+                productoId: productoId,
+                cantidad: cantidad
+            },
+            success: function (stockSuficiente) {
+                callback(stockSuficiente);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error al verificar el stock:", error);
+                callback(false);
+            }
+        });
+    }
+
 
     //redireccionar botones VOLVER
     $('#ventaModal').on('show.bs.modal', function () {

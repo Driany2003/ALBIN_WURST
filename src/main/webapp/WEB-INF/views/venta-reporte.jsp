@@ -29,7 +29,7 @@
                             <input type="date" id="fechaFin" class="form-control">
                         </div>
                         <div class="col-md-3 align-self-end">
-                            <button type="button" id="generarReporteBtn" class="btn btn-primary" data-toggle="modal" data-target="#reporteModal">Generar Reporte</button>
+                            <button type="button" id="generarReporteBtn" class="btn btn-primary">Generar Reporte</button>
                         </div>
                     </div>
                 </div>
@@ -43,8 +43,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="reporteModalLabel">Reporte de Ventas
-                        <span> <p>Del <span id="fechaInicioText"></span> al <span id="fechaFinText"></span></p></span></h5>
-
+                        <span><p class="report-date-range">Del <span id="fechaInicioText"></span> al <span id="fechaFinText"></span></p></span>
+                    </h5>
                     <div class="btn-group-custom">
                         <button><i class="fas fa-print"></i> Imprimir</button>
                         <button><i class="fas fa-file-export"></i> Exportar</button>
@@ -53,6 +53,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="summary-cards">
+                        <!-- Tarjetas de resumen financiero -->
                         <div class="summary-card" style="background-color: #FF6B6B;">
                             <i class="fas fa-money-bill-wave"></i>
                             <div class="card-content">
@@ -81,8 +82,15 @@
                                 <p>Total Ventas</p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Contenedor de las tarjetas de métodos de pago -->
+                    <!-- Línea de separación de Métodos de Pago -->
+                    <div class="section-divider">
+                        <span>Métodos de Pago</span>
+                    </div>
+
+                    <!-- Contenedor de las tarjetas de métodos de pago -->
+                    <div class="summary-cards">
                         <div class="summary-card mini-card" style="background-color: #A3D4FF;">
                             <i class="fas fa-mobile-alt"></i>
                             <div class="card-content">
@@ -104,17 +112,24 @@
                                 <p>S/ <span id="totalEfectivo">0.0</span></p>
                             </div>
                         </div>
+                        <div class="summary-card mini-card" style="background-color: #ffc1dd;">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div class="card-content">
+                                <h5>Tarjeta</h5>
+                                <p>S/ <span id="totalTarjeta">0.0</span></p>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Productos más vendidos y gráfico -->
-                    <div class="row mt-4">
+                    <div class="row mt-4 justify-content-center" id="productosMasVendidosSection">
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
                                     <h5>Productos Más Vendidos</h5>
                                 </div>
                                 <div class="card-body">
-                                    <table class="table table-bordered products-table">
+                                    <table class="table table-bordered products-table compact-table">
                                         <thead>
                                         <tr>
                                             <th>#</th>
@@ -123,8 +138,7 @@
                                             <th>% Ventas</th>
                                         </tr>
                                         </thead>
-                                        <tbody id="productosMasVendidos">
-                                        </tbody>
+                                        <tbody id="productosMasVendidos"></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -139,14 +153,36 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
     <style>
+        .section-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .section-divider::before,
+        .section-divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #dee2e6;
+            margin: 0 10px;
+        }
+
+        .section-divider span {
+            font-weight: bold;
+            color: #495057;
+            background-color: #fff;
+            padding: 0 10px;
+            font-size: 14px;
+        }
+
         /* Estilos del modal */
         .modal-dialog {
             max-width: 1000px;
@@ -203,8 +239,26 @@
             font-size: 14px;
         }
 
+        /* Bordes compactos para la tabla */
+        .compact-card {
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        .compact-table th, .compact-table td {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+
         /* Estilos específicos para impresión */
         @media print {
+
+            #productosMasVendidosSection {
+                transform: scale(0.8);
+                transform-origin: center;
+            }
+
             /* Ajusta el gráfico para que mantenga su tamaño */
             #ventasChart {
                 width: 200px !important; /* Ajusta este valor según el tamaño deseado */
@@ -212,17 +266,7 @@
                 margin: 0 auto;
             }
 
-            /* Ajusta las tablas para que sean receptivas en impresión */
-            .products-table {
-                width: 100%;
-                border-collapse: collapse;
-            }
-
-            .products-table th, .products-table td {
-                padding: 8px;
-                text-align: center;
-                border: 1px solid #ddd;
-            }/* Posicionar el gráfico debajo de la tabla */
+            /* Posicionar el gráfico debajo de la tabla */
             .row.mt-4 {
                 display: block !important;
             }
@@ -237,8 +281,8 @@
             }
 
         }
-        #reporteModal {
 
+        #reporteModal {
             position: relative;
         }
 

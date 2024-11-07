@@ -39,6 +39,7 @@ public class WProductoInventarioController {
     List<ProductoComplementoResponse> productos = service.findAll();
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
+
   @PutMapping("/update")
   public ResponseEntity<ProductoComplementoResponse> update(@RequestBody ProductoProductoRequest request) {
     ProductoComplementoResponse response = service.update(request);
@@ -49,6 +50,12 @@ public class WProductoInventarioController {
   public ResponseEntity<ProductoComplementoResponse> delete(@PathVariable Integer id) {
     ProductoComplementoResponse response = service.delete(id);
     return new ResponseEntity<>(response, HttpStatus.OK);
+  }
+
+  @GetMapping("/verificar-stock")
+  public ResponseEntity<Boolean> verificarStock(@RequestParam Integer productoId, @RequestParam Integer cantidad) {
+    boolean stockSuficiente = service.verificarStockSuficiente(productoId, cantidad);
+    return ResponseEntity.ok(stockSuficiente);
   }
 
 }

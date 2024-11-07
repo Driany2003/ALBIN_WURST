@@ -1,5 +1,6 @@
 package com.pe.kenpis.business.impl;
 
+import com.pe.kenpis.business.IProductoInventarioService;
 import com.pe.kenpis.business.IVentaService;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
 import com.pe.kenpis.model.api.venta.VentaRequest;
@@ -33,6 +34,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public class VentaImpl implements IVentaService {
 
+  private final IProductoInventarioService productoInventario;
   private final VentaRepository ventaRepository;
   private final ProductoRepository productoRepository;
   private final VentaDetalleRepository detalleVentaRepository;
@@ -56,6 +58,15 @@ public class VentaImpl implements IVentaService {
   public VentaResponse create(VentaRequest ventaRequest) {
     FxComunes.printJson("VentaRequest", ventaRequest);
 
+    for (VentaDetalleRequest detalle : ventaRequest.getDetallesVentas()) {
+      boolean stockSuficiente = productoInventario.verificarStockSuficiente(detalle.getProductoId(), detalle.getVenDetCantidad());
+
+      if (!stockSuficiente) {
+        throw new IllegalArgumentException("Stock insuficiente para el producto con ID: " + detalle.getProductoId() +
+            ". Cantidad solicitada: " + detalle.getVenDetCantidad());
+      }
+    }
+
     VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
     nuevaVenta.setVenFecha(new Date());
 
@@ -73,8 +84,9 @@ public class VentaImpl implements IVentaService {
       nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
       detallesVentas.add(nuevoDetalle);
 
-    }
+      productoInventario.actualizarStock(detalle.getProductoId(),detalle.getVenDetCantidad());
 
+    }
     detalleVentaRepository.saveAll(detallesVentas);
 
     FxComunes.printJson("VentaDetalleEntity", detallesVentas);
@@ -109,7 +121,7 @@ public class VentaImpl implements IVentaService {
     List<Map<String, Object>> reporte = ventaRepository.obtenerReporteVentas(fechaInicio, fechaFin);
 
     if (reporte.isEmpty()) {
-      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, Collections.emptyList());
+      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0,Collections.emptyList());
     }
 
     Map<String, Object> resumen = reporte.get(0);
@@ -122,10 +134,11 @@ public class VentaImpl implements IVentaService {
     Double totalYape = (Double) resumen.get("totalYape");
     Double totalPlin = (Double) resumen.get("totalPlin");
     Double totalEfectivo = (Double) resumen.get("totalEfectivo");
+    Double totalTarjeta = (Double) resumen.get("totalTarjeta");
 
     // Productos Más Vendidos
     List<ReporteVentas.ProductoMasVendido> productosMasVendidos = reporte.stream().map(item -> new ReporteVentas.ProductoMasVendido(((Number) item.get("productoId")).intValue(), (String) item.get("productoNombre"), ((Number) item.get("cantidadVendida")).intValue(), ((Number) item.get("popularidad")).doubleValue())).collect(Collectors.toList());
-    return new ReporteVentas(totalVenta, totalCosto, gananciaTotal, numeroVentas, totalYape, totalPlin, totalEfectivo, productosMasVendidos);
+    return new ReporteVentas(totalVenta, totalCosto, gananciaTotal, numeroVentas, totalYape, totalPlin, totalEfectivo, totalTarjeta,productosMasVendidos);
   }
 
   @Override
@@ -133,13 +146,13 @@ public class VentaImpl implements IVentaService {
     List<Map<String, Object>> result = ventaRepository.obtenerReporteVentasXFecha(fechaInicio, fechaFin);
 
     if (result.isEmpty()) {
-      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, Collections.emptyList());
+      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0,Collections.emptyList());
     }
 
     // Extrae el resumen general del primer elemento de la lista
     Map<String, Object> resumen = result.get(0);
 
-    ReporteVentas reporte = new ReporteVentas(convertToDouble(resumen.get("precioVentaTotal")), convertToDouble(resumen.get("precioCostoTotal")), convertToDouble(resumen.get("ganancia")), ((Number) resumen.get("totalVentas")).intValue(), convertToDouble(resumen.get("totalYape")), convertToDouble(resumen.get("totalPlin")), convertToDouble(resumen.get("totalEfectivo")), new ArrayList<>());
+    ReporteVentas reporte = new ReporteVentas(convertToDouble(resumen.get("precioVentaTotal")), convertToDouble(resumen.get("precioCostoTotal")), convertToDouble(resumen.get("ganancia")), ((Number) resumen.get("totalVentas")).intValue(), convertToDouble(resumen.get("totalYape")), convertToDouble(resumen.get("totalPlin")), convertToDouble(resumen.get("totalEfectivo")), convertToDouble(resumen.get("totalTarjeta")), new ArrayList<>());
 
     // Llenar la lista de productos más vendidos
     List<ReporteVentas.ProductoMasVendido> productos = new ArrayList<>();

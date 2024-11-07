@@ -36,7 +36,7 @@ $(document).ready(function () {
                             </td>
                             <td>
                                 <ul>
-                                    <li><i class="fas fa-box"></i> <strong>Disponibles:</strong> ${producto.proInvStockInicial || 0}</li>
+                                    <li><i class="fas fa-box"></i> <strong>Inicial:</strong> ${producto.proInvStockInicial || 0}</li>
                                     <li><i class="fas fa-box-open"></i> <strong>Vendidos:</strong> ${producto.proInvStockVentas || 0}</li>
                                 </ul>
                             </td>
