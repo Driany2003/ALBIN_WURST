@@ -15,7 +15,7 @@ $(document).ready(function () {
         var categoriaId = $(this).data('id');
         if ($(this).hasClass('categoria-card')) {
             categoriaActual = categoriaId;
-            cargarSubCategoria(categoriaId);
+            cargarSubCategoria(categoriaId,empresaId);
         } else if ($(this).hasClass('subcategoria-card')) {
             var subCategoriaId = categoriaId;
             cargarDetalleProducto(subCategoriaId);
@@ -68,9 +68,9 @@ $(document).ready(function () {
         });
     }
 
-    function cargarSubCategoria(categoria) {
+    function cargarSubCategoria(categoria,empresaId) {
         $.ajax({
-            url: '/kenpis/producto/find-all-by-type/' + categoria,
+            url: '/kenpis/producto/find-all-by-type/' + categoria + '/' + empresaId,
             method: 'GET',
             success: function (subCategorias) {
                 var contenedor = $('#detalle-container');
@@ -205,7 +205,7 @@ $(document).ready(function () {
     });
 
     $('#volverSubCategorias').click(function () {
-        cargarSubCategoria(categoriaActual);
+        cargarSubCategoria(categoriaActual,empresaId);
     });
 
     function actualizarTotal() {

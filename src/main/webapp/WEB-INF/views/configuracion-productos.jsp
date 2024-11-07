@@ -51,16 +51,26 @@
                         </div>
                         <div class="col-md-10">
                             <div class="d-flex justify-content-end mb-2">
+                                <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                                    <div id="filtro-container" class="mr-3">
+                                        <select id="empresaSelection" class="form-control">
+                                            <option value="">-- Seleccione una Empresa --</option>
+                                        </select>
+                                    </div>
+                                </c:if>
+
+                                <!-- Filtro de Productos -->
                                 <div class="input-group" style="width: 300px;">
                                     <input type="text" class="form-control" id="tableFilter" placeholder="Filtra Productos...">
                                     <div class="input-group-append">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-search"></i>
-                                    </span>
+                                        <span class="input-group-text">
+                                            <i class="fas fa-search"></i>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="container-fluid">
@@ -188,7 +198,7 @@
                                         <div class="d-flex flex-wrap">
                                             <!-- Ejemplo de switch de complemento -->
                                             <div class="custom-control custom-switch m-1">
-                                                <input  class="custom-control-input" id="complemento1">
+                                                <input class="custom-control-input" id="complemento1">
                                                 <label class="custom-control-label" for="complemento1"><p>No hay empresa seleccionada</p></label>
                                             </div>
                                         </div>
@@ -268,7 +278,7 @@
 
                             <!-- Contenido de las pestañas -->
                             <div class="tab-content mt-4" id="editProductTabContent">
-                                <input type="hidden" id="editProductId" >
+                                <input type="hidden" id="editProductId">
                                 <!-- Empresa -->
                                 <div class="tab-pane fade show active" id="edit-empresa" role="tabpanel" aria-labelledby="edit-empresa-tab">
                                     <c:if test="${sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
@@ -285,7 +295,7 @@
                                 <div class="tab-pane fade" id="edit-categoria" role="tabpanel" aria-labelledby="edit-categoria-tab">
                                     <div class="form-group">
                                         <label for="editCategoria">Categoría</label>
-                                        <select class="form-control" id="editCategoria"  name="editCategoria"></select>
+                                        <select class="form-control" id="editCategoria" name="editCategoria"></select>
                                     </div>
                                 </div>
 
@@ -331,7 +341,7 @@
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="editPrecioProductoVenta">Precio Venta</label>
-                                            <input type="number" class="form-control" id="editPrecioProductoVenta" name="editPrecioProductoVenta" placeholder="Ingresar Precio Venta" >
+                                            <input type="number" class="form-control" id="editPrecioProductoVenta" name="editPrecioProductoVenta" placeholder="Ingresar Precio Venta">
                                         </div>
                                     </div>
                                 </div>

@@ -59,9 +59,9 @@ public class WProductoController {
     return new ResponseEntity<>(categorias, HttpStatus.OK);
   }
 
-  @GetMapping("/find-all-by-type/{categoria}")
-  public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable int categoria) {
-    List<ProductoResponse> productos = service.getProductosByCategoriaId(categoria);
+  @GetMapping("/find-all-by-type/{categoria}/{empresaId}")
+  public ResponseEntity<List<ProductoResponse>> getProductosByCategoria(@PathVariable Integer categoria, @PathVariable Integer empresaId) {
+    List<ProductoResponse> productos = service.getProductosByCategoriaId(categoria, empresaId);
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
 
@@ -84,13 +84,13 @@ public class WProductoController {
     return new ResponseEntity<>(productos, HttpStatus.OK);
   }
 
-  @GetMapping("/find-all-is-active")
-  public ResponseEntity<Map<String, Object>> findActiveProductosWithActive(HttpSession session) {
+  @GetMapping("/find-all-is-active/{empresaId}")
+  public ResponseEntity<Map<String, Object>> findActiveProductosWithActive(HttpSession session, @PathVariable Integer empresaId) {
     String usuSessionNivel = (String) session.getAttribute("usuSessionNivel");
     Integer empId = (Integer) session.getAttribute("empresaSessionID");
     Map<String, Object> response = new HashMap<>();
     if(Constantes.NIVELES_USUARIO.ADMINISTRADOR.equalsIgnoreCase(usuSessionNivel)){
-      List<ProductoListDTO> productos = service.findActiveProductosWithActive();
+      List<ProductoListDTO> productos = service.findActiveProductosWithActiveEmpresa(empresaId);
       response.put("status", "success");
       response.put("productos", productos);
     }

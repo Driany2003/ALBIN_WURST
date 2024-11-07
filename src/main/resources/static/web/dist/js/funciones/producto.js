@@ -3,10 +3,19 @@ $(document).ready(function () {
     var usuarioNivel = $("#usuarioNivel").val();
     let complementosSeleccionados = [];
     let editComplementosSeleccionados = [];
-    cargarProductos();
-
+    cargarProductos(empresaId);
     if (usuarioNivel === "ADMINISTRADOR") {
-        cargarEmpresas("empresaSelect");
+        cargarEmpresas("empresaSelect"); //para registrar
+        cargarEmpresas("empresaSelection"); //para poder elegir la empresa a listar sus productos
+        $('#empresaSelection').on('change', function () {
+            var empId = $(this).val();
+            if (empId) {
+                console.log("id de la empresa seleccionado", empId);
+                cargarProductos(empId);
+            } else {
+                $('#detalle-container').empty();
+            }
+        });
 
     } else if (usuarioNivel !== "ADMINISTRADOR") {
         listarCategoria(empresaId);
@@ -135,10 +144,10 @@ $(document).ready(function () {
     }
 
 
-    function cargarProductos() {
+    function cargarProductos(empresaId) {
         $.ajax({
             type: 'GET',
-            url: '/kenpis/producto/find-all-is-active',
+            url: `/kenpis/producto/find-all-is-active/${empresaId}`,
             contentType: 'application/json',
             success: function (response) {
                 if (response.status === "success") {
@@ -390,7 +399,9 @@ $(document).ready(function () {
         event.preventDefault();
 
         editComplementosSeleccionados = $('#editComplementosContainer .complemento-checkbox:checked')
-            .map(function() { return $(this).data('id'); })
+            .map(function () {
+                return $(this).data('id');
+            })
             .get();
 
         var productoData = {

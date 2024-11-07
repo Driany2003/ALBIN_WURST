@@ -47,9 +47,9 @@ public class ProductoImpl implements IProductoService {
     return new ProductoListDTO((Integer) map.get("proId"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecioCosto"), (Double) map.get("proPrecioVenta"));
   }
 
+  //vista propietario
   @Override
   public List<ProductoListDTO> findActiveProductosWithActiveEmpresa(Integer empId) {
-        log.info("llegue"+ empId);
     log.info("Implements :: findActiveProductosWithActiveEmpresa");
     return repository.findActiveProductosWithActiveEmpresa(empId).stream().map(this::convertToProductoDTOEmpresa).collect(Collectors.toList());
   }
@@ -146,8 +146,8 @@ public class ProductoImpl implements IProductoService {
     }
   }
 
-  public List<ProductoResponse> getProductosByCategoriaId(int categoriaId) {
-    List<ProductoEntity> productos = repository.findProductosByCategoriaId(categoriaId);
+  public List<ProductoResponse> getProductosByCategoriaId(Integer categoriaId, Integer empresaId) {
+    List<ProductoEntity> productos = repository.findProductosByCategoriaIdAndEmpresaId(categoriaId, empresaId);
     return productos.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
