@@ -5,10 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
@@ -186,17 +184,22 @@ public class DateUtil {
 
   /**
    * Devuelve los días entre fecha de vencimiento y actual
+   *
    * @param fechaHasta
    * @return
    */
-  public static Integer diasParaVencimiento(Date fechaHasta){
+  public static Integer diasParaVencimiento(Date fechaHasta) {
+    if (fechaHasta == null) {
+      return null; // O retorna un valor predeterminado, por ejemplo 0
+    }
+
     long startTime = System.currentTimeMillis();
     long endTime = fechaHasta.getTime();
-    long diasDesde = (long) Math.floor(startTime / (1000*60*60*24)); // convertimos a dias, para que no afecten cambios de hora
-    long diasHasta = (long) Math.floor(endTime / (1000*60*60*24)); // convertimos a dias, para que no afecten cambios de hora
+    long diasDesde = (long) Math.floor(startTime / (1000 * 60 * 60 * 24));
+    long diasHasta = (long) Math.floor(endTime / (1000 * 60 * 60 * 24));
     long dias = diasHasta - diasDesde;
-    Integer i = Math.toIntExact(dias);
-    return i;
+    return Math.toIntExact(dias);
   }
+
 
 }

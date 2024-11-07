@@ -16,5 +16,6 @@ public class ProductoProductoRequest {
   private Integer proInvStockInicial;
   private Integer proInvStockVentas;
   private Date proInvFechaCreacion;
+  private Date proInvFechaVencimiento;
 
 }

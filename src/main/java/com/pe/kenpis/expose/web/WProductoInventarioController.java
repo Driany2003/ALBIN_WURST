@@ -24,6 +24,7 @@ public class WProductoInventarioController {
   @GetMapping("/find-by-id/{id}")
   public ResponseEntity<ProductoComplementoResponse> findById(@PathVariable Integer id) {
     ProductoComplementoResponse dato = service.findById(id);
+    FxComunes.printJson("que trae", dato);
     return ResponseEntity.ok(dato);
   }
 
@@ -40,7 +41,6 @@ public class WProductoInventarioController {
   }
   @PutMapping("/update")
   public ResponseEntity<ProductoComplementoResponse> update(@RequestBody ProductoProductoRequest request) {
-    FxComunes.printJson("fff", request);
     ProductoComplementoResponse response = service.update(request);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }

@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -32,26 +33,50 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
   }
 
   private ProductoComplementoResponse convertMapToResponse(Map<String, Object> map) {
-    ProductoComplementoResponse response = new ProductoComplementoResponse();
-    response.setProPrecioCosto((Double) map.get("proPrecioCosto"));
-    response.setProPrecioVenta((Double) map.get("proPrecioVenta"));
-    response.setProCategoria((String) map.get("proCategoria"));
-    response.setProDescripcion((String) map.get("proDescripcion"));
-    response.setEmpId((Integer) map.get("empId"));
-    response.setProImagen((String) map.get("proImagen"));
-    response.setProIsActive((Boolean) map.get("proIsActive"));
-    response.setProInvStockInicial((Integer) map.get("proInvStockInicial"));
-    response.setProInvStockVentas((Integer) map.get("proInvStockVentas"));
-    response.setProInvStockActual((Integer) map.get("proInvStockInicial") - (Integer) map.get("proInvStockVentas"));
-    response.setProInvFechaCreacion(DateUtil.diasParaVencimiento((Date) map.get("proInvFechaCreacion")));
-    return response;
+    System.out.println("Datos del map: " + map);
+    Integer stockInicial = map.get("proInvStockInicial") != null ? (Integer) map.get("proInvStockInicial") : 0;
+    Integer stockVentas = map.get("proInvStockVentas") != null ? (Integer) map.get("proInvStockVentas") : 0;
+    Integer stockActual = stockInicial - stockVentas;
+
+
+    return new ProductoComplementoResponse(
+        (Integer) map.get("productoId"),
+        (Date) map.get("proInvFechaVencimiento"),
+        (String) map.get("proDescripcion"),
+        (String) map.get("proImagen"),
+        (Boolean) map.get("proIsActive"),
+        (Double) map.get("proPrecioCosto"),
+        (Double) map.get("proPrecioVenta"),
+        (String) map.get("proCategoria"),
+        (Integer) map.get("empId"),
+        stockInicial,
+        stockVentas,
+        stockActual,
+        (Date) map.get("proInvFechaCreacion")
+
+    );
+
   }
 
+
+
+
   @Override
-  public ProductoComplementoResponse findById(Integer id) {
-    log.info("Implements :: findById :: " + id);
-    return repository.findById(id).map(this::convertEntityToResponse).orElse(new ProductoComplementoResponse());
+  public ProductoComplementoResponse findById(Integer productoId) {
+    log.info("Consultando producto con productoId: " + productoId);
+    Optional<ProductoInventarioEntity> optional = repository.findByProductoId(productoId);
+
+    if (optional.isPresent()) {
+      ProductoInventarioEntity entity = optional.get();
+      log.info("Datos obtenidos: " + entity);
+      return convertEntityToResponse(entity); // método para convertir
+    } else {
+      log.warn("Producto con productoId " + productoId + " no encontrado.");
+      return null;
+    }
   }
+
+
 
   @Override
   public ProductoComplementoResponse create(ProductoProductoRequest request) {
@@ -62,13 +87,23 @@ public class ProductoInventarioImpl implements IProductoInventarioService {
 
   @Override
   public ProductoComplementoResponse update(ProductoProductoRequest request) {
-    ProductoComplementoResponse res = repository.findById(request.getProInvId()).map(this::convertEntityToResponse).orElse(new ProductoComplementoResponse());
-    if (res.getProInvId() == null) {
-      return new ProductoComplementoResponse();
+    log.info("Consultando producto con productoId: " + request.getProductoId());
+
+    Optional<ProductoInventarioEntity> optional = repository.findByProductoId(request.getProductoId());
+    if (optional.isPresent()) {
+      ProductoInventarioEntity entity = optional.get();
+
+      entity.setProInvStockInicial(request.getProInvStockInicial());
+      entity.setProInvFechaVencimiento(request.getProInvFechaVencimiento());
+
+      ProductoInventarioEntity updatedEntity = repository.save(entity);
+      return convertEntityToResponse(updatedEntity);
     } else {
-      return convertEntityToResponse(repository.save(convertRequestToEntity(request)));
+      log.warn("Producto con productoId " + request.getProductoId() + " no encontrado.");
+      return null;
     }
   }
+
 
   @Override
   public ProductoComplementoResponse delete(Integer id) {

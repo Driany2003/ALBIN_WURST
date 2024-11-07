@@ -43,7 +43,6 @@
                     <div class="form-row">
                         <div class="col-md-2">
                             <div class="d-flex justify-content-end mb-2">
-                                <button class="btn btn-outline-primary mr-2" data-toggle="modal" data-target="#createProductModal">Ingresar Producto</button>
                                 <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                                 <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
                             </div>
@@ -85,6 +84,35 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal para Editar Producto -->
+<div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog" aria-labelledby="editarProductoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarProductoLabel">Editar Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editarProductoForm">
+                    <input type="hidden" id="editarProductoId" name="editarProductoId">
+                    <div class="form-group">
+                        <label for="editarStock">Stock Actual</label>
+                        <input type="number" class="form-control" id="editarStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editarFechaVencimiento">Fecha de Vencimiento</label>
+                        <input type="date" class="form-control" id="editarFechaVencimiento" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
             </div>
         </div>
     </div>

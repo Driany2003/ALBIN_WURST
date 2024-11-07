@@ -27,4 +27,7 @@ public class ProductoInventarioEntity {
   @Column(name = "pro_inv_fecha_creacion")
   private Date proInvFechaCreacion;
 
+  @Column(name = "pro_inv_fecha_vencimiento")
+  private Date proInvFechaVencimiento;
+
 }
