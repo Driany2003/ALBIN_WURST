@@ -27,7 +27,6 @@ public interface IProductoService {
 
   List<ProductoListDTO> findActiveProductosWithActive();
 
-  //vista propietario
   List<ProductoListDTO> findActiveProductosWithActiveEmpresa(Integer empId);
 
   List<ProductoResponse> getProductosByCategoriaId(Integer categoriaId, Integer empresaId);

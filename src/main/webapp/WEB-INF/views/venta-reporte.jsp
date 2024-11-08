@@ -28,6 +28,7 @@
                             <label for="fechaFin">Fecha Fin:</label>
                             <input type="date" id="fechaFin" class="form-control">
                         </div>
+                        <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
                         <div class="col-md-3 align-self-end">
                             <button type="button" id="generarReporteBtn" class="btn btn-primary">Generar Reporte</button>
                         </div>

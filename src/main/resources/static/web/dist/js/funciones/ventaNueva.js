@@ -5,7 +5,38 @@ $(document).ready(function () {
     let clienteId = null;
     let categoriaActual = null;
     actualizarTotal();
-    ocultarCampoAlias();
+
+//bloquear agregar pedido mientras no se complete los campos de nombre,alias,tipopago
+        $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+
+        function verificarCamposRequeridos() {
+            const telefono = $('#cliTelefono').val().trim();
+            const nombre = $('#cliNombre').val().trim();
+            const tipoPago = $('#venTipoPago').val();
+
+            if (telefono && nombre && tipoPago) {
+                $('.btn-primary[data-target="#ventaModal"]').prop('disabled', false);
+            } else {
+                $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+            }
+        }
+
+        $('#cliTelefono, #cliNombre, #venTipoPago').on('input change', verificarCamposRequeridos);
+
+        verificarCamposRequeridos();
+        function actualizarCampoAlias() {
+            const telefono = $('#cliTelefono').val();
+            if (telefono === '000000000') {
+                $('#alias-field').show();
+            } else {
+                $('#alias-field').hide();
+            }
+        }
+
+        actualizarCampoAlias();
+        $('#cliTelefono').on('input', actualizarCampoAlias);
+
+
 
     $('#aperturarCajaModal').on('show.bs.modal', function () {
     });
@@ -15,31 +46,14 @@ $(document).ready(function () {
         var categoriaId = $(this).data('id');
         if ($(this).hasClass('categoria-card')) {
             categoriaActual = categoriaId;
-            cargarSubCategoria(categoriaId,empresaId);
+            cargarSubCategoria(categoriaId, empresaId);
         } else if ($(this).hasClass('subcategoria-card')) {
             var subCategoriaId = categoriaId;
             cargarDetalleProducto(subCategoriaId);
         }
     });
 
-    function mostrarCampoAlias() {
-        $('#alias-label').show();
-        $('#alias-field').show();
-    }
 
-    function ocultarCampoAlias() {
-        $('#alias-label').hide();
-        $('#alias-field').hide();
-    }
-
-    function actualizarCampoAlias() {
-        let telefono = $('#cliTelefono').val();
-        if (telefono === '000000000') {
-            mostrarCampoAlias();
-        } else {
-            ocultarCampoAlias();
-        }
-    }
 
     function cargarCategorias() {
         $.ajax({
@@ -50,12 +64,14 @@ $(document).ready(function () {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();
                 categorias.forEach(function (categoria) {
-                    var cardHtml = '<div class="card categoria-card m-2" style="width: 18rem;" data-id="' + categoria.proId + '">' +
-                        '<img alt="Producto" height="50" width="50" class="card-img-top" alt="No se pudo mostrar la imagen" src="' + categoria.proImagen + '"/>' +
-                        '<div class="card-body">' +
-                        '<h5 class="card-title">' + categoria.proCategoria + '</h5>' +
-                        '<p class="card-text">' + categoria.proDescripcion + '</p>' +
-                        '</div></div>';
+                    var cardHtml = `
+                    <div class="card categoria-card m-3" style="width: 15rem;" data-id="${categoria.proId}">
+                        <img class="card-img-top categoria-img" src="${categoria.proImagen}" alt="Imagen de ${categoria.proCategoria}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title font-weight-bold">${categoria.proCategoria}</h6>
+                            <p class="card-text text-muted">${categoria.proDescripcion}</p>
+                        </div>
+                    </div>`;
                     contenedor.append(cardHtml);
                 });
                 $('#guardarPedido').hide();
@@ -63,12 +79,13 @@ $(document).ready(function () {
                 $('#volverSubCategorias').hide();
             },
             error: function (xhr, status, error) {
-                console.error('Error al obtener categorías:', error);
+                toastr.error('Error al obtener categorías:', error);
             }
         });
     }
 
-    function cargarSubCategoria(categoria,empresaId) {
+
+    function cargarSubCategoria(categoria, empresaId) {
         $.ajax({
             url: '/kenpis/producto/find-all-by-type/' + categoria + '/' + empresaId,
             method: 'GET',
@@ -76,13 +93,15 @@ $(document).ready(function () {
                 var contenedor = $('#detalle-container');
                 contenedor.empty();
                 subCategorias.forEach(function (producto) {
-                    var cardHtml = '<div class="card subcategoria-card m-2" style="width: 18rem;" data-id="' + producto.proId + '" data-precio="' + producto.proPrecioVenta + '">' +
-                        '<img alt="Producto" height="50px" width="50px" class="card-img-top" src="' + producto.proImagen + '"/>' +
-                        '<div class="card-body">' +
-                        '<h5 class="card-title">' + producto.proCategoria + '</h5>' +
-                        '<p class="card-text">' + producto.proDescripcion + '</p>' +
-                        '<p class="card-text">Precio: S/ ' + producto.proPrecioVenta.toFixed(2) + '</p>' +
-                        '</div></div>';
+                    var cardHtml = `
+                    <div class="card subcategoria-card m-3" style="width: 250px;" data-id="${producto.proId}" data-precio="${producto.proPrecioVenta}">
+                        <img class="card-img-top producto-img" src="${producto.proImagen}" alt="Imagen de ${producto.proCategoria}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title font-weight-bold">${producto.proCategoria}</h6>
+                            <p class="card-text text-muted">${producto.proDescripcion}</p>
+                            <p class="card-text text-primary font-weight-bold">Precio: S/ ${producto.proPrecioVenta.toFixed(2)}</p>
+                        </div>
+                    </div>`;
                     contenedor.append(cardHtml);
                 });
                 $('#volverCategorias').show();
@@ -90,10 +109,11 @@ $(document).ready(function () {
                 $('#guardarPedido').hide();
             },
             error: function (xhr, status, error) {
-                console.error('Error al obtener subcategorías:', error);
+                toastr.error('Error al obtener subcategorías:', error);
             }
         });
     }
+
 
     function cargarDetalleProducto(productoId) {
         $.ajax({
@@ -108,14 +128,14 @@ $(document).ready(function () {
 
                 // Estructura del contenedor principal, dividida en dos columnas: producto y complementos
                 var cardHtml = `
-                <div class="d-flex flex-row">
+                <div class="d-flex flex-row justify-content-center align-items-start">
                     <!-- Columna del producto -->
-                    <div class="card m-2" style="width: 18rem;" data-id="${producto.proId}" data-precio="${producto.proPrecioVenta}">
-                        <img alt="Producto" height="150px" width="100%" class="card-img-top" src="${producto.proImagen}"/>
-                        <div class="card-body">
-                            <h5 class="card-title">${producto.proCategoria}</h5>
-                            <p class="card-text-descripcion">${producto.proDescripcion}</p>
-                            <p class="card-text">Precio: S/ ${producto.proPrecioVenta.toFixed(2)}</p>
+                    <div class="card producto-card m-2" style="width: 300px;" data-id="${producto.proId}" data-precio="${producto.proPrecioVenta}">
+                        <img alt="Producto" class="card-img-top producto-img" src="${producto.proImagen}" />
+                        <div class="card-body text-center">
+                            <h5 class="card-title font-weight-bold">${producto.proCategoria}</h5>
+                            <p class="card-text-descripcion text-muted">${producto.proDescripcion}</p>
+                            <p class="card-text font-weight-bold text-primary">Precio: S/ ${producto.proPrecioVenta.toFixed(2)}</p>
                         </div>
                         <div class="quantity-container">
                             <button class="quantity-button minus" type="button">-</button>
@@ -126,15 +146,17 @@ $(document).ready(function () {
 
                     <!-- Columna de complementos en el costado derecho -->
                     <div class="complementos-section ml-4">
-                        <h6>Complementos</h6>
-                        ${complementos.map(complemento => `
-                            <div class="complemento-item mb-2">
-                                <label>
-                                    <input type="checkbox" class="complemento-checkbox" data-id="${complemento.proCompId}" data-nombre="${complemento.proCompNombre}" > 
-                                    ${complemento.proCompNombre}
-                                </label>
-                            </div>
-                        `).join('')}
+                        <h6 class="font-weight-bold">Complementos</h6>
+                        <div class="complementos-list">
+                            ${complementos.map(complemento => `
+                                <div class="complemento-item mb-2">
+                                    <label>
+                                        <input type="checkbox" class="complemento-checkbox" data-id="${complemento.proCompId}" data-nombre="${complemento.proCompNombre}">
+                                        ${complemento.proCompNombre}
+                                    </label>
+                                </div>
+                            `).join('')}
+                        </div>
                     </div>
                 </div>
             `;
@@ -144,10 +166,11 @@ $(document).ready(function () {
                 $('#guardarPedido').show();
             },
             error: function (xhr, status, error) {
-                console.error('Error al obtener el detalle del producto:', error);
+                toastr.error('Error al obtener el detalle del producto:', error);
             }
         });
     }
+
 
     //FUNCIONES PARA LOS CONTADORES
     $('#detalle-container').on('click', '.quantity-button.plus', function () {
@@ -188,7 +211,7 @@ $(document).ready(function () {
                 callback(stockSuficiente);
             },
             error: function (xhr, status, error) {
-                console.error("Error al verificar el stock:", error);
+                toastr.error("Error al verificar el stock:", error);
                 callback(false);
             }
         });
@@ -205,7 +228,7 @@ $(document).ready(function () {
     });
 
     $('#volverSubCategorias').click(function () {
-        cargarSubCategoria(categoriaActual,empresaId);
+        cargarSubCategoria(categoriaActual, empresaId);
     });
 
     function actualizarTotal() {
@@ -245,7 +268,11 @@ $(document).ready(function () {
         $('#ventasBody').empty();
         var detallesHtml = detallesVenta.map(function (detalle) {
             return `<tr>
-        <td class="align-middle text-center font-weight-bold">${detalle.productoId}</td>
+        <td class="align-middle text-center">
+            <button class="btn btn-danger btn-sm eliminar-detalle">
+                <i class="fas fa-trash-alt"></i> Eliminar
+            </button>
+        </td>
         <td class="align-middle">
             <div><strong>${detalle.proDescripcion}</strong></div>
             <small class="text-muted">${detalle.venDetObservaciones}</small>
@@ -253,11 +280,6 @@ $(document).ready(function () {
         <td class="align-middle text-center">${detalle.venDetCantidad}</td>
         <td class="align-middle text-right">S/ ${detalle.venDetPrecio}</td>
         <td class="align-middle text-right font-weight-bold text-success">S/ ${detalle.venDetSubtotal}</td>
-        <td class="align-middle text-center">
-            <button class="btn btn-danger btn-sm eliminar-detalle">
-                <i class="fas fa-trash-alt"></i> Eliminar
-            </button>
-        </td>
     </tr>`;
         }).join('');
         $('#ventasBody').append(detallesHtml);
@@ -310,13 +332,22 @@ $(document).ready(function () {
             toastr.error('El total a pagar debe ser mayor a 0.');
             return;
         }
-        if (!confirm('¿Está seguro de que desea guardar este pedido?')) {
-            return;
-        }
 
-        if (telefono === '000000000') {
-            var alias = $('#alias').val();
-        }
+        // Muestra el monto total en el modal y abre el modal de confirmación
+        $('#modalTotalPagar').text(totalPagar.toFixed(2));
+        $('#confirmarPagoModal').modal('show');
+    });
+
+// Cuando el usuario confirma el pago en el modal
+    $('#confirmarPagoButton').click(function () {
+        var empresaId = $('#empresaId').val();
+        var usuarioId = $('#usuarioId').val();
+        var clienteId = $('#clienteId').val();
+        var tipoPago = $('#venTipoPago').val();
+        var telefono = $('#cliTelefono').val();
+        var alias = telefono === '000000000' ? $('#alias').val() : null;
+
+        $('#confirmarPagoModal').modal('hide');
 
         $.ajax({
             url: '/kenpis/venta/create',
@@ -330,7 +361,6 @@ $(document).ready(function () {
                 detallesVentas: detallesVenta,
                 venTotal: totalPagar,
                 venTipoPago: tipoPago
-
             }),
             success: function (response) {
                 toastr.success('Pedido guardado correctamente.');
@@ -355,6 +385,7 @@ $(document).ready(function () {
         });
     });
 
+
     $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
         var telefono = $('#cliTelefonoNoRegistrado').val();
@@ -374,6 +405,7 @@ $(document).ready(function () {
                     empId: empresaId
                 }),
                 success: function (response) {
+                    toastr.success('Cliente creado Exitosamente');
                     clienteId = response.cliId;
                     $('#clienteId').val(clienteId);
                     $('#cliNombrePopap').val('');

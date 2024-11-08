@@ -28,8 +28,11 @@ public class WVentaReporteController {
   }
 
   @GetMapping("/filtroXfecha")
-  public ReporteVentas obtenerReporteVentasXFecha(@RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio, @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
-    return service.obtenerReporteVentasXFecha(fechaInicio, fechaFin);
+  public ResponseEntity<ReporteVentas> obtenerReporteVentas(@RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio, @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin, @RequestParam("empresaId") Integer empresaId) {
+
+    ReporteVentas reporteVentas = service.obtenerReporteVentasXFecha(fechaInicio, fechaFin, empresaId);
+
+    return ResponseEntity.ok(reporteVentas);
   }
 
 }

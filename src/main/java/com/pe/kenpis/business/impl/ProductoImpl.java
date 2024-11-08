@@ -47,7 +47,6 @@ public class ProductoImpl implements IProductoService {
     return new ProductoListDTO((Integer) map.get("proId"), (String) map.get("proDescripcion"), (String) map.get("proImagen"), (Boolean) map.get("proIsActive"), (Double) map.get("proPrecioCosto"), (Double) map.get("proPrecioVenta"));
   }
 
-  //vista propietario
   @Override
   public List<ProductoListDTO> findActiveProductosWithActiveEmpresa(Integer empId) {
     log.info("Implements :: findActiveProductosWithActiveEmpresa");

@@ -3,7 +3,7 @@ $(document).ready(function () {
     var usuarioNivel = $("#usuarioNivel").val();
     let complementosSeleccionados = [];
     let editComplementosSeleccionados = [];
-    cargarProductos(empresaId);
+
     if (usuarioNivel === "ADMINISTRADOR") {
         cargarEmpresas("empresaSelect"); //para registrar
         cargarEmpresas("empresaSelection"); //para poder elegir la empresa a listar sus productos
@@ -18,7 +18,12 @@ $(document).ready(function () {
         });
 
     } else if (usuarioNivel !== "ADMINISTRADOR") {
-        listarCategoria(empresaId);
+        if (empresaId) { // Verifica que empresaId no sea nulo o vacío
+            listarCategoria(empresaId);
+            cargarProductos(empresaId);
+        } else {
+            toastr.error("Error: empresaId no está definido para el usuario no administrador.");
+        }
     }
 
     function cargarEmpresas(selectorId, callback) {
@@ -152,6 +157,12 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.status === "success") {
                     const productos = response.productos;
+
+                    if (productos.length === 0) {
+                        $('#productoBody').html('<tr><td colspan="5" class="text-center">No hay productos asociados a esta empresa.</td></tr>');
+                        return;
+                    }
+
                     var html = '';
                     productos.forEach(function (producto) {
                         html += '<tr id="product-row-' + producto.proId + '">' +
@@ -291,6 +302,7 @@ $(document).ready(function () {
         let complementosSeleccionadosString = complementosSeleccionados.join(',');
 
         var selectedEmpresaId = $('#empresaSelect').val() || empresaId;
+
         var productoData = {
             proCategoria: $('#nombreProducto').val(),
             proPrecioCosto: $('#precioProductoCosto').val(),
@@ -311,7 +323,7 @@ $(document).ready(function () {
             success: function (response) {
                 toastr.success('Producto registrado correctamente.');
                 $('#createProductModal').modal('hide');
-                cargarProductos();
+                cargarProductos(selectedEmpresaId);
             },
             error: function () {
                 toastr.error('Error al registrar el producto. Intente nuevamente.');
@@ -319,30 +331,30 @@ $(document).ready(function () {
         });
     });
 
-    $('#editarProductoImageLogo').on('change', function () {
+    $('#editImagenProducto').on('change', function () {
         var file = this.files[0];
         if (file) {
             if (file.type === 'image/png' || file.type === 'image/jpeg') {
                 var reader = new FileReader();
                 reader.onload = function (e) {
-                    $('#logoPreviewEdit').attr('src', e.target.result)
+                    $('#editImagenPreview').attr('src', e.target.result)
                         .css({width: '100px', height: '100px'})
                         .show();
                 };
                 reader.readAsDataURL(file);
             } else {
                 toastr.error('Solo se permiten imágenes en formato PNG o JPG.');
-                $('#editarProductoImageLogo').val('');
-                $('#logoPreviewEdit').hide();
+                $('#editImagenProducto').val('');
+                $('#editImagenPreview').hide();
             }
         } else {
-            $('#logoPreviewEdit').hide();
+            $('#editImagenPreview').hide();
         }
     });
 
 // Al hacer clic en el botón para abrir el selector de archivos
-    $('#logoPreviewEdit').on('click', function () {
-        $('#editarProductoImageLogo').trigger('click');
+    $('#editImagenPreview').on('click', function () {
+        $('#editImagenProducto').trigger('click');
     });
 
     function editarProducto(proId) {
@@ -401,11 +413,16 @@ $(document).ready(function () {
         editComplementosSeleccionados = $('#editComplementosContainer .complemento-checkbox:checked')
             .map(function () {
                 return $(this).data('id');
-            })
-            .get();
+            }).get();
 
+        var empresa;
+        if (usuarioNivel === "ADMINISTRADOR") {
+            empresa = $('#editEmpresaSelect').val();
+        } else if (usuarioNivel !== "ADMINISTRADOR") {
+            empresa = empresaId;
+        }
         var productoData = {
-            empId: $('#editEmpresaSelect').val(),
+            empId: empresa,
             proId: $('#editProductId').val(),
             proCategoria: $('#editNombreProducto').val(),
             proPrecioCosto: $('#editPrecioProductoCosto').val(),
@@ -425,7 +442,7 @@ $(document).ready(function () {
             success: function () {
                 $('#editProductModal').modal('hide');
                 toastr.success('Producto actualizado correctamente.');
-                cargarProductos();
+                cargarProductos(empresa);
             },
             error: function () {
                 toastr.error('Error al actualizar el producto. Intente nuevamente.');
@@ -434,20 +451,25 @@ $(document).ready(function () {
     });
 
     function eliminarProducto(proId) {
-        if (confirm('¿Estás seguro de que deseas eliminar este producto?')) {
-            $.ajax({
-                url: `/kenpis/producto/delete/${proId}`,
-                method: 'DELETE',
-                success: function () {
-                    toastr.success('Producto eliminado correctamente.');
-                    cargarProductos();
-                },
-                error: function () {
-                    toastr.error('Error al eliminar el producto. Intente nuevamente.');
-                }
-            });
-        }
+        $('#confirmDeleteButton').data('id', proId);
+        $('#confirmDeleteModal').modal('show');
     }
+    $('#confirmDeleteButton').click(function () {
+        var proId = $(this).data('id');
+        $.ajax({
+            url: `/kenpis/producto/delete/${proId}`,
+            method: 'DELETE',
+            success: function () {
+                toastr.success('Producto eliminado correctamente.');
+                cargarProductos(empresaId);
+                $('#confirmDeleteModal').modal('hide');
+            },
+            error: function () {
+                toastr.error('Error al eliminar el producto. Intente nuevamente.');
+            }
+        });
+    });
+
 
     $(document).on('change', '.estado-checkbox', function () {
         var checkbox = $(this);

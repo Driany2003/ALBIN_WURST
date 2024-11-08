@@ -2,12 +2,13 @@ $(document).ready(function () {
     window.ventasChart = null;
 
     $('#generarReporteBtn').click(function () {
+        var empresaId =$('#empresaId').val();
         const fechaInicio = $('#fechaInicio').val();
         const fechaFin = $('#fechaFin').val();
 
         // Si la validación es exitosa, llama a generarReporte
         if (validarFechas(fechaInicio, fechaFin)) {
-            generarReporte(fechaInicio, fechaFin);
+            generarReporte(fechaInicio, fechaFin, empresaId);
         }
     });
 
@@ -27,7 +28,7 @@ $(document).ready(function () {
         return true;
     }
 
-    function generarReporte(fechaInicio, fechaFin) {
+    function generarReporte(fechaInicio, fechaFin,empresaId) {
         // Actualiza las fechas en el modal
         $('#fechaInicioText').text(fechaInicio);
         $('#fechaFinText').text(fechaFin);
@@ -37,7 +38,8 @@ $(document).ready(function () {
             type: 'GET',
             data: {
                 fechaInicio: fechaInicio,
-                fechaFin: fechaFin
+                fechaFin: fechaFin,
+                empresaId: empresaId
             },
             success: function (data) {
                 if (!data || data.numeroVentas === 0) {

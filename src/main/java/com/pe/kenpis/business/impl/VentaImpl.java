@@ -142,8 +142,8 @@ public class VentaImpl implements IVentaService {
   }
 
   @Override
-  public ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin) {
-    List<Map<String, Object>> result = ventaRepository.obtenerReporteVentasXFecha(fechaInicio, fechaFin);
+  public ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin,Integer empresaId) {
+    List<Map<String, Object>> result = ventaRepository.obtenerReporteVentasXFecha(fechaInicio, fechaFin,empresaId);
 
     if (result.isEmpty()) {
       return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0,Collections.emptyList());

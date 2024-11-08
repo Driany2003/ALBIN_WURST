@@ -20,7 +20,7 @@ public interface IVentaService {
 
   ReporteVentas obtenerReporteVentas(LocalDate fechaInicio, LocalDate fechaFin);
 
-  ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin);
+  ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin, Integer empresaId);
 
 
 

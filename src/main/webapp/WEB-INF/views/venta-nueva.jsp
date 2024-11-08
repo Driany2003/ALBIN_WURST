@@ -47,50 +47,48 @@
                 </div>
 
                 <div class="card-body p-3">
-                    <div class="form-row">
-                        <div class="form-group col-md-2 text-md-right align-middle">
-                            <label for="cliTelefono" class="control-label col-form-label"># Celular Cliente</label>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <div class="input-group">
-                                <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese número">
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="buscarCliente" style="cursor: pointer;">
-                                        <i class="fa fa-search"></i>
-                                    </span>
+                    <div class="card-body p-3">
+                        <div class="form-row align-items-center">
+                            <div class="form-group col-md-3">
+                                <label for="cliTelefono" class="control-label col-form-label"># Celular Cliente</label>
+                                <div class="input-group">
+                                    <input id="cliTelefono" type="text" class="form-control form-control-sm" maxlength="9" placeholder="Ingrese número">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="buscarCliente" style="cursor: pointer;">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group col-md-1 text-md-right align-middle">
-                            <label for="cliNombre" class="control-label col-form-label">Nombre</label>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
-                            <input id="clienteId" type="hidden"/>
-                        </div>
-                        <div class="form-group col-md-1 text-md-right align-middle" id="alias-label">
-                            <label for="alias" class="control-label col-form-label">Alias</label>
-                        </div>
-                        <div class="form-group col-md-1" id="alias-field" style="display: none;">
-                            <input id="alias" type="text" class="form-control form-control-sm">
-                        </div>
 
-                        <div class="form-group col-md-2 text-md-right align-middle">
-                            <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
-                        </div>
-                        <div class="form-group col-md-2">
-                            <select id="venTipoPago" class="form-control form-control-sm">
-                                <option value="">-- Seleccione --</option>
-                                <option value="EFECTIVO">EFECTIVO</option>
-                                <option value="YAPE">YAPE</option>
-                                <option value="PLIN">PLIN</option>
-                            </select>
+                            <div class="form-group col-md-3">
+                                <label for="cliNombre" class="control-label col-form-label">Nombre</label>
+                                <input id="cliNombre" type="text" class="form-control form-control-sm" disabled placeholder="---">
+                                <input id="clienteId" type="hidden"/>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="venTipoPago" class="control-label col-form-label">Tipo Pago</label>
+                                <select id="venTipoPago" class="form-control form-control-sm">
+                                    <option value="">-- Seleccione --</option>
+                                    <option value="EFECTIVO">EFECTIVO</option>
+                                    <option value="YAPE">YAPE</option>
+                                    <option value="PLIN">PLIN</option>
+                                    <option value="TARJETA">TARJETA</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3" id="alias-field" style="display: none;">
+                                <label for="alias" class="control-label col-form-label">Alias</label>
+                                <input id="alias" type="text" class="form-control form-control-sm">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card-header">
-                        <h5 class="card-title">Detalle Pedido</h5>
-                        <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#ventaModal">Agregar</button>
+
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">Detalle del Pedido</h5>
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventaModal">Agregar</button>
                     </div>
 
                     <div class="card-body p-2">
@@ -98,12 +96,11 @@
                             <table id="ventasTable" class="table table-sm table-bordered table-striped">
                                 <thead class="thead-dark">
                                 <tr>
-                                    <th scope="col">ID</th>
+                                    <th scope="col">ACCION</th>
                                     <th scope="col">PRODUCTO</th>
                                     <th scope="col">CANTIDAD</th>
                                     <th scope="col">PRECIO</th>
                                     <th scope="col">TOTAL</th>
-                                    <th scope="col"></th>
                                 </tr>
                                 </thead>
                                 <tbody id="ventasBody"></tbody>
@@ -111,13 +108,16 @@
                                 <tr>
                                     <th colspan="4" class="text-right">Total a pagar:</th>
                                     <th id="totalPagar">S/ 0.00</th>
-                                    <th><button id="pagarButton" class="btn btn-success btn-sm">Grabar</button></th>
                                 </tr>
                                 </tfoot>
                             </table>
                         </div>
+                        <div class="d-flex justify-content-end mt-3">
+                            <button id="pagarButton" class="btn btn-success">Pagar</button>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -148,6 +148,28 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal de Confirmación de Pago -->
+        <div class="modal fade" id="confirmarPagoModal" tabindex="-1" role="dialog" aria-labelledby="confirmarPagoModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmarPagoModalLabel">Confirmar Pago</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas confirmar este pago de <strong>S/ <span id="modalTotalPagar"></span></strong>?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="confirmarPagoButton">Confirmar Pago</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <!-- Modal para registrar cliente-->
         <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
@@ -221,21 +243,284 @@
 <style>
     .card {
         border-radius: 10px;
-        transition: transform 0.2s, box-shadow 0.2s;
-        cursor: pointer;
+        border: 1px solid #e3e6f0;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     }
+
+    /* Header Styling */
+    .card-header {
+        background-color: #f8f9fc;
+        border-bottom: 1px solid #e3e6f0;
+        font-weight: bold;
+    }
+
     .card-img-top {
         object-fit: cover;
         height: 150px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
+
+
+    .modal-footer {
+        justify-content: center;
+    }
+
+    /* Table Styling */
+    .table thead th {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+    }
+
+    .table th, .table td {
+        padding: 12px;
+        vertical-align: middle;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .input-group-text {
+        background-color: #007bff;
+        color: white;
+        border-radius: 0 5px 5px 0;
+    }
+
+    .input-group .form-control {
+        border-radius: 5px 0 0 5px;
+    }
+
+    /* Align footer button */
+    .d-flex {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .mt-3 {
+        margin-top: 1rem;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        color: white;
+        margin-left: 10px;
+    }
+
+    #totalPagar {
+        font-weight: bold;
+        font-size: 1.25em;
+        color: #28a745;
+        text-align: right;
+    }
+
+    /* Button Styling */
+    .btn-primary, .btn-success {
+        font-size: 14px;
+        border-radius: 5px;
+        padding: 8px 16px;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    /* Estilos para centrar y dar formato a las tarjetas */
+    #detalle-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .categoria-card {
+        width: 200px; /* Ancho de las tarjetas más grande */
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .categoria-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .categoria-img {
+        height: 120px; /* Aumentamos la altura de la imagen */
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .categoria-card .card-body {
+        padding: 15px;
+    }
+
+    .categoria-card .card-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .categoria-card .card-text {
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    /* Centrar título del modal */
+    .modal-title {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Estilo para los botones dentro del modal */
+    .modal-footer .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    /* Contenedor y formato de las tarjetas */
+    #detalle-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .subcategoria-card {
+        width: 250px; /* Ancho aumentado para una mejor visualización */
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .subcategoria-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Imagen de los productos */
+    .producto-img {
+        height: 180px; /* Aumento de altura para mejor visualización */
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* Contenido de la tarjeta */
+    .subcategoria-card .card-body {
+        padding: 15px;
+    }
+
+    .subcategoria-card .card-title {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .subcategoria-card .card-text {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 8px;
+    }
+
+    .subcategoria-card .card-text.text-primary {
+        font-size: 1rem;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    /* Centrar el título del modal */
+    .modal-title {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Estilo para los botones dentro del modal */
+    .modal-footer .btn {
+        border-radius: 5px;
+        padding: 10px 20px;
+    }
+
+    /* Contenedor de Detalle */
+    #detalle-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    /* Tarjeta de Producto */
+    .producto-card {
+        width: 300px; /* Aumentamos el tamaño de la tarjeta */
+        border-radius: 10px;
+        border: 1px solid #e3e6f0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease-in-out;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .producto-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Imagen del Producto */
+    .producto-img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    /* Contenido de la Tarjeta del Producto */
+    .producto-card .card-body {
+        padding: 15px;
+    }
+
+    .producto-card .card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .producto-card .card-text-descripcion {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .producto-card .card-text {
+        font-size: 1rem;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    /* Contenedor de Cantidad */
     .quantity-container {
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 10px;
+        margin-top: 10px;
     }
+
     .quantity-button {
         background-color: #007bff;
         color: white;
@@ -246,38 +531,65 @@
         cursor: pointer;
         transition: background-color 0.2s;
     }
+
     .quantity-button:hover {
         background-color: #0056b3;
     }
+
     .quantity-display {
         font-size: 18px;
         font-weight: bold;
         margin: 0 10px;
         color: #333;
     }
-    .modal-footer {
-        justify-content: center;
-    }
-    .table thead th {
-        background-color: #007bff;
-        color: white;
-    }
-    .btn-danger {
-        font-size: 12px;
-        padding: 5px 10px;
-        border-radius: 5px;
-    }
-    .btn-primary, .btn-success {
-        font-size: 14px;
-        border-radius: 5px;
-    }
-    #totalPagar {
-        font-weight: bold;
-        font-size: 1.5em;
-        color: #28a745;
-        text-align: right;
+
+    /* Sección de Complementos */
+    .complementos-section {
+        max-width: 200px;
         padding: 10px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     }
+
+    .complementos-section h6 {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .complemento-item {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+    .complemento-item input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+    .form-row .form-group {
+        margin-bottom: 0;
+    }
+
+    #alias-field {
+        display: none; /* Escondido por defecto */
+    }
+
+    /* Mostrar el campo de alias cuando sea necesario */
+    .show-alias #alias-field {
+        display: block;
+    }
+
+    /* Ajustes adicionales para que se vea mejor en una sola fila */
+    @media (min-width: 768px) {
+        .form-group.col-md-3 {
+            max-width: 24%; /* Ajuste de ancho para que los cuatro campos quepan en una fila */
+        }
+    }
+
+
 </style>
 
 <link href="/static/css/custom.css" rel="stylesheet">
@@ -291,9 +603,9 @@
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link href="/static/web/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-<link href="/static/web/assets/extra-libs/taskboard/css/lobilist.css" rel="stylesheet" >
-<link href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css" rel="stylesheet" >
-<link href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" >
+<link href="/static/web/assets/extra-libs/taskboard/css/lobilist.css" rel="stylesheet">
+<link href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css" rel="stylesheet">
+<link href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">

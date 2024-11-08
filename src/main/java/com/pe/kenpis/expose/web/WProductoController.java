@@ -85,7 +85,7 @@ public class WProductoController {
   }
 
   @GetMapping("/find-all-is-active/{empresaId}")
-  public ResponseEntity<Map<String, Object>> findActiveProductosWithActive(HttpSession session, @PathVariable Integer empresaId) {
+  public ResponseEntity<Map<String, Object>> findActiveProductosWithActive(HttpSession session,@PathVariable Integer empresaId) {
     String usuSessionNivel = (String) session.getAttribute("usuSessionNivel");
     Integer empId = (Integer) session.getAttribute("empresaSessionID");
     Map<String, Object> response = new HashMap<>();
