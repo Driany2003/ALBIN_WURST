@@ -160,7 +160,7 @@ public class WEmpresaController {
   @GetMapping("/find-sucursales/{empId}")
   public ResponseEntity<Map<String, Object>> findSucursalesByEmpresa(@PathVariable Integer empId) {
     log.info("Controller :: findSucursalesByEmpresa :: empresaId={}", empId);
-    List<EmpresaDTO> sucursales = service.findSucursalByEmpresa(empId);
+    List<EmpresaDTO> sucursales = service.obtenerSucursalesPorEmpresa(empId);
     FxComunes.printJson("trae sucursales para vista de administrador", sucursales);
     Map<String, Object> response = new HashMap<>();
     response.put("status", "success");

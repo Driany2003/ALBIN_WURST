@@ -20,10 +20,6 @@ public interface EmpresaRepository extends JpaRepository<EmpresaEntity, Integer>
   @Query(value = "SELECT e.emp_id AS empId, e.emp_nombre_comercial AS empNombreComercial FROM T_EMPRESA e WHERE e.emp_is_active = 1 and e.emp_padre_id = 0", nativeQuery = true)
   List<Map<String, Object>> findAllByEmpIsActive();
 
-  // Listar las sucursales por empresa
-  @Query(value = "SELECT e.emp_id AS empId, e.emp_nombre_comercial AS empNombreComercial,  e.emp_telefono AS empTelefono, e.emp_is_active AS empIsActive FROM T_EMPRESA e WHERE e.emp_padre_id = :empId", nativeQuery = true)
-  List<Map<String, Object>> findSucursalesByEmpresaIdList(@Param("empId") Integer empId);
-
   @Transactional
   @Modifying
   @Query(value = "UPDATE T_EMPRESA SET emp_is_active = :estado WHERE emp_id = :empresaId OR emp_padre_id = :empresaId", nativeQuery = true)
@@ -33,6 +29,12 @@ public interface EmpresaRepository extends JpaRepository<EmpresaEntity, Integer>
   @Query(value = "SELECT e.emp_id AS empId, e.emp_responsable AS empResponsable, e.emp_imagen_logo AS empImagenLogo, e.emp_nombre_comercial AS empNombreComercial, e.emp_fecha_contrato_inicio AS empFechaContratoInicio, e.emp_fecha_contrato_fin AS empFechaContratoFin, e.emp_telefono AS empTelefono, e.emp_is_active AS empIsActive FROM T_EMPRESA e WHERE e.emp_padre_id = 0", nativeQuery = true)
   List<Map<String, Object>> findAllActiveEmpresaById();
 
+  // Listar las sucursales por empresa
   @Query(value = "SELECT e.emp_id AS empId, e.emp_nombre_comercial AS empNombreComercial, e.emp_telefono AS empTelefono, e.emp_is_active AS empIsActive FROM T_EMPRESA e WHERE e.emp_padre_id = :empId", nativeQuery = true)
   List<Map<String, Object>> findSucursalesByEmpresaPadreId(@Param("empId") Integer empId);
+
+  //Listar solo sucursales activas
+  @Query(value = "SELECT e.emp_id AS empId, e.emp_nombre_comercial AS empNombreComercial, e.emp_telefono AS empTelefono, e.emp_is_active AS empIsActive FROM T_EMPRESA e WHERE e.emp_padre_id = :empId AND e.emp_is_active = 1", nativeQuery = true)
+  List<Map<String, Object>> findSucursalesByEmpresa(@Param("empId") Integer empId);
+
 }

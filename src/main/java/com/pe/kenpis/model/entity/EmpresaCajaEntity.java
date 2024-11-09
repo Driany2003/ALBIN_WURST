@@ -1,9 +1,12 @@
 package com.pe.kenpis.model.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
+@Data
 @Table(name = "T_EMPRESA_CAJA")
 public class EmpresaCajaEntity {
 
@@ -13,10 +16,10 @@ public class EmpresaCajaEntity {
   private Integer cajaId;
 
   @Column(name = "caja_fecha_apertura")
-  private LocalDateTime cajaFechaApertura;
+  private Date cajaFechaApertura;
 
   @Column(name = "caja_fecha_cierre")
-  private LocalDateTime cajaFechaCierre;
+  private Date cajaFechaCierre;
 
   @Column(name = "caja_monto_inicial")
   private float cajaMontoInicial;

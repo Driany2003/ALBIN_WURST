@@ -3,6 +3,7 @@ package com.pe.kenpis.model.api.empresa.caja;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -13,12 +14,13 @@ public class EmpresaCajaRequest {
 
   private Integer cajaId;
   private Integer empPadreId;
-  private LocalDateTime cajaFechaApertura;
-  private LocalDateTime cajaFechaCierre;
+  private Date cajaFechaApertura;
+  private Date cajaFechaCierre;
   private float cajaMontoInicial;
   private float cajaMontoFinal;
-  private Integer cajaUsuarioApertura;
-  private Integer cajaUsuarioCierre;
+  private String cajaAsignada;
+  private String cajaUsuarioApertura;
+  private String cajaUsuarioCierre;
   private Boolean cajaEstado;
 
 }

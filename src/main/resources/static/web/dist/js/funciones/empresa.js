@@ -287,23 +287,31 @@ $(document).ready(function () {
         }
     }
 
-    $('#empImageLogo').on('change', function () {
+    $('#empImagenLogo').on('change', function () {
         var file = this.files[0];
 
         if (file) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#logoPreview').attr('src', e.target.result).css({width: '100px', height: '100px'}).show();
-                $('#cargarLogo').show();
-                $('#empImageBase64').val(e.target.result);
-            };
-            reader.readAsDataURL(file);
+            // Verificar tipo de archivo para seguridad
+            if (file.type === 'image/png' || file.type === 'image/jpeg') {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#logoPreview')
+                        .attr('src', e.target.result)
+                        .css({ width: '100px', height: '100px' })
+                        .show();
+                    $('#empImageBase64').val(e.target.result);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Formato no permitido. Sólo PNG o JPG');
+                $('#empImagenLogo').val('');
+            }
         } else {
             $('#logoPreview').hide();
-            $('#cargarLogo').hide();
             $('#empImageBase64').val('');
         }
     });
+
 
     $('#cargarLogo').on('click', function () {
         $('#empImageLogo').trigger('click');

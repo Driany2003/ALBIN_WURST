@@ -4,6 +4,7 @@ import com.pe.kenpis.model.api.empresa.caja.EmpresaCajaRequest;
 import com.pe.kenpis.model.api.empresa.caja.EmpresaCajaResponse;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IEmpresaCajaService {
 
@@ -17,7 +18,9 @@ public interface IEmpresaCajaService {
 
   EmpresaCajaResponse delete(Integer id);
 
- EmpresaCajaResponse abrirCaja(EmpresaCajaRequest empresaCajaRequest);
+  EmpresaCajaResponse crearCaja(EmpresaCajaRequest request);
 
+  EmpresaCajaResponse cerrarCaja(Integer cajaId);
 
+  List<EmpresaCajaResponse> obtenerCajasPorEmpresa(Integer empresaId);
 }

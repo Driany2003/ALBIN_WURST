@@ -224,9 +224,11 @@
                                     </c:forEach>
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="montoInicial">Monto Inicial</label>
-                                <input type="number" class="form-control" id="montoInicial" required placeholder="Ingresar un Monto Inicial">
+                            <div class="form-group bmd-form-group is-filled">
+                                <label for="responsableAsignar" class="bmd-label-floating">Asignar Responsable</label>
+                                <select class="form-control" name="responsableAsignar" id="responsableAsignar" required>
+                                    <option value="">-- Elegir una Responsable --</option>
+                                </select>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -50,13 +50,6 @@ public class EmpresaImpl implements IEmpresaService {
     return results.stream().map(result -> new EmpresaResponseDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"))).collect(Collectors.toList());
   }
 
-  //lista de sucursales para la vista de empresa
-  @Override
-  public List<EmpresaDTO> findSucursalByEmpresa(Integer empId) {
-    List<Map<String, Object>> results = repository.findSucursalesByEmpresaIdList(empId);
-    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
-  }
-
   @Override
   public EmpresaResponse findById(Integer id) {
     log.info("Implements :: findById :: " + id);
@@ -71,10 +64,19 @@ public class EmpresaImpl implements IEmpresaService {
     return empresaOpt.map(this::convertEntityToResponse).orElse(new EmpresaResponse());
   }
 
+  //listar en combo
   @Override
   public List<EmpresaDTO> obtenerSucursalesPorEmpresa(Integer empId) {
     log.info("Implements :: obtenerSucursalesPorEmpresa :: {}", empId);
     List<Map<String, Object>> results = repository.findSucursalesByEmpresaPadreId(empId);
+    return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
+
+  }
+  //listar sucursales activas para registrar caja
+  @Override
+  public List<EmpresaDTO> obtenerSucursalesByEmpresa(Integer empId) {
+    log.info("Implements :: obtenerSucursalesPorEmpresa :: {}", empId);
+    List<Map<String, Object>> results = repository.findSucursalesByEmpresa(empId);
     return results.stream().map(result -> new EmpresaDTO((Integer) result.get("empId"), (String) result.get("empNombreComercial"), (String) result.get("empTelefono"), (Boolean) result.get("empIsActive"))).collect(Collectors.toList());
 
   }
