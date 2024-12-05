@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 
 @Controller
@@ -22,8 +23,9 @@ public class WVentaReporteController {
   private IVentaService service;
 
   @GetMapping("/filtro")
-  public ResponseEntity<ReporteVentas> obtenerReporteVentas(@RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio, @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
-    ReporteVentas reporte = service.obtenerReporteVentas(fechaInicio, fechaFin);
+  public ResponseEntity<ReporteVentas> obtenerReporteVentas(HttpSession session, Integer cajaId) {
+    Integer empresaId = (Integer) session.getAttribute("empresaSessionID");
+    ReporteVentas reporte = service.obtenerReporteVentas(empresaId, cajaId);
     return ResponseEntity.ok(reporte);
   }
 

@@ -2,7 +2,7 @@ $(document).ready(function () {
     window.ventasChart = null;
 
     $('#generarReporteBtn').click(function () {
-        var empresaId =$('#empresaId').val();
+        var empresaId = $('#empresaId').val();
         const fechaInicio = $('#fechaInicio').val();
         const fechaFin = $('#fechaFin').val();
 
@@ -28,7 +28,7 @@ $(document).ready(function () {
         return true;
     }
 
-    function generarReporte(fechaInicio, fechaFin,empresaId) {
+    function generarReporte(fechaInicio, fechaFin, empresaId) {
         // Actualiza las fechas en el modal
         $('#fechaInicioText').text(fechaInicio);
         $('#fechaFinText').text(fechaFin);
@@ -240,7 +240,179 @@ $(document).ready(function () {
         }, 500); // Espera medio segundo para que el modal se muestre completamente
 
     });
+
+
+// Llamar a la función al cargar la página con el empresaId de la sesión
+
 });
+
+    $(document).ready(function () {
+        window.ventasChart = null;
+
+        // Función para cargar reportes por empresa y habilitar/deshabilitar botones
+        function cargarReportesPorEmpresa(empresaId) {
+            $.ajax({
+                url: '/kenpis/reporte/listar',
+                method: 'GET',
+                data: {empId: empresaId},
+                success: function (reportes) {
+                    $('#reportesBody').empty();
+
+                    if (reportes.length > 0) {
+                        reportes.forEach(function (reporte, index) {
+                            const fechaFormateada = new Date(reporte.repFechaCreacion).toLocaleString('es-ES', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit',
+                                hour12: true
+                            });
+                            console.log("date", fechaFormateada);
+                            const cajaYSucursal = `Caja ${reporte.cajaId} - ${reporte.sucursalNombre}`;
+                            const fechaCreacion = `Fecha: ${fechaFormateada}`;
+                            const estado = reporte.repIsActive ? "En Proceso" : " Terminado ";
+                            const botonDisabled = reporte.repIsActive ? "disabled" : "";
+
+                            const fila = `
+                        <tr>
+                            <td>${index + 1}</td>
+                            <td>${cajaYSucursal}
+                             <span style="display: block; margin-top: 5px; color: gray;">${fechaCreacion}</span>
+                            </td>
+                            <td>${estado}</td>
+                            <td>
+                                <button class="btn btn-primary btn-sm btn-generar-reporte" 
+                                        data-caja-id="${reporte.cajaId}" 
+                                        ${botonDisabled}>
+                                    Generar Reporte
+                                </button>
+                            </td>
+                        </tr>`;
+                            $('#reportesBody').append(fila);
+                        });
+                    } else {
+                        $('#reportesBody').append('<tr><td colspan="4">No hay reportes disponibles para esta empresa.</td></tr>');
+                    }
+                },
+                error: function () {
+                    toastr.error('Error al cargar los reportes.');
+                }
+            });
+        }
+
+        const empresaId = $('#empresaId').val();
+        cargarReportesPorEmpresa(empresaId);
+
+        // Evento de clic para los botones "Generar Reporte" habilitados
+        $(document).on('click', '.btn-generar-reporte', function () {
+            const cajaId = $(this).data('caja-id'); // Obtener cajaId del botón
+            generarReportePorCaja(empresaId, cajaId);
+        });
+
+        function generarReportePorCaja(empresaId, cajaId) {
+            $.ajax({
+                url: '/kenpis/venta/reporte/filtro',
+                type: 'GET',
+                data: {cajaId: cajaId},
+                success: function (data) {
+                    if (!data || data.numeroVentas === 0) {
+                        toastr.error("No se encontraron datos para la caja seleccionada.");
+                        return;
+                    }
+
+                    // Abre el modal con los datos
+                    $('#reporteModal').modal('show');
+                    $('#totalVenta').text(`S/ ${data.totalVenta.toFixed(2)}`);
+                    $('#totalCosto').text(`S/ ${data.totalCosto.toFixed(2)}`);
+                    $('#gananciaTotal').text(`S/ ${data.gananciaTotal.toFixed(2)}`);
+                    $('#numeroVentas').text(data.numeroVentas);
+                    $('#totalYape').text(`S/ ${data.totalYape.toFixed(2)}`);
+                    $('#totalPlin').text(`S/ ${data.totalPlin.toFixed(2)}`);
+                    $('#totalEfectivo').text(`S/ ${data.totalEfectivo.toFixed(2)}`);
+                    $('#totalTarjeta').text(`S/ ${data.totalTarjeta.toFixed(2)}`);
+
+                    const productosTableBody = $('#productosMasVendidos');
+                    productosTableBody.empty();
+
+                    const nombresProductos = [];
+                    const popularidades = [];
+                    const colores = ['#4EA8DE', '#4CD62B', '#FF6B6B', '#FFC107', '#A3D4FF', '#E6C8FF', '#FFD1C1'];
+
+                    data.productosMasVendidos.forEach(function (producto, index) {
+                        nombresProductos.push(producto.productoNombre);
+                        popularidades.push(producto.popularidad);
+
+                        const row = `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${producto.productoNombre}</td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: ${producto.popularidad}%; background-color: ${colores[index % colores.length]};"></div>
+                            </div>
+                        </td>
+                        <td>${producto.popularidad}%</td>
+                    </tr>`;
+                        productosTableBody.append(row);
+                    });
+
+                    const ctx = document.getElementById('ventasChart').getContext('2d');
+
+                    if (window.ventasChart) {
+                        window.ventasChart.destroy();
+                    }
+
+                    window.ventasChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: nombresProductos,
+                            datasets: [{
+                                data: popularidades,
+                                backgroundColor: colores,
+                                borderWidth: 2,
+                                borderColor: '#ffffff',
+                                hoverBorderColor: '#000000'
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function (context) {
+                                            return `${context.label}: ${context.raw}%`;
+                                        }
+                                    }
+                                },
+                                datalabels: {
+                                    display: true,
+                                    color: '#fff',
+                                    formatter: (value) => `${value}%`,
+                                    font: {
+                                        weight: 'bold',
+                                        size: 12
+                                    }
+                                }
+                            },
+                            animation: {
+                                animateScale: true,
+                                animateRotate: true
+                            },
+                            cutout: '70%'
+                        }
+                    });
+                },
+                error: function () {
+                    toastr.error("Ocurrió un error al generar el reporte. Intenta nuevamente.");
+                }
+            });
+        }
+    });
 
 
 

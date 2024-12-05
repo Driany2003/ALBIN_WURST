@@ -14,14 +14,12 @@ public interface IVentaService {
 
   List<VentaResponse> findAll();
 
-  VentaResponse create(VentaRequest ventaRequest) ;
+  VentaResponse create(VentaRequest ventaRequest);
 
   List<VentaDetalleResponse> obtenerDetallesDeVenta();
 
-  ReporteVentas obtenerReporteVentas(LocalDate fechaInicio, LocalDate fechaFin);
+  ReporteVentas obtenerReporteVentas(Integer empresaId, Integer cajaId);
 
   ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin, Integer empresaId);
-
-
 
 }

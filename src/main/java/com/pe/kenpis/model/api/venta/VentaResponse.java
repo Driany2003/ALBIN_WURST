@@ -17,7 +17,9 @@ public class VentaResponse {
   private Integer venId;
   private Date venFecha;
   private float venTotal;
+  private Integer cajaId;
   private Integer empresaId;
+  private Integer sucursalId;
   private Integer clienteId;
   private String venAlias;
   private String VenConsideraciones;

@@ -1,5 +1,6 @@
 package com.pe.kenpis.business.impl;
 
+import com.pe.kenpis.business.IEmpresaCajaService;
 import com.pe.kenpis.business.IProductoInventarioService;
 import com.pe.kenpis.business.IVentaService;
 import com.pe.kenpis.model.api.producto.ProductoResponse;
@@ -8,14 +9,8 @@ import com.pe.kenpis.model.api.venta.VentaResponse;
 import com.pe.kenpis.model.api.venta.detalle.VentaDetalleRequest;
 import com.pe.kenpis.model.api.venta.detalle.VentaDetalleResponse;
 import com.pe.kenpis.model.api.venta.reporteVentasDTO.ReporteVentas;
-import com.pe.kenpis.model.entity.ProductoEntity;
-import com.pe.kenpis.model.entity.VentaDetalleEntity;
-import com.pe.kenpis.model.entity.VentaEntity;
-import com.pe.kenpis.model.entity.VentaEstadoEntity;
-import com.pe.kenpis.repository.ProductoRepository;
-import com.pe.kenpis.repository.VentaDetalleRepository;
-import com.pe.kenpis.repository.VentaEstadoRepository;
-import com.pe.kenpis.repository.VentaRepository;
+import com.pe.kenpis.model.entity.*;
+import com.pe.kenpis.repository.*;
 import com.pe.kenpis.util.funciones.DateUtil;
 import com.pe.kenpis.util.funciones.FxComunes;
 import com.pe.kenpis.util.variables.Constantes;
@@ -39,6 +34,7 @@ public class VentaImpl implements IVentaService {
   private final ProductoRepository productoRepository;
   private final VentaDetalleRepository detalleVentaRepository;
   private final VentaEstadoRepository ventaEstadoRepository;
+  private final EmpresaCajaRepository cajaRepository;
 
   @Override
   public VentaResponse findById(Integer venId) {
@@ -62,17 +58,19 @@ public class VentaImpl implements IVentaService {
       boolean stockSuficiente = productoInventario.verificarStockSuficiente(detalle.getProductoId(), detalle.getVenDetCantidad());
 
       if (!stockSuficiente) {
-        throw new IllegalArgumentException("Stock insuficiente para el producto con ID: " + detalle.getProductoId() +
-            ". Cantidad solicitada: " + detalle.getVenDetCantidad());
+        throw new IllegalArgumentException("Stock insuficiente para el producto con ID: " + detalle.getProductoId() + ". Cantidad solicitada: " + detalle.getVenDetCantidad());
       }
     }
 
+    // Convertir y guardar la venta
     VentaEntity nuevaVenta = convertVentasRequestToEntity(ventaRequest);
     nuevaVenta.setVenFecha(new Date());
+    nuevaVenta.setCajaId(ventaRequest.getCajaId());
 
     VentaEntity ventaGuardada = ventaRepository.save(nuevaVenta);
     FxComunes.printJson("VentaEntity", ventaGuardada);
 
+    // Crear y guardar los detalles de la venta
     List<VentaDetalleEntity> detallesVentas = new ArrayList<>();
     for (VentaDetalleRequest detalle : ventaRequest.getDetallesVentas()) {
       VentaDetalleEntity nuevoDetalle = new VentaDetalleEntity();
@@ -84,19 +82,21 @@ public class VentaImpl implements IVentaService {
       nuevoDetalle.setVenDetSubtotal((float) detalle.getVenDetSubtotal());
       detallesVentas.add(nuevoDetalle);
 
-      productoInventario.actualizarStock(detalle.getProductoId(),detalle.getVenDetCantidad());
-
+      // Actualizar el stock
+      productoInventario.actualizarStock(detalle.getProductoId(), detalle.getVenDetCantidad());
     }
     detalleVentaRepository.saveAll(detallesVentas);
 
     FxComunes.printJson("VentaDetalleEntity", detallesVentas);
 
+    // Crear y guardar el estado inicial de la venta
     VentaEstadoEntity estadoInicial = new VentaEstadoEntity();
     estadoInicial.setVentaId(ventaGuardada.getVenId());
     estadoInicial.setVenEstado(Constantes.VENTA_ESTADO.REGISTRADO);
     estadoInicial.setVenEstadoFechaRegistrado(new Date());
     ventaEstadoRepository.save(estadoInicial);
 
+    // Convertir y devolver la respuesta de la venta
     VentaResponse response = convertVentasEntityToResponse(ventaGuardada);
     return response;
   }
@@ -117,11 +117,11 @@ public class VentaImpl implements IVentaService {
   // reporte dinamico del dashboard //
 
   @Override
-  public ReporteVentas obtenerReporteVentas(LocalDate fechaInicio, LocalDate fechaFin) {
-    List<Map<String, Object>> reporte = ventaRepository.obtenerReporteVentas(fechaInicio, fechaFin);
+  public ReporteVentas obtenerReporteVentas(Integer empresaId, Integer cajaId) {
+    List<Map<String, Object>> reporte = ventaRepository.obtenerReporteVentasPorCaja(empresaId, cajaId);
 
     if (reporte.isEmpty()) {
-      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0,Collections.emptyList());
+      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0, Collections.emptyList());
     }
 
     Map<String, Object> resumen = reporte.get(0);
@@ -138,15 +138,15 @@ public class VentaImpl implements IVentaService {
 
     // Productos Más Vendidos
     List<ReporteVentas.ProductoMasVendido> productosMasVendidos = reporte.stream().map(item -> new ReporteVentas.ProductoMasVendido(((Number) item.get("productoId")).intValue(), (String) item.get("productoNombre"), ((Number) item.get("cantidadVendida")).intValue(), ((Number) item.get("popularidad")).doubleValue())).collect(Collectors.toList());
-    return new ReporteVentas(totalVenta, totalCosto, gananciaTotal, numeroVentas, totalYape, totalPlin, totalEfectivo, totalTarjeta,productosMasVendidos);
+    return new ReporteVentas(totalVenta, totalCosto, gananciaTotal, numeroVentas, totalYape, totalPlin, totalEfectivo, totalTarjeta, productosMasVendidos);
   }
 
   @Override
-  public ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin,Integer empresaId) {
-    List<Map<String, Object>> result = ventaRepository.obtenerReporteVentasXFecha(fechaInicio, fechaFin,empresaId);
+  public ReporteVentas obtenerReporteVentasXFecha(LocalDate fechaInicio, LocalDate fechaFin, Integer empresaId) {
+    List<Map<String, Object>> result = ventaRepository.obtenerReporteVentasXFecha(fechaInicio, fechaFin, empresaId);
 
     if (result.isEmpty()) {
-      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0,Collections.emptyList());
+      return new ReporteVentas(0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0, Collections.emptyList());
     }
 
     // Extrae el resumen general del primer elemento de la lista

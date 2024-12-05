@@ -18,8 +18,11 @@ public class EmpresaCajaResponse {
   private float cajaMontoInicial;
   private float cajaMontoFinal;
   private String cajaAsignada;
-  private String cajaUsuarioApertura;
-  private String cajaUsuarioCierre;
+  private Integer sucursalId;
+  private Integer cajaUsuarioApertura;
+  private Integer cajaUsuarioCierre;
   private Boolean cajaEstado;
+  private String cajaUsuarioCierreNombre;
+  private String cajaUsuarioAperturaNombre;
 
 }

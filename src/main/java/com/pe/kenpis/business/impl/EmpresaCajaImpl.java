@@ -8,8 +8,10 @@ import com.pe.kenpis.model.api.empresa.caja.EmpresaCajaResponse;
 import com.pe.kenpis.model.api.usuario.ResponsablesDTO;
 import com.pe.kenpis.model.entity.EmpresaCajaEntity;
 import com.pe.kenpis.model.entity.EmpresaEntity;
+import com.pe.kenpis.model.entity.ReporteEntity;
 import com.pe.kenpis.repository.EmpresaCajaRepository;
 import com.pe.kenpis.repository.EmpresaRepository;
+import com.pe.kenpis.repository.ReportesRepository;
 import com.pe.kenpis.util.funciones.DateUtil;
 import com.pe.kenpis.util.funciones.FxComunes;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -27,7 +30,7 @@ import java.util.stream.Collectors;
 public class EmpresaCajaImpl implements IEmpresaCajaService {
 
   private final EmpresaCajaRepository repository;
-  private final EmpresaRepository empresaRepository;
+  private final ReportesRepository reportesRepository;
 
   @Override
   public List<EmpresaCajaResponse> findAll() {
@@ -71,42 +74,66 @@ public class EmpresaCajaImpl implements IEmpresaCajaService {
   }
 
   @Override
-  public EmpresaCajaResponse crearCaja(EmpresaCajaRequest request) {
-    log.debug("Implements :: crearCaja :: Inicio");
-
-    // Verificar si la empresa padre existe
-    EmpresaEntity empresaPadre = empresaRepository.findById(request.getEmpPadreId())
-        .orElseThrow(() -> new IllegalArgumentException("No se encontró la empresa padre con ID: " + request.getEmpPadreId()));
-
+  public EmpresaCajaResponse abrirCajaSiNoExiste(EmpresaCajaRequest request) {
     EmpresaCajaEntity nuevaCaja = new EmpresaCajaEntity();
-
-    // Asignar valores de la empresa padre si son necesarios
     nuevaCaja.setEmpPadreId(request.getEmpPadreId());
-
+    nuevaCaja.setSucursalId(request.getSucursalId());
     nuevaCaja.setCajaMontoInicial(request.getCajaMontoInicial());
     nuevaCaja.setCajaUsuarioApertura(request.getCajaUsuarioApertura());
     nuevaCaja.setCajaAsignada(request.getCajaAsignada());
-
-    // Asignar valores predeterminados
     nuevaCaja.setCajaFechaApertura(new Date());
     nuevaCaja.setCajaEstado(true);
-    // Guardar la nueva caja y convertir a response
-    return convertEntityToResponse(repository.save(nuevaCaja));
+
+    nuevaCaja = repository.save(nuevaCaja);
+
+    ReporteEntity nuevoReporte = new ReporteEntity();
+    nuevoReporte.setSucursalId(request.getSucursalId());
+    nuevoReporte.setRepIsActive(true);
+    nuevoReporte.setEmpId(request.getEmpPadreId());
+    nuevoReporte.setRepFechaCreacion(new Date());
+    nuevoReporte.setCajaId(nuevaCaja.getCajaId());
+
+    reportesRepository.save(nuevoReporte);
+
+    return convertEntityToResponse(nuevaCaja);
   }
-  @Override
-  public EmpresaCajaResponse cerrarCaja(Integer cajaId) {
-   Optional<EmpresaCajaEntity> cajaEntityOpt = repository.findById(cajaId);
 
-    if (!cajaEntityOpt.isPresent()) {
-      throw new IllegalArgumentException("Caja no encontrada");
+  public float obtenerTotalPorCaja(Integer empresaId, Integer cajaId) {
+    Float totalPorCaja = repository.obtenerTotalPorEmpresaYCaja(empresaId, cajaId);
+    if (totalPorCaja == null) {
+      return 0.0f;
     }
+    return totalPorCaja.floatValue();
+  }
 
-    EmpresaCajaEntity cajaEntity = cajaEntityOpt.get();
-    cajaEntity.setCajaEstado(false);
-    cajaEntity.setCajaFechaCierre(new Date());
-    repository.save(cajaEntity);
 
-    return convertEntityToResponse(cajaEntity);
+  @Override
+  public EmpresaCajaResponse cerrarCaja(Integer cajaId, Integer usuarioId) {
+    log.info("id" + cajaId + "usuId" + usuarioId);
+    EmpresaCajaEntity caja = repository.findById(cajaId).orElseThrow(() -> new IllegalArgumentException("Caja no encontrada"));
+
+    // Obtener el total de ventas para la caja
+    float totalPorCaja = obtenerTotalPorCaja(caja.getEmpPadreId(), cajaId);
+
+    // Configurar los campos de cierre de la caja
+    caja.setCajaEstado(false);
+    caja.setCajaFechaCierre(new Date());
+    caja.setCajaUsuarioCierre(usuarioId);
+    caja.setCajaMontoFinal(totalPorCaja);
+
+    // Actualizar el estado del reporte correspondiente
+    ReporteEntity reporte = reportesRepository.findByCajaId(cajaId).orElseThrow(() -> new IllegalArgumentException("Reporte no encontrado para la caja"));
+    reporte.setRepIsActive(false);
+    reportesRepository.save(reporte);
+
+    // Guardar los cambios en la base de datos y devolver la respuesta
+    return convertEntityToResponse(repository.save(caja));
+  }
+
+  @Override
+  public List<EmpresaCajaResponse> obtenerCajasActivasPorEmpresa(Integer empresaId) {
+    List<EmpresaCajaEntity> cajasActivas = repository.findByEmpresaIdAndCajaEstado(empresaId);
+    return cajasActivas.stream().map(this::convertEntityToResponse).collect(Collectors.toList());
   }
 
   @Override
@@ -115,7 +142,6 @@ public class EmpresaCajaImpl implements IEmpresaCajaService {
 
     List<EmpresaCajaEntity> cajas = repository.findCajasByEmpresaId(empresaId);
 
-    // Convertir cada CajaEntity a EmpresaCajaResponse
     return cajas.stream().map(caja -> {
       EmpresaCajaResponse response = new EmpresaCajaResponse();
       response.setCajaId(caja.getCajaId());
@@ -125,10 +151,16 @@ public class EmpresaCajaImpl implements IEmpresaCajaService {
       response.setCajaMontoInicial(caja.getCajaMontoInicial());
       response.setCajaMontoFinal(caja.getCajaMontoFinal());
       response.setCajaUsuarioApertura(caja.getCajaUsuarioApertura());
+      response.setCajaUsuarioCierre(caja.getCajaUsuarioCierre());
       response.setCajaAsignada(caja.getCajaAsignada());
       response.setCajaEstado(caja.getCajaEstado());
       return response;
     }).collect(Collectors.toList());
+  }
+
+  public String obtenerNombreSucursalPorCajaId(Integer cajaId) {
+    Optional<EmpresaCajaEntity> caja = repository.findById(cajaId);
+    return caja.map(EmpresaCajaEntity::getCajaAsignada).orElse(null);
   }
 
   private EmpresaCajaEntity convertRequestToEntity(EmpresaCajaRequest in) {
@@ -139,9 +171,9 @@ public class EmpresaCajaImpl implements IEmpresaCajaService {
   }
 
   private EmpresaCajaResponse convertEntityToResponse(EmpresaCajaEntity in) {
-    EmpresaCajaResponse out = new EmpresaCajaResponse();
-    BeanUtils.copyProperties(in, out);
-    return out;
+    EmpresaCajaResponse response = new EmpresaCajaResponse();
+    BeanUtils.copyProperties(in, response);
+    return response;
   }
 
   private EmpresaCajaRequest convertResponseToRequest(EmpresaCajaResponse in) {

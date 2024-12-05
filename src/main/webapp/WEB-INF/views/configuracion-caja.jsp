@@ -65,7 +65,7 @@
                                 <table id="productoTable" class="table table-sm table-bordered table-striped">
                                     <thead class="thead-dark">
                                     <tr>
-                                        <th scope="col">#</th>
+                                        <th scope="col">CAJA#</th>
                                         <th scope="col">USUARIO</th>
                                         <th scope="col">SUCURSAL</th>
                                         <th scope="col">FECHAS</th>
@@ -99,10 +99,6 @@
                     <div class="form-group">
                         <label for="sucursalSelect">Sucursal</label>
                         <select id="sucursalSelect" class="form-control"></select>
-                    </div>
-                    <div class="form-group">
-                        <label for="usuarioEncargadoSelect">Responsable</label>
-                        <select id="usuarioEncargadoSelect" class="form-control"></select>
                     </div>
                     <div class="form-group">
                         <label for="montoInicialInput">Monto Inicial</label>

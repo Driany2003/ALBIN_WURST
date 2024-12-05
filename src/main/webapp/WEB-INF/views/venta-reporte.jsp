@@ -35,6 +35,27 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Tabla para listar los reportes -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Reportes</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-bordered" id="reportesTable">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre Caja</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+                        </thead>
+                        <tbody id="reportesBody">
+                        <!-- Las filas de reportes se agregarán dinámicamente aquí -->
+                        </tbody>
+                    </table>
+                </div>
         </div>
     </div>
 

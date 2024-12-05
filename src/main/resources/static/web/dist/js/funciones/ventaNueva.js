@@ -1,45 +1,128 @@
 $(document).ready(function () {
     var empresaId = $('#empresaId').val();
-    let totalPagar;
-    let detallesVenta = [];
+    let usuarioId = $('#usuarioId').val();
     let clienteId = null;
+    let totalPagar = 0;
+    let cajaAbierta = null;
+    var detallesVenta = [];
     let categoriaActual = null;
-    actualizarTotal();
 
-//bloquear agregar pedido mientras no se complete los campos de nombre,alias,tipopago
-        $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
-
-        function verificarCamposRequeridos() {
-            const telefono = $('#cliTelefono').val().trim();
-            const nombre = $('#cliNombre').val().trim();
-            const tipoPago = $('#venTipoPago').val();
-
-            if (telefono && nombre && tipoPago) {
-                $('.btn-primary[data-target="#ventaModal"]').prop('disabled', false);
+    bloquearCampos();
+    $.ajax({
+        url: '/kenpis/caja/obtener-caja-seleccionada',
+        method: 'GET',
+        success: function (response) {
+            if (response.cajaId) {
+                cajaAbierta = response.cajaId;
+                $('#sucursalNombreLabel p').text(response.sucursalNombre || 'Sucursal no encontrada');
+                habilitarCampos();
             } else {
-                $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+                listarCajasAbiertasPorEmpresa();
             }
+        },
+        error: function () {
+            toastr.error('Error al verificar la caja seleccionada.');
         }
-
-        $('#cliTelefono, #cliNombre, #venTipoPago').on('input change', verificarCamposRequeridos);
-
-        verificarCamposRequeridos();
-        function actualizarCampoAlias() {
-            const telefono = $('#cliTelefono').val();
-            if (telefono === '000000000') {
-                $('#alias-field').show();
-            } else {
-                $('#alias-field').hide();
-            }
-        }
-
-        actualizarCampoAlias();
-        $('#cliTelefono').on('input', actualizarCampoAlias);
-
-
-
-    $('#aperturarCajaModal').on('show.bs.modal', function () {
     });
+
+    function listarCajasAbiertasPorEmpresa() {
+        $.ajax({
+            url: `/kenpis/caja/listar-cajas-activas/${empresaId}`,
+            method: 'GET',
+            success: function (response) {
+                console.log("Respuesta del servidor:", response);
+                if (response.status === "success" && response.cajas.length > 0) {
+                    cargarCajasDisponibles(response.cajas);
+                    $('#seleccionarCajaModal').modal('show');
+                } else {
+                    toastr.warning('No hay cajas activas abiertas disponibles para esta empresa.');
+                }
+            },
+            error: function () {
+                toastr.error('Error al conectar con el servidor para listar cajas.');
+            }
+        });
+    }
+
+    function cargarCajasDisponibles(cajas) {
+        const cajaSelect = $('#cajaSelect');
+        cajaSelect.empty();
+        cajas.forEach(caja => {
+            cajaSelect.append(new Option(`Caja ID: ${caja.cajaId} - Sucursal: ${caja.cajaAsignada}`, JSON.stringify({id: caja.cajaId, nombre: caja.cajaAsignada})));
+        });
+    }
+
+    $('#btnSeleccionarCaja').click(function () {
+        const selectedOption = JSON.parse($('#cajaSelect').val());
+
+        if (!selectedOption || !selectedOption.id) {
+            toastr.error('Seleccione una caja activa para continuar.');
+            return;
+        }
+
+        $.ajax({
+            url: '/kenpis/caja/seleccionar',
+            method: 'POST',
+            data: {cajaId: selectedOption.id, sucursalNombre: selectedOption.nombre},
+            success: function () {
+                $('#seleccionarCajaModal').modal('hide');
+                cajaAbierta = selectedOption.id;
+                console.log(`Caja seleccionada guardada en la sesión: ${selectedOption.id}`);
+                $('#sucursalNombreLabel p').text(selectedOption.nombre);
+                habilitarCampos();
+            },
+            error: function () {
+                toastr.error('Error al guardar la caja seleccionada.');
+            }
+        });
+    });
+
+
+    //bloquear agregar pedido mientras no se complete los campos de nombre,alias,tipopago
+    $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+
+    // Función para bloquear los campos
+    function bloquearCampos() {
+        $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+        $('#cliTelefono, #venTipoPago').prop('disabled', true);
+    }
+
+    // Función para habilitar los campos
+    function habilitarCampos() {
+        $('.btn-primary[data-target="#ventaModal"]').prop('disabled', false);
+        $('#cliTelefono, #venTipoPago').prop('disabled', false);
+    }
+
+    verificarCamposRequeridos();
+
+    function verificarCamposRequeridos() {
+        const telefono = $('#cliTelefono').val().trim();
+        const nombre = $('#cliNombre').val().trim();
+        const tipoPago = $('#venTipoPago').val();
+
+        if (telefono && nombre && tipoPago) {
+            $('.btn-primary[data-target="#ventaModal"]').prop('disabled', false);
+        } else {
+            $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+        }
+    }
+
+    $('#cliTelefono, #cliNombre, #venTipoPago').on('input change', verificarCamposRequeridos);
+
+    function actualizarCampoAlias() {
+        const telefono = $('#cliTelefono').val();
+        if (telefono === '000000000') {
+            $('#alias-field').show();
+        } else {
+            $('#alias-field').hide();
+        }
+    }
+
+    actualizarCampoAlias();
+
+    $('#cliTelefono').on('input', actualizarCampoAlias);
+
+    //flujo para cargar la categoria, sub-categoria, detalle-producto
 
     $(document).on('click', '.card', function (e) {
         e.preventDefault();
@@ -54,17 +137,26 @@ $(document).ready(function () {
     });
 
 
-
     function cargarCategorias() {
+        console.log("Cargando categorías para empresa ID:", empresaId);
+        if (!empresaId) {
+            toastr.error('Empresa no seleccionada. No se pueden cargar las categorías.');
+            return;
+        }
+
         $.ajax({
             url: '/kenpis/producto/nuevaVenta-categorias',
             method: 'GET',
             data: {empId: empresaId},
             success: function (categorias) {
+                console.log("Categorías recibidas:", categorias); // Verifica los datos recibidos
                 var contenedor = $('#detalle-container');
-                contenedor.empty();
-                categorias.forEach(function (categoria) {
-                    var cardHtml = `
+                contenedor.empty(); // Limpia el contenedor antes de llenar con nuevas categorías
+
+                if (categorias && categorias.length > 0) {
+                    categorias.forEach(function (categoria) {
+                        // Genera el HTML de cada tarjeta
+                        var cardHtml = `
                     <div class="card categoria-card m-3" style="width: 15rem;" data-id="${categoria.proId}">
                         <img class="card-img-top categoria-img" src="${categoria.proImagen}" alt="Imagen de ${categoria.proCategoria}">
                         <div class="card-body text-center">
@@ -72,13 +164,19 @@ $(document).ready(function () {
                             <p class="card-text text-muted">${categoria.proDescripcion}</p>
                         </div>
                     </div>`;
-                    contenedor.append(cardHtml);
-                });
+                        console.log("Generando HTML para categoría:", categoria.proCategoria, cardHtml); // Verifica el HTML generado
+                        contenedor.append(cardHtml); // Agrega el HTML al contenedor
+                    });
+                } else {
+                    toastr.warning('No se encontraron categorías para la empresa.');
+                }
+
                 $('#guardarPedido').hide();
                 $('#volverCategorias').hide();
                 $('#volverSubCategorias').hide();
             },
             error: function (xhr, status, error) {
+                console.error('Error al obtener categorías:', error);
                 toastr.error('Error al obtener categorías:', error);
             }
         });
@@ -117,17 +215,15 @@ $(document).ready(function () {
 
     function cargarDetalleProducto(productoId) {
         $.ajax({
-            url: '/kenpis/producto/find-by-id/' + productoId,
-            method: 'GET',
-            success: function (response) {
-                var producto = response.findById;
-                var complementos = response.complementos;
+                url: '/kenpis/producto/find-by-id/' + productoId,
+                method: 'GET',
+                success: function (response) {
+                    var producto = response.findById;
+                    var complementos = response.complementos;
+                    var contenedorDet = $('#detalle-container');
+                    contenedorDet.empty();
 
-                var contenedorDet = $('#detalle-container');
-                contenedorDet.empty();
-
-                // Estructura del contenedor principal, dividida en dos columnas: producto y complementos
-                var cardHtml = `
+                    var cardHtml = `
                 <div class="d-flex flex-row justify-content-center align-items-start">
                     <!-- Columna del producto -->
                     <div class="card producto-card m-2" style="width: 300px;" data-id="${producto.proId}" data-precio="${producto.proPrecioVenta}">
@@ -143,36 +239,54 @@ $(document).ready(function () {
                             <button id="agregarCantidadButton" class="quantity-button plus" type="button">+</button>
                         </div>
                     </div>
-
-                    <!-- Columna de complementos en el costado derecho -->
-                    <div class="complementos-section ml-4">
-                        <h6 class="font-weight-bold">Complementos</h6>
-                        <div class="complementos-list">
-                            ${complementos.map(complemento => `
-                                <div class="complemento-item mb-2">
-                                    <label>
-                                        <input type="checkbox" class="complemento-checkbox" data-id="${complemento.proCompId}" data-nombre="${complemento.proCompNombre}">
-                                        ${complemento.proCompNombre}
-                                    </label>
-                                </div>
-                            `).join('')}
-                        </div>
+                     <!-- Columna de complemento -->
+                  <div class="complementos-section mt-4">
+                    <h6 class="font-weight-bold">Complementos</h6>
+                    <div class="complementos-list">
+                        ${complementos.map(complemento => `
+                        <div class="complemento-item mb-3">
+                            <label class="d-flex align-items-center">
+                                <input type="checkbox" class="complemento-checkbox" data-complemento-id="${complemento.proCompId}">
+                                <span class="complemento-label ml-2">${complemento.proCompNombre}</span>
+                            </label>
+                            <div class="subcomplementos-list" style="display: none; margin-left: 20px;">
+                                ${complemento.subComplementos.split(',').map(sub => `
+                                    <div class="subcomplemento-item mb-1 d-flex align-items-center">
+                                        <input type="checkbox" data-subcomplemento="${sub.trim()}" id="sub-${sub.trim()}">
+                                        <label for="sub-${sub.trim()}" class="subcomplemento-label ml-2">${sub.trim()}</label>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>`).join('')}
                     </div>
+                  </div>
                 </div>
-            `;
-                contenedorDet.append(cardHtml);
-                $('#volverSubCategorias').show();
-                $('#volverCategorias').hide();
-                $('#guardarPedido').show();
-            },
-            error: function (xhr, status, error) {
-                toastr.error('Error al obtener el detalle del producto:', error);
+                    `;
+                    contenedorDet.append(cardHtml);
+                    $('.complemento-checkbox').on('change', function () {
+                        const $this = $(this);
+                        const subcomplementosContainer = $this.closest('.complemento-item').find('.subcomplementos-list');
+
+                        if ($this.is(':checked')) {
+                            subcomplementosContainer.show();
+                        } else {
+                            subcomplementosContainer.hide();
+                        }
+                    });
+                    $('#volverSubCategorias').show();
+                    $('#volverCategorias').hide();
+                    $('#guardarPedido').show();
+                },
+                error: function (xhr, status, error) {
+                    toastr.error('Error al obtener el detalle del producto:', error);
+                }
             }
-        });
+        )
+        ;
     }
 
 
-    //FUNCIONES PARA LOS CONTADORES
+//FUNCIONES PARA LOS CONTADORES
     $('#detalle-container').on('click', '.quantity-button.plus', function () {
         var quantityDisplay = $(this).siblings('.quantity-display');
         var currentQuantity = parseInt(quantityDisplay.text());
@@ -218,10 +332,10 @@ $(document).ready(function () {
     }
 
 
-    //redireccionar botones VOLVER
     $('#ventaModal').on('show.bs.modal', function () {
         cargarCategorias();
     });
+
 
     $('#volverCategorias').click(function () {
         cargarCategorias();
@@ -242,6 +356,40 @@ $(document).ready(function () {
         $('#totalPagar').text('S/' + totalPagar.toFixed(2));
     }
 
+    $('#btnRegistrarCaja').click(function () {
+        const sucursalId = $('#sucursalSelect').val();
+        const sucursalNombre = $('#sucursalSelect option:selected').text();
+        const montoInicial = parseFloat($('#montoInicialInput').val());
+
+        if (!sucursalId || isNaN(montoInicial)) {
+            toastr.error('Seleccione una sucursal y un monto inicial válido.');
+            return;
+        }
+
+        $.ajax({
+            url: '/kenpis/caja/abrir',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                empPadreId: empresaId,
+                sucursalId: sucursalId,
+                cajaMontoInicial: montoInicial,
+                cajaUsuarioApertura: usuarioId,
+                cajaAsignada: sucursalNombre,
+                cajaEstado: true
+            }),
+            success: function (response) {
+                toastr.success('Caja abierta correctamente.');
+                cajaAbierta = response.cajaId;
+                $('#montoInicial').text(`Monto Inicial: S/ ${response.cajaMontoInicial.toFixed(2)}`);
+                $('#aperturarCajaModal').modal('hide');
+            },
+            error: function () {
+                toastr.error('Error al abrir la caja.');
+            }
+        });
+    });
+
     $('#guardarPedido').click(function () {
         var productoId = $('.card[data-id]').data('id');
         var producto = $('.card[data-id]').find('.card-text-descripcion').text();
@@ -250,7 +398,18 @@ $(document).ready(function () {
         var complementosSeleccionados = [];
 
         $('.complemento-checkbox:checked').each(function () {
-            complementosSeleccionados.push($(this).data('nombre'));
+            var complemento = $(this).data('complementoId');
+            var subcomplementosSeleccionados = [];
+
+            // Recorre los subcomplementos seleccionados para este complemento
+            $(this).closest('.complemento-item').find('.subcomplemento-item input:checked').each(function () {
+                subcomplementosSeleccionados.push($(this).data('subcomplemento'));
+            });
+
+            complementosSeleccionados.push({
+                complemento: $(this).siblings('.complemento-label').text(),
+                subcomplementos: subcomplementosSeleccionados.join(', ')
+            });
         });
 
         if (cantidad > 0) {
@@ -261,30 +420,31 @@ $(document).ready(function () {
                 venDetCantidad: cantidad,
                 venDetPrecio: precio,
                 venDetSubtotal: subtotal,
-                venDetObservaciones: complementosSeleccionados.join(', ')
-
+                venDetObservaciones: complementosSeleccionados.map(c => `${c.complemento}: ${c.subcomplementos}`).join('  ')
             });
         }
         $('#ventasBody').empty();
         var detallesHtml = detallesVenta.map(function (detalle) {
             return `<tr>
-        <td class="align-middle text-center">
-            <button class="btn btn-danger btn-sm eliminar-detalle">
-                <i class="fas fa-trash-alt"></i> Eliminar
-            </button>
-        </td>
-        <td class="align-middle">
-            <div><strong>${detalle.proDescripcion}</strong></div>
-            <small class="text-muted">${detalle.venDetObservaciones}</small>
-        </td>
-        <td class="align-middle text-center">${detalle.venDetCantidad}</td>
-        <td class="align-middle text-right">S/ ${detalle.venDetPrecio}</td>
-        <td class="align-middle text-right font-weight-bold text-success">S/ ${detalle.venDetSubtotal}</td>
-    </tr>`;
+                        <td class="align-middle text-center">
+                            <button class="btn btn-danger btn-sm eliminar-detalle">
+                                <i class="fas fa-trash-alt"></i> Eliminar
+                            </button>
+                        </td>
+                        <td class="align-middle">
+                            <div><strong>${detalle.proDescripcion}</strong></div>
+                            <small class="text-muted">${detalle.venDetObservaciones}  </small>
+                        </td>
+                        <td class="align-middle text-center">${detalle.venDetCantidad}</td>
+                        <td class="align-middle text-right">S/ ${detalle.venDetPrecio}</td>
+                        <td class="align-middle text-right font-weight-bold text-success">S/ ${detalle.venDetSubtotal}</td>
+            </tr>`;
         }).join('');
+
         $('#ventasBody').append(detallesHtml);
 
         actualizarTotal();
+
         $('#ventaForm')[0].reset();
         verificarTabla();
 
@@ -292,7 +452,15 @@ $(document).ready(function () {
         $('.modal-backdrop').remove();
     });
 
-    //PARA PODER ELIMINAR UN ELEMENTO DE LA TABLA
+    function verificarTabla() {
+        if ($('#ventasBody tr').length > 0) {
+            $('#pagarButton').prop('disabled', false);
+        } else {
+            $('#pagarButton').prop('disabled', true);
+        }
+    }
+
+//PARA PODER ELIMINAR UN ELEMENTO DE LA TABLA
     $('#ventasBody').on('click', '.eliminar-detalle', function () {
         var row = $(this).closest('tr');
         var productoId = row.find('td').eq(0).text();
@@ -303,23 +471,30 @@ $(document).ready(function () {
         actualizarTotal();
         verificarTabla();
     });
+
     $('#pagarButton').prop('disabled', true);
 
-    function verificarTabla() {
-        if ($('#ventasBody tr').length > 0) {
-            $('#pagarButton').prop('disabled', false);
-        } else {
-            $('#pagarButton').prop('disabled', true);
-        }
-    }
+// Deshabilitar el botón de ventas si no hay caja abierta
+    $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true);
+
+
+// Escucha el evento de caja abierta desde el archivo de caja
+    $(document).on("cajaAbierta", function (event, cajaId) {
+        cajaAbierta = cajaId;
+        $('.btn-primary[data-target="#ventaModal"]').prop('disabled', false);
+    });
+
+
+// Escucha el evento de caja cerrada para deshabilitar el botón de ventas
+    $(document).on("cajaCerrada", function () {
+        cajaAbierta = null;
+        $('.btn-primary[data-target="#ventaModal"]').prop('disabled', true); // Deshabilita el botón de ventas
+    });
+
 
     $('#pagarButton').click(function () {
-        var empresaId = $('#empresaId').val();
-        var usuarioId = $('#usuarioId').val();
         var clienteId = $('#clienteId').val();
         var tipoPago = $('#venTipoPago').val();
-        var telefono = $('#cliTelefono').val();
-
         if (!clienteId) {
             toastr.error('Por favor, seleccione un cliente.');
             return;
@@ -338,6 +513,7 @@ $(document).ready(function () {
         $('#confirmarPagoModal').modal('show');
     });
 
+
 // Cuando el usuario confirma el pago en el modal
     $('#confirmarPagoButton').click(function () {
         var empresaId = $('#empresaId').val();
@@ -347,44 +523,157 @@ $(document).ready(function () {
         var telefono = $('#cliTelefono').val();
         var alias = telefono === '000000000' ? $('#alias').val() : null;
 
-        $('#confirmarPagoModal').modal('hide');
-
+        // Obtén `cajaSeleccionada` de la sesión antes de proceder con el pago
         $.ajax({
-            url: '/kenpis/venta/create',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                empresaId: empresaId,
-                usuarioId: usuarioId,
-                clienteId: clienteId,
-                venAlias: alias,
-                detallesVentas: detallesVenta,
-                venTotal: totalPagar,
-                venTipoPago: tipoPago
-            }),
-            success: function (response) {
-                toastr.success('Pedido guardado correctamente.');
-                $('#cliTelefono').val("");
-                $('#cliNombre').val("");
-                $('#alias').val("");
-                $('#clienteId').val("");
-                $('#venTipoPago').val("");
-                $('#ventaModal').modal('hide');
-                $('#ventaForm')[0].reset();
-                $('#ventasBody').empty();
-                $('#productos-container').empty();
-                totalPagar = 0;
-                $('#totalPagar').text('S/ 0.00');
-                detallesVenta = [];
-                verificarTabla();
+            url: '/kenpis/caja/obtener-caja-seleccionada',
+            method: 'GET',
+            success: function (cajaSeleccionada) {
+                if (!cajaSeleccionada) {
+                    toastr.error('No puede realizar ventas sin una caja seleccionada.');
+                    return;
+                }
+
+                // Procede con la solicitud de pago usando `cajaSeleccionada` de la sesión
+                $.ajax({
+                    url: '/kenpis/venta/create',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+                        empresaId: empresaId,
+                        usuarioId: usuarioId.toString(),
+                        clienteId: clienteId,
+                        cajaId: cajaSeleccionada.cajaId,
+                        sucursalId: sessionStorage.getItem('sucursalId'),
+                        venAlias: alias,
+                        detallesVentas: detallesVenta,
+                        venTotal: totalPagar,
+                        venTipoPago: tipoPago
+                    }),
+                    success: function (response) {
+                        toastr.success('Pedido guardado correctamente.');
+                        mostrarDetalleVenta();
+                        $('#ventaForm')[0].reset();
+                        $('#ventasBody').empty();
+                        $('#cliNombre').val("");
+                        $('#venTipoPago').val("");
+                        $('#cliTelefono').val("");
+                        $('#alias').val("");
+                        totalPagar = 0;
+                        detallesVenta = [];
+                        $('#totalPagar').text('S/ 0.00');
+                        verificarTabla();
+                        $('#confirmarPagoModal').modal('hide');
+                    },
+                    error: function () {
+                        toastr.error('Error al guardar el pedido. Intente nuevamente.');
+                        $('#pagarButton').prop('disabled', false);
+                    }
+                });
             },
             error: function () {
-                toastr.error('Error al guardar el pedido. Intente nuevamente.');
-                $('#pagarButton').prop('disabled', false);
+                toastr.error('Error al verificar la caja seleccionada.');
             }
         });
     });
 
+    function mostrarDetalleVenta() {
+        let detalles = detallesVenta;
+        let total = totalPagar; // Usa el total acumulado
+        let vendedorNombre = $('#vendedorNombre').val();
+        let horaPago = new Date().toLocaleString(); // Fecha y hora actual
+        let tipoPago = $('#venTipoPago').val(); // Método de pago seleccionado
+
+        // Datos de la empresa
+        let empresaNombre = $('#empresaNombre').val();
+        let empresaLogo = $('#empresalogo').val();
+        let empresaRuc = $('#empresaRuc').val();
+        let empresaTelefono = $('#empresaTelefono').val();
+        let sucursalNombre = $('#sucursalNombreLabel p').text() || 'Sucursal no disponible';
+
+        // Genera el HTML del voucher
+        let voucherHtml = `
+        <div class="voucher" style="font-family: Arial, sans-serif; font-size: 12px; line-height: 1.5; width: 300px; margin: auto; text-align: center;">
+            <div style="text-align: center; margin-bottom: 10px;">
+                <img src="${empresaLogo}" alt="Logo de Empresa" style="max-width: 300px; height: auto; margin-bottom: 10px;">
+            </div>
+            <div style="border-top: 1px solid #000; border-bottom: 1px solid #000; padding: 10px 0; margin-bottom: 10px;">
+                <p style="margin: 0;"><strong>${empresaNombre}</strong></p>
+                <p style="margin: 0;"><strong>Sucursal: ${sucursalNombre}</strong></p>
+                <p style="margin: 0;">RUC: ${empresaRuc}</p>
+                <p style="margin: 0;">Teléfono: ${empresaTelefono}</p>
+            </div>
+            <div style="text-align: left; margin-bottom: 5px;">
+                <p><strong>Vendedor:</strong> ${vendedorNombre}</p>
+                <p><strong>Fecha y Hora:</strong> ${horaPago}</p>
+                <p><strong>Método de Pago:</strong> ${tipoPago}</p>
+            </div>
+            <div style="border-top: 1px solid #000; border-bottom: 1px solid #000; padding: 10px 0; margin-bottom: 10px;">
+    ${detalles.map(item => `
+                        <!-- Contenedor principal del producto -->
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                            <!-- Nombre del producto y cantidad -->
+                            <p style="margin: 0;">
+                                <strong>${item.proDescripcion}</strong> 
+                                (${item.venDetCantidad} x S/ ${item.venDetPrecio.toFixed(2)})
+                            </p>
+                            <!-- Subtotal alineado a la derecha -->
+                            <p style="margin: 0; text-align: right;">
+                                Subtotal: S/ ${item.venDetSubtotal.toFixed(2)}
+                            </p>
+                        </div>
+                        ${
+                            item.venDetObservaciones && item.venDetObservaciones.length > 0
+                                ? `
+                                                <!-- Contenedor de observaciones -->
+                                                <div style="margin-left: 10px; margin-top: 5px;">
+                                                    ${item.venDetObservaciones.split('  ').map(obs => {
+                                    const [complemento, subcomplementos] = obs.split(':');
+                                    return `
+                                                            <p style="margin: 0; font-weight: bold;">${complemento}:</p>
+                                                            <ul style="margin: 0; padding-left: 20px; list-style-type: none;">
+                                                                ${
+                                        subcomplementos
+                                            ? subcomplementos.split(',').map(sub => `<li>+ ${sub.trim()}</li>`).join('')
+                                            : ''
+                                    }
+                                                            </ul>
+                                                        `;
+                                }).join('')}
+                                                </div>
+                                            `
+                                : ''
+                        }
+                    `).join('')}
+               </div>
+
+            <div style="text-align: right; margin-bottom: 10px;">
+                <p><strong>Total:</strong> S/ ${total.toFixed(2)}</p>
+            </div>
+            <div style="border-top: 1px solid #000; padding-top: 10px; text-align: center;">
+                <p>¡MUCHAS GRACIAS POR SU PREFERENCIA!</p>
+            </div>
+            <div style="text-align: center; margin-top: 10px;">
+                <button id="imprimirVoucher" style="background-color: #4CAF50; color: white; padding: 8px 16px; border: none; cursor: pointer;">
+                    Imprimir Voucher
+                </button>
+            </div>
+        </div>
+    `;
+        // Mostrar el voucher en el modal o en un contenedor
+        $('#detalleVentaModal .modal-body').html(voucherHtml);
+        $('#detalleVentaModal').modal('show');
+    }
+
+
+    $(document).on('click', '#imprimirVoucher', function () {
+        var contenidoVoucher = document.querySelector('.voucher').outerHTML;
+        var ventanaImpresion = window.open('', '', 'height=500, width=800');
+        ventanaImpresion.document.write('<html><head><title>Voucher de Venta</title></head><body>');
+        ventanaImpresion.document.write(contenidoVoucher);
+        ventanaImpresion.document.write('</body></html>');
+        ventanaImpresion.document.close();
+        ventanaImpresion.print();
+    });
 
     $('#registrarCliente').click(function () {
         var nombre = $('#cliNombrePopap').val();
@@ -425,9 +714,10 @@ $(document).ready(function () {
         }
     });
 
-    $('#buscarCliente').click(function () {
-        var telefono = $('#cliTelefono').val();
+    $('#cliTelefono').on('input', function () {
+        var telefono = $(this).val();
         actualizarCampoAlias();
+
         if (telefono.length === 9) {
             $.ajax({
                 url: '/kenpis/cliente/find-by-telefono/' + telefono,
@@ -450,8 +740,9 @@ $(document).ready(function () {
                     toastr.error('Error al buscar el cliente. Intente nuevamente.');
                 }
             });
-        } else {
-            toastr.error('Ingrese un número de teléfono válido.');
+        } else if (telefono.length > 9) {
+            toastr.error('Ingrese un número de teléfono válido (9 dígitos).');
         }
     });
+
 });

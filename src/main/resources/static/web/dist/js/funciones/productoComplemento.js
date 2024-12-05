@@ -56,6 +56,56 @@ $(document).ready(function () {
         });
     }
 
+    $('#createModal').on('show.bs.modal', function () {
+        $('#complementoTipo').val('');
+
+        // Limpiar las filas de la tabla complementos
+        $('#complementosTableBody').empty();
+
+        var nuevaFila = `
+            <tr>
+                <td>
+                    <input type="text" class="form-control" id="complementoNombre" placeholder="Nombre" required>
+                </td>
+                <td>
+                    <input type="number" class="form-control" id ="complementoPrecio" placeholder="Precio" required>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger eliminarFila">Eliminar</button>
+                </td>
+            </tr>
+        `;
+        $('#complementosTableBody').append(nuevaFila);
+        $('.eliminarFila').click(function () {
+            $(this).closest('tr').remove();
+        });
+    });
+
+    // Agregar nueva fila en la tabla al crear complemento
+    $('#createModal .btn-outline-primary').click(function (e) {
+        e.preventDefault();
+
+        var nuevaFila = `
+            <tr>
+                <td>
+                    <input type="text" class="form-control" id="complementoNombre" placeholder="Nombre" required>
+                </td>
+                <td>
+                    <input type="number" class="form-control" id ="complementoPrecio" placeholder="Precio" required>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-danger eliminarFila">Eliminar</button>
+                </td>
+            </tr>
+        `;
+        $('#complementosTableBody').append(nuevaFila);
+
+        $('.eliminarFila').click(function () {
+            $(this).closest('tr').remove();
+        });
+    });
+
+
     // Registrar complemento "Padre"
     $('#registrarComplemento').click(function (event) {
         event.preventDefault();
@@ -85,7 +135,7 @@ $(document).ready(function () {
         }
 
         var complementoData = {
-            empId : empresaId,
+            empId: empresaId,
             proCompNombre: tipoComplemento,
             detalles: detalles
         };
@@ -97,6 +147,8 @@ $(document).ready(function () {
             success: function () {
                 toastr.success('Registrado correctamente.');
                 $('#createModal').modal('hide');
+                $('#createForm')[0].reset();
+                $('#complementosTableBody').empty();
                 cargarTabla();
             },
             error: function () {
@@ -196,32 +248,32 @@ $(document).ready(function () {
     }
 
     //editar nombre complemento padre
-        $('#complementoTipoEdit').on('focusout', function () {
-            const nombrePadre = $(this).val().trim();
-            const proCompId = $('#editProductId').val();
+    $('#complementoTipoEdit').on('focusout', function () {
+        const nombrePadre = $(this).val().trim();
+        const proCompId = $('#editProductId').val();
 
-            if (nombrePadre === '') {
-                toastr.error('Por favor, ingresa un nombre válido para el tipo de complemento.');
-                return;
+        if (nombrePadre === '') {
+            toastr.error('Por favor, ingresa un nombre válido para el tipo de complemento.');
+            return;
+        }
+
+        $.ajax({
+            url: urlUpdatePadre,
+            method: 'PUT',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                proCompId: proCompId,
+                proCompNombre: nombrePadre,
+            }),
+            success: function () {
+                toastr.success('Tipo de complemento actualizado correctamente.');
+                cargarTabla();
+            },
+            error: function () {
+                toastr.error('Error al actualizar el tipo de complemento. Intente nuevamente.');
             }
-
-            $.ajax({
-                url: urlUpdatePadre,
-                method: 'PUT',
-                contentType: 'application/json',
-                data: JSON.stringify({
-                    proCompId: proCompId,
-                    proCompNombre: nombrePadre,
-                }),
-                success: function () {
-                    toastr.success('Tipo de complemento actualizado correctamente.');
-                    cargarTabla();
-                },
-                error: function () {
-                    toastr.error('Error al actualizar el tipo de complemento. Intente nuevamente.');
-                }
-            });
         });
+    });
 
 
     // Función para editar
@@ -348,36 +400,53 @@ $(document).ready(function () {
 
     // Función para eliminar un complemento "Padre"
     function eliminarPadre(id) {
-        if (confirm('¿Estás seguro de que deseas eliminar este ' + nombreObjeto + '?')) {
+        $('#nombreObjetoModal').text(nombreObjeto);
+
+        $('#confirmarModal').modal('show');
+
+        // Si el usuario confirma la eliminación
+        $('#confirmarEliminacion').off('click').on('click', function () {
             $.ajax({
                 url: urlDeletePadre.concat(id),
                 method: 'DELETE',
                 success: function () {
                     toastr.success(nombreObjeto + ' eliminado correctamente.');
                     cargarTabla();
+                    $('#confirmarModal').modal('hide');
                 },
                 error: function () {
                     toastr.error('Error al eliminar el ' + nombreObjeto + ' con ID :' + id + '. Intente nuevamente.');
+                    $('#confirmarModal').modal('hide');
                 }
             });
-        }
+        });
     }
 
-    // Función para eliminar un complemento "Hijo"
+
     function eliminarDetalle(id) {
-        if (confirm('¿Estás seguro de que deseas eliminar este ' + nombreObjeto + '?')) {
+        $('#nombreDetalleModal').text(nombreObjeto);
+
+        $('#confirmarEliminarDetalleModal').modal('show');
+
+        $('#editModal').modal('hide');
+
+        $('#confirmarEliminarDetalleBtn').off('click').on('click', function () {
             $.ajax({
                 url: urlDelete.concat(id),
                 method: 'DELETE',
                 success: function () {
-                    toastr.success(nombreObjeto + ' eliminado correctamente.');
+                    toastr.success('tipo de ' + nombreObjeto + ' eliminado correctamente.');
                     const complementoPadreId = $('#editProductId').val();
                     editar(complementoPadreId);
+                    $('#confirmarEliminarDetalleModal').modal('hide');
+                    $('#editModal').modal('show');
                 },
                 error: function () {
-                    toastr.error('Error al eliminar el ' + nombreObjeto + ' con ID :' + id + '. Intente nuevamente.');
+                    toastr.error('Error al eliminar el tipo de ' + nombreObjeto + ' con ID :' + id + '. Intente nuevamente.');
+                    $('#confirmarEliminarDetalleModal').modal('hide');
                 }
             });
-        }
+        });
     }
+
 });

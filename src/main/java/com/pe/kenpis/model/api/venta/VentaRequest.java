@@ -17,6 +17,8 @@ public class VentaRequest {
   private Integer venId;
   private Date venFecha;
   private float venTotal;
+  private Integer cajaId;
+  private Integer sucursalId;
   private Integer empresaId;
   private Integer clienteId;
   private String venAlias;

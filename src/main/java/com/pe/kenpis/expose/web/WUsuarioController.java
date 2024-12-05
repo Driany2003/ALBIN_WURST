@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/kenpis/usuario")
@@ -55,7 +56,7 @@ public class WUsuarioController {
   @PostMapping("/validar-clave")
   public ResponseEntity<?> validarClave(@RequestBody resetClaveRequest request) {
     boolean esValida = service.validarCLave(request.getUsuId(), request.getClaveActual());
-    FxComunes.printJson("reset password", request );
+    FxComunes.printJson("reset password", request);
     if (esValida) {
       return ResponseEntity.ok(Collections.singletonMap("valida", true));
     } else {
@@ -138,6 +139,12 @@ public class WUsuarioController {
     } else {
       return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
     }
+  }
+
+  @GetMapping("/nombreCompleto")
+  public ResponseEntity<List<Map<String, Object>>> listarUsuarios() {
+    List<Map<String, Object>> usuarios = service.obtenerUsuariosConNombres();
+    return ResponseEntity.ok(usuarios);
   }
 
   @PutMapping("/update")

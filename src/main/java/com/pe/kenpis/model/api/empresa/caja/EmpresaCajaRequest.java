@@ -17,10 +17,11 @@ public class EmpresaCajaRequest {
   private Date cajaFechaApertura;
   private Date cajaFechaCierre;
   private float cajaMontoInicial;
-  private float cajaMontoFinal;
+  private float cajaMontoFinal ;
   private String cajaAsignada;
-  private String cajaUsuarioApertura;
-  private String cajaUsuarioCierre;
+  private Integer sucursalId;
+  private Integer cajaUsuarioApertura;
+  private Integer cajaUsuarioCierre;
   private Boolean cajaEstado;
 
 }

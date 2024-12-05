@@ -1,39 +1,46 @@
 $(document).ready(function () {
     let sucursalesAsignadas = new Set();
-    let usuariosAsignados = new Set();
-    var empresaId = $('#empresaId').val();
+    let empresaId = $('#empresaId').val();
     let cajaIdToClose = null;
     let botonCerrarCaja;
+    const usuariosMap = {};
 
-    verificarDisponibilidadParaRegistrar(empresaId);
+    cargarNombresUsuarios().then(inicializarCaja);
 
-    // Cambiamos a 'show.bs.modal' para que el AJAX solo se ejecute al abrir el modal inicialmente
-    $('#btnAperturarCaja').on('click', function () {
-        verificarDisponibilidadParaRegistrar(empresaId);
-    });
+    function cargarNombresUsuarios() {
+        return $.ajax({
+            url: '/kenpis/usuario/nombreCompleto',
+            method: 'GET',
+            success: function (usuarios) {
+                usuarios.forEach(usuario => {
+                    usuariosMap[usuario.usuId] = usuario.nombreCompleto;
+                });
+            },
+            error: function () {
+                toastr.error('Error al cargar los nombres de usuarios.');
+            }
+        });
+    }
 
-    function verificarDisponibilidadParaRegistrar(empresaId) {
+    // Evento para abrir el modal de apertura de caja
+    $('#btnAperturarCaja').on('click', verificarDisponibilidadParaRegistrar);
+
+    // Función para inicializar y cargar el estado de las cajas
+    function inicializarCaja() {
+        verificarDisponibilidadParaRegistrar();
+        cargarCajasPorEmpresa();
+    }
+
+    // Verificar disponibilidad de sucursales y abrir modal si hay disponibilidad
+    function verificarDisponibilidadParaRegistrar() {
         $.ajax({
             url: `/kenpis/caja/listar-disponibles/${empresaId}`,
             method: 'GET',
             success: function (response) {
-                if (response.status === "success") {
-                    const sucursalesDisponibles = response.sucursales.filter(sucursal => !sucursalesAsignadas.has(sucursal.empNombreComercial));
-                    const usuariosDisponibles = response.responsable.filter(usuario => !usuariosAsignados.has(usuario.usuNombre));
-
-                    // Si hay disponibilidad, habilita el botón y abre el modal
-                    if (sucursalesDisponibles.length > 0 && usuariosDisponibles.length > 0) {
-                        $('#btnAperturarCaja').prop('disabled', false);
-                        cargarSucursalesYResponsablesDisponibles(empresaId);
-                        $('#aperturarCajaModal').modal('show');
-                    } else {
-                        $('#sucursalSelect').empty();
-                        $('#usuarioEncargadoSelect').empty();
-                        $('#montoInicialInput').val('');
-                        toastr.warning('No hay sucursales o usuarios disponibles para registrar una nueva caja.');
-                    }
+                if (response.status === "success" && response.sucursales.length > 0) {
+                    mostrarSucursalesDisponibles(response.sucursales);
                 } else {
-                    toastr.error('Error al verificar sucursales y responsables disponibles.');
+                    toastr.warning('No hay sucursales o usuarios disponibles para registrar una nueva caja.');
                 }
             },
             error: function () {
@@ -42,45 +49,26 @@ $(document).ready(function () {
         });
     }
 
-    function cargarSucursalesYResponsablesDisponibles(empresaId) {
-        $.ajax({
-            url: `/kenpis/caja/listar-disponibles/${empresaId}`,
-            method: 'GET',
-            success: function (response) {
-                if (response.status === "success") {
-                    const sucursalSelect = $('#sucursalSelect');
-                    const responsableSelect = $('#usuarioEncargadoSelect');
-                    sucursalSelect.empty();
-                    responsableSelect.empty();
+    // Cargar y mostrar sucursales disponibles en el modal
+    function mostrarSucursalesDisponibles(sucursales) {
+        const sucursalSelect = $('#sucursalSelect');
+        sucursalSelect.empty();
 
-                    response.sucursales.forEach(sucursal => {
-                        if (!sucursalesAsignadas.has(sucursal.empNombreComercial)) {
-                            sucursalSelect.append(new Option(sucursal.empNombreComercial, sucursal.empId));
-                        }
-                    });
-
-                    response.responsable.forEach(usuario => {
-                        if (!usuariosAsignados.has(usuario.usuNombre)) {
-                            responsableSelect.append(new Option(usuario.usuNombre, usuario.usuId));
-                        }
-                    });
-                } else {
-                    toastr.error('Error al obtener sucursales y responsables disponibles.');
-                }
-            },
-            error: function () {
-                toastr.error('Error al conectar con el servidor.');
+        sucursales.forEach(sucursal => {
+            if (!sucursalesAsignadas.has(sucursal.empNombreComercial)) {
+                sucursalSelect.append(new Option(sucursal.empNombreComercial, sucursal.empId));
             }
         });
     }
 
+    // Registrar apertura de caja
     $('#btnRegistrarCaja').click(function () {
+        const sucursalId = $('#sucursalSelect').val();
         const sucursalNombre = $('#sucursalSelect option:selected').text();
-        const usuarioNombre = $('#usuarioEncargadoSelect option:selected').text();
         const montoInicial = parseFloat($('#montoInicialInput').val());
 
-        if (!usuarioNombre || !sucursalNombre || isNaN(montoInicial)) {
-            toastr.error('Seleccione una sucursal, un usuario y un monto inicial válido.');
+        if (!sucursalId || isNaN(montoInicial)) {
+            toastr.error('Seleccione una sucursal y un monto inicial válido.');
             return;
         }
 
@@ -90,15 +78,16 @@ $(document).ready(function () {
             contentType: 'application/json',
             data: JSON.stringify({
                 empPadreId: empresaId,
+                sucursalId: sucursalId,
                 cajaMontoInicial: montoInicial,
-                cajaUsuarioApertura: usuarioNombre,
-                cajaAsignada: sucursalNombre,
+                cajaUsuarioApertura: $('#usuarioId').val(),
+                cajaAsignada: sucursalNombre, //campo a eliminar
                 cajaEstado: true
             }),
-            success: function () {
+            success: function (response) {
                 toastr.success('Caja abierta correctamente.');
                 $('#aperturarCajaModal').modal('hide');
-                cargarCajasPorEmpresa(empresaId);
+                cargarCajasPorEmpresa();
             },
             error: function () {
                 toastr.error('Error al abrir la caja.');
@@ -106,9 +95,8 @@ $(document).ready(function () {
         });
     });
 
-    cargarCajasPorEmpresa(empresaId);
-
-    function cargarCajasPorEmpresa(empresaId) {
+    // Cargar el historial de cajas de la empresa
+    function cargarCajasPorEmpresa() {
         $.ajax({
             url: `/kenpis/caja/listar/${empresaId}`,
             method: 'GET',
@@ -116,43 +104,9 @@ $(document).ready(function () {
                 const tablaCajas = $('#usuariosBody');
                 tablaCajas.empty();
                 sucursalesAsignadas.clear();
-                usuariosAsignados.clear();
 
                 cajas.forEach((caja, index) => {
-                    const estado = caja.cajaEstado ? 'Abierta' : 'Cerrada';
-
-                    if (caja.cajaEstado) {
-                        sucursalesAsignadas.add(caja.cajaAsignada);
-                        usuariosAsignados.add(caja.cajaUsuarioApertura);
-                    }
-
-                    const fechaApertura = caja.cajaFechaApertura ? `Fecha Apertura: ${formatDateTime(caja.cajaFechaApertura)}` : 'Fecha Apertura: -';
-                    const fechaCierre = caja.cajaFechaCierre ? `Fecha Cierre: ${formatDateTime(caja.cajaFechaCierre)}` : 'Fecha Cierre: -';
-
-                    const montoInicial = caja.cajaMontoInicial ? `Monto Inicial: S/ ${caja.cajaMontoInicial.toFixed(2)}` : 'Monto Inicial: -';
-                    const montoFinal = caja.cajaMontoFinal ? `Monto Final: S/ ${caja.cajaMontoFinal.toFixed(2)}` : 'Monto Final: -';
-
-                    const disableCloseButton = !caja.cajaEstado ? 'disabled' : ''; // Deshabilita el botón si la caja está cerrada
-                    const fila = `
-                <tr>
-                    <td>${index + 1}</td>
-                    <td>${caja.cajaUsuarioApertura}</td>
-                    <td>${caja.cajaAsignada}</td>
-                    <td>
-                        <div>${fechaApertura}</div>
-                        <div>${fechaCierre}</div>
-                    </td>
-                    <td>
-                        <div>${montoInicial}</div>
-                        <div>${montoFinal}</div>
-                    </td>
-                    <td>${estado}</td>
-                    <td>
-                        <button class="btn btn-info btn-sm btnCerrarCaja" data-caja-id="${caja.cajaId}" ${disableCloseButton}>Cerrar</button>
-                    </td>
-                </tr>
-            `;
-                    tablaCajas.append(fila);
+                    mostrarCajaEnTabla(caja, index);
                 });
             },
             error: function () {
@@ -161,20 +115,57 @@ $(document).ready(function () {
         });
     }
 
+    // Mostrar cada caja en la tabla
+    function mostrarCajaEnTabla(caja, index) {
+        const estado = caja.cajaEstado ? 'Abierta' : 'Cerrada';
+        if (caja.cajaEstado) sucursalesAsignadas.add(caja.cajaAsignada);
 
+        const fechaApertura = caja.cajaFechaApertura ? formatDateTime(caja.cajaFechaApertura) : '-';
+        const fechaCierre = caja.cajaFechaCierre ? formatDateTime(caja.cajaFechaCierre) : '-';
+        const montoInicial = `S/ ${parseFloat(caja.cajaMontoInicial).toFixed(2)}`;
+        const montoFinal = `S/ ${parseFloat(caja.cajaMontoFinal).toFixed(2)}`;
+        const disableCloseButton = !caja.cajaEstado ? 'disabled' : '';
+
+        // Utiliza el mapa de usuarios para obtener el nombre en lugar del ID
+        const usuarioApertura = usuariosMap[caja.cajaUsuarioApertura] || '-';
+        const usuarioCierre = usuariosMap[caja.cajaUsuarioCierre] || '-';
+
+        const fila = `
+            <tr>
+                <td>${index + 1}</td>
+                <td>
+                    <div>Apertura: ${usuarioApertura}</div>
+                    <div>Cierre: ${usuarioCierre}</div>
+                </td>
+                <td>${caja.cajaAsignada}</td>
+                <td>
+                    <div>Fecha Apertura: ${fechaApertura}</div>
+                    <div>Fecha Cierre: ${fechaCierre}</div>
+                </td>
+                <td>
+                    <div>Monto Inicial: ${montoInicial}</div>
+                    <div>Monto Final: ${montoFinal}</div>
+                </td>
+                <td>${estado}</td>
+                <td>
+                    <button class="btn btn-info btn-sm btnCerrarCaja" data-caja-id="${caja.cajaId}" ${disableCloseButton}>Cerrar</button>
+                </td>
+            </tr>
+            `;
+        $('#usuariosBody').append(fila);
+    }
+
+    // Confirmar cierre de caja
     $(document).on('click', '.btnCerrarCaja', function () {
         cajaIdToClose = $(this).data('caja-id');
-        botonCerrarCaja = $(this);  // Almacena el botón de la fila
+        botonCerrarCaja = $(this);
         $('#confirmarCierreModal').modal('show');
     });
 
-    // Evento de confirmación en el modal para cerrar la caja
-    $('#confirmarCerrarCajaBtn').on('click', function () {
-        if (cajaIdToClose && botonCerrarCaja) {
-            $('#confirmarCerrarCajaBtn').prop('disabled', true); // Deshabilita el botón de confirmación en el modal
-            botonCerrarCaja.prop('disabled', true); // Deshabilita el botón de la fila específica
-
-            // Llamada AJAX para cerrar la caja
+    // Cerrar caja confirmada
+    $('#confirmarCerrarCajaBtn').click(function () {
+        if (cajaIdToClose) {
+            $(this).prop('disabled', true);
             $.ajax({
                 url: '/kenpis/caja/cerrar',
                 method: 'POST',
@@ -182,32 +173,32 @@ $(document).ready(function () {
                 data: JSON.stringify(cajaIdToClose),
                 success: function () {
                     toastr.success('Caja cerrada correctamente.');
-                    $('#confirmarCierreModal').modal('hide');  // Cierra el modal de confirmación
-                    cargarCajasPorEmpresa(empresaId);  // Recarga la lista de cajas
+                    $('#confirmarCierreModal').modal('hide');
+                    cargarCajasPorEmpresa();
                 },
                 error: function () {
                     toastr.error('Error al cerrar la caja.');
-                    botonCerrarCaja.prop('disabled', false); // Solo se vuelve a habilitar en caso de error
+                    $(botonCerrarCaja).prop('disabled', false);
                 },
                 complete: function () {
-                    // Reinicia el botón del modal después de la operación
                     $('#confirmarCerrarCajaBtn').prop('disabled', false);
                     cajaIdToClose = null;
-                    botonCerrarCaja = null;
                 }
             });
         }
     });
 
+    // Formatear fecha y hora
     function formatDateTime(dateString) {
         const date = new Date(dateString);
-        const year = date.getFullYear();
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-        const day = date.getDate().toString().padStart(2, '0');
-        const hours = date.getHours().toString().padStart(2, '0');
-        const minutes = date.getMinutes().toString().padStart(2, '0');
-        const seconds = date.getSeconds().toString().padStart(2, '0');
-
-        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        return date.toLocaleString('es-PE', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
     }
+
 });

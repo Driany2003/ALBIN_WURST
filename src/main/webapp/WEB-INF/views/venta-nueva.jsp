@@ -31,16 +31,20 @@
         <div class="container-fluid">
             <div class="card mt-1">
                 <div class="card-header">
-                    <div class="form-row">
+                    <div class="form-row d-flex justify-content-between align-items-center">
                         <div class="col-md-9">
                             <h1 class="card-title">${empresaSession.empNombreComercial}</h1>
                             <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
+                            <input id="empresaNombre" type="hidden" value="${empresaSession.empNombreComercial}"/>
+                            <input id="empresalogo" type="hidden" value="${empresaSession.empImagenLogo}">
+                            <input id="empresaRuc" type="hidden" value="${empresaSession.empDocumentoNumero}">
+                            <input id="empresaTelefono" type="hidden" value="${empresaSession.empTelefono}">
+                            <input id="vendedorNombre" type="hidden" value="${usuSessionNombre}">
                         </div>
-                        <div class="form-group col-md-3 text-md-right">
-                            <label class="font-10">${empresaSession.empDocumentoTipo} : ${empresaSession.empDocumentoNumero}</label><br>
-                            <label class="font-10">Vendedor: ${usuSessionNombre}</label>
-                            <br>
-                            <button class="btn btn-outline-primary" data-toggle="modal" data-target="#aperturarCajaModal">Aperturar Caja</button>
+                        <div class="form-group col-md-3 text-md-right d-flex align-items-center justify-content-end">
+                            <span class="font-10 mr-3">${empresaSession.empDocumentoTipo}: <p>${empresaSession.empDocumentoNumero}</p></span>
+                            <span id="vendedorNombreLabel" class="font-10 mr-3">Vendedor: <p>${usuSessionNombre}</p></span>
+                            <span id="sucursalNombreLabel" class="font-10 mr-3">Sucursal: <p></p></span>
                             <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
                         </div>
                     </div>
@@ -85,7 +89,6 @@
                         </div>
                     </div>
 
-
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">Detalle del Pedido</h5>
                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ventaModal">Agregar</button>
@@ -117,7 +120,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -202,52 +204,118 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal para Aperturar Caja -->
-        <div class="modal fade" id="aperturarCajaModal" tabindex="-1" role="dialog" aria-labelledby="aperturarCajaModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="aperturarCajaModalLabel">Aperturar Rápida de Caja</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+    </div>
+</div>
+<!-- Modal para seleccionar una caja abierta -->
+<div class="modal fade" id="seleccionarCajaModal" tabindex="-1" role="dialog" aria-labelledby="seleccionarCajaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="seleccionarCajaModalLabel">Seleccione una Caja Activa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="formSeleccionCaja">
+                    <div class="form-group">
+                        <label for="cajaSelect">Caja Disponible</label>
+                        <select class="form-control" id="cajaSelect" required>
+                            <!-- Opciones de cajas abiertas se cargan dinámicamente aquí -->
+                        </select>
                     </div>
-                    <div class="modal-body">
-                        <form id="aperturarCajaForm">
-                            <div class="form-group bmd-form-group is-filled">
-                                <label for="sucursalNom" class="bmd-label-floating">Seleccione una Sucursal</label>
-                                <select class="form-control" name="sucursalNom_reg" id="sucursalNom" required>
-                                    <option value="">-- Elegir una Sucursal --</option>
-                                    <c:forEach var="sucursal" items="${listaDeSucursales}">
-                                        <option value="${sucursal.empId}">${sucursal.empNombreComercial}</option>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                            <div class="form-group bmd-form-group is-filled">
-                                <label for="responsableAsignar" class="bmd-label-floating">Asignar Responsable</label>
-                                <select class="form-control" name="responsableAsignar" id="responsableAsignar" required>
-                                    <option value="">-- Elegir una Responsable --</option>
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                <button type="submit" class="btn btn-primary">Registrar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSeleccionarCaja">Seleccionar Caja</button>
             </div>
         </div>
     </div>
 </div>
 
+<div id="detalleVentaModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Voucher de Venta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Los detalles de la venta se insertarán aquí -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <style>
+    .voucher {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+        line-height: 1.5;
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .voucher img {
+        max-width: 100px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .voucher p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .voucher div {
+        margin-bottom: 10px;
+    }
+
+
+    /* Para la sección de complementos, agregamos espacio abajo */
+    .complementos-section {
+        margin-top: 20px; /* Espaciado superior */
+        padding: 10px; /* Espaciado interno */
+        background-color: #f8f9fa; /* Fondo suave para los complementos */
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    /* Para los complementos principales */
+    .complemento-item {
+        margin-bottom: 10px; /* Espaciado entre los complementos */
+    }
+
+    /* Subcomplementos ocultos inicialmente */
+    .subcomplementos-list {
+        display: none; /* Los subcomplementos están ocultos hasta que se marque el complemento */
+        padding-left: 20px; /* Sangría para subcomplementos */
+        margin-top: 10px; /* Espaciado superior para los subcomplementos */
+    }
+
+    /* Estilo para cada subcomplemento */
+    .subcomplemento-item {
+        margin-bottom: 5px; /* Espaciado entre los subcomplementos */
+    }
+
+    /* Etiqueta de los subcomplementos */
+    .subcomplemento-label {
+        font-size: 14px;
+        color: #555; /* Color más oscuro para los subcomplementos */
+        margin-left: 8px;
+    }
+
+
     .card {
         border-radius: 10px;
         border: 1px solid #e3e6f0;
         transition: all 0.2s ease-in-out;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
     }
 
     /* Header Styling */

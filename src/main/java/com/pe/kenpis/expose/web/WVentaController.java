@@ -22,13 +22,11 @@ public class WVentaController {
   @Autowired
   private IVentaService service;
 
-
   @PostMapping("/create")
-  public ResponseEntity<VentaResponse> create(@RequestBody VentaRequest ventaRequest)  {
+  public ResponseEntity<VentaResponse> create(@RequestBody VentaRequest ventaRequest) {
     VentaResponse ventaResponse = service.create(ventaRequest);
+    FxComunes.printJson("create venta " , ventaResponse);
     return new ResponseEntity<>(ventaResponse, HttpStatus.CREATED);
   }
-
-
 
 }

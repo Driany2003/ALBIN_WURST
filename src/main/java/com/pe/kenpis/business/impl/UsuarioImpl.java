@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -201,6 +202,16 @@ public class UsuarioImpl implements IUsuarioService {
       return response;
     }
     return null;
+  }
+
+  public List<Map<String, Object>> obtenerUsuariosConNombres() {
+    List<UsuarioEntity> usuarios = repository.findAll(); // Suponiendo que tienes este método
+    return usuarios.stream().map(usuario -> {
+      Map<String, Object> userMap = new HashMap<>();
+      userMap.put("usuId", usuario.getUsuId());
+      userMap.put("nombreCompleto", usuario.getUsuNombre() + " " + usuario.getUsuApePaterno() + " " + usuario.getUsuApeMaterno());
+      return userMap;
+    }).collect(Collectors.toList());
   }
 
   @Override

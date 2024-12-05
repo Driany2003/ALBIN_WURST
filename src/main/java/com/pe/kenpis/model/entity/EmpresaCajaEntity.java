@@ -28,13 +28,16 @@ public class EmpresaCajaEntity {
   private float cajaMontoFinal;
 
   @Column(name = "caja_usuario_apertura")
-  private String cajaUsuarioApertura;
+  private Integer cajaUsuarioApertura;
 
   @Column(name = "caja_usuario_cierre")
-  private String cajaUsuarioCierre;
+  private Integer cajaUsuarioCierre;
 
   @Column(name = "emp_padre_id")
   private Integer empPadreId;
+
+  @Column(name = "sucursal_id")
+  private Integer sucursalId;
 
   @Column(name = "caja_estado")
   private Boolean cajaEstado;

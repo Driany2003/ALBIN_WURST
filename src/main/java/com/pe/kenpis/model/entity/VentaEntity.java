@@ -24,6 +24,12 @@ public class VentaEntity {
   @Column(name = "empresa_id")
   private Integer empresaId;
 
+  @Column(name = "caja_id")
+  private Integer cajaId;
+
+  @Column(name = "sucursal_id")
+  private Integer sucursalId;
+
   @Column(name = "cliente_id")
   private Integer clienteId;
 

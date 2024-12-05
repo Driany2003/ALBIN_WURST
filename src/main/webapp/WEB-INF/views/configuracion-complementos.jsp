@@ -105,25 +105,10 @@
                                     <tr>
                                         <th>Nombre</th>
                                         <th>Precio</th>
+                                        <th>Accion</th>
                                     </tr>
                                     </thead>
                                     <tbody id="complementosTableBody">
-                                    <tr>
-                                        <td>
-                                            <input type="text" class="form-control" id="complementoNombre" placeholder="Nombre" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" id="complementoPrecio" placeholder="Precio" required>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="text" class="form-control" id="complementoNombre1" placeholder="Nombre" required>
-                                        </td>
-                                        <td>
-                                            <input type="number" class="form-control" id="complementoPrecio1" placeholder="Precio" required>
-                                        </td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -186,6 +171,40 @@
         </div>
     </div>
 </div>
+<!-- Modal de confirmación -->
+<div class="modal fade" id="confirmarModal" tabindex="-1" aria-labelledby="confirmarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmarModalLabel">Confirmación de Eliminación</h5>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este <span id="nombreObjetoModal"></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="confirmarEliminacion">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de confirmación de eliminación de detalle -->
+<div class="modal fade" id="confirmarEliminarDetalleModal" tabindex="-1" aria-labelledby="confirmarEliminarDetalleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmarEliminarDetalleModalLabel">Confirmación de Eliminación</h5>
+            </div>
+            <div class="modal-body">
+                ¿Estás seguro de que deseas eliminar este tipo de  <span id="nombreDetalleModal"></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="confirmarEliminarDetalleBtn">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <style>
     .table .text-center {

@@ -7,6 +7,7 @@ import com.pe.kenpis.model.api.usuario.resetClave.resetClaveRequest;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Map;
 
 public interface IUsuarioService {
 
@@ -42,5 +43,7 @@ public interface IUsuarioService {
   UsuarioAuthorityResponse findUsuarioAuthorityByUsuId(Integer usuId);
 
   UsuarioResponse findByPhone(String celular);
+
+  List<Map<String, Object>> obtenerUsuariosConNombres();
 
 }
