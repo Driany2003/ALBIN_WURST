@@ -1,5 +1,5 @@
 FROM amazoncorretto:8-alpine-jdk
 
-COPY target/kenpis-0.0.1-SNAPSHOT.war app.jar
+COPY target/kenpis-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java" , "-jar" , "/apps.jar"]
