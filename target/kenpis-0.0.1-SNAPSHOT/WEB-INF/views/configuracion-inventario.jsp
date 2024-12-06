@@ -21,6 +21,12 @@
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
     <%@ include file="includes/left-sidebar.jspf" %>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
 
     <!-- =========================MAMASHAROOO===================================== -->
     <div class="page-wrapper">
@@ -31,91 +37,113 @@
                 </div>
             </div>
         </div>
-        <br><br>
-        <div id="product-card" class="product-card">
-
+        <div class="container-fluid">
+            <div class="card mt-1">
+                <div class="card-header">
+                    <div class="form-row">
+                        <div class="col-md-2">
+                            <div class="d-flex justify-content-end mb-2">
+                                <input id="empresaId" type="hidden" value="${empresaSession.empId}"/>
+                                <input id="usuarioId" type="hidden" value="${usuSessionId}"/>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="d-flex justify-content-end mb-2">
+                                <div class="input-group" style="width: 300px;">
+                                    <input type="text" class="form-control" id="tableFilter" placeholder="Filtra Productos...">
+                                    <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-search"></i>
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="card-body p-2">
+                        <div class="card-body p-2">
+                            <div class="table-responsive">
+                                <table id="producto-inventario" class="table table-sm table-bordered table-striped">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Imagen</th>
+                                        <th scope="col">Producto</th>
+                                        <th scope="col">Detalle</th>
+                                        <th scope="col">Stock</th>
+                                        <th scope="col">Queda</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Accion</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="productoBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<style>
-    .img-container {
-        background-color: #e0f7fa;
-        padding: 10px;
-        border-radius: 5px;
-        display: inline-block;
-    }
 
-    /* Ajuste del tamaño de la imagen */
-    .img-product-list {
-        width: 150px;
-        height: auto;
-        display: block;
-    }
+<!-- Modal para Editar Producto -->
+<div class="modal fade" id="editarProductoModal" tabindex="-1" role="dialog" aria-labelledby="editarProductoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarProductoLabel">Editar Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editarProductoForm">
+                    <input type="hidden" id="editarProductoId" name="editarProductoId">
+                    <div class="form-group">
+                        <label for="editarStock">Stock Actual</label>
+                        <input type="number" class="form-control" id="editarStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editarFechaVencimiento">Fecha de Vencimiento</label>
+                        <input type="date" class="form-control" id="editarFechaVencimiento" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-    .container-fluid {
-        border: 1px solid #ddd;
-        background-color: #f9f9f9;
-        padding: 15px;
-        border-radius: 8px;
-    }
+<!-- customs css -->
+<link href="/static/css/custom.css" rel="stylesheet">
 
-    ul.list-unstyled li.media-product {
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-    }
-
-    .media-product-title {
-        margin-bottom: 20px;
-    }
-
-    .media-product-options {
-        margin-top: 15px;
-    }
-
-    .media-product-options a, .media-product-options button {
-        margin-left: 5px;
-    }
-
-    .product-card {
-        background-color: #f8f9fa; /* Fondo gris claro */
-        border: 1px solid #d1d1d1; /* Borde gris claro */
-        border-radius: 10px; /* Bordes redondeados */
-        padding: 15px; /* Espacio interno */
-        margin-bottom: 20px; /* Espacio inferior entre tarjetas */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle relieve */
-    }
-
-    /* Contenedor de la imagen con fondo celeste */
-    .img-container {
-        background-color: #e0f7fa; /* Celeste muy bajito */
-        padding: 10px; /* Espacio entre la imagen y el borde del contenedor */
-        border-radius: 5px; /* Bordes ligeramente redondeados */
-        display: inline-block; /* Ajusta el tamaño al contenido */
-    }
-
-    /* Ajuste del tamaño de la imagen */
-    .img-product-list {
-        width: 150px; /* Ajusta el ancho según el tamaño deseado */
-        height: auto; /* Mantiene la proporción de la imagen */
-        display: block; /* Hace que la imagen sea un bloque dentro del contenedor */
-    }
-
-
-</style>
-
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- customs -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="/static/web/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="/static/web/assets/extra-libs/taskboard/css/lobilist.css" rel="stylesheet" >
+<link href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css" rel="stylesheet" >
+<link href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" >
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 
-<script src="/static/web/dist/js/funciones/inventario.js"></script>
+<!--  functions -->
+<script src="/static/web/dist/js/funciones/productoInventario.js"></script>
+<!-- import -->
 <%@ include file="includes/all-jquery.jspf" %>
+<!-- footer -->
 <%@ include file="includes/footer.jspf" %>
+
 </body>
 </html>

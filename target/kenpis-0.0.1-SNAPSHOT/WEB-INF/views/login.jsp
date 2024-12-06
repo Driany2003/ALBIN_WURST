@@ -17,9 +17,9 @@
     <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(/static/web/assets/images/big/auth-bg.jpg) no-repeat center center;">
         <div class="auth-box">
             <div class="logo">
-                <span class="db"><img src="/static/web/assets/images/0_logo/logo_kenpis_img.png" alt="Kenpis"/></span>
+                <span class="db"><img src="/static/web/assets/images/0_logo/albin-wurst-2.png" alt="Albin Wurst" style="width: 310px" height="120px"/></span>
                 <br>
-                <h1 class="font-medium m-b-10">KENPIS</h1>
+                <h1 class="font-medium m-b-10">Albin Wurst</h1>
                 <h3 class="font-10 m-b-5">VENDE SIMPLE Y GANA MÁS</h3>
             </div>
             <!-- Form -->
@@ -31,14 +31,14 @@
                                 <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
                             </div>
                             <!--<input type="text" class="form-control form-control-lg" placeholder="USUARIO" aria-label="Username" aria-describedby="basic-addon1" id="username" name="username">-->
-                            <input type="text" class="form-control form-control-lg" placeholder="USUARIO" aria-label="Username" aria-describedby="basic-addon1" id="username" name="username" >
+                            <input type="text" class="form-control form-control-lg" placeholder="USUARIO" aria-label="Username" aria-describedby="basic-addon1" id="username" name="username" value="Jhan.moreno" >
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
                             </div>
                             <!--<input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password">-->
-                            <input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password">
+                            <input type="password" class="form-control form-control-lg" placeholder="CONTRASEÑA" aria-label="Password" aria-describedby="basic-addon1" id="password" name="password" value="jhan">
                         </div>
                         <!--
                         <div class="form-group row">

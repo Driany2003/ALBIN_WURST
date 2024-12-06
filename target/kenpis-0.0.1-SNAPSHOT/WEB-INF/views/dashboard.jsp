@@ -142,15 +142,18 @@
                                                     <hr>
                                                     <div class="productos-section mt-2">
                                                         <c:forEach var="producto" items="${entry.productos}">
-                                                            <div class="producto-item">
-                                                                <p class="mb-0">
-                                                                        ${producto.proDescripcion}
-                                                                </p>
-                                                                <p><strong>${producto.venDetCantidad} x S/${producto.proPrecio}</strong></p>
+                                                            <div class="producto-item d-flex justify-content-between align-items-center p-2 border rounded mb-2">
+                                                                <div class="producto-descripcion">
+                                                                    <p class="mb-0 font-weight-bold">${producto.proDescripcion}</p>
+                                                                    <small class="text-muted">${producto.vendetObservaciones}</small>
+                                                                </div>
+                                                                <div class="producto-detalles text-right">
+                                                                    <p class="mb-0"><strong>${producto.venDetCantidad} x S/ ${producto.proPrecio}</strong></p>
+                                                                </div>
                                                             </div>
-                                                            <hr>
                                                         </c:forEach>
                                                     </div>
+
                                                 </div>
                                             </div>
                                         </c:forEach>
@@ -275,123 +278,31 @@
             </div>
         </div>
     </div>
-    <style>
+</div>
+<!-- customs css -->
+<link href="/static/css/custom.css" rel="stylesheet">
 
-        .card {
-            border: none;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
+<!-- This page plugin CSS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
+<link href="/static/web/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<link href="/static/web/assets/extra-libs/taskboard/css/lobilist.css" rel="stylesheet" >
+<link href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css" rel="stylesheet" >
+<link href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" >
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" >
+<link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
 
-        .registrado-superior-card .card-body {
-            background-color: #add8e6;
-        }
-
-        .pagado-superior-card .card-body {
-            background-color: #ffb6c1;
-        }
-
-        .en-proceso-superior-card .card-body {
-            background-color: #ffa07a;
-        }
-
-        .atendido-card-superior .card-body {
-            background-color: #90ee90;
-
-        }
-
-        .atendido-card {
-            border: 2px solid #90ee90;
-        }
-
-        .en-proceso-card {
-            border: 2px solid #ffa07a;
-        }
-
-        .card-pagado {
-            border: 2px solid #ffb6c1;
-        }
-
-        .card-registrado {
-            border: 2px solid #add8e6;
-        }
-
-        .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        .productos-section {
-            padding: 0;
-            list-style: none;
-        }
-
-        .producto-item {
-            margin-bottom: 10px;
-        }
-
-        .total-section {
-            background-color: #f8f9fa;
-            padding: 10px;
-            border-radius: 8px;
-        }
-
-        .total-section p {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #333;
-        }
-
-        hr {
-            margin: 10px 0;
-            border: 0;
-            border-top: 1px solid #eee;
-        }
-
-        .card-text {
-            font-size: 14px;
-        }
-
-        .task-list {
-            max-height: 300px;
-            overflow-y: auto;
-        }
-
-    </style>
-
-    <!-- This page plugin CSS -->
-    <link href="/static/web/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    <link href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/web/assets/extra-libs/taskboard/css/lobilist.css">
-    <link rel="stylesheet" href="/static/web/assets/extra-libs/taskboard/css/jquery-ui.min.css">
-    <link rel="stylesheet" href="/static/web/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <link href="/static/web/dist/css/style.min.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.3/dragula.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.14.0/Sortable.min.js"></script>
-
-    <script src="/static/web/dist/js/funciones/dashboard.js"></script>
-    <script src="/static/web/dist/js/funciones/taskboard.js"></script>
-    <%@ include file="includes/all-jquery.jspf" %>
-    <%@ include file="includes/footer.jspf" %>
+<!--  functions-->
+<script src="/static/web/dist/js/funciones/dashboard.js"></script>
+<!-- import -->
+<%@ include file="includes/all-jquery.jspf" %>
+<!-- footer -->
+<%@ include file="includes/footer.jspf" %>
+<!-- End footer -->
 </body>
 </html>

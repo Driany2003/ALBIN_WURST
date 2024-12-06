@@ -12,21 +12,27 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva" aria-expanded="false">
+                        <i class="mdi mdi-cart-plus"></i>
+                        <span class="hide-menu">Nueva Venta</span>
+                    </a>
+                </li>
                 <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'  || sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>
-                        <span class="hide-menu">VENTA</span>
+                        <span class="hide-menu">Ventas</span>
                     </li>
                     <li class="sidebar-item">
-                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva" aria-expanded="false">
-                            <i class="mdi mdi-cart-plus"></i>
-                            <span class="hide-menu">Nueva</span>
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/caja" aria-expanded="false">
+                            <i class="mdi mdi-cash-multiple"></i>
+                            <span class="hide-menu">Apertura/Cierre</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/reporte" aria-expanded="false">
                             <i class="mdi mdi-chart-line"></i>
-                            <span class="hide-menu">Reporte</span>
+                            <span class="hide-menu">Reportes x Día</span>
                         </a>
                     </li>
                 </c:if>
@@ -52,6 +58,12 @@
                         <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/producto" aria-expanded="false">
                             <i class="mdi mdi-gift"></i>
                             <span class="hide-menu">Producto</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/complementos" aria-expanded="false">
+                            <i class="mdi mdi-checkbox-marked-outline"></i>
+                            <span class="hide-menu">Complementos</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
