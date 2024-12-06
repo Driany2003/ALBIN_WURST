@@ -1,0 +1,85 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <br>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/dashboard" aria-expanded="false">
+                        <i class="mdi mdi-chart-arc"></i>
+                        <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+                <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'  || sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">VENTA</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/nueva" aria-expanded="false">
+                            <i class="mdi mdi-cart-plus"></i>
+                            <span class="hide-menu">Nueva</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/venta/reporte" aria-expanded="false">
+                            <i class="mdi mdi-chart-line"></i>
+                            <span class="hide-menu">Reporte</span>
+                        </a>
+                    </li>
+                </c:if>
+
+                <c:if test="${sessionScope.usuSessionNivel == 'PROPIETARIO'  || sessionScope.usuSessionNivel == 'ADMINISTRADOR'}">
+                    <li class="nav-small-cap">
+                        <i class="mdi mdi-dots-horizontal"></i>
+                        <span class="hide-menu">CONFIGURACION</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/usuario" aria-expanded="false">
+                            <i class="mdi mdi-account-multiple"></i>
+                            <span class="hide-menu">Usuario</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/empresa" aria-expanded="false">
+                            <i class="mdi mdi-domain"></i>
+                            <span class="hide-menu">Empresa</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/producto" aria-expanded="false">
+                            <i class="mdi mdi-gift"></i>
+                            <span class="hide-menu">Producto</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/inventario" aria-expanded="false">
+                            <i class="mdi mdi-format-list-numbers"></i>
+                            <span class="hide-menu">Inventario</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/kenpis/menu/configuracion/cliente" aria-expanded="false">
+                            <i class="mdi mdi-human-greeting"></i>
+                            <span class="hide-menu">Cliente</span>
+                        </a>
+                    </li>
+                </c:if>
+
+                <li class="nav-small-cap">
+                    <i class="mdi mdi-dots-horizontal"></i>
+                    <span class="hide-menu">Sesión</span>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/logout" aria-expanded="false">
+                        <i class="mdi mdi-logout-variant"></i>
+                        <span class="hide-menu">Salir</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>
