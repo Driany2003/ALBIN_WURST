@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Built-By: JP
-Build-Jdk: 1.8.0
-Created-By: Jhan Moreno
-
