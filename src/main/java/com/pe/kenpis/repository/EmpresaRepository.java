@@ -29,6 +29,7 @@ public interface EmpresaRepository extends JpaRepository<EmpresaEntity, Integer>
   @Query(value = "SELECT e.emp_id AS empId, e.emp_responsable AS empResponsable, e.emp_imagen_logo AS empImagenLogo, e.emp_nombre_comercial AS empNombreComercial, e.emp_fecha_contrato_inicio AS empFechaContratoInicio, e.emp_fecha_contrato_fin AS empFechaContratoFin, e.emp_telefono AS empTelefono, e.emp_is_active AS empIsActive FROM T_EMPRESA e WHERE e.emp_padre_id = 0", nativeQuery = true)
   List<Map<String, Object>> findAllActiveEmpresaById();
 
+
   // Listar las sucursales por empresa
   @Query(value = "SELECT e.emp_id AS empId, e.emp_nombre_comercial AS empNombreComercial, e.emp_telefono AS empTelefono, e.emp_is_active AS empIsActive FROM T_EMPRESA e WHERE e.emp_padre_id = :empId", nativeQuery = true)
   List<Map<String, Object>> findSucursalesByEmpresaPadreId(@Param("empId") Integer empId);

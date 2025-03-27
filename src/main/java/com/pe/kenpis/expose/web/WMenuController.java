@@ -34,7 +34,9 @@ public class WMenuController {
   }
 
   @RequestMapping(value = {"/configuracion/cliente"}, method = RequestMethod.GET)
-  public String menuCliente() {return "configuracion-cliente";}
+  public String menuCliente() {
+    return "configuracion-cliente";
+  }
 
   @RequestMapping(value = {"/configuracion/metodoPago"}, method = RequestMethod.GET)
   public String menuMetodoPago() {

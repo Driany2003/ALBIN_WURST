@@ -19,7 +19,7 @@ public class EmpresaCajaEntity {
   private Date cajaFechaApertura;
 
   @Column(name = "caja_fecha_cierre")
-  private Date cajaFechaCierre;
+  private Date cajaFechaCierre ;
 
   @Column(name = "caja_monto_inicial")
   private float cajaMontoInicial;

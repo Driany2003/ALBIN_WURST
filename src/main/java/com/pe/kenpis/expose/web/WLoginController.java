@@ -36,7 +36,8 @@ public class WLoginController {
   IEmpresaService empresaService;
 
   @Autowired
-  IVentaEstadoService ventaEstadoService;
+  IVentaEstadoService
+      ventaEstadoService;
 
   @RequestMapping(value = {"/login", "/"}, method = RequestMethod.GET)
   public String login() {
