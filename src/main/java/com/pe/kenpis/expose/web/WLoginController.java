@@ -51,7 +51,6 @@ public class WLoginController {
 
   @RequestMapping(value = {"/kenpis/dashboard"}, method = RequestMethod.GET)
   public String welcome(ModelMap model, HttpServletRequest request) {
-
     String usuarioLogueado = FxComunes.getLoggedInUserName();
     UsuarioResponse usuarioResponse = service.findUsuarioByAuthUsername(usuarioLogueado);
     UsuarioAuthorityResponse usuarioAuthorityResponse = service.findUsuarioAuthorityByUsuId(usuarioResponse.getUsuId());
