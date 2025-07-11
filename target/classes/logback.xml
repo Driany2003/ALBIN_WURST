@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+    <!-- Defina la dirección de almacenamiento del archivo de registro. No utilice una ruta relativa en la configuración de LogBack -->
+    <property name="LOG_HOME" value="logs"/>
+    <property name="LOG_NAME" value="kenpis"/>
+
+    <!-- Salida de consola -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <charset>UTF-8</charset>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+            <!-- salida formateada:% d significa fecha,% hilo significa nombre del hilo,% -5level: el nivel se muestra desde la izquierda con 5 caracteres de ancho% msg: mensaje de registro,% n es un carácter de nueva línea -->
+            <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %boldMagenta(%-5level %logger{50}) : %msg%n</pattern>-->
+            <pattern>[%-5p] [%d{dd-MM-yyyy HH:mm:ss}] [%-30logger{0} :: %-4L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Genera archivos de registro todos los días -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME}/${LOG_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Nombre de archivo de salida del archivo de registro -->
+            <FileNamePattern>${LOG_HOME}/${LOG_NAME}_%d{yyyy-MM-dd}.log</FileNamePattern>
+            <!-- 30 days to keep -->
+            <maxHistory>30</maxHistory>
+            <!-- total size of all archive files, if total size > 100GB, it will delete old archived file -->
+            <totalSizeCap>3GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- salida formateada:% d significa fecha,% hilo significa nombre del hilo,% -5level: el nivel se muestra desde la izquierda con 5 caracteres de ancho% msg: mensaje de registro,% n es un carácter de nueva línea -->
+            <pattern>[%-5p] [%d{dd-MM-yyyy HH:mm:ss}] [%-30logger{0} :: %-4L] - %msg%n</pattern>
+        </encoder>
+        <!-- Tamaño máximo del archivo de registro
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>500MB</MaxFileSize>
+        </triggeringPolicy>-->
+    </appender>
+
+    <!--Nivel de salida del registro-->
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <logger name="com.pe.kenpis" level="DEBUG"/>
+    <!--
+    <logger name="org.hibernate.SQL" level="DEBUG"/>
+    <logger name="org.hibernate.type" level="TRACE"/>
+    -->
+
+</configuration>
